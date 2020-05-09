@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>矩阵连乘问题（从动态规划超详细解析） | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="概述本文将先介绍动态规划，再分析矩阵连乘问题，对动态规划了解的小伙伴可选择性的直接跳到下面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵连乘问题（从动态规划超详细解析）">
+<meta property="og:url" content="http://yoursite.com/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述本文将先介绍动态规划，再分析矩阵连乘问题，对动态规划了解的小伙伴可选择性的直接跳到下面。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images0.cnblogs.com/blog2015/697266/201503/162025012825029.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921192441134-379534782.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921192654172-1363566468.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20180612121639926?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMyOTE5NDUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921205517596-304943765.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921210411803-1226493320.png">
+<meta property="article:published_time" content="2020-05-09T11:10:35.261Z">
+<meta property="article:modified_time" content="2020-05-09T12:37:37.312Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images0.cnblogs.com/blog2015/697266/201503/162025012825029.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,20 +176,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-矩阵连乘问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-矩阵连乘问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/">矩阵连乘问题（从动态规划超详细解析）</a>
+    <h1 class="article-title" itemprop="name">
+      矩阵连乘问题（从动态规划超详细解析）
     </h1>
   
 
 		<!--显示阅读次数-->
 		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
         <a href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/" class="archive-article-date">
   	<time datetime="2020-05-09T11:10:35.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
@@ -187,682 +207,110 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文将先介绍动态规划，再分析矩阵连乘问题，对动态规划了解的小伙伴可选择性的直接跳到下面。</p>
-        
-          <a class="article-more-a" href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-L型骨牌覆盖问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文承接上文<a href="[https://jy741.github.io/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/](https://jy741.github.io/2020/05/08/n个元素的全排序/)">《求n个元素的全排序(从分治思想超详细解析)》</a>，将再用一个详细的案例来带我们更深入的理解分治思想在解决实际问题中的体现。</p>
-<p>同时，在后文我会把将前文的知识整合起来写成《算法分析与设计实验》的实验报告2–<strong>递归与分治策略应用基础</strong>，分享给大家。同为大学狗的可以借鉴一下👴的微薄之作</p>
-        
-          <a class="article-more-a" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-n个元素的全排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这是一道典型的数据结构考研题，我看目前网上大部分博主讲的都不太通俗易懂，代码质量也参差不齐，本博文将用大白话帮你理解这道典型的分治思想算法题。</p>
-        
-          <a class="article-more-a" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-堆，图,字符串匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>此博文将详细介绍三个模块的相关知识点，第一个模块是堆，其中包括堆的定义和实现以及堆的应用；其次是关于图，介绍图的定义及相关概念，图的存储，以及两种搜索算法 BFS 和 DFS；最后介绍字符串匹配算法，分别BF,RK  </p>
-        
-          <a class="article-more-a" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-散列表和树快速入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>你可能不知道一篇文章把散列表和树入门讲透是什么概念，我们一般把这种人称为    <strong>土块</strong></p>
-<p>我经常说一句话，当年林纳斯花了几个月就写出了Linux，我JY用一篇文章讲个入门    不是问题</p>
-<p>埋伏他一手，这句骚话不能写，这个标签不用创，他死定了。</p>
-<p>反手给个概述，闷声发大财！他也来概述？但是不用怕，他赢不了我。</p>
-<p>如果把这个概述换成结语，我这波将绝杀，但是换不得。</p>
-<p>（未完待续     To Be Continue…….）</p>
-        
-          <a class="article-more-a" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-01T02:52:26.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文是对上篇博客的后续补充，是的，我们迎来了五月，今天我们来介绍三大算法之一<strong>二分查找</strong>。</p>
-        
-          <a class="article-more-a" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-递归，排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/">复杂度分析，递归算法，排序算法最强入门攻略</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-04-28T06:50:44.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文将介绍复杂度分析和三大类算法：递归，排序，二分查找(下篇博客写)。</p>
-<p>不吹不黑，绝对是史上最详细的教程！！！要是能举出反例，欢迎来扇我的猪脸🐷</p>
-        
-          <a class="article-more-a" href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-七牛云图床" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/">博客图片究极解决方案（七牛云图床）</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/" class="archive-article-date">
-  	<time datetime="2020-04-28T05:14:46.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>博客内容最麻烦的就是插入图片，我们可以使用七牛云提供的 10G 的免费存储空间，将图片上传上去，然后生成外链，使用 Markdown 的图片引用方法即可，这样文章就脱离了图片编辑，转为在线了。同样一份文章，你部署在 <code>csdn</code> 等其他网页时，直接复制粘贴即可。</p>
-        
-          <a class="article-more-a" href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode反转链表（206）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/">leetcode  206.反转链表(链表)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-27T05:05:05.628Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>反转一个单链表。</p>
-<p>示例：</p>
-<blockquote>
-<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<a id="more"></a>
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h2><p><strong>动态规划（英语： Dynamic programming，简称 DP）</strong> 是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。  </p>
+<p>那动态规划算法要表达的核心思想到底是什么？我们来看一个例子<br>A : “2+2+2+2+2=? 请问这个等式的值是多少? “<br>B : “计算 ing 。。。。。。结果为 10 “<br>A : “那如果在等式左边写上 1+ ，此时等式的值为多少? “<br>B : “quickly 结果为 11 “<br>A : “你怎么这么快就知道答案了”<br>A : “只要在 10 的基础上加 1 就行了 “<br>A : “所以你不用重新计算因为你记住了第一个等式的值为 10 ,动态规划算法也可以说是’<strong>记住求过的解来节省时间</strong>‘  </p>
+<p>由上可知：动态规划算法的核心就是记住已经解决过的子问题的解；而记住求解的方式有两种：</p>
+<p><strong>①自顶向下的备忘录法 ②自底向上。</strong>  </p>
+<p>我们先来看一个最简单的例子，我们曾经求解过的斐波拉契数列 Fibonacci。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib(n-<span class="number">1</span>) + fib(n-<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们分析以前写过的递归就会发现有很多节点被重复执行，如果在执行的时候把执行过的子节点保存起来，后面要用到的时候直接查表调用的话可以节约大量的时间。    </p>
+<h2 id="2-自顶向下备忘录法"><a href="#2-自顶向下备忘录法" class="headerlink" title="2.自顶向下备忘录法"></a>2.自顶向下备忘录法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fibonacci</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(fibonacci(<span class="number">7</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;=<span class="number">0</span>)<span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//合法性判断</span></span><br><span class="line">		<span class="comment">//创建备忘录</span></span><br><span class="line">		<span class="keyword">int</span>[] memo = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			memo[i]=-<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> fib(n, memo);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自顶向下备忘录法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> memo	备忘录</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>[] memo)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//如果已经求出了 fib（n）的值直接返回</span></span><br><span class="line">		<span class="keyword">if</span>(memo[n]!=-<span class="number">1</span>)<span class="keyword">return</span> memo[n];</span><br><span class="line">		<span class="comment">//否则将求出的值保存在 memo 备忘录中。</span></span><br><span class="line">		<span class="keyword">if</span>(n&lt;=<span class="number">2</span>)memo[n]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			memo[n]=fib(n-<span class="number">1</span>, memo)+fib(n-<span class="number">2</span>, memo);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> memo[n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法是由上至下，比如求f(5),我们要求f(4)和f(3)，求出来后放入备忘录，当求f(4)时需要f(3)和f(2)，我们可以直接从备忘录取f(3)而不是再去求一遍。</p>
+<h2 id="3-自底向上的动态规划"><a href="#3-自底向上的动态规划" class="headerlink" title="3.自底向上的动态规划"></a>3.自底向上的动态规划</h2><p>备忘录法是利用了递归，上面算法不管怎样，计算 fib（6）的时候最后还是要计算出 fib（1）， fib（2）， fib（3） ……,那么何不先计算出 fib（1）， fib（2）， fib（3） ……,呢？这也就是<strong>动态规划的核心，先计算子问题，再由子问题计算父问题。</strong>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FibonacciPlus</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自底向上的动态规划</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;=<span class="number">0</span>)<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="comment">//创建备忘录</span></span><br><span class="line">		<span class="keyword">int</span>[] memo = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">		memo[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">		memo[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			memo[i]=memo[i-<span class="number">1</span>]+memo[i-<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> memo[n];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 参与循环的只有 i， i-1 , i-2 三项，可以优化空间</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibPlus</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;=<span class="number">0</span>)<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> memo_i_2=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> memo_i_1=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> memo_i=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			memo_i = memo_i_1+memo_i_2;</span><br><span class="line">			memo_i_2 = memo_i_1;</span><br><span class="line">			memo_i_1 = memo_i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> memo_i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-钢条切割问题"><a href="#4-钢条切割问题" class="headerlink" title="4.钢条切割问题"></a>4.钢条切割问题</h2><p>Serling公司购买长钢条，将其切割为短钢条出售。切割工序本身没有成本支出。公司管理层希望知道最佳的切割方案。假定我们知道Serling公司出售一段长为i英寸的钢条的价格为pi(i=1,2,…，单位为美元)。钢条的长度均为整英寸。图15-1给出了一个价格表的样例。</p>
+<p><img src="https://images0.cnblogs.com/blog2015/697266/201503/162025012825029.png" alt=""></p>
+<p>钢条切割问题是这样的：给定一段长度为n英寸的钢条和一个价格表pi(i=1,2,…n)，求切割钢条方案，使得销售收益rn最大。注意，如果长度为n英寸的钢条的价格pn足够大，最优解可能就是完全不需要切割。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CutSteelBar</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 递归实现</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> p	钢条长度和价格对应表</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> n	钢条长度</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutSteelBar</span><span class="params">(<span class="keyword">int</span>[] p,<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> q = Integer.MIN_VALUE;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">			q = Math.max(q, p[i-<span class="number">1</span>]+cutSteelBar(p, n-i));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> q;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自底向上实现</span></span><br><span class="line"><span class="comment">	 * 这里外面的循环是求 r[1],r[2]……，里面的循环是求出 r[1],r[2]……的最优解</span></span><br><span class="line"><span class="comment">	 * 也就是说 r[i]中保存的是钢条长度为 i 时划分的最优解</span></span><br><span class="line"><span class="comment">	 * 一个问题取最优解的时候，它的子问题也一定要取得最优解</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> p</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">buttom2up</span><span class="params">(<span class="keyword">int</span>[] p)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[p.length+<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=p.length;i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> q = -<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++) &#123;<span class="comment">//这里我们又把问题分为小问题:求出 r[1],r[2]……的最优解</span></span><br><span class="line">				q = Math.max(q, p[j-<span class="number">1</span>]+r[i-j]);</span><br><span class="line">			&#125;</span><br><span class="line">			r[i]=q;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> r[p.length];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutBydemo</span><span class="params">(<span class="keyword">int</span>[] p)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] memo = <span class="keyword">new</span> <span class="keyword">int</span>[p.length+<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=p.length;i++) &#123;</span><br><span class="line">			memo[i]=-<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> cut(p, p.length, memo);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自顶向下备忘录法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> p</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> memo</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cut</span><span class="params">(<span class="keyword">int</span>[] p,<span class="keyword">int</span> n,<span class="keyword">int</span>[] memo)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> q = -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(memo[n]!=-<span class="number">1</span>)<span class="keyword">return</span> memo[n];</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">0</span>)q=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">				q = Math.max(q, cut(p, n-i, memo)+p[i-<span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		memo[n]=q;</span><br><span class="line">		<span class="keyword">return</span> q;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>最优子结构:也就是一个问题取最优解的时候，它的子问题也一定要取得最优解。</strong>  </p>
+<p>问题的最优子结构性质是该问题可用动态规划思想的显著特征。</p>
+<h2 id="5-动态规划的适用场景"><a href="#5-动态规划的适用场景" class="headerlink" title="5.动态规划的适用场景"></a>5.动态规划的适用场景</h2><ol>
+<li>具有最优子结构性质的问题：指的是问题的最优解包含子问题的最优解。反过来说就是，我们可以通过子问题的最优解，推导出问题的最优解。如果我们把最优子结构，对应到我们前面定义的动态规划问题模型上，那我们也可以理解为，后面阶段的状态可以通过前面阶段的状态推导出来。</li>
+<li>无后效性：无后效性有两层含义，第一层含义是，在推导后面阶段的状态的时候，我们只关心前面阶段的状态值，不关心这个状态是怎么一步一步推导出来的。第二层含义是，某阶段状态一旦确定，就不受之后阶段的决策影响，也就是说某状态以后的过程不会影响以前的状态，只与当前状态有关。</li>
+<li>具有重叠子问题的问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）；通常许多子问题非常相似，为此动态规划法试图仅仅解决每个子问题一次，从而减少计算量：一旦某个给定子问题的解已经算出，则将其记忆化存储，以便下次需要同一个子问题解之时直接查表。这种做法在重复子问题的数目关于输入的规模呈指数增长时特别有用。  </li>
+</ol>
+<p>动态规划比较适合用来求解最优问题，比如求最大值、最小值等等。它可以非常显著地降低时间复杂度，提高代码的执行效率。  </p>
+<h1 id="矩阵连乘问题"><a href="#矩阵连乘问题" class="headerlink" title="矩阵连乘问题"></a>矩阵连乘问题</h1><h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h2><p>给定n个矩阵｛A1,A2,…,An｝，其中Ai与Ai+1是可乘的，i=1，2…，n-1。如何确定计算矩阵连乘积的计算次序，使得依此次序计算矩阵连乘积需要的数乘次数最少。例如，给定三个连乘矩阵{A1，A2，A3}的维数分别是10 * 100，100 * 5和5 * 50，采用（A1A2）A3，乘法次数为10*100 * 5+10 * 5 * 50=7500次，而采用A1（A2A3），乘法次数为100 * 5 * 50+10 * 100 * 50=75000次乘法，显然，最好的次序是（A1A2)A3，乘法次数为7500次。</p>
+<p>加括号的方式对计算量有很大的影响，于是自然地提出矩阵连乘的最优计算次序问题，即对于给定的相继n个矩阵，如何确定矩阵连乘的计算次序，使得依此次序计算矩阵连乘积需要的数乘次数最少。</p>
+<h2 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2.问题分析"></a>2.问题分析</h2><p>分析之前我们先来复习一下矩阵乘积的标准算法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ra,ca;<span class="comment">//矩阵A的行数和列数</span></span><br><span class="line"><span class="keyword">int</span> rb,cb;<span class="comment">//矩阵B的行数和列数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">matrixMultiply</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ra;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;cb;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sun=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=ca;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                sum+=a[i][k]*b[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">            c[i][j]=sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1寻找最优子结构"><a href="#2-1寻找最优子结构" class="headerlink" title="2.1寻找最优子结构"></a>2.1寻找最优子结构</h3><blockquote>
+<p>这个问题的关键特征是：计算A[1:n]的最优次序所包含的矩阵子链A[1:k]和A[k+1:n]的次序也是最优的。</p>
+<p>我们可以反证来证明：如果A[1:n]的最优次序所包含的矩阵子链A[1:k]不是最优，那肯定有一个是比他次序少的，我们用其替换A[1:k]，所得的A[1:n]将比先前的更少，也就是说A[1:n]不是最有次序，矛盾</p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/#more">more >></a>
-        
+<p>此问题最难的地方在于找到最优子结构。对乘积A1A2…An的任意加括号方法都会将序列在某个地方分成两部分，也就是最后一次乘法计算的地方，我们将这个位置记为k，也就是说首先计算A1…Ak和Ak+1…An，然后再将这两部分的结果相乘。<br>最优子结构如下：假设A1A2…An的一个最优加括号把乘积在Ak和Ak+1间分开，则前缀子链A1…Ak的加括号方式必定为A1…Ak的一个最优加括号，后缀子链同理。<br>一开始并不知道k的确切位置，需要遍历所有位置以保证找到合适的k来分割乘积。</p>
+<h3 id="2-2建立递归关系"><a href="#2-2建立递归关系" class="headerlink" title="2.2建立递归关系"></a>2.2建立递归关系</h3><p><img src="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921192441134-379534782.png" alt=""></p>
+<p><img src="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921192654172-1363566468.png" alt=""></p>
+<h3 id="2-3构建辅助表，解决重叠子问题"><a href="#2-3构建辅助表，解决重叠子问题" class="headerlink" title="2.3构建辅助表，解决重叠子问题"></a>2.3构建辅助表，解决重叠子问题</h3><p>从第二步的递归式可以发现解的过程中会有很多重叠子问题，辅助表s[n] [n]可以由2种方法构造，一种是自底向上填表构建，该方法要求按照递增的方式逐步填写子问题的解，也就是先计算长度为2的所有矩阵链的解，然后计算长度3的矩阵链，直到长度n；另一种是自顶向下填表的备忘录法，该方法将表的每个元素初始化为某特殊值(本问题中可以将最优乘积代价设置为一极大值)，以表示待计算，在递归的过程中逐个填入遇到的子问题的解。</p>
+<p>对于一组矩阵:A1(30x35),A2(35x15),A3(15x5),A4(5x10),A5(10x20),A6(20x25)  个数N为6</p>
+<p>那么p数组保存它们的行数和列数：p={30,35,15,5,10,20,25}共有N+1即7个元素</p>
+<p><img src="https://img-blog.csdn.net/20180612121639926?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMyOTE5NDUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><img src="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921205517596-304943765.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> p	矩阵链，p[0],p[1]代表第一个矩阵的行数和列数，p[1],p[2]代表第二个矩阵的行数和列数.......</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> m	m[i][j]代表从矩阵Ai，Ai+1，Ai+2......直到矩阵Aj最小的相乘次数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> s	s[i][j]记录的是当m[i][j]最小时分割位置k</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> n	代表矩阵个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">matrixChain</span><span class="params">(<span class="keyword">int</span>[] p,<span class="keyword">int</span>[][] m,<span class="keyword">int</span>[][] s,<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//m[i][i]只有一个矩阵，所以相乘次数为0，即m[i][i]=0;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">		m[i][i]=<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//l表示矩阵链的长度</span></span><br><span class="line">	<span class="comment">//一个问题取最优解的时候，它的子问题也一定要取得最优解</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">2</span>;l&lt;=n;l++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-l+<span class="number">1</span>;i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> j=i+l-<span class="number">1</span>;<span class="comment">//以i为起始位置，j为长度为l的链的末位</span></span><br><span class="line">			<span class="comment">//默认第一个位置(i)为分割点</span></span><br><span class="line">			m[i][j]=m[i+<span class="number">1</span>][j]+p[i-<span class="number">1</span>]*p[i]*p[j];</span><br><span class="line">			s[i][j]=i;</span><br><span class="line">			<span class="comment">//分隔位置k一定在i和j之间</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k=i+<span class="number">1</span>;k&lt;j;k++) &#123;</span><br><span class="line">				<span class="keyword">int</span> t = m[i][k]+m[k+<span class="number">1</span>][j]+p[i-<span class="number">1</span>]*p[k]*p[j];</span><br><span class="line">				<span class="keyword">if</span>(t&lt;m[i][j]) &#123;</span><br><span class="line">					m[i][j]=t;</span><br><span class="line">					s[i][j]=k;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4构造最优解"><a href="#2-4构造最优解" class="headerlink" title="2.4构造最优解"></a>2.4构造最优解</h3><p><img src="https://img2018.cnblogs.com/blog/1358881/201909/1358881-20190921210411803-1226493320.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printAnswer</span><span class="params">(<span class="keyword">int</span>[][] s,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i==j) &#123;</span><br><span class="line">		System.out.print(<span class="string">"A"</span>+i);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.print(<span class="string">"("</span>);</span><br><span class="line">	printAnswer(s, i, s[i][j]);</span><br><span class="line">	printAnswer(s, s[i][j]+<span class="number">1</span>, j);</span><br><span class="line">	System.out.print(<span class="string">")"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5测试代码"><a href="#2-5测试代码" class="headerlink" title="2.5测试代码"></a>2.5测试代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] p=&#123;<span class="number">30</span>,<span class="number">35</span>,<span class="number">15</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">25</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span>[][] m = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">7</span>][<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">int</span>[][] s = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">7</span>][<span class="number">7</span>];</span><br><span class="line">    matrixChain(p, m, s, <span class="number">6</span>);</span><br><span class="line">    printAnswer(s, <span class="number">1</span>, <span class="number">6</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：((A1(A2A3))((A4A5)A6))</p>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><p>矩阵连乘计算次序问题的最优解包含着其子问题的最优解。这种性质称为最优子结构性质。 </p>
+<ul>
+<li>在分析问题的最优子结构性质时，所用的方法具有普遍性：首先假设由问题的最优解导出的子问题的解不是最优的，然后再设法说明在这个假设下可构造出比原问题最优解更好的解，从而导致矛盾。 </li>
+<li>利用问题的最优子结构性质，以自底向上的方式递归地从子问题的最优解逐步构造出整个问题的最优解。最优子结构是问题能用动态规划算法求解的前提。</li>
+<li>递归算法求解问题时，每次产生的子问题并不总是新问题，有些子问题被反复计算多次。这种性质称为子问题的重叠性质。 </li>
+<li>动态规划算法，对每一个子问题只解一次，而后将其解保存在一个表格中，当再次需要解此子问题时，只是简单地用常数时间查看一下结果。 </li>
+<li>通常不同的子问题个数随问题的大小呈多项式增长。因此用动态规划算法只需要多项式时间，从而获得较高的解题效率。</li>
+</ul>
+<h1 id="动态规划经典案例"><a href="#动态规划经典案例" class="headerlink" title="动态规划经典案例"></a>动态规划经典案例</h1><p>给自己留个坑，日后解决。这里全是问题，没有解答，喜欢挑战的可以试试做一下。</p>
+<h3 id="1-线性模型"><a href="#1-线性模型" class="headerlink" title="1.线性模型"></a>1.线性模型</h3><p>线性模型的是动态规划中最常用的模型，上面的钢条切割问题就是经典的线性模型，这里的线性指的是状态的排布是呈线性的。我们以一个面试题为例进行说明</p>
+<p>面试题：在一个夜黑风高的晚上，有 n（n &lt;= 50）个小朋友在桥的这边，现在他们需要过桥，但是由于桥很窄，每次只允许不大于两人通过，他们只有一个手电筒，所以每次过桥的两个人需要把手电筒带回来， i 号小朋友过桥的时间为 T[i]，两个人过桥的总时间为二者中时间长者。问所有小朋友过桥的总时间最短是多少？</p>
+<h3 id="2-区间模型"><a href="#2-区间模型" class="headerlink" title="2.区间模型"></a>2.区间模型</h3><p>区间模型的状态表示一般为 di，表示区间[i, j]上的最优解，然后通过状态转移计算出[i+1, j]或者[i, j+1]上的最优解，逐步扩大区间的范围，最终求得[1, len]的最优解。<br>面试题 ：给定一个长度为 n（ n &lt;= 1000）的字符串 A，求插入最少多少个字符使得它变成一个回文串。</p>
+<h3 id="3-背包模型"><a href="#3-背包模型" class="headerlink" title="3.背包模型"></a>3.背包模型</h3><p>背包问题是动态规划中一个最典型的问题之一，例如：对于一组不同重量、不可分割的物品，我们需要选择一些装入背包，在满足背包最大重量限制的前提下，背包中物品总重量的最大值是多少呢？  </p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>又有一个伙伴明天开学了，我的孤独又落寞了几分。。。。。。。</p>
+<p>最近在想，我要不要魂3死一次学半个小时，感觉可能能学到死😇</p>
+<p>这是个休闲游戏，上到九十十九下到刚会走，全都可以得到满意而轻松的游戏体验！请相信我！</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=407679529&auto=0&height=66"></iframe>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -872,94 +320,8 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-线性表结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/">线性表数据结构(含源码分析)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-04-27T02:44:18.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>所谓的线性表，就是将数据排成像一条长线一样的结构，数组，链表，栈，队列都是线性表结构，线性表上的每个数据最多只有前后两个方向。本文将对java中此结构的案例和应用源码做出详解。</p>
-        
-          <a class="article-more-a" href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -972,16 +334,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">L型骨牌覆盖问题(分治思想)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -996,17 +417,32 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态规划"><span class="toc-number">2.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概念"><span class="toc-number">2.1.</span> <span class="toc-text">1.概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自顶向下备忘录法"><span class="toc-number">2.2.</span> <span class="toc-text">2.自顶向下备忘录法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-自底向上的动态规划"><span class="toc-number">2.3.</span> <span class="toc-text">3.自底向上的动态规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-钢条切割问题"><span class="toc-number">2.4.</span> <span class="toc-text">4.钢条切割问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-动态规划的适用场景"><span class="toc-number">2.5.</span> <span class="toc-text">5.动态规划的适用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩阵连乘问题"><span class="toc-number">3.</span> <span class="toc-text">矩阵连乘问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述"><span class="toc-number">3.1.</span> <span class="toc-text">1.问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1寻找最优子结构"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1寻找最优子结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2建立递归关系"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2建立递归关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3构建辅助表，解决重叠子问题"><span class="toc-number">3.2.3.</span> <span class="toc-text">2.3构建辅助表，解决重叠子问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4构造最优解"><span class="toc-number">3.2.4.</span> <span class="toc-text">2.4构造最优解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5测试代码"><span class="toc-number">3.2.5.</span> <span class="toc-text">2.5测试代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-总结"><span class="toc-number">3.3.</span> <span class="toc-text">3.总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态规划经典案例"><span class="toc-number">4.</span> <span class="toc-text">动态规划经典案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性模型"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.线性模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-区间模型"><span class="toc-number">4.0.2.</span> <span class="toc-text">2.区间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-背包模型"><span class="toc-number">4.0.3.</span> <span class="toc-text">3.背包模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+
   
 
 
@@ -1043,8 +479,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
