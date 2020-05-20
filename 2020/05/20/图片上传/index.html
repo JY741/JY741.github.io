@@ -6,15 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | J Sir</title>
+  <title>WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器) | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/page/2/index.html">
+  <meta name="description" content="概述开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍： 商品类目，图片上传，富文本编辑器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)">
+<meta property="og:url" content="http://yoursite.com/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍： 商品类目，图片上传，富文本编辑器">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520100529689.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589940687047.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520105327228.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520105406882.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589943528587.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589943630191.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520110425639.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944359503.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944418203.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944450364.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944464668.jpg">
+<meta property="article:published_time" content="2020-05-20T01:49:38.382Z">
+<meta property="article:modified_time" content="2020-05-20T03:24:33.707Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520100529689.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,238 +181,282 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-图片上传" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
+  	<time datetime="2020-05-20T01:49:38.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍：</p>
+<p>商品类目，图片上传，富文本编辑器</p>
+<a id="more"></a>
+
+<h1 id="一、商品类目"><a href="#一、商品类目" class="headerlink" title="一、商品类目"></a>一、商品类目</h1><h2 id="1-需求"><a href="#1-需求" class="headerlink" title="1.需求"></a>1.需求</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520100529689.png" alt="image-20200520100529689"></p>
+<h2 id="2-EasyUI-tree数据结构"><a href="#2-EasyUI-tree数据结构" class="headerlink" title="2.EasyUI tree数据结构"></a>2.EasyUI tree数据结构</h2><p>参考官方文档</p>
+<p><strong>数据结构中必须包含：</strong></p>
+<p>Id：节点id</p>
+<p>Text：节点名称</p>
+<p>State：如果不是叶子节点就是close，叶子节点就是open。Close的节点点击后会在此发送请求查询子项目。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589940687047.jpg" alt="img"></p>
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h2><p>这里如果是父节点，EasyUI已经帮我们封装好了展开，我们只需要开发查询还有叶子节点的全部展开即可</p>
+<h3 id="3-1Mapper"><a href="#3-1Mapper" class="headerlink" title="3.1Mapper"></a>3.1Mapper</h3><p>使用逆向工程生成</p>
+<h3 id="3-2Service"><a href="#3-2Service" class="headerlink" title="3.2Service"></a>3.2Service</h3><p>由于tree要返回特定格式数据，我们需要在common创建一个pojo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EUITreeNode</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> id;</span><br><span class="line">	<span class="keyword">private</span> String text;</span><br><span class="line">	<span class="keyword">private</span> String state;</span><br><span class="line">    get,set</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品分类管理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemCatServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemCatService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemCatMapper itemCatMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;EUITreeNode&gt; <span class="title">getCatList</span><span class="params">(<span class="keyword">long</span> parentId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//由于parentId不是主键，我们需要设置查询条件来查询</span></span><br><span class="line">		TbItemCatExample example = <span class="keyword">new</span> TbItemCatExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andParentIdEqualTo(parentId);</span><br><span class="line">		List&lt;TbItemCat&gt; list = itemCatMapper.selectByExample(example);</span><br><span class="line">		List&lt;EUITreeNode&gt; resultList = <span class="keyword">new</span> ArrayList&lt;EUITreeNode&gt;();</span><br><span class="line">		<span class="comment">//把列表转成treeNodeList</span></span><br><span class="line">		<span class="keyword">for</span>(TbItemCat tbItemCat:list) &#123;</span><br><span class="line">			<span class="comment">//创建一个EUITreeNode对象</span></span><br><span class="line">			EUITreeNode node = <span class="keyword">new</span> EUITreeNode();</span><br><span class="line">			node.setId(tbItemCat.getId());</span><br><span class="line">			node.setText(tbItemCat.getName());</span><br><span class="line">			node.setState(tbItemCat.getIsParent()?<span class="string">"closed"</span>:<span class="string">"open"</span>);</span><br><span class="line">			resultList.add(node);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> resultList;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3Controller"><a href="#3-3Controller" class="headerlink" title="3.3Controller"></a>3.3Controller</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品列表管理Controller</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/item/cat"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemCatController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemCatService itemCatService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/list"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="comment">//这里private和public并无区别，而且参数id需要有默认值，找不到就是0，所以我们需要用@requsetParam</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> List&lt;EUITreeNode&gt; <span class="title">getCatList</span><span class="params">(@RequestParam(value=<span class="string">"id"</span>,defaultValue=<span class="string">"0"</span>)</span>Long parentId)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> itemCatService.getCatList(parentId);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、图片上传"><a href="#二、图片上传" class="headerlink" title="二、图片上传"></a>二、图片上传</h1><h2 id="1-环境分析"><a href="#1-环境分析" class="headerlink" title="1.环境分析"></a>1.环境分析</h2><h3 id="1-1传统项目中的图片管理"><a href="#1-1传统项目中的图片管理" class="headerlink" title="1.1传统项目中的图片管理"></a>1.1传统项目中的图片管理</h3><p>传统项目中，可以在web项目中添加一个文件夹，来存放上传的图片。例如在工程的根目录WebRoot下创建一个images文件夹。把图片存放在此文件夹中就可以直接使用在工程中引用。</p>
+<p>优点：引用方便，便于管理</p>
+<p>缺点：</p>
+<p>1、如果是分布式环境图片引用会出现问题。比如一个人在服务器1上传了图片，当他想要取时，服务器2在给他提供服务，这时候就去不到上传的图片了 </p>
+<p>2、图片的下载会给服务器增加额外的压力</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520105327228.png" alt="image-20200520105327228"></p>
+<h3 id="1-2分布式环境的图片管理"><a href="#1-2分布式环境的图片管理" class="headerlink" title="1.2分布式环境的图片管理"></a>1.2分布式环境的图片管理</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520105406882.png" alt="image-20200520105406882"></p>
+<p>分布式环境一般都有一个专门的图片服务器存放图片。</p>
+<p>我们使用虚拟机搭建一个专门的服务器来存放图片。在此服务器上安装一个nginx来提供http服务，安装一个ftp服务器来提供图片上传服务。</p>
+<h2 id="2-搭建图片服务器"><a href="#2-搭建图片服务器" class="headerlink" title="2.搭建图片服务器"></a>2.搭建图片服务器</h2><p>在Linux上具体安装搭建过程详情见另外两篇博客<a href="">《Linux安装ftp组件(CentOS6.5为例)》</a><a href="">《Linux下nginx的安装和使用(CentOS6.5为例)》</a></p>
+<h2 id="3-图片上传实现"><a href="#3-图片上传实现" class="headerlink" title="3.图片上传实现"></a>3.图片上传实现</h2><h3 id="3-1需求分析"><a href="#3-1需求分析" class="headerlink" title="3.1需求分析"></a>3.1需求分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589943528587.jpg" alt="img"></p>
+<p>初始化参数</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589943630191.jpg" alt="img"></p>
+<p>url：/pic/upload</p>
+<p>参数名称：uploadFile</p>
+<p>结果数据类型json（参考文档：<a href="http://kindeditor.net/docs/upload.html）" target="_blank" rel="noopener">http://kindeditor.net/docs/upload.html）</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//成功时</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="attr">"error"</span> : <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"url"</span> : <span class="string">"http://www.example.com/path/to/file.ext"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//失败时</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="attr">"error"</span> : <span class="number">1</span>,</span><br><span class="line">        <span class="attr">"message"</span> : <span class="string">"错误信息"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2Service-1"><a href="#3-2Service-1" class="headerlink" title="3.2Service"></a>3.2Service</h3><p>配置资源配置文件upload.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#FTP相关配置</span></span><br><span class="line"><span class="comment">#FTP的ip地址</span></span><br><span class="line"><span class="attr">FTP_ADDRESS</span>=<span class="string">192.168.10.130</span></span><br><span class="line"><span class="attr">FTP_PORT</span>=<span class="string">21</span></span><br><span class="line"><span class="attr">FTP_USERNAME</span>=<span class="string">ftpuser</span></span><br><span class="line"><span class="attr">FTP_PASSWORD</span>=<span class="string">ftpuser</span></span><br><span class="line"><span class="attr">FTP_BATH_PATH</span>=<span class="string">/home/ftpuser/www/images</span></span><br><span class="line"><span class="comment">#图片服务器的相关配置</span></span><br><span class="line"><span class="comment">#图片服务器的基础url</span></span><br><span class="line"><span class="attr">IMAGE_BASE_URL</span>=<span class="string">http://192.168.10.130/images</span></span><br></pre></td></tr></table></figure>
+
+<p>修改application</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200520110425639.png" alt="image-20200520110425639"></p>
+<p>为了随机生成一个符合要求的文件名，我们导入工具类IDUtils.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.taotao.common.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 各种id生成策略</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Title: IDUtils&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Description: &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Company: www.itcast.com&lt;/p&gt; </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>	入云龙</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>	2015年7月22日下午2:32:10</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IDUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 图片名生成</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">genImageName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//取当前时间的长整形值包含毫秒</span></span><br><span class="line">		<span class="keyword">long</span> millis = System.currentTimeMillis();</span><br><span class="line">		<span class="comment">//long millis = System.nanoTime();</span></span><br><span class="line">		<span class="comment">//加上三位随机数</span></span><br><span class="line">		Random random = <span class="keyword">new</span> Random();</span><br><span class="line">		<span class="keyword">int</span> end3 = random.nextInt(<span class="number">999</span>);</span><br><span class="line">		<span class="comment">//如果不足三位前面补0</span></span><br><span class="line">		String str = millis + String.format(<span class="string">"%03d"</span>, end3);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 商品id生成</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">genItemId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//取当前时间的长整形值包含毫秒</span></span><br><span class="line">		<span class="keyword">long</span> millis = System.currentTimeMillis();</span><br><span class="line">		<span class="comment">//long millis = System.nanoTime();</span></span><br><span class="line">		<span class="comment">//加上两位随机数</span></span><br><span class="line">		Random random = <span class="keyword">new</span> Random();</span><br><span class="line">		<span class="keyword">int</span> end2 = random.nextInt(<span class="number">99</span>);</span><br><span class="line">		<span class="comment">//如果不足两位前面补0</span></span><br><span class="line">		String str = millis + String.format(<span class="string">"%02d"</span>, end2);</span><br><span class="line">		<span class="keyword">long</span> id = <span class="keyword">new</span> Long(str);</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt; <span class="number">100</span>;i++)</span><br><span class="line">		System.out.println(genItemId());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Service实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PictureServiceImpl</span> <span class="keyword">implements</span> <span class="title">PictureService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;FTP_ADDRESS&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String FTP_ADDRESS;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;FTP_PORT&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer FTP_PORT;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;FTP_USERNAME&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String FTP_USERNAME;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;FTP_PASSWORD&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String FTP_PASSWORD;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;FTP_BATH_PATH&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String FTP_BATH_PATH;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;IMAGE_BASE_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String IMAGE_BASE_URL;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Map <span class="title">uploadPicture</span><span class="params">(MultipartFile uploadFile)</span> </span>&#123;</span><br><span class="line">		Map resultMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 生成一个新的文件名</span></span><br><span class="line">			<span class="comment">// 取原始文件名</span></span><br><span class="line">			String oldName = uploadFile.getOriginalFilename();</span><br><span class="line">			<span class="comment">// 生成新文件名</span></span><br><span class="line">			String newName = IDUtils.genImageName();</span><br><span class="line">			newName = newName + oldName.substring(oldName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">			<span class="comment">// 图片上传</span></span><br><span class="line">			String filePath = <span class="keyword">new</span> DateTime().toString(<span class="string">"/yyyy/MM/dd"</span>);</span><br><span class="line">			<span class="keyword">boolean</span> result = FtpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BATH_PATH,</span><br><span class="line">					filePath, newName, uploadFile.getInputStream());</span><br><span class="line">			<span class="comment">// 返回符合格式的结果</span></span><br><span class="line">			<span class="keyword">if</span> (!result) &#123;</span><br><span class="line">				resultMap.put(<span class="string">"error"</span>, <span class="number">1</span>);</span><br><span class="line">				resultMap.put(<span class="string">"message"</span>, <span class="string">"文件上传失败"</span>);</span><br><span class="line">				<span class="keyword">return</span> resultMap;</span><br><span class="line">			&#125;</span><br><span class="line">			resultMap.put(<span class="string">"error"</span>, <span class="number">0</span>);</span><br><span class="line">			resultMap.put(<span class="string">"url"</span>, IMAGE_BASE_URL + filePath + <span class="string">"/"</span> + newName);</span><br><span class="line">			<span class="keyword">return</span> resultMap;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			resultMap.put(<span class="string">"error"</span>, <span class="number">1</span>);</span><br><span class="line">			resultMap.put(<span class="string">"message"</span>, <span class="string">"文件上传发生异常"</span>);</span><br><span class="line">			<span class="keyword">return</span> resultMap;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3Controller-1"><a href="#3-3Controller-1" class="headerlink" title="3.3Controller"></a>3.3Controller</h3><p>功能：接收页面传递过来的图片。调用service上传到图片服务器。返回结果。</p>
+<p>参数：MultiPartFile uploadFile</p>
+<p>返回值：返回json数据，应该返回一个Map，key是要求的格式，value是值。</p>
+<p>由于我们的参数是MultiPartFile，我们需要在Springmvc.xml中定义文件上传解析器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义文件上传解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设定默认编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultEncoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设定文件上传的最大值5MB，5*1024*1024 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"5242880"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>为了保证功能的兼容性，需要把result转换成json格式的字符串，这样就能避免部分浏览器不支持把对象自动转成json字符串的问题了,我们这里需要一个工具类JsonUtils.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.taotao.common.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JavaType;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 淘淘商城自定义响应结构</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义jackson对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ObjectMapper MAPPER = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将对象转换成json字符串。</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: pojoToJson&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Description: &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">objectToJson</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">try</span> &#123;</span><br><span class="line">			String string = MAPPER.writeValueAsString(data);</span><br><span class="line">			<span class="keyword">return</span> string;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (JsonProcessingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将json结果集转化为对象</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jsonData json数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazz 对象中的object类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">jsonToPojo</span><span class="params">(String jsonData, Class&lt;T&gt; beanType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            T t = MAPPER.readValue(jsonData, beanType);</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        	e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将json数据转换成pojo对象list</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: jsonToList&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Description: &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jsonData</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> beanType</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt;<span class="function">List&lt;T&gt; <span class="title">jsonToList</span><span class="params">(String jsonData, Class&lt;T&gt; beanType)</span> </span>&#123;</span><br><span class="line">    	JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List<span class="class">.<span class="keyword">class</span>, <span class="title">beanType</span>)</span>;</span><br><span class="line">    	<span class="keyword">try</span> &#123;</span><br><span class="line">    		List&lt;T&gt; list = MAPPER.readValue(jsonData, javaType);</span><br><span class="line">    		<span class="keyword">return</span> list;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Controller实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 上传图片处理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PictureController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PictureService pictureService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/pic/upload"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span><span class="comment">//要是不加这个就变成返回路径，加了还是相当于写入json数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">pictureUpload</span><span class="params">(MultipartFile uploadFile)</span> </span>&#123;</span><br><span class="line">		Map result = pictureService.uploadPicture(uploadFile);</span><br><span class="line">		<span class="comment">//为了保证功能的兼容性，需要把result转换成json格式的字符串</span></span><br><span class="line">		String json = JsonUtils.objectToJson(result);</span><br><span class="line">		<span class="keyword">return</span> json;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、富文本编辑器-kindeditor"><a href="#三、富文本编辑器-kindeditor" class="headerlink" title="三、富文本编辑器(kindeditor)"></a>三、富文本编辑器(kindeditor)</h1><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>1、导入js</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944359503.jpg" alt="img"></p>
+<p>2、在富文本编辑器出现的位置添加一个input 类型为textarea</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944418203.jpg" alt="img"></p>
+<p>3、调用js方法初始化富文本编辑器</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944450364.jpg" alt="img"></p>
+<p>4、提交表单时，调用富文本编辑器的同步方法sync，把富文本编辑器中的内容同步到textarea中</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589944464668.jpg" alt="img"></p>
+<h1 id="四、商品添加功能实现"><a href="#四、商品添加功能实现" class="headerlink" title="四、商品添加功能实现"></a>四、商品添加功能实现</h1><h2 id="1-分析"><a href="#1-分析" class="headerlink" title="1.分析"></a>1.分析</h2><p>1、请求的url：/item/save，以post 的形式将表单的内容提交。</p>
+<p>2、返回的结果：淘淘自定义返回结果：1、状态码2、响应的消息3、响应的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 淘淘商城自定义响应结构</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaotaoResult</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义jackson对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ObjectMapper MAPPER = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应业务状态</span></span><br><span class="line">    <span class="keyword">private</span> Integer status;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应消息</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应中的数据</span></span><br><span class="line">    <span class="keyword">private</span> Object data;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">build</span><span class="params">(Integer status, String msg, Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TaotaoResult(status, msg, data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">ok</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TaotaoResult(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">ok</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TaotaoResult(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TaotaoResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">build</span><span class="params">(Integer status, String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TaotaoResult(status, msg, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TaotaoResult</span><span class="params">(Integer status, String msg, Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = status;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TaotaoResult</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = <span class="number">200</span>;</span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="string">"OK"</span>;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    public Boolean isOK() &#123;</span></span><br><span class="line"><span class="comment">//        return this.status == 200;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getStatus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStatus</span><span class="params">(Integer status)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将json结果集转化为TaotaoResult对象</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jsonData json数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazz TaotaoResult中的object类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">formatToPojo</span><span class="params">(String jsonData, Class&lt;?&gt; clazz)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (clazz == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> MAPPER.readValue(jsonData, TaotaoResult<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            JsonNode jsonNode = MAPPER.readTree(jsonData);</span><br><span class="line">            JsonNode data = jsonNode.get(<span class="string">"data"</span>);</span><br><span class="line">            Object obj = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (clazz != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (data.isObject()) &#123;</span><br><span class="line">                    obj = MAPPER.readValue(data.traverse(), clazz);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data.isTextual()) &#123;</span><br><span class="line">                    obj = MAPPER.readValue(data.asText(), clazz);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> build(jsonNode.get(<span class="string">"status"</span>).intValue(), jsonNode.get(<span class="string">"msg"</span>).asText(), obj);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 没有object对象的转化</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> json</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">format</span><span class="params">(String json)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> MAPPER.readValue(json, TaotaoResult<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Object是集合转化</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jsonData json数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazz 集合中的类型</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TaotaoResult <span class="title">formatToList</span><span class="params">(String jsonData, Class&lt;?&gt; clazz)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            JsonNode jsonNode = MAPPER.readTree(jsonData);</span><br><span class="line">            JsonNode data = jsonNode.get(<span class="string">"data"</span>);</span><br><span class="line">            Object obj = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (data.isArray() &amp;&amp; data.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                obj = MAPPER.readValue(data.traverse(),</span><br><span class="line">                        MAPPER.getTypeFactory().constructCollectionType(List<span class="class">.<span class="keyword">class</span>, <span class="title">clazz</span>))</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> build(jsonNode.get(<span class="string">"status"</span>).intValue(), jsonNode.get(<span class="string">"msg"</span>).asText(), obj);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Service"><a href="#2-Service" class="headerlink" title="2.Service"></a>2.Service</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">createItem</span><span class="params">(TbItem item)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//item补全</span></span><br><span class="line">    <span class="comment">//生成商品id</span></span><br><span class="line">    <span class="keyword">long</span> itemId = IDUtils.genItemId();</span><br><span class="line">    item.setId(itemId);</span><br><span class="line">    <span class="comment">//商品状态，1-正常，2-下架，3-删除</span></span><br><span class="line">    item.setStatus((<span class="keyword">byte</span>)<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//创建时间</span></span><br><span class="line">    item.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    <span class="comment">//更新时间</span></span><br><span class="line">    item.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    itemMapper.insert(item);</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Controller"><a href="#3-Controller" class="headerlink" title="3.Controller"></a>3.Controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/item/save"</span>,method=RequestMethod.POST)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">createItem</span><span class="params">(TbItem item)</span> </span>&#123;</span><br><span class="line">    TaotaoResult result = itemService.createItem(item);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>当你觉得你不行的时候，你就走到斑马线上，你就是个行人😏</p>
+<p>可惜你还是步行🙄</p>
+<p>55555555555</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=27570832&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux安装ftp组件(CentOS6.5为例)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、商品类目"><span class="toc-number">2.</span> <span class="toc-text">一、商品类目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-需求"><span class="toc-number">2.1.</span> <span class="toc-text">1.需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-EasyUI-tree数据结构"><span class="toc-number">2.2.</span> <span class="toc-text">2.EasyUI tree数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-代码实现"><span class="toc-number">2.3.</span> <span class="toc-text">3.代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1Mapper"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1Mapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2Service"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3Controller"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3Controller</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、图片上传"><span class="toc-number">3.</span> <span class="toc-text">二、图片上传</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-环境分析"><span class="toc-number">3.1.</span> <span class="toc-text">1.环境分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1传统项目中的图片管理"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1传统项目中的图片管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2分布式环境的图片管理"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2分布式环境的图片管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-搭建图片服务器"><span class="toc-number">3.2.</span> <span class="toc-text">2.搭建图片服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-图片上传实现"><span class="toc-number">3.3.</span> <span class="toc-text">3.图片上传实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1需求分析"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2Service-1"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3Controller-1"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3Controller</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、富文本编辑器-kindeditor"><span class="toc-number">4.</span> <span class="toc-text">三、富文本编辑器(kindeditor)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方法"><span class="toc-number">4.1.</span> <span class="toc-text">使用方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、商品添加功能实现"><span class="toc-number">5.</span> <span class="toc-text">四、商品添加功能实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析"><span class="toc-number">5.1.</span> <span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Service"><span class="toc-number">5.2.</span> <span class="toc-text">2.Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Controller"><span class="toc-number">5.3.</span> <span class="toc-text">3.Controller</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-01T02:52:26.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/05/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/05/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -432,8 +494,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

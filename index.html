@@ -164,6 +164,314 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
+  	<time datetime="2020-05-20T01:49:38.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍：</p>
+<p>商品类目，图片上传，富文本编辑器</p>
+        
+          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vsftpd组件安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/">Linux安装ftp组件(CentOS6.5为例)</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2020-05-19T04:30:23.311Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安装vsftpd组件"><a href="#1-安装vsftpd组件" class="headerlink" title="1.安装vsftpd组件"></a>1.安装vsftpd组件</h2><blockquote>
+<p>yum -y install vsftpd</p>
+</blockquote>
+<p>安装完后，有/etc/vsftpd/vsftpd.conf 文件，是vsftp的配置文件。</p>
+<h2 id="2-添加一个ftp账户密码"><a href="#2-添加一个ftp账户密码" class="headerlink" title="2.添加一个ftp账户密码"></a>2.添加一个ftp账户密码</h2><p>此用户就是用来登录ftp服务器用的。</p>
+<blockquote>
+<p>useradd ftpuser</p>
+</blockquote>
+<blockquote>
+<p>passwd ftpuser</p>
+</blockquote>
+<p>后面会让你重复输入两次密码，两次都输入ftpuser即可</p>
+<p>这样一个用户建完，可以用这个登录，记得用普通登录不要用匿名了。登录后默认的路径为 /home/ftpuser. </p>
+<h2 id="3-防火墙开启21端口"><a href="#3-防火墙开启21端口" class="headerlink" title="3.防火墙开启21端口"></a>3.防火墙开启21端口</h2><p>因为ftp默认的端口为21，而centos默认是没有开启的，所以要修改iptables文件</p>
+<blockquote>
+<p>vim /etc/sysconfig/iptables</p>
+</blockquote>
+<p>在行上面有22 -j ACCEPT 下面另起一行输入跟那行差不多的，只是把22换成21，然后：wq保存。</p>
+<p>还要运行下,重启iptables</p>
+<blockquote>
+<p>service iptables restart</p>
+</blockquote>
+<h2 id="4-修改selinux"><a href="#4-修改selinux" class="headerlink" title="4.修改selinux"></a>4.修改selinux</h2><p>外网是可以访问上去了，可是发现没法返回目录（使用ftp的主动模式，被动模式还是无法访问），也上传不了，因为selinux作怪了。</p>
+<blockquote>
+<p>getsebool -a | grep ftp </p>
+</blockquote>
+<p>如果一下两个为off，代表没有开启外网的访问</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200519123637565.png" alt="image-20200519123637565"></p>
+<p>这时候需要打开他们</p>
+<blockquote>
+<p>setsebool -P allow_ftpd_full_access on</p>
+</blockquote>
+<blockquote>
+<p>setsebool -P ftp_home_dir on</p>
+</blockquote>
+<p>启动ftp服务</p>
+<blockquote>
+<p>/etc/init.d/vsftpd start</p>
+</blockquote>
+<p>如果还是连接不了，试着修改FileZilla的主动、被动模式</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589863083005.jpg" alt="img"></p>
+<p>连接成功</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200519124222530.png" alt="image-20200519124222530"></p>
+<h2 id="6-关闭匿名访问"><a href="#6-关闭匿名访问" class="headerlink" title="6.关闭匿名访问"></a>6.关闭匿名访问</h2><blockquote>
+<p>vim /etc/vsftpd/vsftpd.conf</p>
+</blockquote>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589863116600.jpg" alt="img"></p>
+<p>重启ftp服务：</p>
+<blockquote>
+<p>/etc/init.d/vsftpd restart</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">启动Vsftpd服务其命令为： service vsftpd start 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd start</span><br><span class="line"></span><br><span class="line">停止Vsftpd服务的命令为：service vsftpd stop 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd stop</span><br><span class="line"></span><br><span class="line">重新启动Vsftpd服务的命令为：service vsftpd restart 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd restart</span><br><span class="line"></span><br><span class="line">检查Vsftpd服务的运行状态：service vsftpd status</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-设置开机自启"><a href="#7-设置开机自启" class="headerlink" title="7.设置开机自启"></a>7.设置开机自启</h2><blockquote>
+<p>chkconfig vsftpd on</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-nginx安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/">nginx安装</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2020-05-19T03:12:43.812Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><p>nginx是C语言开发，建议在linux上运行，本教程使用Centos6.5作为安装环境。</p>
+        
+          <a class="article-more-a" href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-火腿蛋炒饭" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -752,257 +1060,6 @@
 
 
   
-    <article id="post-L型骨牌覆盖问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文承接上文<a href="[https://jy741.github.io/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/](https://jy741.github.io/2020/05/08/n个元素的全排序/)">《求n个元素的全排序(从分治思想超详细解析)》</a>，将再用一个详细的案例来带我们更深入的理解分治思想在解决实际问题中的体现。</p>
-<p>同时，在后文我会把将前文的知识整合起来写成《算法分析与设计实验》的实验报告2–<strong>递归与分治策略应用基础</strong>，分享给大家。同为大学狗的可以借鉴一下👴的微薄之作</p>
-        
-          <a class="article-more-a" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-n个元素的全排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这是一道典型的数据结构考研题，我看目前网上大部分博主讲的都不太通俗易懂，代码质量也参差不齐，本博文将用大白话帮你理解这道典型的分治思想算法题。</p>
-        
-          <a class="article-more-a" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-堆，图,字符串匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>此博文将详细介绍三个模块的相关知识点，第一个模块是堆，其中包括堆的定义和实现以及堆的应用；其次是关于图，介绍图的定义及相关概念，图的存储，以及两种搜索算法 BFS 和 DFS；最后介绍字符串匹配算法，分别BF,RK  </p>
-        
-          <a class="article-more-a" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1162,6 +1219,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">淘淘商城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
