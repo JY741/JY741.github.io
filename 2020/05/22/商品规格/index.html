@@ -6,24 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>博客图片究极解决方案（七牛云图床） | J Sir</title>
+  <title>企业WEB项目中商品规格的实现 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述博客内容最麻烦的就是插入图片，我们可以使用七牛云提供的 10G 的免费存储空间，将图片上传上去，然后生成外链，使用 Markdown 的图片引用方法即可，这样文章就脱离了图片编辑，转为在线了。同样一份文章，你部署在 csdn 等其他网页时，直接复制粘贴即可。">
+  <meta name="description" content="概述在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客图片究极解决方案（七牛云图床）">
-<meta property="og:url" content="http://yoursite.com/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:title" content="企业WEB项目中商品规格的实现">
+<meta property="og:url" content="http://yoursite.com/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="概述博客内容最麻烦的就是插入图片，我们可以使用七牛云提供的 10G 的免费存储空间，将图片上传上去，然后生成外链，使用 Markdown 的图片引用方法即可，这样文章就脱离了图片编辑，转为在线了。同样一份文章，你部署在 csdn 等其他网页时，直接复制粘贴即可。">
+<meta property="og:description" content="概述在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://q9h9xbspr.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0.png">
-<meta property="og:image" content="http://q9hcrppot.bkt.clouddn.com/picGO/picgo%E9%85%8D%E7%BD%AE.png">
-<meta property="article:published_time" content="2020-04-28T05:14:46.703Z">
-<meta property="article:modified_time" content="2020-04-28T09:38:05.067Z">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590113843060.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522103016094.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105514039.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105605178.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105748546.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116549340.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116556523.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116571556.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116577368.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116841419.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116914730.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522111002253.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117021204.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117344631.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117349179.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117416320.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522111927563.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117586394.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522112219943.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522112301664.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522113103528.png">
+<meta property="article:published_time" content="2020-05-22T01:58:26.295Z">
+<meta property="article:modified_time" content="2020-05-22T03:32:49.544Z">
 <meta property="article:author" content="J Sir">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q9h9xbspr.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0.png">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590113843060.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -172,14 +191,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-七牛云图床" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-商品规格" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      博客图片究极解决方案（七牛云图床）
+      企业WEB项目中商品规格的实现
     </h1>
   
 
@@ -194,42 +213,221 @@
 		  </a>
 		  
         
-        <a href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/" class="archive-article-date">
-  	<time datetime="2020-04-28T05:14:46.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+        <a href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" class="archive-article-date">
+  	<time datetime="2020-05-22T01:58:26.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>博客内容最麻烦的就是插入图片，我们可以使用七牛云提供的 10G 的免费存储空间，将图片上传上去，然后生成外链，使用 Markdown 的图片引用方法即可，这样文章就脱离了图片编辑，转为在线了。同样一份文章，你部署在 <code>csdn</code> 等其他网页时，直接复制粘贴即可。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。</p>
 <a id="more"></a>
 
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="1-注册"><a href="#1-注册" class="headerlink" title="1.注册"></a>1.注册</h2><p><a href="https://portal.qiniu.com/signup?code=1hk1z8g13nl1u" target="_blank" rel="noopener">注册网址</a></p>
-<p>完成支付宝实名认证（需要身份证正反面，提前准备好）</p>
+<h1 id="一、商品规格"><a href="#一、商品规格" class="headerlink" title="一、商品规格"></a>一、商品规格</h1><h2 id="1-什么是商品规格"><a href="#1-什么是商品规格" class="headerlink" title="1.什么是商品规格"></a>1.什么是商品规格</h2><p>以京东为例：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590113843060.jpg" alt="img"></p>
+<p>我们可以从中看出规律：</p>
+<ol>
+<li>同一类商品的组名还有组成员相同，但是同一类商品组成员里的内容不一样</li>
+<li>不同类商品组名和组成员不一样</li>
+</ol>
+<p>商品规格参数的模板是和商品类目关联的，不同的类目拥有不同的商品规格参数模板。 </p>
+<p>商品规格参数是和商品数据关联的，不同的商品拥有不同的商品规格参数数据。</p>
+<h2 id="2-实现方案"><a href="#2-实现方案" class="headerlink" title="2.实现方案"></a>2.实现方案</h2><h3 id="2-1方案一：使用多个表来存储"><a href="#2-1方案一：使用多个表来存储" class="headerlink" title="2.1方案一：使用多个表来存储"></a>2.1方案一：使用多个表来存储</h3><p>1、每一类商品有多个分组</p>
+<p>2、每个分组下有多个项</p>
+<p>3、每个商品对应不同的规格参数</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522103016094.png" alt="image-20200522103016094"></p>
+<p>使用二维表来维护规格数据</p>
+<p>表一：规格组信息</p>
+<table>
+<thead>
+<tr>
+<th><strong>列名</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>长度</strong></th>
+<th><strong>可以null</strong></th>
+<th><strong>键</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Id</td>
+<td>Int</td>
+<td></td>
+<td>否</td>
+<td>P</td>
+<td>主键（自增长）</td>
+</tr>
+<tr>
+<td>group_name</td>
+<td>varchar</td>
+<td>20</td>
+<td>否</td>
+<td></td>
+<td>规格分组名称</td>
+</tr>
+<tr>
+<td>item_cat_id</td>
+<td>Int</td>
+<td></td>
+<td>否</td>
+<td>F</td>
+<td>商品分类id（外键）</td>
+</tr>
+</tbody></table>
+<p>表二：规格项信息</p>
+<table>
+<thead>
+<tr>
+<th><strong>列名</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>长度</strong></th>
+<th><strong>可以null</strong></th>
+<th><strong>键</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Id</td>
+<td>Int</td>
+<td></td>
+<td>否</td>
+<td>P</td>
+<td>主键（自增长）</td>
+</tr>
+<tr>
+<td>param_name</td>
+<td>varchar</td>
+<td>20</td>
+<td>否</td>
+<td></td>
+<td>规格项目名称</td>
+</tr>
+<tr>
+<td>group_id</td>
+<td>Int</td>
+<td></td>
+<td>否</td>
+<td>F</td>
+<td>规格分组id（外键）</td>
+</tr>
+</tbody></table>
+<p>表三：商品规格信息</p>
+<table>
+<thead>
+<tr>
+<th><strong>列名</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>长度</strong></th>
+<th><strong>可以null</strong></th>
+<th><strong>键</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>item_id</td>
+<td>Int</td>
+<td></td>
+<td>否</td>
+<td>P</td>
+<td>商品id（联合主键）</td>
+</tr>
+<tr>
+<td>param_id</td>
+<td>varchar</td>
+<td></td>
+<td>否</td>
+<td>P</td>
+<td>规格项id（联合主键）</td>
+</tr>
+<tr>
+<td>param_value</td>
+<td>varchar</td>
+<td>500</td>
+<td>否</td>
+<td></td>
+<td>规格信息</td>
+</tr>
+</tbody></table>
+<p>实现查询的sql语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	pg.group_name,pk.param_name,pv.param_value</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	tb_item_param_value pv</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_item_param_key pk <span class="keyword">ON</span> pv.param_id = pk.id</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_item_param_group pg <span class="keyword">ON</span> pk.group_id = pg.id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	item_id = <span class="number">855739</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2方案一存在的问题"><a href="#2-2方案一存在的问题" class="headerlink" title="2.2方案一存在的问题"></a>2.2方案一存在的问题</h3><p>1、需要创建多张表来描述规格参数之间的关系，查询时需要大量的关联。</p>
+<p>2、查询时需要复杂的sql语句查询。</p>
+<p>3、规格参数数据量是商品信息的几十倍，数据量十分庞大。查询时效率很低。</p>
+<p>4、维护不方便，如果删除某个规格分组信息，则所有与之相关的商品的规格信息都发生变化。</p>
+<p>解决方案：</p>
+<p>使用模板的方式来解决。</p>
+<h2 id="3-方案二：模板"><a href="#3-方案二：模板" class="headerlink" title="3.方案二：模板"></a>3.方案二：模板</h2><p>使用一种动态的方法描述参数模板，每个商品分类对应一个参数模板。添加商品信息时，根据规格参数模板生成规格参数录入项。保存商品时将规格参数生成一个字符串保存到数据库中。展示商品详情时，从数据库中取出规格参数信息，转换成html展示给用户。</p>
+<p>这个动态的数据结构我们可以使用json，也就是说，在创建商品规格组时向数据库中存放此组格式的json数据，在添加商品页面时，读取规格组的json数据生成一个表格供用户填写商品的具体规格参数。然后商品添加提交的时候，我们再将用户填写的表中信息转化为json格式数据导入进商品规格参数表。当用户查看此商品的具体参数时，我们直接从商品规格参数表中读取json格式数据，转化为html页面供用户观看。</p>
+<h3 id="3-1流程图"><a href="#3-1流程图" class="headerlink" title="3.1流程图"></a>3.1流程图</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105514039.png" alt="image-20200522105514039"></p>
+<h3 id="3-2需要创建的表"><a href="#3-2需要创建的表" class="headerlink" title="3.2需要创建的表"></a>3.2需要创建的表</h3><p>模板表：每个不同的种类商品都有不同的规格组和规格项，故外键为类id</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105605178.png" alt="image-20200522105605178"></p>
+<p>商品规格数据表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522105748546.png" alt="image-20200522105748546"></p>
+<h3 id="3-3模板格式"><a href="#3-3模板格式" class="headerlink" title="3.3模板格式"></a>3.3模板格式</h3><p>1、每一个商品分类对一个规格参数模板。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"主体"</span>,  <span class="comment">//组名称</span></span><br><span class="line">        <span class="attr">"params"</span>: [ <span class="comment">// 记录规格成员</span></span><br><span class="line">            <span class="string">"品牌"</span>,</span><br><span class="line">            <span class="string">"型号"</span>,</span><br><span class="line">            <span class="string">"颜色"</span>,</span><br><span class="line">            <span class="string">"上市年份"</span>,</span><br><span class="line">            <span class="string">"上市月份"</span></span><br><span class="line">        ]</span><br><span class="line">&#125;，</span><br><span class="line">&#123;</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"网络"</span>,  <span class="comment">//组名称</span></span><br><span class="line">        <span class="attr">"params"</span>: [ <span class="comment">// 记录规格成员</span></span><br><span class="line">            <span class="string">"4G"</span>,</span><br><span class="line">            <span class="string">"3G,</span></span><br><span class="line"><span class="string">            "</span><span class="number">2</span>G<span class="string">"</span></span><br><span class="line"><span class="string">        ]</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">]</span></span><br></pre></td></tr></table></figure>
+
+<p>2、使用模板</p>
+<p>每个商品对应一唯一的规格参数。在添加商品时，可以根据规格参数的模板。生成一个表单。保存规格参数时。还可以生成规格参数的json数据。保存到数据库中。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"group"</span>: <span class="string">"主体"</span>,</span><br><span class="line">        <span class="attr">"params"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"k"</span>: <span class="string">"品牌"</span>,</span><br><span class="line">                <span class="attr">"v"</span>: <span class="string">"苹果（Apple）"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"k"</span>: <span class="string">"型号"</span>,</span><br><span class="line">                <span class="attr">"v"</span>: <span class="string">"iPhone 6 A1589"</span></span><br><span class="line">            &#125;,</span><br><span class="line">&#123;</span><br><span class="line">                <span class="attr">"k"</span>: <span class="string">"智能机"</span>,</span><br><span class="line">                <span class="attr">"v"</span>: <span class="string">"是 "</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4优缺点"><a href="#3-4优缺点" class="headerlink" title="3.4优缺点"></a>3.4优缺点</h3><p>优点：</p>
+<p>1、不需要做多表管理。</p>
+<p>2、如果要求新添加的商品规格项发生改变，之前的商品不变是很简单的。</p>
+<p>缺点：</p>
+<p>复杂的表单和json之间的转换。对js的编写要求很高。</p>
+<h1 id="二、创建规格参数模板"><a href="#二、创建规格参数模板" class="headerlink" title="二、创建规格参数模板"></a>二、创建规格参数模板</h1><h2 id="1-选择商品分类"><a href="#1-选择商品分类" class="headerlink" title="1.选择商品分类"></a>1.选择商品分类</h2><p>选择商品分类后根据选择的商品分类到tb_item_param规格参数模板表中取规格模板，取到了说明此商品分类的规格模板已经添加提示不能添加。如果没有取得正常添加。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116549340.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116556523.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116571556.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116577368.jpg" alt="img"></p>
+<p>功能分析：</p>
+<p>请求的url：</p>
+<p>/item/param/query/itemcatid/{itemCatId}</p>
+<p>参数：itemCatId，从url中获得</p>
+<p>返回值：TaotaoResult</p>
+<h3 id="1-1Dao层"><a href="#1-1Dao层" class="headerlink" title="1.1Dao层"></a>1.1Dao层</h3><p>从tb_item_param表中根据商品分类id查询内容。单表操作。可以实现逆向工程的代码。</p>
+<h3 id="1-2Service层"><a href="#1-2Service层" class="headerlink" title="1.2Service层"></a>1.2Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品规格参数模板管理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemParamServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemParamService</span></span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemParamMapper itemParamMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParamByCid</span><span class="params">(<span class="keyword">long</span> cid)</span> </span>&#123;</span><br><span class="line">		TbItemParamExample example = <span class="keyword">new</span> TbItemParamExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andItemCatIdEqualTo(cid);</span><br><span class="line">		List&lt;TbItemParam&gt; list = itemParamMapper.selectByExampleWithBLOBs(example);</span><br><span class="line">		<span class="comment">//判断是否查询到结果</span></span><br><span class="line">		<span class="keyword">if</span>(list!=<span class="keyword">null</span>&amp;&amp;list.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.ok(list.get(<span class="number">0</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3Controller层"><a href="#1-3Controller层" class="headerlink" title="1.3Controller层"></a>1.3Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/item/param"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemParamController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemParamService itemParamService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/query/itemcatid/&#123;itemCatId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParamByCid</span><span class="params">(@PathVariable Long itemCatId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> itemParamService.getItemParamByCid(itemCatId);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4jsp效果"><a href="#1-4jsp效果" class="headerlink" title="1.4jsp效果"></a>1.4jsp效果</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116841419.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590116914730.jpg" alt="img"></p>
+<h2 id="2-提交规格参数模板"><a href="#2-提交规格参数模板" class="headerlink" title="2.提交规格参数模板"></a>2.提交规格参数模板</h2><h3 id="2-1需求分析"><a href="#2-1需求分析" class="headerlink" title="2.1需求分析"></a>2.1需求分析</h3><p>首先把页面中所有文本框中的内容转换成json数据。把json字符串提交给后台。保存到规格参数表中。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522111002253.png" alt="image-20200522111002253"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117021204.jpg" alt="img"></p>
+<p>请求的url：/item/param/save/{cid}</p>
+<p>参数：String paramData</p>
+<p>返回值：TaotaoResult</p>
+<h3 id="2-2Dao层"><a href="#2-2Dao层" class="headerlink" title="2.2Dao层"></a>2.2Dao层</h3><p>保存规格参数模板，向tb_item_param表添加一条记录。可以使用逆向工程生成的代码。</p>
+<h3 id="2-3Service层"><a href="#2-3Service层" class="headerlink" title="2.3Service层"></a>2.3Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">insertItemParam</span><span class="params">(TbItemParam itemParam)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//补全itemParam</span></span><br><span class="line">    itemParam.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    itemParam.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    itemParamMapper.insert(itemParam);</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4Controller层"><a href="#2-4Controller层" class="headerlink" title="2.4Controller层"></a>2.4Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/save/&#123;cid&#125;"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">insertItemParam</span><span class="params">(@PathVariable Long cid,String paramData)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建itemParam对象</span></span><br><span class="line">    TbItemParam itemParam = <span class="keyword">new</span> TbItemParam();</span><br><span class="line">    itemParam.setItemCatId(cid);</span><br><span class="line">    itemParam.setParamData(paramData);</span><br><span class="line">    TaotaoResult result = itemParamService.insertItemParam(itemParam);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-根据规格参数模板生成表单"><a href="#3-根据规格参数模板生成表单" class="headerlink" title="3.根据规格参数模板生成表单"></a>3.根据规格参数模板生成表单</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117344631.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117349179.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117416320.jpg" alt="img"></p>
+<h1 id="三、保存并展示商品规格参数"><a href="#三、保存并展示商品规格参数" class="headerlink" title="三、保存并展示商品规格参数"></a>三、保存并展示商品规格参数</h1><h2 id="1-保存"><a href="#1-保存" class="headerlink" title="1.保存"></a>1.保存</h2><h3 id="1-1需求分析"><a href="#1-1需求分析" class="headerlink" title="1.1需求分析"></a>1.1需求分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522111927563.png" alt="image-20200522111927563"></p>
+<p>转换后把规格参数的信息放到表单的hidden域中，随着表单的提交同时提交。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590117586394.jpg" alt="img"></p>
+<h3 id="1-2Service层-1"><a href="#1-2Service层-1" class="headerlink" title="1.2Service层"></a>1.2Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加规格参数</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> TaotaoResult <span class="title">insertItemParamItem</span><span class="params">(Long itemId,String itemParam)</span> </span>&#123;</span><br><span class="line">    TbItemParamItem itemParamItem = <span class="keyword">new</span> TbItemParamItem();</span><br><span class="line">    itemParamItem.setItemId(itemId);</span><br><span class="line">    itemParamItem.setParamData(itemParam);</span><br><span class="line">    itemParamItem.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    itemParamItem.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    itemParamItemMapper.insert(itemParamItem);</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522112219943.png" alt="image-20200522112219943"></p>
+<h3 id="1-3Controller层-1"><a href="#1-3Controller层-1" class="headerlink" title="1.3Controller层"></a>1.3Controller层</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522112301664.png" alt="image-20200522112301664"></p>
+<h2 id="2-展示"><a href="#2-展示" class="headerlink" title="2.展示"></a>2.展示</h2><p>当现实商品详情页面时，需要把商品的规格参数根据商品id取出来，生成html展示到页面。</p>
+<h3 id="2-1Service层"><a href="#2-1Service层" class="headerlink" title="2.1Service层"></a>2.1Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品规格展示管理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemParamItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemParamItemService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemParamItemMapper itemParamItemMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemParamByItemId</span><span class="params">(Long itemId)</span> </span>&#123;</span><br><span class="line">		TbItemParamItemExample example = <span class="keyword">new</span> TbItemParamItemExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andItemIdEqualTo(itemId);</span><br><span class="line">		List&lt;TbItemParamItem&gt; list = itemParamItemMapper.selectByExampleWithBLOBs(example);</span><br><span class="line">		<span class="keyword">if</span>(list==<span class="keyword">null</span>||list.size()==<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		TbItemParamItem itemParamItem = list.get(<span class="number">0</span>);</span><br><span class="line">		String paramData = itemParamItem.getParamData();</span><br><span class="line">		<span class="comment">//生成html</span></span><br><span class="line">		<span class="comment">// 把规格参数json数据转换成java对象</span></span><br><span class="line">		List&lt;Map&gt; jsonList = JsonUtils.jsonToList(paramData, Map<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		sb.append(<span class="string">"&lt;table cellpadding=\"0\" cellspacing=\"1\" width=\"100%\" border=\"1\" class=\"Ptable\"&gt;\n"</span>);</span><br><span class="line">		sb.append(<span class="string">"    &lt;tbody&gt;\n"</span>);</span><br><span class="line">		<span class="keyword">for</span>(Map m1:jsonList) &#123;</span><br><span class="line">			sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">			sb.append(<span class="string">"            &lt;th class=\"tdTitle\" colspan=\"2\"&gt;"</span>+m1.get(<span class="string">"group"</span>)+<span class="string">"&lt;/th&gt;\n"</span>);</span><br><span class="line">			sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">			List&lt;Map&gt; list2 = (List&lt;Map&gt;) m1.get(<span class="string">"params"</span>);</span><br><span class="line">			<span class="keyword">for</span>(Map m2:list2) &#123;</span><br><span class="line">				sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"            &lt;td class=\"tdTitle\"&gt;"</span>+m2.get(<span class="string">"k"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"            &lt;td&gt;"</span>+m2.get(<span class="string">"v"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sb.append(<span class="string">"    &lt;/tbody&gt;\n"</span>);</span><br><span class="line">		sb.append(<span class="string">"&lt;/table&gt;"</span>);</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>这期间可能邮箱认证特别慢，需要耐心等待他发邮件</p>
+<p>这里添加sb.append有个小技巧，eclipse中ALT+SHIFT+A是竖着选择多行一起编辑</p>
 </blockquote>
-<h2 id="2-上传"><a href="#2-上传" class="headerlink" title="2.上传"></a>2.上传</h2><p>实名认证后有10G的免费空间</p>
-<p>我们可以看官方的快速入门<a href="https://developer.qiniu.com/kodo/manual/1233/console-quickstart#step1" target="_blank" rel="noopener">对象存储快速入门</a></p>
-<blockquote>
-<p>这里我们在创建空间是需要把空间设为公开而不是私有，否则没有生成外链这个选项</p>
-</blockquote>
-<p>创建完后，我们在空间管理下的文件管理中进行上传操作</p>
-<p><img src="http://q9h9xbspr.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0.png" alt=""></p>
-<h2 id="3-使用PicGo更方便的进行上传"><a href="#3-使用PicGo更方便的进行上传" class="headerlink" title="3.使用PicGo更方便的进行上传"></a>3.使用PicGo更方便的进行上传</h2><h3 id="3-1下载"><a href="#3-1下载" class="headerlink" title="3.1下载"></a>3.1下载</h3><p><a href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.2.2" target="_blank" rel="noopener">下载地址</a>windows下载exe文件</p>
-<h3 id="3-2配置"><a href="#3-2配置" class="headerlink" title="3.2配置"></a>3.2配置</h3><p><img src="http://q9hcrppot.bkt.clouddn.com/picGO/picgo%E9%85%8D%E7%BD%AE.png" alt=""></p>
-<blockquote>
-<p>其中AccessKey和SecretKey可以在七牛云右上角密钥管理中查看</p>
-<p>存储空间名为你刚刚设置的空间名称</p>
-<p>存储区域简写直接百度，这里z0就是华东</p>
-<p>存储路径看情况设置</p>
-</blockquote>
-<p>接下来只要拖动就可以直接上传并且可以直接去markdown文档中粘贴即可</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>妈妈终于不要担心我为了图片写路径得抑郁症了🤕</p>
-<p>老铁们，我做得对吗？老铁们，支持正能量❤️感谢🙏大家的爱心❤️</p>
-<p>正道的光，照在了大腚上</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1370955533&auto=0&height=66"></iframe>
+<h3 id="2-2Controller层"><a href="#2-2Controller层" class="headerlink" title="2.2Controller层"></a>2.2Controller层</h3><p>接收商品id调用Service查询规格参数信息，得到规格参数的html。返回一个逻辑视图。把html展示到页面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemParamItemController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemParamItemService itemParamItemService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/showitem/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">showItemParam</span><span class="params">(@PathVariable Long itemId,Model model)</span> </span>&#123;</span><br><span class="line">		String itemParamByItemId = itemParamItemService.getItemParamByItemId(itemId);</span><br><span class="line">		model.addAttribute(<span class="string">"itemParam"</span>, itemParamByItemId);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"item"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最近是个废物，完全动不了脑子。。。一天的内容我搞了三四天</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200522113103528.png" alt="image-20200522113103528"></p>
+<p>分享一首喜欢过的人喜欢过的歌</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1310347210&auto=0&height=66"></iframe>
       
 
       
@@ -273,11 +471,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		
 		</ul>
@@ -333,7 +531,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +545,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          复杂度分析，递归算法，排序算法最强入门攻略
+          企业WEB开发前台工程搭建,ajax跨域的解决
         
       </div>
     </a>
   
   
-    <a href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode  206.反转链表(链表)</div>
+    <a href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">企业WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -385,7 +583,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-注册"><span class="toc-number">2.1.</span> <span class="toc-text">1.注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-上传"><span class="toc-number">2.2.</span> <span class="toc-text">2.上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-使用PicGo更方便的进行上传"><span class="toc-number">2.3.</span> <span class="toc-text">3.使用PicGo更方便的进行上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1下载"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2配置"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、商品规格"><span class="toc-number">2.</span> <span class="toc-text">一、商品规格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是商品规格"><span class="toc-number">2.1.</span> <span class="toc-text">1.什么是商品规格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现方案"><span class="toc-number">2.2.</span> <span class="toc-text">2.实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1方案一：使用多个表来存储"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1方案一：使用多个表来存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2方案一存在的问题"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2方案一存在的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-方案二：模板"><span class="toc-number">2.3.</span> <span class="toc-text">3.方案二：模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1流程图"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2需要创建的表"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2需要创建的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3模板格式"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3模板格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4优缺点"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4优缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、创建规格参数模板"><span class="toc-number">3.</span> <span class="toc-text">二、创建规格参数模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-选择商品分类"><span class="toc-number">3.1.</span> <span class="toc-text">1.选择商品分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1Dao层"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2Service层"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3Controller层"><span class="toc-number">3.1.3.</span> <span class="toc-text">1.3Controller层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4jsp效果"><span class="toc-number">3.1.4.</span> <span class="toc-text">1.4jsp效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-提交规格参数模板"><span class="toc-number">3.2.</span> <span class="toc-text">2.提交规格参数模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1需求分析"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2Dao层"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3Service层"><span class="toc-number">3.2.3.</span> <span class="toc-text">2.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4Controller层"><span class="toc-number">3.2.4.</span> <span class="toc-text">2.4Controller层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-根据规格参数模板生成表单"><span class="toc-number">3.3.</span> <span class="toc-text">3.根据规格参数模板生成表单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、保存并展示商品规格参数"><span class="toc-number">4.</span> <span class="toc-text">三、保存并展示商品规格参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-保存"><span class="toc-number">4.1.</span> <span class="toc-text">1.保存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1需求分析"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2Service层-1"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3Controller层-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">1.3Controller层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-展示"><span class="toc-number">4.2.</span> <span class="toc-text">2.展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1Service层"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2Controller层"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2Controller层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
                     </div>
                 </span>
             </div>
