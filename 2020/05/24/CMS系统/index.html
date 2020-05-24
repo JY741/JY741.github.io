@@ -6,15 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="概述本博文将分析CMS内容管理系统的功能实现，同时借助广告位的展示来介绍解决ajax跨域请求问题的方案二：httpClient。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述本博文将分析CMS内容管理系统的功能实现，同时借助广告位的展示来介绍解决ajax跨域请求问题的方案二：httpClient。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524195716194.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524195739795.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321360935.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321480123.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321875256.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322305940.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322341567.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322622332.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322793600.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322835499.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524202203940.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322957186.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590323291302.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524203448753.png">
+<meta property="article:published_time" content="2020-05-24T08:44:59.911Z">
+<meta property="article:modified_time" content="2020-05-24T12:56:53.231Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524195716194.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,104 +184,303 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-CMS系统" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-17T15:53:15.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">在github上搭建属于自己的博客</a>
+    <h1 class="article-title" itemprop="name">
+      企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2020-05-24T08:44:59.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本博文将分析CMS内容管理系统的功能实现，同时借助广告位的展示来介绍解决ajax跨域请求问题的方案二：httpClient。</p>
+<a id="more"></a>
+
+<h1 id="一、CMS内容管理系统"><a href="#一、CMS内容管理系统" class="headerlink" title="一、CMS内容管理系统"></a>一、CMS内容管理系统</h1><p>在后台管理内容及内容分类的系统就叫做cms系统。</p>
+<h2 id="1-表设计管理"><a href="#1-表设计管理" class="headerlink" title="1.表设计管理"></a>1.表设计管理</h2><p>思路：</p>
+<p>1、 分析每个模块的共性：</p>
+<p>​    a)链接    b) 图片     c) 标题    d) 子标题    e) 有链接的提示</p>
+<p>2、 使用两张表来管理</p>
+<p>a)    内容分类表，管理内容的大分类</p>
+<p>b)    内容表，存储每个分类下的明细信息内容。</p>
+<p>内容分类表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524195716194.png" alt="image-20200524195716194"></p>
+<p>内容表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524195739795.png" alt="image-20200524195739795"></p>
+<p>需要把内容进行分类，分类应该是一个树形结构。</p>
+<h2 id="2-内容分类管理"><a href="#2-内容分类管理" class="headerlink" title="2.内容分类管理"></a>2.内容分类管理</h2><h3 id="2-1初始化列表"><a href="#2-1初始化列表" class="headerlink" title="2.1初始化列表"></a>2.1初始化列表</h3><h4 id="2-1-1需求分析"><a href="#2-1-1需求分析" class="headerlink" title="2.1.1需求分析"></a>2.1.1需求分析</h4><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321360935.jpg" alt="img"></p>
+<p>初始化树形视图的url：/content/category/list</p>
+<p>参数是id，当前节点id属性，应该根据此id查询子节点列表。</p>
+<p>返回值：包含id、text、state三个属性的json数据列表</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321480123.jpg" alt="img"></p>
+<h4 id="2-1-2Service层"><a href="#2-1-2Service层" class="headerlink" title="2.1.2Service层"></a>2.1.2Service层</h4><p>功能：接收parentid。根据parentid查询节点列表，返回返回一个EasyUI异步Tree要求的节点列表。每个节点包含三个属性id、text、state三个属性。可以使用EUTreeNode。</p>
+<p>参数：id        返回值:List&lt; EUTreeNode &gt;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentCategoryServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentCategoryService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbContentCategoryMapper contentCategoryMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;EUITreeNode&gt; <span class="title">getCategoryList</span><span class="params">(<span class="keyword">long</span> parentId)</span> </span>&#123;</span><br><span class="line">		TbContentCategoryExample example = <span class="keyword">new</span> TbContentCategoryExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andParentIdEqualTo(parentId);</span><br><span class="line">		List&lt;TbContentCategory&gt; list = contentCategoryMapper.selectByExample(example);</span><br><span class="line">		List&lt;EUITreeNode&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (TbContentCategory tbContentCategory : list) &#123;</span><br><span class="line">			EUITreeNode node = <span class="keyword">new</span> EUITreeNode();</span><br><span class="line">			node.setId(tbContentCategory.getId());</span><br><span class="line">			node.setText(tbContentCategory.getName());</span><br><span class="line">			node.setState(tbContentCategory.getIsParent()?<span class="string">"closed"</span>:<span class="string">"open"</span>);</span><br><span class="line">			resultList.add(node);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> resultList;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3Controller层"><a href="#2-1-3Controller层" class="headerlink" title="2.1.3Controller层"></a>2.1.3Controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/content/category"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentCategoryController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ContentCategoryService contentCategoryService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/list"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;EUITreeNode&gt; <span class="title">getContentCatList</span><span class="params">(@RequestParam(value=<span class="string">"id"</span>,defaultValue=<span class="string">"0"</span>)</span>Long parentId)</span>&#123;</span><br><span class="line">		List&lt;EUITreeNode&gt; list = contentCategoryService.getCategoryList(parentId);</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2新增节点"><a href="#2-2新增节点" class="headerlink" title="2.2新增节点"></a>2.2新增节点</h3><h4 id="2-2-1Dao层"><a href="#2-2-1Dao层" class="headerlink" title="2.2.1Dao层"></a>2.2.1Dao层</h4><p>需要返回主键信息：需要修改mapper文件，返回主键信息。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590321875256.jpg" alt="img"></p>
+<h4 id="2-2-2Service层"><a href="#2-2-2Service层" class="headerlink" title="2.2.2Service层"></a>2.2.2Service层</h4><p>接收两个参数parentId父节点id、name：当前节点的名称。向tb_content_category表中添加一条记录。返回TaoTaoResult包含记录的pojo对象。还需要判断添加的结点的父节点之前是否是父节点，如果不是，则需要改is_parent.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">insertContentCategory</span><span class="params">(<span class="keyword">long</span> parentId, String name)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建一个pojo</span></span><br><span class="line">    TbContentCategory contentCategory = <span class="keyword">new</span> TbContentCategory();</span><br><span class="line">    contentCategory.setName(name);</span><br><span class="line">    contentCategory.setParentId(parentId);</span><br><span class="line">    <span class="comment">//'状态。可选值:1(正常),2(删除)',</span></span><br><span class="line">    contentCategory.setStatus(<span class="number">1</span>);</span><br><span class="line">    contentCategory.setIsParent(<span class="keyword">false</span>);</span><br><span class="line">    contentCategory.setSortOrder(<span class="number">1</span>);</span><br><span class="line">    contentCategory.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    contentCategory.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    <span class="comment">//添加记录</span></span><br><span class="line">    contentCategoryMapper.insert(contentCategory);</span><br><span class="line">    <span class="comment">//查看父节点的isParent列是否为true，如果不是true改成true</span></span><br><span class="line">    TbContentCategory parentCat = contentCategoryMapper.selectByPrimaryKey(parentId);</span><br><span class="line">    <span class="keyword">if</span>(!parentCat.getIsParent()) &#123;</span><br><span class="line">        parentCat.setIsParent(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//更新父节点</span></span><br><span class="line">        contentCategoryMapper.updateByPrimaryKey(parentCat);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok(contentCategory);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3Controller层"><a href="#2-2-3Controller层" class="headerlink" title="2.2.3Controller层"></a>2.2.3Controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/create"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">createContentCategory</span><span class="params">(Long parentId, String name)</span> </span>&#123;</span><br><span class="line">    TaotaoResult result = contentCategoryService.insertContentCategory(parentId, name);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3删除节点"><a href="#2-3删除节点" class="headerlink" title="2.3删除节点"></a>2.3删除节点</h3><p>接收parentid、id两个参数。删除id对应的记录。需要判断parentid对应的记录下是否有子节点。如果没有子节点。需要把parentid对应的记录的isparent改成false。</p>
+<p>注意：删除直接是物理删除。</p>
+<p><strong>service层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">deleteContentCategory</span><span class="params">(<span class="keyword">long</span> parentId, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">    contentCategoryMapper.deleteByPrimaryKey(id);</span><br><span class="line">    TbContentCategoryExample example = <span class="keyword">new</span> TbContentCategoryExample();</span><br><span class="line">    Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andParentIdEqualTo(parentId);</span><br><span class="line">    List&lt;TbContentCategory&gt; list = contentCategoryMapper.selectByExample(example);</span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>||list.size()==<span class="number">0</span>) &#123;</span><br><span class="line">        TbContentCategory parentCat = contentCategoryMapper.selectByPrimaryKey(parentId);</span><br><span class="line">        parentCat.setIsParent(<span class="keyword">false</span>);</span><br><span class="line">        contentCategoryMapper.updateByPrimaryKey(parentCat);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4重命名结点"><a href="#2-4重命名结点" class="headerlink" title="2.4重命名结点"></a>2.4重命名结点</h3><p>根据id更新记录的name列即可。不做过多介绍。</p>
+<h2 id="3-内容管理"><a href="#3-内容管理" class="headerlink" title="3.内容管理"></a>3.内容管理</h2><h3 id="3-1显示内容"><a href="#3-1显示内容" class="headerlink" title="3.1显示内容"></a>3.1显示内容</h3><p>用到之前分页pageHelper的知识</p>
+<p><strong>Service层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentService</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span> </span><br><span class="line">	<span class="keyword">private</span> TbContentMapper contentMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> EUIDataGridResult <span class="title">getContentList</span><span class="params">(<span class="keyword">long</span> categoryId, <span class="keyword">int</span> page, <span class="keyword">int</span> rows)</span> </span>&#123;</span><br><span class="line">		TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andCategoryIdEqualTo(categoryId);</span><br><span class="line">		PageHelper.startPage(page, rows);</span><br><span class="line">		List&lt;TbContent&gt; list = contentMapper.selectByExample(example);</span><br><span class="line">		<span class="comment">//创建一个返回值对象</span></span><br><span class="line">		EUIDataGridResult result = <span class="keyword">new</span> EUIDataGridResult();</span><br><span class="line">		result.setRows(list);</span><br><span class="line">		<span class="comment">//取记录总条数</span></span><br><span class="line">		PageInfo&lt;TbContent&gt; pageInfo = <span class="keyword">new</span> PageInfo&lt;&gt;(list);</span><br><span class="line">		<span class="keyword">long</span> total = pageInfo.getTotal();</span><br><span class="line">		result.setTotal(total);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Controller层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/content"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ContentService contentService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/query/list"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> EUIDataGridResult <span class="title">getContentList</span><span class="params">(<span class="keyword">long</span> categoryId, <span class="keyword">int</span> page, <span class="keyword">int</span> rows)</span> </span>&#123;</span><br><span class="line">		EUIDataGridResult contentList = contentService.getContentList(categoryId, page, rows);</span><br><span class="line">		<span class="keyword">return</span> contentList;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2内容添加"><a href="#3-2内容添加" class="headerlink" title="3.2内容添加"></a>3.2内容添加</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322305940.jpg" alt="img"></p>
+<p>这里图片上传的代码之前实现过，这里引用的是同一个</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322341567.jpg" alt="img"></p>
+<p><strong>Service层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">insertContent</span><span class="params">(TbContent content)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//补全pojo内容</span></span><br><span class="line">    content.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    content.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    contentMapper.insert(content);</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Controller层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/save"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">insertContent</span><span class="params">(TbContent content)</span> </span>&#123;</span><br><span class="line">    TaotaoResult result = contentService.insertContent(content);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、商城首页大广告"><a href="#二、商城首页大广告" class="headerlink" title="二、商城首页大广告"></a>二、商城首页大广告</h1><h2 id="1-首页大广告方案"><a href="#1-首页大广告方案" class="headerlink" title="1.首页大广告方案"></a>1.首页大广告方案</h2><p>前端系统获取后端系统提供的接口，如何获取？</p>
+<h3 id="1-1方案1——jsonp"><a href="#1-1方案1——jsonp" class="headerlink" title="1.1方案1——jsonp"></a>1.1方案1——jsonp</h3><p>上篇博文<a href="https://blog.csdn.net/JYplute/article/details/106292466" target="_blank" rel="noopener">《企业WEB项目前台工程搭建,ajax跨域的解决》</a>已经介绍过jsonp，这里只做分析</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322622332.png" alt="img"></p>
+<p>需要当首页加载完毕后，大广告位就应该显示。没有触发事件。不是太合适。</p>
+<p>优点：不需要二次请求，页面直接加载内容数据。减少门户系统的压力。</p>
+<p>缺点：需要延迟加载。不利于seo优化。</p>
+<blockquote>
+<p>这里不利于seo优化的原因：jsonp跨域请求一般是要通过鼠标触发事件，而刚开始加载的时候是静态的，非动态会被搜索引擎认为是一成不变的死网页，不符合搜索引擎喜好，自然排名就降低了</p>
+</blockquote>
+<h3 id="1-2方案2——httpclient"><a href="#1-2方案2——httpclient" class="headerlink" title="1.2方案2——httpclient"></a>1.2方案2——httpclient</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322793600.png" alt="img"></p>
+<p>优点：有利于seo优化。可以在taotao-portal中对数据进行加工。</p>
+<p>缺点：系统直接需要调用服务查询内容信息。多了一次http请求。 </p>
+<p>系统直接服务的调用，需要使用httpclient来实现。Taotao-portal和taotao-rest是在同一个局域网内部。速度非常快，调用时间可以忽略不计。 展示首页内容功能，使用方案二实现。</p>
+<h2 id="2-展示流程"><a href="#2-展示流程" class="headerlink" title="2.展示流程"></a>2.展示流程</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322835499.png" alt="img"></p>
+<h2 id="3-Httpclient的使用"><a href="#3-Httpclient的使用" class="headerlink" title="3.Httpclient的使用"></a>3.Httpclient的使用</h2><h3 id="3-1概念"><a href="#3-1概念" class="headerlink" title="3.1概念"></a>3.1概念</h3><p>HttpClient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持 HTTP 协议的客户端编程工具包，并且它支持 HTTP 协议最新的版本和建议。<br> 下载地址：<a href="http://hc.apache.org/" target="_blank" rel="noopener">http://hc.apache.org/</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524202203940.png" alt="image-20200524202203940"></p>
+<h3 id="3-2添加依赖"><a href="#3-2添加依赖" class="headerlink" title="3.2添加依赖"></a>3.2添加依赖</h3><p>需要把httpclient的jar包添加到工程中。只需要在工程中添加httpclient的依赖。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590322957186.jpg" alt="img"></p>
+<h3 id="3-3使用方法"><a href="#3-3使用方法" class="headerlink" title="3.3使用方法"></a>3.3使用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClientTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//创建一个httpClient对象</span></span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">		<span class="comment">//创建一个GET对象 </span></span><br><span class="line">		HttpGet get = <span class="keyword">new</span> HttpGet(<span class="string">"http://www.sogou.com"</span>);</span><br><span class="line">		<span class="comment">//执行请求</span></span><br><span class="line">		CloseableHttpResponse response = httpClient.execute(get);</span><br><span class="line">		<span class="comment">//去响应的结果</span></span><br><span class="line">		<span class="keyword">int</span> statusCode = response.getStatusLine().getStatusCode();</span><br><span class="line">		System.out.println(statusCode);</span><br><span class="line">		HttpEntity entity = response.getEntity();</span><br><span class="line">		String string = EntityUtils.toString(entity, <span class="string">"utf-8"</span>);</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		<span class="comment">//关闭httpclient</span></span><br><span class="line">		response.close();</span><br><span class="line">		httpClient.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//get请求带参数</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGetWithParam</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//创建一个httpClient对象</span></span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">		<span class="comment">//创建一个uri对象</span></span><br><span class="line">		URIBuilder uriBuilder = <span class="keyword">new</span> URIBuilder(<span class="string">"http://www.sogou.com/web"</span>);</span><br><span class="line">		uriBuilder.addParameter(<span class="string">"query"</span>, <span class="string">"花"</span>);</span><br><span class="line">		HttpGet get = <span class="keyword">new</span> HttpGet(uriBuilder.build());</span><br><span class="line">		<span class="comment">//执行请求</span></span><br><span class="line">		CloseableHttpResponse response = httpClient.execute(get);</span><br><span class="line">		<span class="comment">//取响应的结果</span></span><br><span class="line">		<span class="keyword">int</span> statusCode = response.getStatusLine().getStatusCode();</span><br><span class="line">		System.out.println(statusCode);</span><br><span class="line">		HttpEntity entity = response.getEntity();</span><br><span class="line">		String string = EntityUtils.toString(entity, <span class="string">"utf-8"</span>);</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		<span class="comment">//关闭httpclient</span></span><br><span class="line">		response.close();</span><br><span class="line">		httpClient.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">	</span><br><span class="line">		<span class="comment">//创建一个post对象</span></span><br><span class="line">		HttpPost post = <span class="keyword">new</span> HttpPost(<span class="string">"http://localhost:8082/httpclient/post.html"</span>);</span><br><span class="line">		<span class="comment">//执行post请求</span></span><br><span class="line">		CloseableHttpResponse response = httpClient.execute(post);</span><br><span class="line">		String string = EntityUtils.toString(response.getEntity());</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		response.close();</span><br><span class="line">		httpClient.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPostWithParam</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//创建一个post对象</span></span><br><span class="line">		HttpPost post = <span class="keyword">new</span> HttpPost(<span class="string">"http://localhost:8082/httpclient/post.html"</span>);</span><br><span class="line">		<span class="comment">//创建一个Entity。模拟一个表单</span></span><br><span class="line">		List&lt;NameValuePair&gt; kvList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		kvList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"username"</span>, <span class="string">"zhangsan"</span>));</span><br><span class="line">		kvList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"password"</span>, <span class="string">"123"</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//包装成一个Entity对象</span></span><br><span class="line">		StringEntity entity = <span class="keyword">new</span> UrlEncodedFormEntity(kvList);</span><br><span class="line">		<span class="comment">//设置请求的内容</span></span><br><span class="line">		post.setEntity(entity);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//执行post请求</span></span><br><span class="line">		CloseableHttpResponse response = httpClient.execute(post);</span><br><span class="line">		String string = EntityUtils.toString(response.getEntity(), <span class="string">"utf-8"</span>);</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		response.close();</span><br><span class="line">		httpClient.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4Httpclient封装成工具类"><a href="#3-4Httpclient封装成工具类" class="headerlink" title="3.4Httpclient封装成工具类"></a>3.4Httpclient封装成工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClientUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">doGet</span><span class="params">(String url, Map&lt;String, String&gt; param)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 创建Httpclient对象</span></span><br><span class="line">		CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line"></span><br><span class="line">		String resultString = <span class="string">""</span>;</span><br><span class="line">		CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 创建uri</span></span><br><span class="line">			URIBuilder builder = <span class="keyword">new</span> URIBuilder(url);</span><br><span class="line">			<span class="keyword">if</span> (param != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">for</span> (String key : param.keySet()) &#123;</span><br><span class="line">					builder.addParameter(key, param.get(key));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			URI uri = builder.build();</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 创建http GET请求</span></span><br><span class="line">			HttpGet httpGet = <span class="keyword">new</span> HttpGet(uri);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 执行请求</span></span><br><span class="line">			response = httpclient.execute(httpGet);</span><br><span class="line">			<span class="comment">// 判断返回状态是否为200</span></span><br><span class="line">			<span class="keyword">if</span> (response.getStatusLine().getStatusCode() == <span class="number">200</span>) &#123;</span><br><span class="line">				resultString = EntityUtils.toString(response.getEntity(), <span class="string">"UTF-8"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">					response.close();</span><br><span class="line">				&#125;</span><br><span class="line">				httpclient.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> resultString;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">doGet</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> doGet(url, <span class="keyword">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">doPost</span><span class="params">(String url, Map&lt;String, String&gt; param)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 创建Httpclient对象</span></span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">		CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">		String resultString = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 创建Http Post请求</span></span><br><span class="line">			HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line">			<span class="comment">// 创建参数列表</span></span><br><span class="line">			<span class="keyword">if</span> (param != <span class="keyword">null</span>) &#123;</span><br><span class="line">				List&lt;NameValuePair&gt; paramList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">				<span class="keyword">for</span> (String key : param.keySet()) &#123;</span><br><span class="line">					paramList.add(<span class="keyword">new</span> BasicNameValuePair(key, param.get(key)));</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">// 模拟表单</span></span><br><span class="line">				UrlEncodedFormEntity entity = <span class="keyword">new</span> UrlEncodedFormEntity(paramList);</span><br><span class="line">				httpPost.setEntity(entity);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// 执行http请求</span></span><br><span class="line">			response = httpClient.execute(httpPost);</span><br><span class="line">			resultString = EntityUtils.toString(response.getEntity(), <span class="string">"utf-8"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				response.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> resultString;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">doPost</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> doPost(url, <span class="keyword">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">doPostJson</span><span class="params">(String url, String json)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 创建Httpclient对象</span></span><br><span class="line">		CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">		CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">		String resultString = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 创建Http Post请求</span></span><br><span class="line">			HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line">			<span class="comment">// 创建请求内容</span></span><br><span class="line">			StringEntity entity = <span class="keyword">new</span> StringEntity(json, ContentType.APPLICATION_JSON);</span><br><span class="line">			httpPost.setEntity(entity);</span><br><span class="line">			<span class="comment">// 执行http请求</span></span><br><span class="line">			response = httpClient.execute(httpPost);</span><br><span class="line">			resultString = EntityUtils.toString(response.getEntity(), <span class="string">"utf-8"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				response.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> resultString;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-服务层发布服务"><a href="#4-服务层发布服务" class="headerlink" title="4.服务层发布服务"></a>4.服务层发布服务</h2><p>根据内容的分类id查询内容列表，从tb_content表中查询。服务是一个restFul形式的服务。使用http协议传递json格式的数据。</p>
+<h3 id="4-1Service层"><a href="#4-1Service层" class="headerlink" title="4.1Service层"></a>4.1Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbContentMapper contentMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">getContentList</span><span class="params">(<span class="keyword">long</span> contentCid)</span> </span>&#123;</span><br><span class="line">		TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andCategoryIdEqualTo(contentCid);</span><br><span class="line">		List&lt;TbContent&gt; list = contentMapper.selectByExample(example);</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2Controller层"><a href="#4-2Controller层" class="headerlink" title="4.2Controller层"></a>4.2Controller层</h3><p>发布服务。接收查询参数。Restful风格内容分类id应该从url中取：/rest/content/list/{contentCategoryId}</p>
+<p>从url中取内容分类id，调用Service查询内容列表。返回内容列表。返回一个json格式的数据。可以使用TaotaoResult包装此列表。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/content"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ContentService contentService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/list/&#123;contentCategoryId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getContentList</span><span class="params">(@PathVariable Long contentCategoryId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			List&lt;TbContent&gt; list = contentService.getContentList(contentCategoryId);</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.ok(list);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-实现大广告位展示"><a href="#5-实现大广告位展示" class="headerlink" title="5.实现大广告位展示"></a>5.实现大广告位展示</h2><h3 id="5-1需求分析"><a href="#5-1需求分析" class="headerlink" title="5.1需求分析"></a>5.1需求分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590323291302.jpg" alt="img"></p>
+<p>Json字符串如何传递给jsp：使用modelAndView对象把json字符串传递给jsp。</p>
+<p>如何获得json字符串：获得一个广告位对应的内容列表，需要调用taotao-rest的服务。把列表转换成json数据格式要求的pojo对象列表。</p>
+<p>需要使用httpclient调用taotao-rest的服务。</p>
+<h3 id="5-2resource-properties"><a href="#5-2resource-properties" class="headerlink" title="5.2resource.properties"></a>5.2resource.properties</h3><p>把服务层属性定义到properties方便修改</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务层属性定义</span></span><br><span class="line"><span class="comment">#基础url</span></span><br><span class="line"><span class="attr">REST_BASE_URL</span>=<span class="string">http://localhost:8081/rest</span></span><br><span class="line"><span class="comment">#首页大广告位url</span></span><br><span class="line"><span class="attr">REST_INDEX_AD_URL</span>=<span class="string">/content/list/89</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3Service层"><a href="#5-3Service层" class="headerlink" title="5.3Service层"></a>5.3Service层</h3><p>根据内容分类id查询分类的内容列表，需要使用httpclient调用taotao-rest的服务。得到一个json字符串。需要把字符串转换成java对象taotaoResult对象。从taotaoResult对象中取data属性，得到内容列表。把内容列表转换成jsp页面要求的json格式。返回一个json字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用服务层服务查询内容列表</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REST_BASE_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REST_BASE_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REST_INDEX_AD_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REST_INDEX_AD_URL;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getContentList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//调用服务层的服务，这里用httpclient跨域</span></span><br><span class="line">		String result = HttpClientUtil.doGet(REST_BASE_URL+REST_INDEX_AD_URL);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//把字符串转化成TaotaoResult,通过TaotaoResult转化成我们想要的List数据</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToList(result, TbContent<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="comment">//取内容列表</span></span><br><span class="line">			List&lt;TbContent&gt; list = (List&lt;TbContent&gt;) taotaoResult.getData();</span><br><span class="line">			List&lt;Map&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">			<span class="keyword">for</span> (TbContent tbContent : list) &#123;</span><br><span class="line">				Map map = <span class="keyword">new</span> HashMap();</span><br><span class="line">				map.put(<span class="string">"src"</span>, tbContent.getPic());</span><br><span class="line">				map.put(<span class="string">"height"</span>, <span class="number">240</span>);</span><br><span class="line">				map.put(<span class="string">"width"</span>, <span class="number">670</span>);</span><br><span class="line">				map.put(<span class="string">"srcB"</span>, tbContent.getPic2());</span><br><span class="line">				map.put(<span class="string">"widthB"</span>, <span class="number">550</span>);</span><br><span class="line">				map.put(<span class="string">"heightB"</span>, <span class="number">240</span>);</span><br><span class="line">				map.put(<span class="string">"href"</span>, tbContent.getUrl());</span><br><span class="line">				map.put(<span class="string">"alt"</span>, tbContent.getSubTitle());</span><br><span class="line">				resultList.add(map);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> JsonUtils.objectToJson(resultList);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4Controller层"><a href="#5-4Controller层" class="headerlink" title="5.4Controller层"></a>5.4Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/index"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">showIndex</span><span class="params">(Model model)</span> </span>&#123;</span><br><span class="line">    String adJson = contentService.getContentList();</span><br><span class="line">    model.addAttribute(<span class="string">"ad1"</span>, adJson);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>成品展示：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200524203448753.png" alt="image-20200524203448753"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>仿生人会梦见电子羊吗？<br>那么人会梦见真的羊吗？<br>电子羊出自科幻大师菲利普•迪克的《仿生人会梦见电子羊吗》，在书中可知，移情能力是人类独有的能力，我们可以通过移情测试来区分人类和仿生人。可当人在光怪陆离的世界中麻木了自己的情感，仿生人在学习演算中衍生出感情，那么人和仿生人的界限又在哪里？</p>
+<p>​                                                                                                                                                                                                 ——摘自B站热评</p>
+<p>电子羊是真的好听又上头呀🤸‍♂️</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1448284210&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-17T10:53:59.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">企业WEB开发前台工程搭建,ajax跨域的解决</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、CMS内容管理系统"><span class="toc-number">2.</span> <span class="toc-text">一、CMS内容管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表设计管理"><span class="toc-number">2.1.</span> <span class="toc-text">1.表设计管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内容分类管理"><span class="toc-number">2.2.</span> <span class="toc-text">2.内容分类管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1初始化列表"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1初始化列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1需求分析"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">2.1.1需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2Service层"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">2.1.2Service层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3Controller层"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">2.1.3Controller层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2新增节点"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2新增节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1Dao层"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">2.2.1Dao层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2Service层"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">2.2.2Service层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3Controller层"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">2.2.3Controller层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3删除节点"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3删除节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4重命名结点"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4重命名结点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-内容管理"><span class="toc-number">2.3.</span> <span class="toc-text">3.内容管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1显示内容"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1显示内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2内容添加"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2内容添加</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、商城首页大广告"><span class="toc-number">3.</span> <span class="toc-text">二、商城首页大广告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-首页大广告方案"><span class="toc-number">3.1.</span> <span class="toc-text">1.首页大广告方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1方案1——jsonp"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1方案1——jsonp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2方案2——httpclient"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2方案2——httpclient</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-展示流程"><span class="toc-number">3.2.</span> <span class="toc-text">2.展示流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Httpclient的使用"><span class="toc-number">3.3.</span> <span class="toc-text">3.Httpclient的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1概念"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2添加依赖"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3使用方法"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4Httpclient封装成工具类"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.4Httpclient封装成工具类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-服务层发布服务"><span class="toc-number">3.4.</span> <span class="toc-text">4.服务层发布服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1Service层"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2Controller层"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.2Controller层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-实现大广告位展示"><span class="toc-number">3.5.</span> <span class="toc-text">5.实现大广告位展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1需求分析"><span class="toc-number">3.5.1.</span> <span class="toc-text">5.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2resource-properties"><span class="toc-number">3.5.2.</span> <span class="toc-text">5.2resource.properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3Service层"><span class="toc-number">3.5.3.</span> <span class="toc-text">5.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4Controller层"><span class="toc-number">3.5.4.</span> <span class="toc-text">5.4Controller层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -298,8 +518,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
