@@ -433,65 +433,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h2 id="1-安装vsftpd组件"><a href="#1-安装vsftpd组件" class="headerlink" title="1.安装vsftpd组件"></a>1.安装vsftpd组件</h2><blockquote>
-<p>yum -y install vsftpd</p>
-</blockquote>
-<p>安装完后，有/etc/vsftpd/vsftpd.conf 文件，是vsftp的配置文件。</p>
-<h2 id="2-添加一个ftp账户密码"><a href="#2-添加一个ftp账户密码" class="headerlink" title="2.添加一个ftp账户密码"></a>2.添加一个ftp账户密码</h2><p>此用户就是用来登录ftp服务器用的。</p>
-<blockquote>
-<p>useradd ftpuser</p>
-</blockquote>
-<blockquote>
-<p>passwd ftpuser</p>
-</blockquote>
-<p>后面会让你重复输入两次密码，两次都输入ftpuser即可</p>
-<p>这样一个用户建完，可以用这个登录，记得用普通登录不要用匿名了。登录后默认的路径为 /home/ftpuser. </p>
-<h2 id="3-防火墙开启21端口"><a href="#3-防火墙开启21端口" class="headerlink" title="3.防火墙开启21端口"></a>3.防火墙开启21端口</h2><p>因为ftp默认的端口为21，而centos默认是没有开启的，所以要修改iptables文件</p>
-<blockquote>
-<p>vim /etc/sysconfig/iptables</p>
-</blockquote>
-<p>在行上面有22 -j ACCEPT 下面另起一行输入跟那行差不多的，只是把22换成21，然后：wq保存。</p>
-<p>还要运行下,重启iptables</p>
-<blockquote>
-<p>service iptables restart</p>
-</blockquote>
-<h2 id="4-修改selinux"><a href="#4-修改selinux" class="headerlink" title="4.修改selinux"></a>4.修改selinux</h2><p>外网是可以访问上去了，可是发现没法返回目录（使用ftp的主动模式，被动模式还是无法访问），也上传不了，因为selinux作怪了。</p>
-<blockquote>
-<p>getsebool -a | grep ftp </p>
-</blockquote>
-<p>如果一下两个为off，代表没有开启外网的访问</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200519123637565.png" alt="image-20200519123637565"></p>
-<p>这时候需要打开他们</p>
-<blockquote>
-<p>setsebool -P allow_ftpd_full_access on</p>
-</blockquote>
-<blockquote>
-<p>setsebool -P ftp_home_dir on</p>
-</blockquote>
-<p>启动ftp服务</p>
-<blockquote>
-<p>/etc/init.d/vsftpd start</p>
-</blockquote>
-<p>如果还是连接不了，试着修改FileZilla的主动、被动模式</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589863083005.jpg" alt="img"></p>
-<p>连接成功</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200519124222530.png" alt="image-20200519124222530"></p>
-<h2 id="6-关闭匿名访问"><a href="#6-关闭匿名访问" class="headerlink" title="6.关闭匿名访问"></a>6.关闭匿名访问</h2><blockquote>
-<p>vim /etc/vsftpd/vsftpd.conf</p>
-</blockquote>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1589863116600.jpg" alt="img"></p>
-<p>重启ftp服务：</p>
-<blockquote>
-<p>/etc/init.d/vsftpd restart</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">启动Vsftpd服务其命令为： service vsftpd start 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd start</span><br><span class="line"></span><br><span class="line">停止Vsftpd服务的命令为：service vsftpd stop 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd stop</span><br><span class="line"></span><br><span class="line">重新启动Vsftpd服务的命令为：service vsftpd restart 或 &#x2F;etc&#x2F;init.d&#x2F;vsftpd restart</span><br><span class="line"></span><br><span class="line">检查Vsftpd服务的运行状态：service vsftpd status</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-设置开机自启"><a href="#7-设置开机自启" class="headerlink" title="7.设置开机自启"></a>7.设置开机自启</h2><blockquote>
-<p>chkconfig vsftpd on</p>
-</blockquote>
-
+        <p>Linux恶心的安装又来了</p>
+        
+          <a class="article-more-a" href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/#more">more >></a>
+        
       
 
       
