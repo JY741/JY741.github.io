@@ -6,15 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>WEB项目系统添加redis缓存逻辑和功能 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="概述由于我们项目的首页是最频繁访问的，每次请求都调用mysql查询浪费性能和效率，我们可以用redis做缓存工具，这样将数据加载到内存中，提高了性能和效率。同时，为了实现系统高可用，redis需要做主备，使用redis做分片集群，搭建redis集群。最后我们还需要向业务逻辑中添加缓存并让缓存同步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB项目系统添加redis缓存逻辑和功能">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/Redis%E7%BC%93%E5%AD%98/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述由于我们项目的首页是最频繁访问的，每次请求都调用mysql查询浪费性能和效率，我们可以用redis做缓存工具，这样将数据加载到内存中，提高了性能和效率。同时，为了实现系统高可用，redis需要做主备，使用redis做分片集群，搭建redis集群。最后我们还需要向业务逻辑中添加缓存并让缓存同步。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526194859946.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590494204972.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526195942215.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494463326.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494440626.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494928961.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526202758566.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/index.jpg">
+<meta property="article:published_time" content="2020-05-26T11:36:39.762Z">
+<meta property="article:modified_time" content="2020-05-26T12:35:38.184Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526194859946.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,352 +180,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-vim坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Redis缓存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/29/vim%E5%9D%91/">vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.</a>
+    <h1 class="article-title" itemprop="name">
+      WEB项目系统添加redis缓存逻辑和功能
     </h1>
   
 
 		<!--显示阅读次数-->
 		
-        
-        <a href="/2020/05/29/vim%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:16:28.996Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下是错误详细代码</p>
-        
-          <a class="article-more-a" href="/2020/05/29/vim%E5%9D%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/29/vim%E5%9D%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-solr安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">Linux下Solr的安装及配置(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/28/solr%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T12:31:38.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-前提条件"><a href="#1-前提条件" class="headerlink" title="1.前提条件"></a>1.前提条件</h2><p>solr 需要运行在一个Servlet容器中，Solr4.10.3要求jdk使用1.7以上，Solr默认提供Jetty（java写的Servlet容器），本教程使用Tocmat作为Servlet容器，所以我们需要以下环境：</p>
-<p>已安装jdk，tomcat</p>
-<p>如果没有安装参考我的上两篇博文<a href="https://blog.csdn.net/JYplute/article/details/106411661" target="_blank" rel="noopener">《Linux安装jdk(CentOS为例)》</a><a href="https://blog.csdn.net/JYplute/article/details/106411672" target="_blank" rel="noopener">《Linux安装tomcat并配置开机自启动(CentOS为例)》</a></p>
-        
-          <a class="article-more-a" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tomcat安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">Linux安装tomcat并配置开机自启动(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:32:37.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一-tomcat安装"><a href="#一-tomcat安装" class="headerlink" title="一.tomcat安装"></a>一.tomcat安装</h1><p>tomcat只要解压就可以使用。</p>
-        
-          <a class="article-more-a" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jdk安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">Linux安装jdk(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:12:59.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><blockquote>
-<p>yum install glibc.i686        (需要联网)</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">WEB项目系统添加redis缓存逻辑和功能</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
         <a href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/" class="archive-article-date">
   	<time datetime="2020-05-26T11:36:39.762Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
@@ -519,11 +211,139 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>由于我们项目的首页是最频繁访问的，每次请求都调用mysql查询浪费性能和效率，我们可以用redis做缓存工具，这样将数据加载到内存中，提高了性能和效率。同时，为了实现系统高可用，redis需要做主备，使用redis做分片集群，搭建redis集群。最后我们还需要向业务逻辑中添加缓存并让缓存同步。</p>
-        
-          <a class="article-more-a" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/#more">more >></a>
-        
+<a id="more"></a>
+
+<h1 id="一、Redis"><a href="#一、Redis" class="headerlink" title="一、Redis"></a>一、Redis</h1><h2 id="1-redis介绍及安装"><a href="#1-redis介绍及安装" class="headerlink" title="1.redis介绍及安装"></a>1.redis介绍及安装</h2><p><strong>Windows安装</strong></p>
+<p>直接下载redis的win包，解压后可直接打开</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526194859946.png" alt="image-20200526194859946"></p>
+<p><strong>Linux安装</strong></p>
+<p>redis介绍及redis在Linux上的安装参照上一篇博客<a href="https://blog.csdn.net/JYplute/article/details/106345258" target="_blank" rel="noopener">《Redis在Linux上的安装和集群搭建(CentOS为例)》</a></p>
+<h2 id="2-redis持久化"><a href="#2-redis持久化" class="headerlink" title="2.redis持久化"></a>2.redis持久化</h2><p>Redis的高性能是由千其将所有数据都存储在了内存中， 为了使Redis在重启之后仍能保证数据不丢失， 需要将数据从内存中同步到硬盘中， 这一过程就是待久化。</p>
+<p>Redis支待两种方式的待久化， 种是RDB方式， 种是AOF方式。 可以单独使用其中 种或将二者结合使用。</p>
+<p>1、 RDB持久化（默认支持， 无需配置）</p>
+<p>该机制是指在指定的时间间隔内将内存中的数据集快照写入磁盘。</p>
+<p>2、 AOF待久化</p>
+<p>该机制将以日志的形式记录服务器所处理的每一个写操作， 在Redis服务器启动之初会读取该文件来重新构建数据库， 以保证启动后数据库中的数据是完整的。</p>
+<p>3、 无待久化</p>
+<p>我们可以通过配置的方式禁用Redis服务器的待久化功能， 这样我们就可以将Redis视为一个功能加强版的memcached了。</p>
+<p>4、 redis可以同时使用RDB和AOF</p>
+<h2 id="3-redis集群"><a href="#3-redis集群" class="headerlink" title="3.redis集群"></a>3.redis集群</h2><h3 id="3-1redis-cluster架构图"><a href="#3-1redis-cluster架构图" class="headerlink" title="3.1redis-cluster架构图"></a>3.1redis-cluster架构图</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001.jpg" alt="img"></p>
+<p>架构细节:</p>
+<p>(1)所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽.</p>
+<p>(2)节点的fail是通过集群中超过半数的节点检测失效时才生效.</p>
+<p>(3)客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可</p>
+<p>(4)redis-cluster把所有的物理节点映射到[0-16383]slot上,cluster 负责维护node&lt;-&gt;slot&lt;-&gt;value</p>
+<blockquote>
+<p>Redis 集群中内置了 16384 个哈希槽，当需要在 Redis 集群中放置一个 key-value 时，redis 先对 key 使用 crc16 算法算出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节点</p>
+</blockquote>
+<h3 id="3-2redis-cluster投票-容错"><a href="#3-2redis-cluster投票-容错" class="headerlink" title="3.2redis-cluster投票:容错"></a>3.2redis-cluster投票:容错</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590494204972.jpg" alt="img"></p>
+<p>(1)领着投票过程是集群中所有master参与,如果半数以上master节点与master节点通信超过(cluster-node-timeout),认为当前master节点挂掉.</p>
+<p>(2):什么时候整个集群不可用(cluster_state:fail)? </p>
+<p>  a:如果集群任意master挂掉,且当前master没有slave.集群进入fail状态,也可以理解成集群的slot映射[0-16383]不完成时进入fail状态. ps : redis-3.0.0.rc1加入cluster-require-full-coverage参数,默认关闭,打开集群兼容部分失败.</p>
+<p>  b:如果集群超过半数以上master挂掉，无论是否有slave集群进入fail状态.</p>
+<blockquote>
+<p>当集群不可用时,所有对集群的操作做都不可用，收到((error) CLUSTERDOWN The cluster is down)错误</p>
+</blockquote>
+<h3 id="3-3redis集群的搭建"><a href="#3-3redis集群的搭建" class="headerlink" title="3.3redis集群的搭建"></a>3.3redis集群的搭建</h3><p>参照上一篇博客<a href="https://blog.csdn.net/JYplute/article/details/106345258" target="_blank" rel="noopener">《Redis在Linux上的安装和集群搭建(CentOS为例)》</a>，这里做了详细操作介绍。</p>
+<h2 id="4-redis客户端"><a href="#4-redis客户端" class="headerlink" title="4.redis客户端"></a>4.redis客户端</h2><h3 id="4-1Redis-cli"><a href="#4-1Redis-cli" class="headerlink" title="4.1Redis-cli"></a>4.1Redis-cli</h3><p>自带客户端。使用最多的。</p>
+<h3 id="4-2图形化界面客户端"><a href="#4-2图形化界面客户端" class="headerlink" title="4.2图形化界面客户端"></a>4.2图形化界面客户端</h3><p>RedisDesktopManager</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526195942215.png" alt="image-20200526195942215"></p>
+<p>只支持单机版，不支持集群。</p>
+<h3 id="4-3Jedis客户端"><a href="#4-3Jedis客户端" class="headerlink" title="4.3Jedis客户端"></a>4.3Jedis客户端</h3><p>需要把jedis的jar包添加到工程中，如果是maven需要添加jar包的坐标。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494463326.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494440626.jpg" alt="img"></p>
+<h4 id="4-3-1单机版"><a href="#4-3-1单机版" class="headerlink" title="4.3.1单机版"></a>4.3.1单机版</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJedisSingle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建一个jedis的对象。</span></span><br><span class="line">		Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"192.168.10.130"</span>, <span class="number">6379</span>);</span><br><span class="line">		<span class="comment">//调用jedis对象的方法，方法名称和redis的命令一致。</span></span><br><span class="line">		jedis.set(<span class="string">"key1"</span>, <span class="string">"jedis test"</span>);</span><br><span class="line">		String string = jedis.get(<span class="string">"key1"</span>);</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		<span class="comment">//关闭jedis。</span></span><br><span class="line">		jedis.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 使用连接池</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJedisPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建jedis连接池</span></span><br><span class="line">		JedisPool pool = <span class="keyword">new</span> JedisPool(<span class="string">"192.168.10.130"</span>, <span class="number">6379</span>);</span><br><span class="line">		<span class="comment">//从连接池中获得Jedis对象</span></span><br><span class="line">		Jedis jedis = pool.getResource();</span><br><span class="line">		String string = jedis.get(<span class="string">"key1"</span>);</span><br><span class="line">		System.out.println(string);</span><br><span class="line">		<span class="comment">//关闭jedis对象</span></span><br><span class="line">		jedis.close();</span><br><span class="line">		pool.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-2集群版"><a href="#4-3-2集群版" class="headerlink" title="4.3.2集群版"></a>4.3.2集群版</h4><p>需要事先打开7001~7006端口，或者直接关闭防火墙sevice iptables stop</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集群版</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJedisCluster</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HashSet&lt;HostAndPort&gt; nodes = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7001</span>));</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7002</span>));</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7003</span>));</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7004</span>));</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7005</span>));</span><br><span class="line">    nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.10.130"</span>, <span class="number">7006</span>));</span><br><span class="line">    JedisCluster cluster = <span class="keyword">new</span> JedisCluster(nodes);</span><br><span class="line"></span><br><span class="line">    cluster.set(<span class="string">"a"</span>, <span class="string">"1000"</span>);</span><br><span class="line">    System.out.println(cluster.get(<span class="string">"a"</span>));</span><br><span class="line">    cluster.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-keys的通用操作"><a href="#5-keys的通用操作" class="headerlink" title="5.keys的通用操作"></a>5.keys的通用操作</h2><ul>
+<li>keys pattern:获取所有与pattern匹配的key,返回所有与该key匹配的keys。＊表示任意 一多个字符，？表示任意一个字符</li>
+<li>del keyl key2…：删除指定的key</li>
+<li>exists key:判断该key是否存在，1代表存在，0代表不存在</li>
+<li>rename key newkey:为当前的key重命名</li>
+<li>expire key :设置过期时间，单位：秒</li>
+<li>ttl key:获取该key所剩的超时时间，如果没有设置超时，返回-1。如果返回－2表示超时不存在</li>
+<li>type key: 获取指定key 的类型。该命令将以字符串的格式返回。 list set hash和zset,如果key不存在返回 none。</li>
+</ul>
+<h1 id="二、系统添加缓存逻辑"><a href="#二、系统添加缓存逻辑" class="headerlink" title="二、系统添加缓存逻辑"></a>二、系统添加缓存逻辑</h1><p>添加缓存逻辑的原则：<strong>缓存逻辑不能影响正常的业务逻辑执行。</strong></p>
+<h2 id="1-添加缓存后系统架构"><a href="#1-添加缓存后系统架构" class="headerlink" title="1.添加缓存后系统架构"></a>1.添加缓存后系统架构</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590494928961.png" alt="img"></p>
+<h2 id="2-jedis整合spring"><a href="#2-jedis整合spring" class="headerlink" title="2.jedis整合spring"></a>2.jedis整合spring</h2><h3 id="2-1单机版整合"><a href="#2-1单机版整合" class="headerlink" title="2.1单机版整合"></a>2.1单机版整合</h3><p>配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 连接池配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jedisPoolConfig"</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisPoolConfig"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 最大连接数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxTotal"</span> <span class="attr">value</span>=<span class="string">"30"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 最大空闲连接数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdle"</span> <span class="attr">value</span>=<span class="string">"10"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 每次释放连接的最大数目 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"numTestsPerEvictionRun"</span> <span class="attr">value</span>=<span class="string">"1024"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 释放连接的扫描间隔（毫秒） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"timeBetweenEvictionRunsMillis"</span> <span class="attr">value</span>=<span class="string">"30000"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 连接最小空闲时间 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minEvictableIdleTimeMillis"</span> <span class="attr">value</span>=<span class="string">"1800000"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 连接空闲多久后释放, 当空闲时间&gt;该值 且 空闲连接&gt;最大空闲连接数 时直接释放 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"softMinEvictableIdleTimeMillis"</span> <span class="attr">value</span>=<span class="string">"10000"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-1 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxWaitMillis"</span> <span class="attr">value</span>=<span class="string">"1500"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在获取连接的时候检查有效性, 默认false --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testOnBorrow"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在空闲时检查有效性, 默认false --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testWhileIdle"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"blockWhenExhausted"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>	</span><br><span class="line"><span class="comment">&lt;!-- jedis客户端单机版 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"redisClient"</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisPool"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"6379"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"poolConfig"</span> <span class="attr">ref</span>=<span class="string">"jedisPoolConfig"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jedisClientSingle"</span> <span class="attr">class</span>=<span class="string">"com.taotao.rest.dao.impl.JedisClientSingle"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单机版测试</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSpringJedisSingle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:spring/applicationContext-*.xml"</span>);</span><br><span class="line">    JedisPool pool = (JedisPool) applicationContext.getBean(<span class="string">"redisClient"</span>);</span><br><span class="line">    Jedis jedis = pool.getResource();</span><br><span class="line">    String string = jedis.get(<span class="string">"key1"</span>);</span><br><span class="line">    System.out.println(string);</span><br><span class="line">    jedis.close();</span><br><span class="line">    pool.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2集群版整合"><a href="#2-2集群版整合" class="headerlink" title="2.2集群版整合"></a>2.2集群版整合</h3><p>配置:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 集群版整合 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"redisClient"</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisCluster"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"nodes"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7001"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7002"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7003"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7004"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7005"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.HostAndPort"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"host"</span> <span class="attr">value</span>=<span class="string">"192.168.10.130"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"7006"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"poolConfig"</span> <span class="attr">ref</span>=<span class="string">"jedisPoolConfig"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jedisClientCluster"</span> <span class="attr">class</span>=<span class="string">"com.taotao.rest.dao.impl.JedisClientCluster"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集群版测试</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSpringJedisCluster</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:spring/applicationContext-*.xml"</span>);</span><br><span class="line">    JedisCluster cluster = (JedisCluster) applicationContext.getBean(<span class="string">"redisClient"</span>);</span><br><span class="line">    System.out.println(cluster.get(<span class="string">"a"</span>));</span><br><span class="line">    cluster.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-添加jedis-dao"><a href="#3-添加jedis-dao" class="headerlink" title="3.添加jedis dao"></a>3.添加jedis dao</h2><p>使用一个接口定义操作的方法，这样无论是单机版还是集群版都用的同一个接口，只需要在配置文件改即可修改调用单机还是集群。</p>
+<h3 id="3-1接口"><a href="#3-1接口" class="headerlink" title="3.1接口"></a>3.1接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">JedisClient</span> </span>&#123;</span><br><span class="line">	<span class="function">String <span class="title">get</span><span class="params">(String key)</span></span>;</span><br><span class="line">	<span class="function">String <span class="title">set</span><span class="params">(String key,String value)</span></span>;</span><br><span class="line">	<span class="function">String <span class="title">hget</span><span class="params">(String hkey,String key)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">hset</span><span class="params">(String hkey,String key,String value)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">incr</span><span class="params">(String key)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">expire</span><span class="params">(String key,<span class="keyword">int</span> second)</span></span>;<span class="comment">//设置缓存时间</span></span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">ttl</span><span class="params">(String key)</span></span>;<span class="comment">//查看剩余缓存时间，-1代表永久，-2代表已过期</span></span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">del</span><span class="params">(String key)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">long</span> <span class="title">hdel</span><span class="params">(String hkey,String key)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2单机版"><a href="#3-2单机版" class="headerlink" title="3.2单机版"></a>3.2单机版</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单机版</span></span><br><span class="line"><span class="comment"> * 每一次使用完都要关闭jedis让他返回连接池以便下次调用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisClientSingle</span> <span class="keyword">implements</span> <span class="title">JedisClient</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisPool jedisPool; </span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		String string = jedis.get(key);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> string;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		String string = jedis.set(key, value);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> string;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hget</span><span class="params">(String hkey, String key)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		String string = jedis.hget(hkey, key);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> string;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">hset</span><span class="params">(String hkey, String key, String value)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		Long result = jedis.hset(hkey, key, value);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">incr</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		Long result = jedis.incr(key);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">expire</span><span class="params">(String key, <span class="keyword">int</span> second)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		Long result = jedis.expire(key, second);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">ttl</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		Jedis jedis = jedisPool.getResource();</span><br><span class="line">		Long result = jedis.ttl(key);</span><br><span class="line">		jedis.close();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3集群版"><a href="#3-3集群版" class="headerlink" title="3.3集群版"></a>3.3集群版</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisClientCluster</span> <span class="keyword">implements</span> <span class="title">JedisClient</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisCluster jedisCluster;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.get(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">set</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.set(key, value);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hget</span><span class="params">(String hkey, String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.hget(hkey, key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">hset</span><span class="params">(String hkey, String key, String value)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.hset(hkey, key, value);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">incr</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.incr(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">expire</span><span class="params">(String key, <span class="keyword">int</span> second)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.expire(key, second);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">ttl</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.ttl(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">del</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.del(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">hdel</span><span class="params">(String hkey, String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> jedisCluster.hdel(hkey, key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-把缓存添加到业务逻辑"><a href="#4-把缓存添加到业务逻辑" class="headerlink" title="4.把缓存添加到业务逻辑"></a>4.把缓存添加到业务逻辑</h2><h3 id="4-1配置文件"><a href="#4-1配置文件" class="headerlink" title="4.1配置文件"></a>4.1配置文件</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首页内容信息在redis中保存的key</span></span><br><span class="line"><span class="attr">INDEX_CONTENT_REDIS_KEY</span>=<span class="string">INDEX_CONTENT_REDIS_KEY</span></span><br><span class="line"><span class="comment">#商品类目信息在redis中保存的key</span></span><br><span class="line"><span class="attr">INDEX_CAT_REDIS_KEY</span>=<span class="string">INDEX_CAT_REDIS_KEY</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2大广告添加缓存"><a href="#4-2大广告添加缓存" class="headerlink" title="4.2大广告添加缓存"></a>4.2大广告添加缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbContentMapper contentMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisClientSingle jedisClientSingle;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;INDEX_CONTENT_REDIS_KEY&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String INDEX_CONTENT_REDIS_KEY;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">getContentList</span><span class="params">(<span class="keyword">long</span> contentCid)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//从缓存中取内容</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String result = jedisClientSingle.hget(INDEX_CONTENT_REDIS_KEY, contentCid+<span class="string">""</span>);</span><br><span class="line">			<span class="keyword">if</span>(!StringUtils.isBlank(result)) &#123;</span><br><span class="line">				<span class="comment">//把字符串转换成list</span></span><br><span class="line">				List&lt;TbContent&gt; resultList = JsonUtils.jsonToList(result, TbContent<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> resultList;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//根据内容分类id查询内容列表</span></span><br><span class="line">		TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andCategoryIdEqualTo(contentCid);</span><br><span class="line">		List&lt;TbContent&gt; list = contentMapper.selectByExample(example);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//向缓存中添加内容</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//把list转换成字符串</span></span><br><span class="line">			String cacheString = JsonUtils.objectToJson(list);</span><br><span class="line">			jedisClientSingle.hset(INDEX_CONTENT_REDIS_KEY, contentCid+<span class="string">""</span>, cacheString);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3商品类目展示添加缓存"><a href="#4-3商品类目展示添加缓存" class="headerlink" title="4.3商品类目展示添加缓存"></a>4.3商品类目展示添加缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询分类列表</span></span><br><span class="line"><span class="keyword">private</span> List&lt;?&gt; getCatList(<span class="keyword">long</span> parentId)&#123;</span><br><span class="line">    <span class="comment">//从缓存中取内容</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        String result = jedisClientSingle.hget(INDEX_CAT_REDIS_KEY, parentId+<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">if</span>(!StringUtils.isBlank(result)) &#123;</span><br><span class="line">            List resultList = JsonUtils.jsonToList(result, <span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">return</span> resultList;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TbItemCatExample example = <span class="keyword">new</span> TbItemCatExample();</span><br><span class="line">    Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andParentIdEqualTo(parentId);</span><br><span class="line">    List&lt;TbItemCat&gt; list = itemCatMapper.selectByExample(example);</span><br><span class="line">    List resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (TbItemCat tbItemCat : list) &#123;</span><br><span class="line">        <span class="comment">//判断是否为父节点</span></span><br><span class="line">        <span class="keyword">if</span>(tbItemCat.getIsParent()) &#123;</span><br><span class="line">            CatNode node = <span class="keyword">new</span> CatNode();</span><br><span class="line">            <span class="keyword">if</span>(parentId==<span class="number">0</span>) &#123;</span><br><span class="line">                node.setName(<span class="string">"&lt;a href='/products/"</span>+tbItemCat.getId()+<span class="string">".html'&gt;"</span>+tbItemCat.getName()+<span class="string">"&lt;/a&gt;"</span>);</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span>(count&gt;=<span class="number">14</span>)<span class="keyword">break</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                node.setName(tbItemCat.getName());</span><br><span class="line">            &#125;</span><br><span class="line">            node.setUrl(<span class="string">"/products/"</span>+tbItemCat.getId()+<span class="string">".html"</span>);</span><br><span class="line">            node.setItem(getCatList(tbItemCat.getId()));</span><br><span class="line">            resultList.add(node);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//				是叶子节点</span></span><br><span class="line">            resultList.add(<span class="string">"/products/"</span>+tbItemCat.getId()+<span class="string">".html|"</span> + tbItemCat.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//向缓存中添加内容</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        String cacheString = JsonUtils.objectToJson(resultList);</span><br><span class="line">        jedisClientSingle.hset(INDEX_CAT_REDIS_KEY, parentId+<span class="string">""</span>, cacheString);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> resultList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、缓存同步"><a href="#三、缓存同步" class="headerlink" title="三、缓存同步"></a>三、缓存同步</h1><h2 id="1-需求分析"><a href="#1-需求分析" class="headerlink" title="1.需求分析"></a>1.需求分析</h2><p>我们再来回顾一下首页流程</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002.gif" alt="img"></p>
+<p>我们可以看出，当后台管理系统，修改内容之后需要通知redis把修改的内容对应的分类id的key删除。</p>
+<p>可以在taotao-rest工程中发布一个服务，就是专门同步数据用的，其实只需要把缓存中的数据清空即可。当管理后台更新了内容信息后，需要调用此服务。</p>
+<h2 id="2-Dao层"><a href="#2-Dao层" class="headerlink" title="2.Dao层"></a>2.Dao层</h2><p>使用JedisClient接口对应的实现类。</p>
+<p>在配置文件添加如下内容</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务层基础url</span></span><br><span class="line"><span class="attr">REST_BASE_URL</span>=<span class="string">http://localhost:8081/rest</span></span><br><span class="line"><span class="attr">REST_CONTENT_SYNC_URL</span>=<span class="string">/cache/sync/content/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Service层"><a href="#3-Service层" class="headerlink" title="3.Service层"></a>3.Service层</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisServiceImpl</span> <span class="keyword">implements</span> <span class="title">RedisService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisClient jedisClient;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;INDEX_CONTENT_REDIS_KEY&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String INDEX_CONTENT_REDIS_KEY;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">syncContent</span><span class="params">(<span class="keyword">long</span> contentCid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			jedisClient.hdel(INDEX_CONTENT_REDIS_KEY, contentCid + <span class="string">""</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Controller层"><a href="#4-Controller层" class="headerlink" title="4.Controller层"></a>4.Controller层</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/cache/sync"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> RedisService redisService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/content/&#123;contentCid&#125;"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">contentCacheSync</span><span class="params">(@PathVariable Long contentCid)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = redisService.syncContent(contentCid);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-同步缓存服务的调用"><a href="#5-同步缓存服务的调用" class="headerlink" title="5.同步缓存服务的调用"></a>5.同步缓存服务的调用</h2><p>在后台系统service层添加缓存同步逻辑</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200526202758566.png" alt="image-20200526202758566"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>吾日三省吾身：<br>你在 赣神魔<br>你往 哪里跑<br>你是 神魔恋</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/index.jpg" alt="index"></p>
+<p>看大司马斗地主真想把他眼镜干碎</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=468491083&auto=0&height=66"></iframe>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -547,16 +367,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/26/Redis%E7%BC%93%E5%AD%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux安装jdk(CentOS为例)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis在Linux上的安装和集群搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -571,432 +459,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis安装和集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">Redis在Linux上的安装和集群搭建</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-25T06:20:31.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、Redis简介"><a href="#一、Redis简介" class="headerlink" title="一、Redis简介"></a>一、Redis简介</h1><h2 id="1-关于关系型数据库和nosql数据库"><a href="#1-关于关系型数据库和nosql数据库" class="headerlink" title="1.关于关系型数据库和nosql数据库"></a>1.关于关系型数据库和nosql数据库</h2><p>关系型数据库是基于关系表的数据库，最终会将数据持久化到磁盘上，而nosql数据 库是基于特殊的结构，并将数据存储到内存的数据库。从性能上而言，nosql数据库  要优于关系型数据库，从安全性上而言关系型数据库要优于nosql数据库，所以在实 际开发中一个项目中nosql和关系型数据库会一起使用，达到性能和安全性的双保证。</p>
-        
-          <a class="article-more-a" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Redis"><span class="toc-number">2.</span> <span class="toc-text">一、Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-redis介绍及安装"><span class="toc-number">2.1.</span> <span class="toc-text">1.redis介绍及安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-redis持久化"><span class="toc-number">2.2.</span> <span class="toc-text">2.redis持久化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-redis集群"><span class="toc-number">2.3.</span> <span class="toc-text">3.redis集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1redis-cluster架构图"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1redis-cluster架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2redis-cluster投票-容错"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2redis-cluster投票:容错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3redis集群的搭建"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3redis集群的搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-redis客户端"><span class="toc-number">2.4.</span> <span class="toc-text">4.redis客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1Redis-cli"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1Redis-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2图形化界面客户端"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2图形化界面客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3Jedis客户端"><span class="toc-number">2.4.3.</span> <span class="toc-text">4.3Jedis客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1单机版"><span class="toc-number">2.4.3.1.</span> <span class="toc-text">4.3.1单机版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2集群版"><span class="toc-number">2.4.3.2.</span> <span class="toc-text">4.3.2集群版</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-keys的通用操作"><span class="toc-number">2.5.</span> <span class="toc-text">5.keys的通用操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、系统添加缓存逻辑"><span class="toc-number">3.</span> <span class="toc-text">二、系统添加缓存逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-添加缓存后系统架构"><span class="toc-number">3.1.</span> <span class="toc-text">1.添加缓存后系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-jedis整合spring"><span class="toc-number">3.2.</span> <span class="toc-text">2.jedis整合spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1单机版整合"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1单机版整合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2集群版整合"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2集群版整合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-添加jedis-dao"><span class="toc-number">3.3.</span> <span class="toc-text">3.添加jedis dao</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1接口"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2单机版"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2单机版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3集群版"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3集群版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-把缓存添加到业务逻辑"><span class="toc-number">3.4.</span> <span class="toc-text">4.把缓存添加到业务逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1配置文件"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2大广告添加缓存"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.2大广告添加缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3商品类目展示添加缓存"><span class="toc-number">3.4.3.</span> <span class="toc-text">4.3商品类目展示添加缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、缓存同步"><span class="toc-number">4.</span> <span class="toc-text">三、缓存同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-需求分析"><span class="toc-number">4.1.</span> <span class="toc-text">1.需求分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Dao层"><span class="toc-number">4.2.</span> <span class="toc-text">2.Dao层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Service层"><span class="toc-number">4.3.</span> <span class="toc-text">3.Service层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Controller层"><span class="toc-number">4.4.</span> <span class="toc-text">4.Controller层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-同步缓存服务的调用"><span class="toc-number">4.5.</span> <span class="toc-text">5.同步缓存服务的调用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-CMS系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-24T08:44:59.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本博文将分析CMS内容管理系统的功能实现，同时借助广告位的展示来介绍解决ajax跨域请求问题的方案二：httpClient。</p>
-        
-          <a class="article-more-a" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前台工程搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">企业WEB开发前台工程搭建,ajax跨域的解决</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-22T14:01:00.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文将介绍分布式环境下前台系统架构和一步一步搭建的过程，接着通过首页商品类目展示来详解ajax跨域的解决。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-商品规格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">企业WEB项目中商品规格的实现</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" class="archive-article-date">
-  	<time datetime="2020-05-22T01:58:26.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">企业WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  	<time datetime="2020-05-20T01:49:38.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍：</p>
-<p>商品类目，图片上传，富文本编辑器</p>
-        
-          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1033,8 +521,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

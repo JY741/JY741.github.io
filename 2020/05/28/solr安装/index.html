@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>Linux下Solr的安装及配置(CentOS为例) | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="安装步骤1.前提条件solr 需要运行在一个Servlet容器中，Solr4.10.3要求jdk使用1.7以上，Solr默认提供Jetty（java写的Servlet容器），本教程使用Tocmat作为Servlet容器，所以我们需要以下环境： 已安装jdk，tomcat 如果没有安装参考我的上两篇博文《Linux安装jdk(CentOS为例)》《Linux安装tomcat并配置开机自启动(Cent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下Solr的安装及配置(CentOS为例)">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/solr%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="安装步骤1.前提条件solr 需要运行在一个Servlet容器中，Solr4.10.3要求jdk使用1.7以上，Solr默认提供Jetty（java写的Servlet容器），本教程使用Tocmat作为Servlet容器，所以我们需要以下环境： 已安装jdk，tomcat 如果没有安装参考我的上两篇博文《Linux安装jdk(CentOS为例)》《Linux安装tomcat并配置开机自启动(Cent">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528205152592.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528205634134.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528211558605.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528211758779.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200529102951598.png">
+<meta property="article:published_time" content="2020-05-28T12:31:38.941Z">
+<meta property="article:modified_time" content="2020-05-29T04:00:49.776Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="安装">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528205152592.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,102 +175,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-vim坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-solr安装" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/29/vim%E5%9D%91/">vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.</a>
+    <h1 class="article-title" itemprop="name">
+      Linux下Solr的安装及配置(CentOS为例)
     </h1>
   
 
 		<!--显示阅读次数-->
 		
-        
-        <a href="/2020/05/29/vim%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:16:28.996Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下是错误详细代码</p>
-        
-          <a class="article-more-a" href="/2020/05/29/vim%E5%9D%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/29/vim%E5%9D%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-solr安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">Linux下Solr的安装及配置(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
         <a href="/2020/05/28/solr%E5%AE%89%E8%A3%85/" class="archive-article-date">
   	<time datetime="2020-05-28T12:31:38.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
@@ -271,177 +208,116 @@
         <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-前提条件"><a href="#1-前提条件" class="headerlink" title="1.前提条件"></a>1.前提条件</h2><p>solr 需要运行在一个Servlet容器中，Solr4.10.3要求jdk使用1.7以上，Solr默认提供Jetty（java写的Servlet容器），本教程使用Tocmat作为Servlet容器，所以我们需要以下环境：</p>
 <p>已安装jdk，tomcat</p>
 <p>如果没有安装参考我的上两篇博文<a href="https://blog.csdn.net/JYplute/article/details/106411661" target="_blank" rel="noopener">《Linux安装jdk(CentOS为例)》</a><a href="https://blog.csdn.net/JYplute/article/details/106411672" target="_blank" rel="noopener">《Linux安装tomcat并配置开机自启动(CentOS为例)》</a></p>
-        
-          <a class="article-more-a" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/#more">more >></a>
-        
-      
+<a id="more"></a>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tomcat安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">Linux安装tomcat并配置开机自启动(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:32:37.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一-tomcat安装"><a href="#一-tomcat安装" class="headerlink" title="一.tomcat安装"></a>一.tomcat安装</h1><p>tomcat只要解压就可以使用。</p>
-        
-          <a class="article-more-a" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jdk安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">Linux安装jdk(CentOS为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:12:59.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><blockquote>
-<p>yum install glibc.i686        (需要联网)</p>
+<h2 id="2-Solr安装"><a href="#2-Solr安装" class="headerlink" title="2.Solr安装"></a>2.Solr安装</h2><p>Solr使用指南可参考：<a href="https://wiki.apache.org/solr/FrontPage。" target="_blank" rel="noopener">https://wiki.apache.org/solr/FrontPage。</a></p>
+<p>去<a href="http://www.solr.net.cn/" target="_blank" rel="noopener">官网</a>下载linux版压缩包，把solr的压缩包上传到服务器。并解压，解压完有以下目录</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528205152592.png" alt="image-20200528205152592"></p>
+<p>文件夹介绍：</p>
+<p>1、bin:单独运行服务用到，solr的运行脚本</p>
+<p>2、contrib:solr的一些贡献软件/插件，用于增强solr的功能</p>
+<p>3、dist:编译后的目标文件，该目录包含build过程中产生的war和jar文件，以及相关的依赖文件。</p>
+<p>4、example:实例包，solr的API文档</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528205634134.png" alt="image-20200528205634134"></p>
+<p>其中solr是一个标准的solrhome，lib下的exp包含工程需要的jar包</p>
+<h2 id="3-Solr整合tomcat"><a href="#3-Solr整合tomcat" class="headerlink" title="3.Solr整合tomcat"></a>3.Solr整合tomcat</h2><p>1、把/root/solr-4.10.3/dist/solr-4.10.3.war包部署到tomcat下。并改名为solr.war</p>
+<blockquote>
+<p>cp solr-4.10.3.war /usr/local/src/tomcat/tomcat/webapps/solr.war</p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/#more">more >></a>
-        
+<p>2、解压war包。启动tomcat自动解压。关闭tomcat。删除solr.war</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/tomcat/tomcat/</span><br><span class="line"></span><br><span class="line">./bin/startup.sh</span><br><span class="line"></span><br><span class="line">./bin/shutdown.sh</span><br><span class="line"></span><br><span class="line">cd webapps/</span><br><span class="line"></span><br><span class="line">rm -f solr.war</span><br></pre></td></tr></table></figure>
+
+<p>注意这里必须关闭tomcat，否则删除war包会把解压的一起删掉。</p>
+<p>3、把/root/solr-4.10.3/example/lib/ext 目录下所有的jar包复制到solr工程中。</p>
+<blockquote>
+<p>cd example/lib/ext/</p>
+<p>cp * /usr/local/src/tomcat/tomcat/webapps/solr/WEB-INF/lib/</p>
+</blockquote>
+<p>4、创建solrhome。Solrhome是存放solr服务器所有配置文件的目录(位置任意)</p>
+<blockquote>
+<p>cd /root/solr-4.10.3/example</p>
+<p>cp -r solr /usr/local/src/tomcat/solrhome</p>
+</blockquote>
+<p>5、告诉solr服务器solrhome的位置</p>
+<p>需要修改solr工程的web.xml文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/tomcat/tomcat/webapps/solr/WEB-INF/</span><br><span class="line">vim web.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528211558605.png" alt="image-20200528211558605"></p>
+<p>取消注释，并把路径改为刚刚创建的solrhome的路径</p>
+<p>这里取消注释用到vim小技巧：dd       删除当前行。</p>
+<p>6、打开tomcat查看效果</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200528211758779.png" alt="image-20200528211758779"></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>在solr中默认不是中文分析器，需要手工配置。配置一个FieldType，在FieldType中指定中文分析器。</p>
+<p>Solr中的字段必须是先定义后使用。</p>
+<h2 id="1-中文分词器的配置"><a href="#1-中文分词器的配置" class="headerlink" title="1.中文分词器的配置"></a>1.中文分词器的配置</h2><p>1、使用IK-Analyzer。把分析器的文件夹上传到服务器。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200529102951598.png" alt="image-20200529102951598"></p>
+<p>2、需要把分析器的jar包添加到solr工程中。</p>
+<blockquote>
+<p>cp IKAnalyzer2012FF_u1.jar /usr/local/src/tomcat/tomcat/webapps/solr/WEB-INF/lib/</p>
+</blockquote>
+<p>3、需要把IKAnalyzer需要的扩展词典及停用词词典、配置文件复制到solr工程的classpath。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src/tomcat/tomcat/webapps/solr/WEB-INF/</span><br><span class="line">mkdir classes</span><br><span class="line">cd /root/IK\ Analyzer\ 2012FF_hf1/</span><br><span class="line">cp IKAnalyzer.cfg.xml ext_stopword.dic mydict.dic /usr/local/src/tomcat/tomcat/webapps/solr/WEB-INF/classes</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：扩展词典及停用词词典的字符集必须是utf-8。不能使用windows记事本编辑。</p>
+</blockquote>
+<p>4、配置fieldType。需要在solrhome/collection1/conf/schema.xml中配置。</p>
+<blockquote>
+<p>vim /usr/local/src/tomcat/solrhome/collection1/conf/schema.xml</p>
+</blockquote>
+<p>在末尾添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"text_ik"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzer"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>技巧：使用vi、vim跳转到文档开头gg。跳转到文档末尾：G</p>
+<h2 id="2-业务字段配置"><a href="#2-业务字段配置" class="headerlink" title="2.业务字段配置"></a>2.业务字段配置</h2><p>业务字段需要根据自己目前的项目需求自行定制，比如我们举京东商城的例子</p>
+<p>业务字段判断标准：</p>
+<p>1、在搜索时是否需要在此字段上进行搜索。例如：商品名称、商品的卖点、商品的描述</p>
+<p>2、后续的业务是否需要用到此字段。例如：商品id。</p>
+<p>需要用到的字段：</p>
+<p>1、商品id</p>
+<p>2、商品title</p>
+<p>3、卖点</p>
+<p>4、价格</p>
+<p>5、商品图片</p>
+<p>6、商品分类名称</p>
+<p>7、商品描述</p>
+<p>在schema.xml中添加如下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_title"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_sell_point"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_price"</span>  <span class="attr">type</span>=<span class="string">"long"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_image"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"false"</span> <span class="attr">stored</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_category_name"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_desc"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_keywords"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"false"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_title"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_sell_point"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_category_name"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_desc"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -465,16 +341,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/28/solr%E5%AE%89%E8%A3%85/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/29/vim%E5%9D%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux安装tomcat并配置开机自启动(CentOS为例)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -489,514 +433,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">WEB项目系统添加redis缓存逻辑和功能</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-05-26T11:36:39.762Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>由于我们项目的首页是最频繁访问的，每次请求都调用mysql查询浪费性能和效率，我们可以用redis做缓存工具，这样将数据加载到内存中，提高了性能和效率。同时，为了实现系统高可用，redis需要做主备，使用redis做分片集群，搭建redis集群。最后我们还需要向业务逻辑中添加缓存并让缓存同步。</p>
-        
-          <a class="article-more-a" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装步骤"><span class="toc-number">1.</span> <span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前提条件"><span class="toc-number">1.1.</span> <span class="toc-text">1.前提条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Solr安装"><span class="toc-number">1.2.</span> <span class="toc-text">2.Solr安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Solr整合tomcat"><span class="toc-number">1.3.</span> <span class="toc-text">3.Solr整合tomcat</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-中文分词器的配置"><span class="toc-number">2.1.</span> <span class="toc-text">1.中文分词器的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-业务字段配置"><span class="toc-number">2.2.</span> <span class="toc-text">2.业务字段配置</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Redis安装和集群搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">Redis在Linux上的安装和集群搭建</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-25T06:20:31.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、Redis简介"><a href="#一、Redis简介" class="headerlink" title="一、Redis简介"></a>一、Redis简介</h1><h2 id="1-关于关系型数据库和nosql数据库"><a href="#1-关于关系型数据库和nosql数据库" class="headerlink" title="1.关于关系型数据库和nosql数据库"></a>1.关于关系型数据库和nosql数据库</h2><p>关系型数据库是基于关系表的数据库，最终会将数据持久化到磁盘上，而nosql数据 库是基于特殊的结构，并将数据存储到内存的数据库。从性能上而言，nosql数据库  要优于关系型数据库，从安全性上而言关系型数据库要优于nosql数据库，所以在实 际开发中一个项目中nosql和关系型数据库会一起使用，达到性能和安全性的双保证。</p>
-        
-          <a class="article-more-a" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CMS系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-24T08:44:59.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本博文将分析CMS内容管理系统的功能实现，同时借助广告位的展示来介绍解决ajax跨域请求问题的方案二：httpClient。</p>
-        
-          <a class="article-more-a" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前台工程搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">企业WEB开发前台工程搭建,ajax跨域的解决</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-22T14:01:00.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文将介绍分布式环境下前台系统架构和一步一步搭建的过程，接着通过首页商品类目展示来详解ajax跨域的解决。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-商品规格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">企业WEB项目中商品规格的实现</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" class="archive-article-date">
-  	<time datetime="2020-05-22T01:58:26.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">企业WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  	<time datetime="2020-05-20T01:49:38.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍：</p>
-<p>商品类目，图片上传，富文本编辑器</p>
-        
-          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1033,8 +495,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
