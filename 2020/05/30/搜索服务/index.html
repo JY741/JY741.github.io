@@ -6,15 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | J Sir</title>
+  <title>企业WEB项目通过solr实现商品搜索功能 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/page/3/index.html">
+  <meta name="description" content="概述WEB项目中搜索功能是必不可少的，然而如果我们每次搜索都去数据库查询，将极大浪费性能，因此，我们需要一个全文搜索服务器——Solr。本博文将详细介绍Solr服务的搭建搜索功能的实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="企业WEB项目通过solr实现商品搜索功能">
+<meta property="og:url" content="http://yoursite.com/2020/05/30/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述WEB项目中搜索功能是必不可少的，然而如果我们每次搜索都去数据库查询，将极大浪费性能，因此，我们需要一个全文搜索服务器——Solr。本博文将详细介绍Solr服务的搭建搜索功能的实现。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814785163.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814791334.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814797695.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814803495.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814809042.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814898281.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590815316216.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590815353638.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590815727317.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200530140518978.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839541580.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839582074.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200530195838608.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839814856.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839828002.jpg">
+<meta property="article:published_time" content="2020-05-30T04:52:52.859Z">
+<meta property="article:modified_time" content="2020-05-30T12:12:00.107Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814785163.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,238 +185,313 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-搜索服务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      企业WEB项目通过solr实现商品搜索功能
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/05/30/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2020-05-30T04:52:52.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>WEB项目中搜索功能是必不可少的，然而如果我们每次搜索都去数据库查询，将极大浪费性能，因此，我们需要一个全文搜索服务器——Solr。本博文将详细介绍Solr服务的搭建搜索功能的实现。</p>
+<a id="more"></a>
+
+<h1 id="一、Solr"><a href="#一、Solr" class="headerlink" title="一、Solr"></a>一、Solr</h1><h2 id="1-Solr简介"><a href="#1-Solr简介" class="headerlink" title="1.Solr简介"></a>1.Solr简介</h2><p>Solr 是Apache下的一个顶级开源项目，采用Java开发，它是基于Lucene的全文搜索服务器。Solr提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。 </p>
+<p>Solr可以独立运行，运行在Jetty、Tomcat等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发送一个描述 Field 及其内容的 XML 文档，Solr根据xml文档添加、删除、更新索引 。Solr 搜索只需要发送 HTTP GET 请求，然后对 Solr 返回Xml、json等格式的查询结果进行解析，组织页面布局。Solr不提供构建UI的功能，Solr提供了一个管理界面，通过管理界面可以查询Solr的配置和运行情况。</p>
+<p>简单来说，就是Solr是一个全文检索服务器，只需要进行配置就可以实现全文检索服务。</p>
+<h2 id="2-Solr的安装及配置"><a href="#2-Solr的安装及配置" class="headerlink" title="2.Solr的安装及配置"></a>2.Solr的安装及配置</h2><p>详细安装过程及配置参照另一篇博客<a href="https://blog.csdn.net/JYplute/article/details/106435119" target="_blank" rel="noopener">《Linux下Solr的安装及配置(CentOS为例)》</a></p>
+<h2 id="3-Solr界面功能"><a href="#3-Solr界面功能" class="headerlink" title="3.Solr界面功能"></a>3.Solr界面功能</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814785163.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814791334.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814797695.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814803495.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814809042.jpg" alt="img"></p>
+<h2 id="4-维护索引库"><a href="#4-维护索引库" class="headerlink" title="4.维护索引库"></a>4.维护索引库</h2><p>添加：添加一个json格式的文件就可以。</p>
+<p>修改：在solr中没有update，只需要添加一个新的文档，要求文档id和被修改文档的id一致。原理是先删除后添加。</p>
+<p>删除：使用xml格式。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590814898281.jpg" alt="img"></p>
+<p>删除两种方法：</p>
+<p>1、根据id删除：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>test001<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、根据查询删除：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">query</span>&gt;</span>*:*<span class="tag">&lt;/<span class="name">query</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">commit</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-SolrJ客户端"><a href="#5-SolrJ客户端" class="headerlink" title="5.SolrJ客户端"></a>5.SolrJ客户端</h2><p>SolrJ是一个使Java应用程序可以轻松与Solr对话的API。SolrJ隐藏了许多连接到Solr的细节，并允许您的应用程序通过简单的高级方法与Solr进行交互。</p>
+<p>maven工程需要依赖solrj的jar包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- solr客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.solr<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>solr-solrj<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>solrj的使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SolrJTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//创建一个连接</span></span><br><span class="line">		SolrServer solrServer = <span class="keyword">new</span> HttpSolrServer(<span class="string">"http://192.168.10.130:8080/solr"</span>);</span><br><span class="line">		<span class="comment">//创建一个文档对象</span></span><br><span class="line">		SolrInputDocument document = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">		document.addField(<span class="string">"id"</span>, <span class="string">"test001"</span>);</span><br><span class="line">		document.addField(<span class="string">"item_title"</span>, <span class="string">"测试视频"</span>);</span><br><span class="line">		document.addField(<span class="string">"item_price"</span>, <span class="number">53156</span>);</span><br><span class="line">		<span class="comment">//把文档对象写入索引库</span></span><br><span class="line">		solrServer.add(document);</span><br><span class="line">		<span class="comment">//提交</span></span><br><span class="line">		solrServer.commit();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		SolrServer solrServer = <span class="keyword">new</span> HttpSolrServer(<span class="string">"http://192.168.10.130:8080/solr"</span>);</span><br><span class="line">		<span class="comment">//solrServer.deleteById("test001");</span></span><br><span class="line">		solrServer.deleteByQuery(<span class="string">"*:*"</span>);<span class="comment">//删除所有</span></span><br><span class="line">		solrServer.commit();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		SolrServer solrServer = <span class="keyword">new</span> HttpSolrServer(<span class="string">"http://192.168.10.130:8080/solr"</span>);</span><br><span class="line">		<span class="comment">//创建一个查询对象</span></span><br><span class="line">		SolrQuery query = <span class="keyword">new</span> SolrQuery();</span><br><span class="line">		<span class="comment">//设置查询条件</span></span><br><span class="line">		query.setQuery(<span class="string">"*:*"</span>);</span><br><span class="line">		<span class="comment">//设置分页参数</span></span><br><span class="line">		query.setStart(<span class="number">20</span>);</span><br><span class="line">		query.setRows(<span class="number">20</span>);</span><br><span class="line">		<span class="comment">//执行查询</span></span><br><span class="line">		QueryResponse response = solrServer.query(query);</span><br><span class="line">		<span class="comment">//去查询结果</span></span><br><span class="line">		SolrDocumentList solrDocumentList = response.getResults();</span><br><span class="line">		System.out.println(<span class="string">"共查到记录："</span>+solrDocumentList.getNumFound());</span><br><span class="line">		<span class="keyword">for</span> (SolrDocument solrDocument : solrDocumentList) &#123;</span><br><span class="line">			System.out.println(solrDocument.get(<span class="string">"id"</span>));</span><br><span class="line">			System.out.println(solrDocument.get(<span class="string">"item_title"</span>));</span><br><span class="line">			System.out.println(solrDocument.get(<span class="string">"item_price"</span>));</span><br><span class="line">			System.out.println(solrDocument.get(<span class="string">"item_image"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、把商品信息导入到索引库"><a href="#二、把商品信息导入到索引库" class="headerlink" title="二、把商品信息导入到索引库"></a>二、把商品信息导入到索引库</h1><p>使用java程序读取mysql数据库中的商品信息，然后创建solr文档对象，把商品信息写入索引库。</p>
+<p>需要发布一个服务。 为了灵活的进行分布式部署需要创建一搜素的服务工程发布 搜素服务。Taotao-search。</p>
+<h2 id="1-系统架构"><a href="#1-系统架构" class="headerlink" title="1.系统架构"></a>1.系统架构</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590815316216.gif" alt="img"></p>
+<h2 id="2-创建taotao-search工程"><a href="#2-创建taotao-search工程" class="headerlink" title="2.创建taotao-search工程"></a>2.创建taotao-search工程</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590815353638.jpg" alt="img" style="zoom: 67%;" />
+
+<p>配置：</p>
+<p>pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.taotao<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>taotao-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.taotao<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>taotao-serach<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.taotao<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>taotao-manager-mapper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- Spring --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-beans<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- solr客户端 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.solr<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>solr-solrj<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置插件 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">port</span>&gt;</span>8084<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其他配置参考<a href="https://blog.csdn.net/JYplute/article/details/106292466" target="_blank" rel="noopener">《企业WEB项目前台工程搭建,ajax跨域的解决》</a> taotao-rest工程的配置，基本差不多</p>
+<h2 id="3-sql语句"><a href="#3-sql语句" class="headerlink" title="3.sql语句"></a>3.sql语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.id,</span><br><span class="line">	a.title,</span><br><span class="line">	a.sell_point,</span><br><span class="line">	a.price,</span><br><span class="line">	a.image,</span><br><span class="line">	b.<span class="string">`name`</span> category_name,</span><br><span class="line">	c.item_desc</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	tb_item a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_item_cat b <span class="keyword">ON</span> a.cid = b.id</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_item_desc c <span class="keyword">ON</span> a.id = c.item_id</span><br></pre></td></tr></table></figure>
+
+<p>创建一个sql语句对应的pojo。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> String sell_point;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> price;</span><br><span class="line">	<span class="keyword">private</span> String image;</span><br><span class="line">	<span class="keyword">private</span> String category_name;</span><br><span class="line">	<span class="keyword">private</span> String item_des;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Dao层"><a href="#4-Dao层" class="headerlink" title="4.Dao层"></a>4.Dao层</h2><p>需要创建一个mapper接口+mapper映射文件。名称相同且在同一目录下。</p>
+<p>接口定义：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590815727317.png" alt="img"></p>
+<p>Mapper文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span> <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.taotao.search.mapper.ItemMapper"</span> &gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getItemList"</span> <span class="attr">resultType</span>=<span class="string">"com.taotao.search.pojo.Item"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">			a.id,</span><br><span class="line">			a.title,</span><br><span class="line">			a.sell_point,</span><br><span class="line">			a.price,</span><br><span class="line">			a.image,</span><br><span class="line">			b. NAME category_name</span><br><span class="line">		FROM</span><br><span class="line">			tb_item a</span><br><span class="line">		LEFT JOIN tb_item_cat b ON a.cid = b.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Service层"><a href="#5-Service层" class="headerlink" title="5.Service层"></a>5.Service层</h2><p>功能：导入所有的商品数据。没有参数。返回结果TaotaoResult。从数据库中查询出所有的商品数据。创建一个SolrInputDocument对象，把对象写入索引库。</p>
+<p>applicationContext-solr.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SolrServer对象 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 单机版 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"httpSolrServer"</span> <span class="attr">class</span>=<span class="string">"org.apache.solr.client.solrj.impl.HttpSolrServer"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"baseURL"</span> <span class="attr">value</span>=<span class="string">"$&#123;SOLR.SERVER.URL&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>SOLR.SERVER.URL在properties中定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemMapper itemMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> SolrServer solrServer;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">importAllItems</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//查询商品列表</span></span><br><span class="line">			List&lt;Item&gt; list = itemMapper.getItemList();</span><br><span class="line">			<span class="comment">//把商品信息写入索引库</span></span><br><span class="line">			<span class="keyword">for</span> (Item item : list) &#123;</span><br><span class="line">				<span class="comment">//创建一个SolrInputDocument对象</span></span><br><span class="line">				SolrInputDocument document = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">				document.setField(<span class="string">"id"</span>, item.getId());</span><br><span class="line">				document.setField(<span class="string">"item_title"</span>, item.getTitle());</span><br><span class="line">				document.setField(<span class="string">"item_sell_point"</span>, item.getSell_point());</span><br><span class="line">				document.setField(<span class="string">"item_price"</span>, item.getPrice());</span><br><span class="line">				document.setField(<span class="string">"item_image"</span>, item.getImage());</span><br><span class="line">				document.setField(<span class="string">"item_category_name"</span>, item.getCategory_name());</span><br><span class="line">				document.setField(<span class="string">"item_desc"</span>, item.getItem_des());</span><br><span class="line">				<span class="comment">//写入索引库</span></span><br><span class="line">				solrServer.add(document);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//提交修改</span></span><br><span class="line">			solrServer.commit();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Controller层"><a href="#6-Controller层" class="headerlink" title="6.Controller层"></a>6.Controller层</h2><p>功能：发布一个rest形式的服务。调用Service的服务方法，把数据导入到索引库中，返回TaotaoResult。</p>
+<p>Url：/search/manager/importall</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/manager"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemService itemService;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 导入商品数据到索引库</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/importall"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">importAllItems</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.importAllItems();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、实现商品搜索功能"><a href="#三、实现商品搜索功能" class="headerlink" title="三、实现商品搜索功能"></a>三、实现商品搜索功能</h1><p>实现商品搜索功能需要两步实现：</p>
+<p>第一步：在taotoa-search工程中发布服务</p>
+<p>第二步：在taotao-portal中调用服务并展示结果。</p>
+<h2 id="1-发布搜索服务"><a href="#1-发布搜索服务" class="headerlink" title="1.发布搜索服务"></a>1.发布搜索服务</h2><h3 id="1-1需求分析"><a href="#1-1需求分析" class="headerlink" title="1.1需求分析"></a>1.1需求分析</h3><p>http形式的服务。对外提供搜索服务是一个get形式的服务。调用此服务时需要查询条件，分页条件可以使用page（要显示第几页）、rows（每页显示的记录数）。返回一个json格式的数据。可以使用TaotaoResult包装一个商品列表转换成json。</p>
+<p>请求的url：/search/query/{查询条件}/{page}/{rows}</p>
+<p>​                    /search/query?q={查询条件}&amp;page={page}&amp;rows={rows}</p>
+<p>返回的结果：TaotaoResult包装商品列表。</p>
+<p>返回结果pojo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchResult</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//商品列表</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Item&gt; itemList;</span><br><span class="line">	<span class="comment">//总记录数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> recordCount;</span><br><span class="line">	<span class="comment">//总页数</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> pageCount;</span><br><span class="line">	<span class="comment">//当前页</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> curPage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2Dao层"><a href="#1-2Dao层" class="headerlink" title="1.2Dao层"></a>1.2Dao层</h3><p>分析：尽可能的做的通用一些。参数应该是SolrQuery。返回商品列表、查询结果总记录数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchDaoImpl</span> <span class="keyword">implements</span> <span class="title">SearchDao</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> SolrServer solrServer;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> SearchResult <span class="title">search</span><span class="params">(SolrQuery query)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//返回值对象</span></span><br><span class="line">		SearchResult result = <span class="keyword">new</span> SearchResult();</span><br><span class="line">		<span class="comment">//根据查询条件查询索引库</span></span><br><span class="line">		QueryResponse queryResponse = solrServer.query(query);</span><br><span class="line">		<span class="comment">//取查询结果</span></span><br><span class="line">		SolrDocumentList solrDocumentList = queryResponse.getResults();</span><br><span class="line">		<span class="comment">//取查询结果总数量</span></span><br><span class="line">		result.setRecordCount(solrDocumentList.getNumFound());</span><br><span class="line">		<span class="comment">//商品列表</span></span><br><span class="line">		List&lt;Item&gt; itemList = <span class="keyword">new</span> ArrayList&lt;Item&gt;();</span><br><span class="line">		<span class="comment">//取高亮显示</span></span><br><span class="line">		Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt; highlighting = queryResponse.getHighlighting();</span><br><span class="line">		<span class="comment">//取商品列表</span></span><br><span class="line">		<span class="keyword">for</span> (SolrDocument solrDocument : solrDocumentList) &#123;</span><br><span class="line">			<span class="comment">//创建一商品对象</span></span><br><span class="line">			Item item = <span class="keyword">new</span> Item();</span><br><span class="line">			item.setId((String) solrDocument.get(<span class="string">"id"</span>));</span><br><span class="line">			<span class="comment">//取高亮显示的结果</span></span><br><span class="line">			List&lt;String&gt; list = highlighting.get(solrDocument.get(<span class="string">"id"</span>)).get(<span class="string">"item_title"</span>);</span><br><span class="line">			String title=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">if</span>(list!=<span class="keyword">null</span>&amp;&amp;list.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">				title = list.get(<span class="number">0</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				title = (String) solrDocument.get(<span class="string">"item_title"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			item.setTitle(title);</span><br><span class="line">			item.setImage((String) solrDocument.get(<span class="string">"item_image"</span>));</span><br><span class="line">			item.setPrice((<span class="keyword">long</span>) solrDocument.get(<span class="string">"item_price"</span>));</span><br><span class="line">			item.setSell_point((String) solrDocument.get(<span class="string">"item_sell_point"</span>));</span><br><span class="line">			item.setCategory_name((String) solrDocument.get(<span class="string">"item_category_name"</span>));</span><br><span class="line">			<span class="comment">//添加的商品列表</span></span><br><span class="line">			itemList.add(item);</span><br><span class="line">		&#125;</span><br><span class="line">		result.setItemList(itemList);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3Service层"><a href="#1-3Service层" class="headerlink" title="1.3Service层"></a>1.3Service层</h3><p>功能：接收查询条件。查询条件及分页条件（page、rows），创建一个SolrQuery对象。指定查询条件、分页条件、默认搜索域、高亮显示。调用dao层执行查询。得到查询结果计算总页数。返回SearchResult对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchServiceImpl</span> <span class="keyword">implements</span> <span class="title">SearchService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> SearchDao searchDao;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> SearchResult <span class="title">search</span><span class="params">(String queryString, <span class="keyword">int</span> page, <span class="keyword">int</span> rows)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">//创建查询对象</span></span><br><span class="line">		SolrQuery query = <span class="keyword">new</span> SolrQuery();</span><br><span class="line">		<span class="comment">//设置查询条件</span></span><br><span class="line">		query.setQuery(queryString);</span><br><span class="line">		<span class="comment">//设置分页</span></span><br><span class="line">		query.setStart((page - <span class="number">1</span>) * rows);</span><br><span class="line">		query.setRows(rows);</span><br><span class="line">		<span class="comment">//设置默认搜素域</span></span><br><span class="line">		query.set(<span class="string">"df"</span>, <span class="string">"item_keywords"</span>);</span><br><span class="line">		<span class="comment">//设置高亮显示</span></span><br><span class="line">		query.setHighlight(<span class="keyword">true</span>);</span><br><span class="line">		query.addHighlightField(<span class="string">"item_title"</span>);</span><br><span class="line">		query.setHighlightSimplePre(<span class="string">"&lt;em style=\"color:red\"&gt;"</span>);</span><br><span class="line">		query.setHighlightSimplePost(<span class="string">"&lt;/em&gt;"</span>);</span><br><span class="line">		<span class="comment">//执行查询</span></span><br><span class="line">		SearchResult searchResult = searchDao.search(query);</span><br><span class="line">		<span class="comment">//计算查询结果总页数</span></span><br><span class="line">		<span class="keyword">long</span> recordCount = searchResult.getRecordCount();</span><br><span class="line">		<span class="keyword">long</span> pageCount = recordCount / rows;</span><br><span class="line">		<span class="keyword">if</span> (recordCount % rows &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			pageCount++;</span><br><span class="line">		&#125;</span><br><span class="line">		searchResult.setPageCount(pageCount);</span><br><span class="line">		searchResult.setCurPage(page);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> searchResult;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4Controller层"><a href="#1-4Controller层" class="headerlink" title="1.4Controller层"></a>1.4Controller层</h3><p>接收查询参数：查询条件、page、rows</p>
+<p>调用Service执行查询返回一个查询结果对象。</p>
+<p>把查询结果包装到TaotaoResult中返回，结果是json格式的数据。</p>
+<p>如果查询条件为空，返回状态码：400，消息：查询条件不能为空。</p>
+<p>Page为空：默认为1    Rows 为空：默认为50</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span> </span><br><span class="line">	<span class="keyword">private</span> SearchService searchService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/query"</span>,method=RequestMethod.GET)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">search</span><span class="params">(@RequestParam(<span class="string">"q"</span>)</span>String queryString,</span></span><br><span class="line"><span class="function">			@<span class="title">RequestParam</span><span class="params">(defaultValue=<span class="string">"1"</span>)</span>Integer page,@<span class="title">RequestParam</span><span class="params">(defaultValue=<span class="string">"50"</span>)</span>Integer rows) </span>&#123;</span><br><span class="line">		<span class="comment">//查询条件不能为空</span></span><br><span class="line">		<span class="keyword">if</span>(StringUtils.isBlank(queryString)) &#123;</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"查询条件不能为空"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		SearchResult searchResult = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			queryString = <span class="keyword">new</span> String(queryString.getBytes(<span class="string">"iso8859-1"</span>),<span class="string">"utf-8"</span>);</span><br><span class="line">			searchResult = searchService.search(queryString, page, rows);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(searchResult);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5测试"><a href="#1-5测试" class="headerlink" title="1.5测试"></a>1.5测试</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200530140518978.png" alt="image-20200530140518978"></p>
+<h2 id="2-调用服务实现搜索功能"><a href="#2-调用服务实现搜索功能" class="headerlink" title="2.调用服务实现搜索功能"></a>2.调用服务实现搜索功能</h2><h3 id="2-1需求分析"><a href="#2-1需求分析" class="headerlink" title="2.1需求分析"></a>2.1需求分析</h3><p>用户在首页中输入查询条件，点击查询向taotao-portal发送请求，参数就是查询的条件，页码。Taoto-portal调用taotao-search发布的服务进行搜索，参数应该是查询条件和页码及每页显示的记录数（参数可选）。Taotao-search返回一个json格式的数据（TaotaoResult包装一个SearchResult对象）。Taotao-portal接收json数据需要把json数据转换成java对象。把java对象传递给jsp页面，jsp渲染java对象得到商品查询结果页面。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839541580.png" alt="img" style="zoom:80%;" />
+
+<p>请求url：<a href="http://localhost:8082/search.html?q=查询条件" target="_blank" rel="noopener">http://localhost:8082/search.html?q=查询条件</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839582074.jpg" alt="img"></p>
+<p>返回结果：query：回显的查询条件    totalPages：总页数    itemList：商品列表    page：当前页码</p>
+<h3 id="2-2Dao层"><a href="#2-2Dao层" class="headerlink" title="2.2Dao层"></a>2.2Dao层</h3><p>没有</p>
+<h3 id="2-3Service层"><a href="#2-3Service层" class="headerlink" title="2.3Service层"></a>2.3Service层</h3><p>接收两个参数1、查询条件2、页码。调用taotao-search的搜索服务。接收返回的json数据，把json转换成java对象返回SearchResult对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchServiceImpl</span> <span class="keyword">implements</span> <span class="title">SearchService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;SEARCH_BASE_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String SEARCH_BASE_URL;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> SearchResult <span class="title">search</span><span class="params">(String queryString, <span class="keyword">int</span> page)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//调用taotao-search服务</span></span><br><span class="line">		<span class="comment">//查询参数</span></span><br><span class="line">		Map&lt;String, String&gt; param = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">		param.put(<span class="string">"q"</span>, queryString);</span><br><span class="line">		param.put(<span class="string">"page"</span>, page+<span class="string">""</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//调用服务</span></span><br><span class="line">			String json = HttpClientUtil.doGet(SEARCH_BASE_URL, param);</span><br><span class="line">			<span class="comment">//把字符串转换成java对象</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, SearchResult<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="keyword">if</span>(taotaoResult.getStatus()==<span class="number">200</span>) &#123;</span><br><span class="line">				SearchResult result = (SearchResult) taotaoResult.getData();</span><br><span class="line">				<span class="keyword">return</span> result;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4Controller层"><a href="#2-4Controller层" class="headerlink" title="2.4Controller层"></a>2.4Controller层</h3><p>功能：接收请求的参数查询条件和页码。调用Service查询商品列表得到SearchResult对象。</p>
+<p>需要把query：回显的查询条件    totalPages：总页数    itemList：商品列表    page：当前页码</p>
+<p>传递到页面。返回一个逻辑视图search字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> SearchService searchService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/search"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">search</span><span class="params">(@RequestParam(<span class="string">"q"</span>)</span>String queryString,@<span class="title">RequestParam</span><span class="params">(defaultValue=<span class="string">"1"</span>)</span>Integer page,Model model) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(queryString!=<span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				queryString = <span class="keyword">new</span> String(queryString.getBytes(<span class="string">"iso8859-1"</span>), <span class="string">"utf-8"</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		SearchResult searchResult = searchService.search(queryString, page);</span><br><span class="line">		<span class="comment">//向页面传递参数</span></span><br><span class="line">		model.addAttribute(<span class="string">"query"</span>, queryString);</span><br><span class="line">		model.addAttribute(<span class="string">"totalPages"</span>, searchResult.getPageCount());</span><br><span class="line">		model.addAttribute(<span class="string">"itemList"</span>, searchResult.getItemList());</span><br><span class="line">		model.addAttribute(<span class="string">"page"</span>, page);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"search"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现效果：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200530195838608.png" alt="image-20200530195838608"></p>
+<h3 id="2-5图片bug修改"><a href="#2-5图片bug修改" class="headerlink" title="2.5图片bug修改"></a>2.5图片bug修改</h3><p>搜索结果中图片展示不出来，因为image字段中存储的图片是多张，使用逗号分隔。</p>
+<p>解决方法：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839814856.jpg" alt="img" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590839828002.jpg" alt="img" style="zoom: 80%;" />
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>LPL夏季赛开幕式整挺好，就是有点费韩国队🤣</p>
+<p>另外，Canna来个死全家套餐没意见吧🤢（不懂的科普一下哦，这逼故意打lpl时亮老鼠，老鼠在韩国翻译直接是瘟疫，什么意思不用我多说了吧）</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36841953&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/30/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/29/vim%E5%9D%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Solr"><span class="toc-number">2.</span> <span class="toc-text">一、Solr</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Solr简介"><span class="toc-number">2.1.</span> <span class="toc-text">1.Solr简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Solr的安装及配置"><span class="toc-number">2.2.</span> <span class="toc-text">2.Solr的安装及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Solr界面功能"><span class="toc-number">2.3.</span> <span class="toc-text">3.Solr界面功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-维护索引库"><span class="toc-number">2.4.</span> <span class="toc-text">4.维护索引库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-SolrJ客户端"><span class="toc-number">2.5.</span> <span class="toc-text">5.SolrJ客户端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、把商品信息导入到索引库"><span class="toc-number">3.</span> <span class="toc-text">二、把商品信息导入到索引库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-系统架构"><span class="toc-number">3.1.</span> <span class="toc-text">1.系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建taotao-search工程"><span class="toc-number">3.2.</span> <span class="toc-text">2.创建taotao-search工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-sql语句"><span class="toc-number">3.3.</span> <span class="toc-text">3.sql语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Dao层"><span class="toc-number">3.4.</span> <span class="toc-text">4.Dao层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Service层"><span class="toc-number">3.5.</span> <span class="toc-text">5.Service层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Controller层"><span class="toc-number">3.6.</span> <span class="toc-text">6.Controller层</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、实现商品搜索功能"><span class="toc-number">4.</span> <span class="toc-text">三、实现商品搜索功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-发布搜索服务"><span class="toc-number">4.1.</span> <span class="toc-text">1.发布搜索服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1需求分析"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2Dao层"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.2Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3Service层"><span class="toc-number">4.1.3.</span> <span class="toc-text">1.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4Controller层"><span class="toc-number">4.1.4.</span> <span class="toc-text">1.4Controller层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5测试"><span class="toc-number">4.1.5.</span> <span class="toc-text">1.5测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-调用服务实现搜索功能"><span class="toc-number">4.2.</span> <span class="toc-text">2.调用服务实现搜索功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1需求分析"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2Dao层"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3Service层"><span class="toc-number">4.2.3.</span> <span class="toc-text">2.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4Controller层"><span class="toc-number">4.2.4.</span> <span class="toc-text">2.4Controller层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5图片bug修改"><span class="toc-number">4.2.5.</span> <span class="toc-text">2.5图片bug修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-01T02:52:26.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/05/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/05/">1</a><a class="page-number" href="/archives/2020/05/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -432,8 +529,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
