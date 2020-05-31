@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 淘淘商城 | J Sir</title>
+  <title>企业WEB项目实现商品详情页面展示功能 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E/page/2/index.html">
+  <meta name="description" content="概述在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分： a)    商品基本信息 b)    延迟加载商品详情。延迟一秒加载使用ajax c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="企业WEB项目实现商品详情页面展示功能">
+<meta property="og:url" content="http://yoursite.com/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分： a)    商品基本信息 b)    延迟加载商品详情。延迟一秒加载使用ajax c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590925041313.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924830971.jpg">
+<meta property="article:published_time" content="2020-05-31T10:57:43.975Z">
+<meta property="article:modified_time" content="2020-05-31T11:49:49.210Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,85 +173,133 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-商品详情" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      企业WEB项目实现商品详情页面展示功能
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" class="archive-article-date">
+  	<time datetime="2020-05-31T10:57:43.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分：</p>
+<p>a)    商品基本信息</p>
+<p>b)    延迟加载商品详情。延迟一秒加载使用ajax</p>
+<p>c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。</p>
+<a id="more"></a>
+
+<h2 id="1-功能分析"><a href="#1-功能分析" class="headerlink" title="1.功能分析"></a>1.功能分析</h2><p>1、Taotao-portal接收页面请求，接收到商品id。</p>
+<p>2、调用taotao-rest提供的商品详情的服务，把商品id作为参数传递给服务。接收到商品详细详细。</p>
+<p>3、渲染结果，展示商品详细页面</p>
+<p>4、为了提高响应速度，商品详情页的内容需要分步骤加载。</p>
+<p>第一步：先展示商品基本信息，例如商品的名称、图片、价格。</p>
+<p>第二步：展示商品的描述，此时商品页面已经展示完毕，需要ajax请求商品描述。展示的时机是页面加载完毕后一秒钟。</p>
+<p>第三步：展示商品规格。当用户点击商品规格选项卡时展示。使用ajax请求商品规格。</p>
+<p>5、在搜索页面点击商品的图片或者商品名称请求商品详情页面。</p>
+<p>商品详情页请求的url：/item/{itemId}.html</p>
+<p>商品描述请求的url：/item/desc/{itemId}.html</p>
+<p>商品规格请求的url：/item/param/{itemId}.html</p>
+<h2 id="2-处理流程"><a href="#2-处理流程" class="headerlink" title="2.处理流程"></a>2.处理流程</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif" alt="img"></p>
+<h2 id="3-taotao-rest服务发布"><a href="#3-taotao-rest服务发布" class="headerlink" title="3.taotao-rest服务发布"></a>3.taotao-rest服务发布</h2><p>需要在taotao-rest工程中发布服务</p>
+<p>1、取商品基本信息的服务</p>
+<p>2、取商品描述的服务</p>
+<p>3、取商品规格的服务</p>
+<blockquote>
+<p>由于商品详情也是客户经常访问的，需要把商品信息添加到缓存中。Redis是内存数据库也属于稀缺资源，所以不应该永久占用，所以要设置过期时间。过期时间为一天。需要缓存同步。</p>
+</blockquote>
+<h3 id="3-1添加缓存逻辑"><a href="#3-1添加缓存逻辑" class="headerlink" title="3.1添加缓存逻辑"></a>3.1添加缓存逻辑</h3><p>Redis的hash类型中的key是不能设置过期时间。如果还需要对key进行分类可以使用折中的方案。</p>
+<p>Key的命名方式：XXXX:xxxx:<del>~</del></p>
+<p>这样存放在redis中，当我们用可视化客户端时就会以文件夹形式存储</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590925041313.png" alt="img"></p>
+<p>因此，在配置文件resource.properties添加url</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#商品基本信息url</span></span><br><span class="line"><span class="attr">ITEM_INFO_URL</span>=<span class="string">/item/info/</span></span><br><span class="line"><span class="comment">#商品描述url</span></span><br><span class="line"><span class="attr">ITEM_DESC_URL</span>=<span class="string">/item/desc/</span></span><br><span class="line"><span class="comment">#商品规格参数url</span></span><br><span class="line"><span class="attr">ITEM_PARAM_URL</span>=<span class="string">/item/param/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2Dao层"><a href="#3-2Dao层" class="headerlink" title="3.2Dao层"></a>3.2Dao层</h3><p>因为都是单表查询所以使用逆向工程生成的mapper文件即可。</p>
+<p>tb_item</p>
+<p>tb_item_desc</p>
+<p>tb_item_param_item</p>
+<h3 id="3-3Service层"><a href="#3-3Service层" class="headerlink" title="3.3Service层"></a>3.3Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemMapper itemMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemDescMapper itemDescMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemParamItemMapper itemParamItemMapper;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REDIS_ITEM_KEY&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REDIS_ITEM_KEY;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REDIS_ITEM_EXPIRE&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer REDIS_ITEM_EXPIRE;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisClientSingle jedisClientSingle;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemBaseInfo</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存逻辑</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>);</span><br><span class="line">			<span class="keyword">if</span>(!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItem item = JsonUtils.jsonToPojo(json, TbItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(item);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//根据商品id查询商品信息</span></span><br><span class="line">		TbItem item = itemMapper.selectByPrimaryKey(itemId);</span><br><span class="line">		<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			jedisClientSingle.set(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>, JsonUtils.objectToJson(item));</span><br><span class="line">			<span class="comment">//设置key的有效期</span></span><br><span class="line">			jedisClientSingle.expire(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(item);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemDesc</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//添加缓存逻辑</span></span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>);</span><br><span class="line">			<span class="comment">//判断是否有值</span></span><br><span class="line">			<span class="keyword">if</span> (!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItemDesc itemDesc = JsonUtils.jsonToPojo(json, TbItemDesc<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(itemDesc);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//创建查询条件</span></span><br><span class="line">		TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(itemId);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">			jedisClientSingle.set(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>, JsonUtils.objectToJson(itemDesc));</span><br><span class="line">			<span class="comment">//设置key的有效期</span></span><br><span class="line">			jedisClientSingle.expire(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(itemDesc);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParam</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//添加缓存逻辑</span></span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>);</span><br><span class="line">			<span class="comment">//判断是否有值</span></span><br><span class="line">			<span class="keyword">if</span> (!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItemParamItem paramItem = JsonUtils.jsonToPojo(json, TbItemParamItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(paramItem);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//根据商品id查询规格参数</span></span><br><span class="line">		<span class="comment">//设置查询条件</span></span><br><span class="line">		TbItemParamItemExample example = <span class="keyword">new</span> TbItemParamItemExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andItemIdEqualTo(itemId);</span><br><span class="line">		<span class="comment">//执行查询</span></span><br><span class="line">		List&lt;TbItemParamItem&gt; list = itemParamItemMapper.selectByExampleWithBLOBs(example);</span><br><span class="line">		<span class="keyword">if</span> (list != <span class="keyword">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			TbItemParamItem paramItem = list.get(<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">				jedisClientSingle.set(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>, JsonUtils.objectToJson(paramItem));</span><br><span class="line">				<span class="comment">//设置key的有效期</span></span><br><span class="line">				jedisClientSingle.expire(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.ok(paramItem);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"无此商品规格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4Controller层"><a href="#3-4Controller层" class="headerlink" title="3.4Controller层"></a>3.4Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/item"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemService itemService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/info/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemBaseInfo</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemBaseInfo(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/desc/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemDesc</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemDesc(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/param/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParam</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemParam(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-taotao-portal商品详情页实现"><a href="#4-taotao-portal商品详情页实现" class="headerlink" title="4.taotao-portal商品详情页实现"></a>4.taotao-portal商品详情页实现</h2><h3 id="4-1需求分析"><a href="#4-1需求分析" class="headerlink" title="4.1需求分析"></a>4.1需求分析</h3><p>当用户访问商品详情页面时，需要加载商品基本信息。延迟加载商品描述、按需加载商品的规格参数。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924830971.jpg" alt="img"></p>
+<p>由于页面展示商品信息时，需要展示图片列表。多张图片在数据库中存储的格式是存储在同一个字段中使用逗号分隔的。所以商品展示时需要在pojo中做处理。故此在portal中自定义一个商品的pojo类继承TbItem同时新增一个get方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加此方法拆分图片列表</span></span><br><span class="line"><span class="keyword">public</span> String[] getImages() &#123;</span><br><span class="line">    <span class="keyword">if</span> (image != <span class="keyword">null</span> &amp;&amp; image != <span class="string">""</span>) &#123;</span><br><span class="line">        String[] strings = image.split(<span class="string">","</span>);</span><br><span class="line">        <span class="keyword">return</span> strings;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2Service层"><a href="#4-2Service层" class="headerlink" title="4.2Service层"></a>4.2Service层</h3><p><strong>商品基本信息的查询：</strong></p>
+<p>接收商品id调用mapper查询商品规格参数，返回规格参数pojo使用TaotaoResult包装。添加缓存逻辑。</p>
+<p><strong>商品描述延迟加载：</strong></p>
+<p>接收商品id，调用taotao-rest的服务，查询商品的基本信息。得到一个json字符串。需要把json转换成java对象。然后在jsp页面渲染。</p>
+<p><strong>商品规格参数展示：</strong></p>
+<p>接收商品id，调用taotao-rest的服务根据商品id查询商品描述信息。得到json数据。把json转换成java对象从java对象中把商品描述取出来。返回商品描述字符串。</p>
+<p>参数：商品id</p>
+<p>返回值：字符串（商品描述的html片段）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品内容展示Service</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_INFO_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_INFO_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REST_BASE_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REST_BASE_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_DESC_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_DESC_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_PARAM_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_PARAM_URL;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ItemInfo <span class="title">getItemInfoById</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//调用rest的服务查询商品基本信息</span></span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL+ITEM_INFO_URL+itemId);</span><br><span class="line">			<span class="keyword">if</span>(!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, ItemInfo<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">if</span>(taotaoResult.getStatus()==<span class="number">200</span>) &#123;</span><br><span class="line">					ItemInfo itemInfo = (ItemInfo) taotaoResult.getData();</span><br><span class="line">					<span class="keyword">return</span> itemInfo;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//取商品描述</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemDescById</span><span class="params">(Long itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_DESC_URL + itemId);</span><br><span class="line">			<span class="comment">//转换成java对象</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, TbItemDesc<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="keyword">if</span> (taotaoResult.getStatus() == <span class="number">200</span>) &#123;</span><br><span class="line">				TbItemDesc itemDesc = (TbItemDesc) taotaoResult.getData();</span><br><span class="line">				<span class="comment">//取商品描述信息</span></span><br><span class="line">				String result = itemDesc.getItemDesc();</span><br><span class="line">				<span class="keyword">return</span> result;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//根据商品id查询规格参数</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemParam</span><span class="params">(Long itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_PARAM_URL + itemId);</span><br><span class="line">			<span class="comment">//把json转换成java对象</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, TbItemParamItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="keyword">if</span> (taotaoResult.getStatus() == <span class="number">200</span>) &#123;</span><br><span class="line">				TbItemParamItem itemParamItem = (TbItemParamItem) taotaoResult.getData();</span><br><span class="line">				String paramData = itemParamItem.getParamData();</span><br><span class="line">				<span class="comment">//生成html</span></span><br><span class="line">				<span class="comment">// 把规格参数json数据转换成java对象</span></span><br><span class="line">				List&lt;Map&gt; jsonList = JsonUtils.jsonToList(paramData, Map<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">				sb.append(<span class="string">"&lt;table cellpadding=\"0\" cellspacing=\"1\" width=\"100%\" border=\"0\" class=\"Ptable\"&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"    &lt;tbody&gt;\n"</span>);</span><br><span class="line">				<span class="keyword">for</span>(Map m1:jsonList) &#123;</span><br><span class="line">					sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">					sb.append(<span class="string">"            &lt;th class=\"tdTitle\" colspan=\"2\"&gt;"</span>+m1.get(<span class="string">"group"</span>)+<span class="string">"&lt;/th&gt;\n"</span>);</span><br><span class="line">					sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">					List&lt;Map&gt; list2 = (List&lt;Map&gt;) m1.get(<span class="string">"params"</span>);</span><br><span class="line">					<span class="keyword">for</span>(Map m2:list2) &#123;</span><br><span class="line">						sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"            &lt;td class=\"tdTitle\"&gt;"</span>+m2.get(<span class="string">"k"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"            &lt;td&gt;"</span>+m2.get(<span class="string">"v"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				sb.append(<span class="string">"    &lt;/tbody&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"&lt;/table&gt;"</span>);</span><br><span class="line">				<span class="comment">//返回html片段</span></span><br><span class="line">				<span class="keyword">return</span> sb.toString();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3Controller层"><a href="#4-3Controller层" class="headerlink" title="4.3Controller层"></a>4.3Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品内容展示</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemService itemService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/item/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">showItem</span><span class="params">(@PathVariable Long itemId,Model model)</span> </span>&#123;</span><br><span class="line">		ItemInfo item = itemService.getItemInfoById(itemId);</span><br><span class="line">		model.addAttribute(<span class="string">"item"</span>, item);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"item"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/item/desc/&#123;itemId&#125;"</span>,produces=MediaType.TEXT_HTML_VALUE+<span class="string">";charset=utf-8"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemDesc</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		String itemDescById = itemService.getItemDescById(itemId);</span><br><span class="line">		<span class="keyword">return</span> itemDescById;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/item/param/&#123;itemId&#125;"</span>, produces=MediaType.TEXT_HTML_VALUE+<span class="string">";charset=utf-8"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemParam</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		String string = itemService.getItemParam(itemId);</span><br><span class="line">		<span class="keyword">return</span> string;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最近看老马打斗地主，真相一拳👊干碎他的眼镜👀</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1385126398&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/17/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88%E6%80%9D%E8%B7%AF+PageHelper%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:03:00.885Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/17/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88%E6%80%9D%E8%B7%AF+PageHelper%E4%BD%BF%E7%94%A8/">SSM框架整合思路+PageHelper使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/16/Maven%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-16T12:07:00.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/16/Maven%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/">Maven install安装不到想要的仓库内(解决方案)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -257,64 +315,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/16/SVN/" class="archive-article-date">
-  	<time datetime="2020-05-16T10:50:20.347Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/30/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">企业WEB项目通过solr实现商品搜索功能</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/16/SVN/">eclipse中SVN的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-功能分析"><span class="toc-number">1.1.</span> <span class="toc-text">1.功能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-处理流程"><span class="toc-number">1.2.</span> <span class="toc-text">2.处理流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-taotao-rest服务发布"><span class="toc-number">1.3.</span> <span class="toc-text">3.taotao-rest服务发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1添加缓存逻辑"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1添加缓存逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2Dao层"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3Service层"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4Controller层"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4Controller层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-taotao-portal商品详情页实现"><span class="toc-number">1.4.</span> <span class="toc-text">4.taotao-portal商品详情页实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1需求分析"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2Service层"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3Controller层"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3Controller层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E/">&amp;laquo; Prev</a><a class="page-number" href="/tags/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -352,9 +464,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
