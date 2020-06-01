@@ -6,15 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>企业WEB项目单点登陆系统实现 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="概述在企业WEB项目中，我们的注册登录往往依靠独立的单点登陆系统实现，本博文将从头开始讲解如何一步步创建单点登录系统，独立的工程并发布登录、注册的接口。至于单点登录系统实现用户的登录、注册功能，我们将在下篇博文详细介绍(赶着六一赶紧发一篇😁)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="企业WEB项目单点登陆系统实现">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述在企业WEB项目中，我们的注册登录往往依靠独立的单点登陆系统实现，本博文将从头开始讲解如何一步步创建单点登录系统，独立的工程并发布登录、注册的接口。至于单点登录系统实现用户的登录、注册功能，我们将在下篇博文详细介绍(赶着六一赶紧发一篇😁)。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023237761.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601225515780.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601225830650.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023548079.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023628466.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601231449747.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601232510238.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601232720481.png">
+<meta property="article:published_time" content="2020-06-01T14:50:58.098Z">
+<meta property="article:modified_time" content="2020-06-01T15:34:51.502Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="淘淘商城">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023237761.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,35 +179,272 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-单点登陆系统SSO" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      企业WEB项目单点登陆系统实现
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/06/01/%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/" class="archive-article-date">
+  	<time datetime="2020-06-01T14:50:58.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在企业WEB项目中，我们的注册登录往往依靠独立的单点登陆系统实现，本博文将从头开始讲解如何一步步创建单点登录系统，独立的工程并发布登录、注册的接口。至于单点登录系统实现用户的登录、注册功能，我们将在下篇博文详细介绍(赶着六一赶紧发一篇😁)。</p>
+<a id="more"></a>
+
+<h1 id="一、单点登录系统分析"><a href="#一、单点登录系统分析" class="headerlink" title="一、单点登录系统分析"></a>一、单点登录系统分析</h1><h2 id="1-什么是SSO"><a href="#1-什么是SSO" class="headerlink" title="1.什么是SSO"></a>1.什么是SSO</h2><p>SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。它包括可以将这次主要的登录映射到其他应用中用于同一个用户的登录的机制。它是目前比较流行的企业业务整合的解决方案之一。</p>
+<h2 id="2-传统的登录流程"><a href="#2-传统的登录流程" class="headerlink" title="2.传统的登录流程"></a>2.传统的登录流程</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023237761.png" alt="img"></p>
+<p>传统流程中的问题：</p>
+<p>单台tomcat，以上实现是没有任何问题的，但是我们现在是集群的tomcat，就会存在session共享问题：在集群环境中。需要把同一套代码部署到多台服务器上。每个工程都有自己独立的session。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601225515780.png" alt="image-20200601225515780"></p>
+<p>在集群环境中每个工程都有自己的session，如果把用户信息写入session而不共享的话，会出现用户反复登录的情况。</p>
+<h2 id="3-解决session共享方案"><a href="#3-解决session共享方案" class="headerlink" title="3.解决session共享方案"></a>3.解决session共享方案</h2><h3 id="3-1第一种解决方案"><a href="#3-1第一种解决方案" class="headerlink" title="3.1第一种解决方案"></a>3.1第一种解决方案</h3><p>可以配置tomcat的session共享。配置tomcat集群。Tomcat配置好集群后，会不停的向集群中其他的tomcat广播自己的session信息。其他的tomcat做session同步。可以保证所有的tomcatsession中的内容都是一致的。</p>
+<p>优点：不需要额外开发，只需要搭建tomcat集群即可。</p>
+<p>缺点：tomcat 是全局session复制，集群内每个tomcat的session完全同步（也就是任何时候都完全一样的) 在大规模应用的时候，用户过多，集群内tomcat数量过多，session的全局复制会导致集群性能下降， 因此，tomcat的数量不能太多，5个以下为好。</p>
+<h3 id="3-2第二种解决方案"><a href="#3-2第二种解决方案" class="headerlink" title="3.2第二种解决方案"></a>3.2第二种解决方案</h3><p>1、 实现单点登录系统，提供服务接口。把session数据存放在redis。</p>
+<p>Redis可以设置key的生存时间、访问速度快效率高。</p>
+<p>优点：redis存取速度快，不会出现多个节点session复制的问题。效率高。</p>
+<p>缺点：需要程序员开发。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601225830650.png" alt="image-20200601225830650"></p>
+<h2 id="4-单点登录系统流程"><a href="#4-单点登录系统流程" class="headerlink" title="4.单点登录系统流程"></a>4.单点登录系统流程</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023548079.png" alt="img"></p>
+<h1 id="二、SSO开发"><a href="#二、SSO开发" class="headerlink" title="二、SSO开发"></a>二、SSO开发</h1><p>单点登录系统是一个独立的工程。需要操作redis、连接数据库。</p>
+<h2 id="1-系统架构"><a href="#1-系统架构" class="headerlink" title="1.系统架构"></a>1.系统架构</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591023628466.png" alt="img"></p>
+<p>创建taotao-sso工程</p>
+<h2 id="2-用到的技术"><a href="#2-用到的技术" class="headerlink" title="2.用到的技术"></a>2.用到的技术</h2><p>1、Mybatis，需要依赖taotao-manager-mapper模块。</p>
+<p>2、Spring</p>
+<p>3、Springmvc</p>
+<p>4、Redis</p>
+<h2 id="3-配置文件"><a href="#3-配置文件" class="headerlink" title="3.配置文件"></a>3.配置文件</h2><p>参考taotao-rest整合框架</p>
+<p>注意这里需要用到事务</p>
+<h2 id="4-服务开发"><a href="#4-服务开发" class="headerlink" title="4.服务开发"></a>4.服务开发</h2><h3 id="4-1注册接口"><a href="#4-1注册接口" class="headerlink" title="4.1注册接口"></a>4.1注册接口</h3><h4 id="4-1-1检查数据是否可用"><a href="#4-1-1检查数据是否可用" class="headerlink" title="4.1.1检查数据是否可用"></a>4.1.1检查数据是否可用</h4><table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th align="center"><strong>GET</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL</strong></td>
+<td align="center"><a href="http://sso.taotao.com/user/check/{param}/{type}" target="_blank" rel="noopener">http://sso.taotao.com/user/check/{param}/{type}</a></td>
+</tr>
+<tr>
+<td><strong>参数说明</strong></td>
+<td align="center">格式如：zhangsan/ 1，其中zhangsan是校验的数据，type为类型，可选参数1、2、3分别代表username、phone、email     可选参数callback：如果有此参数表示此方法为jsonp请求，需要支持jsonp。</td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td align="center"><a href="http://sso.taotao.com/user/check/zhangsan/1" target="_blank" rel="noopener">http://sso.taotao.com/user/check/zhangsan/1</a></td>
+</tr>
+<tr>
+<td><strong>返回值</strong></td>
+<td align="center">{  status: 200 //200 成功  msg: “OK” // 返回信息消息  data: false // 返回数据，true：数据可用，false：数据不可用  }</td>
+</tr>
+</tbody></table>
+<h4 id="4-1-2用户注册"><a href="#4-1-2用户注册" class="headerlink" title="4.1.2用户注册"></a>4.1.2用户注册</h4><table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th><strong>POST</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL</strong></td>
+<td><a href="http://sso.taotao.com/user/register" target="_blank" rel="noopener">http://sso.taotao.com/user/register</a></td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td>username //用户名  password //密码  phone //手机号  email //邮箱</td>
+</tr>
+<tr>
+<td><strong>参数说明</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td><a href="http://sso.taotao.com/user/register" target="_blank" rel="noopener">http://sso.taotao.com/user/register</a>     <img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002.jpg" alt="img"></td>
+</tr>
+<tr>
+<td><strong>返回值</strong></td>
+<td>{  status: 400  msg: “注册失败. 请校验数据后请再提交数据.”  data: null  }</td>
+</tr>
+</tbody></table>
+<h3 id="4-2用户登录"><a href="#4-2用户登录" class="headerlink" title="4.2用户登录"></a>4.2用户登录</h3><table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th><strong>POST</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL</strong></td>
+<td><a href="http://sso.taotao.com/user/login" target="_blank" rel="noopener">http://sso.taotao.com/user/login</a></td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td>username //用户名  password //密码</td>
+</tr>
+<tr>
+<td><strong>参数说明</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td><a href="http://sso.taotao.com/user/login" target="_blank" rel="noopener">http://sso.taotao.com/user/login</a>     username=zhangsan&amp;password=123</td>
+</tr>
+<tr>
+<td><strong>返回值</strong></td>
+<td>{  status: 200  msg: “OK”  data: “fe5cb546aeb3ce1bf37abcb08a40493e” //登录成功，返回token  }</td>
+</tr>
+</tbody></table>
+<h3 id="4-3通过token查询用户信息"><a href="#4-3通过token查询用户信息" class="headerlink" title="4.3通过token查询用户信息"></a>4.3通过token查询用户信息</h3><table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th><strong>GET</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL</strong></td>
+<td><a href="http://sso.taotao.com/user/token/{token}" target="_blank" rel="noopener">http://sso.taotao.com/user/token/{token}</a></td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td>token //用户登录凭证  callback//jsonp回调方法</td>
+</tr>
+<tr>
+<td><strong>参数说明</strong></td>
+<td>可选参数callback：如果有此参数表示此方法为jsonp请求，需要支持jsonp。</td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td><a href="http://sso.taotao.com/user/query/fe5cb546aeb3ce1bf37abcb08a40493e" target="_blank" rel="noopener">http://sso.taotao.com/user/token/fe5cb546aeb3ce1bf37abcb08a40493e</a></td>
+</tr>
+<tr>
+<td><strong>返回值</strong></td>
+<td>{  status: 200  msg: “OK”  data: “{“id”:1,”username”:”zhangzhijun”,”phone”:”15800807944”,  “email”:”<a href="mailto:420840806@qq.com">420840806@qq.com</a>“,”created”:1414119176000,”updated”:1414119179000}”  }</td>
+</tr>
+</tbody></table>
+<h3 id="4-4安全退出"><a href="#4-4安全退出" class="headerlink" title="4.4安全退出"></a>4.4安全退出</h3><table>
+<thead>
+<tr>
+<th><strong>请求方法</strong></th>
+<th><strong>GET</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL</strong></td>
+<td><a href="http://sso.taotao.com/user/logout/{token}" target="_blank" rel="noopener">http://sso.taotao.com/user/logout/{token}</a></td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td>token //用户登录凭证  callback//jsonp回调方法</td>
+</tr>
+<tr>
+<td><strong>参数说明</strong></td>
+<td>可选参数callback：如果有此参数表示此方法为jsonp请求，需要支持jsonp。</td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td><a href="http://sso.taotao.com/user/query/fe5cb546aeb3ce1bf37abcb08a40493e" target="_blank" rel="noopener">http://sso.taotao.com/user/logout/fe5cb546aeb3ce1bf37abcb08a40493e</a></td>
+</tr>
+<tr>
+<td><strong>返回值</strong></td>
+<td>{  status: 200  msg: “OK”  data: “”  }</td>
+</tr>
+</tbody></table>
+<h2 id="5-开发注册接口"><a href="#5-开发注册接口" class="headerlink" title="5.开发注册接口"></a>5.开发注册接口</h2><h3 id="5-1数据校验"><a href="#5-1数据校验" class="headerlink" title="5.1数据校验"></a>5.1数据校验</h3><h4 id="5-1-1需求分析"><a href="#5-1-1需求分析" class="headerlink" title="5.1.1需求分析"></a>5.1.1需求分析</h4><p>接收url中的两个参数：一个是要校验的内容，一个是要校验的数据类型。</p>
+<p>type为类型，可选参数1、2、3分别代表username、phone、email</p>
+<p>返回：TaotaoResult。Json格式的数据，需要支持jsonp。</p>
+<p>请求的url：<a href="http://sso.taotao.com/user/check/{param}/{type}" target="_blank" rel="noopener">http://sso.taotao.com/user/check/{param}/{type}</a></p>
+<h4 id="5-1-2Service层"><a href="#5-1-2Service层" class="headerlink" title="5.1.2Service层"></a>5.1.2Service层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbUserMapper userMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">checkData</span><span class="params">(String content, Integer type)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建查询条件</span></span><br><span class="line">		TbUserExample example = <span class="keyword">new</span> TbUserExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		<span class="comment">//对数据进行校验：1、2、3分别代表username、phone、email</span></span><br><span class="line">		<span class="comment">//用户名校验</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="number">1</span> == type) &#123;</span><br><span class="line">			criteria.andUsernameEqualTo(content);</span><br><span class="line">		<span class="comment">//电话校验</span></span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="number">2</span> == type) &#123;</span><br><span class="line">			criteria.andPhoneEqualTo(content);</span><br><span class="line">		<span class="comment">//email校验</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			criteria.andEmailEqualTo(content);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//执行查询</span></span><br><span class="line">		List&lt;TbUser&gt; list = userMapper.selectByExample(example);</span><br><span class="line">		<span class="keyword">if</span> (list == <span class="keyword">null</span> || list.size() == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.ok(<span class="keyword">true</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(<span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-1-3Controller层"><a href="#5-1-3Controller层" class="headerlink" title="5.1.3Controller层"></a>5.1.3Controller层</h4><p>从url中接收两个参数，调用Service进行校验，在调用Service之前，先对参数进行校验，例如type必须是1、2、3其中之一。返回TaotaoResult。需要支持jsonp。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> UserService userService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/check/&#123;param&#125;/&#123;type&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="comment">//考虑到jsonp，我们需要既能返回taotaoResult又能返回MappingJacksonValue </span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">checkData</span><span class="params">(@PathVariable String param, @PathVariable Integer type, String callback)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		TaotaoResult result = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//参数有效性校验</span></span><br><span class="line">		<span class="keyword">if</span> (StringUtils.isBlank(param)) &#123;</span><br><span class="line">			result = TaotaoResult.build(<span class="number">400</span>, <span class="string">"校验内容不能为空"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (type == <span class="keyword">null</span>) &#123;</span><br><span class="line">			result = TaotaoResult.build(<span class="number">400</span>, <span class="string">"校验内容类型不能为空"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (type != <span class="number">1</span> &amp;&amp; type != <span class="number">2</span> &amp;&amp; type != <span class="number">3</span> ) &#123;</span><br><span class="line">			result = TaotaoResult.build(<span class="number">400</span>, <span class="string">"校验内容类型错误"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//校验出错</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">null</span> != result) &#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">null</span> != callback) &#123;</span><br><span class="line">				MappingJacksonValue mappingJacksonValue = <span class="keyword">new</span> MappingJacksonValue(result);</span><br><span class="line">				mappingJacksonValue.setJsonpFunction(callback);</span><br><span class="line">				<span class="keyword">return</span> mappingJacksonValue;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> result; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//调用服务</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			result = userService.checkData(param, type);</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			result = TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">null</span> != callback) &#123;</span><br><span class="line">			MappingJacksonValue mappingJacksonValue = <span class="keyword">new</span> MappingJacksonValue(result);</span><br><span class="line">			mappingJacksonValue.setJsonpFunction(callback);</span><br><span class="line">			<span class="keyword">return</span> mappingJacksonValue;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> result; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2用户注册"><a href="#5-2用户注册" class="headerlink" title="5.2用户注册"></a>5.2用户注册</h3><h4 id="5-2-1需求分析"><a href="#5-2-1需求分析" class="headerlink" title="5.2.1需求分析"></a>5.2.1需求分析</h4><p>接收参数调用mapper向user表中添加记录。返回taotaoResult对象。如果成功200失败400异常500.</p>
+<h4 id="5-2-2Service层"><a href="#5-2-2Service层" class="headerlink" title="5.2.2Service层"></a>5.2.2Service层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">createUser</span><span class="params">(TbUser user)</span> </span>&#123;</span><br><span class="line">    user.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">    user.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line">    <span class="comment">//Spring自带的md5加密</span></span><br><span class="line">    user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));</span><br><span class="line">    userMapper.insert(user);</span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-3Controller层"><a href="#5-2-3Controller层" class="headerlink" title="5.2.3Controller层"></a>5.2.3Controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建用户</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/register"</span>,method=RequestMethod.POST)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">createUser</span><span class="params">(TbUser user)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        TaotaoResult result = userService.createUser(user);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3测验"><a href="#5-3测验" class="headerlink" title="5.3测验"></a>5.3测验</h3><p>用RestClient来看效果</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601231449747.png" alt="image-20200601231449747"></p>
+<h2 id="6-开发登录接口"><a href="#6-开发登录接口" class="headerlink" title="6.开发登录接口"></a>6.开发登录接口</h2><h3 id="6-1需求分析"><a href="#6-1需求分析" class="headerlink" title="6.1需求分析"></a>6.1需求分析</h3><p>是一个post请求，包含用户和密码。接收用户名和密码，到数据库中查询，根据用户名查询用户信息，查到之后进行密码比对，需要对密码进行md5加密后进行比对。比对成功后说明登录成功，需要生成一个token可以使用UUID。需要把用户信息写入redis，key就是token，value就是用户信息。返回token字符串。</p>
+<p>创建resource.properties配置文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用户在session在redis中保存的key</span></span><br><span class="line"><span class="attr">REDIS_USER_SESSION_KEY</span>=<span class="string">REDIS_USER_SESSION</span></span><br><span class="line"><span class="comment">#Session的过期时间，默认为30分钟</span></span><br><span class="line"><span class="attr">SSO_SESSION_EXPIRE</span>=<span class="string">1800</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2Service层"><a href="#6-2Service层" class="headerlink" title="6.2Service层"></a>6.2Service层</h3><p>接收两个参数用户名、密码。调用dao层查询用户信息。生成token，把用户信息写入redis。返回token。使用TaotaoResult包装。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用户登录</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">userLogin</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    TbUserExample example = <span class="keyword">new</span> TbUserExample();</span><br><span class="line">    Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andUsernameEqualTo(username);</span><br><span class="line">    List&lt;TbUser&gt; list = userMapper.selectByExample(example);</span><br><span class="line">    <span class="comment">//如果没有此用户名</span></span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>||list.size()==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"用户名或密码错误"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    TbUser user = list.get(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//对比密码</span></span><br><span class="line">    <span class="keyword">if</span>(!DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())) &#123;</span><br><span class="line">        <span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"用户名或密码错误"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//生成token</span></span><br><span class="line">    String token = UUID.randomUUID().toString();</span><br><span class="line">    <span class="comment">//保存用户之前，把用户对象中的密码清空。</span></span><br><span class="line">    user.setPassword(<span class="keyword">null</span>);</span><br><span class="line">    <span class="comment">//把用户信息写入redis</span></span><br><span class="line">    jedisClient.set(REDIS_USER_SESSION_KEY + <span class="string">":"</span> + token, JsonUtils.objectToJson(user));</span><br><span class="line">    <span class="comment">//设置session的过期时间</span></span><br><span class="line">    jedisClient.expire(REDIS_USER_SESSION_KEY + <span class="string">":"</span> + token, SSO_SESSION_EXPIRE);</span><br><span class="line">    <span class="comment">//返回token</span></span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok(token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3Controller层"><a href="#6-3Controller层" class="headerlink" title="6.3Controller层"></a>6.3Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用户登录</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/login"</span>, method=RequestMethod.POST)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">userLogin</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        TaotaoResult result = userService.userLogin(username, password);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4测试"><a href="#6-4测试" class="headerlink" title="6.4测试"></a>6.4测试</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601232510238.png" alt="image-20200601232510238"></p>
+<h2 id="7-根据token查询用户"><a href="#7-根据token查询用户" class="headerlink" title="7.根据token查询用户"></a>7.根据token查询用户</h2><h3 id="7-1业务分析"><a href="#7-1业务分析" class="headerlink" title="7.1业务分析"></a>7.1业务分析</h3><p>根据token判断用户是否登录或者session是否过期。接收token，根据token到redis中取用户信息。判断token字符串是否对应用户信息，如果不对应说明token非法或者session已过期。取到了说明用户就是正常的登录状态。返回用户信息，同时重置用户的过期时间。</p>
+<h3 id="7-2Service层"><a href="#7-2Service层" class="headerlink" title="7.2Service层"></a>7.2Service层</h3><p>接收token，调用dao，到redis中查询token对应的用户信息。返回用户信息并更新过期时间。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getUserByToken</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//根据token从redis中查询用户信息</span></span><br><span class="line">    String json = jedisClient.get(REDIS_USER_SESSION_KEY + <span class="string">":"</span> + token);</span><br><span class="line">    <span class="comment">//判断是否为空</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(json)) &#123;</span><br><span class="line">        <span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"此session已经过期，请重新登录"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//更新过期时间</span></span><br><span class="line">    jedisClient.expire(REDIS_USER_SESSION_KEY + <span class="string">":"</span> + token, SSO_SESSION_EXPIRE);</span><br><span class="line">    <span class="comment">//返回用户信息</span></span><br><span class="line">    <span class="keyword">return</span> TaotaoResult.ok(JsonUtils.jsonToPojo(json, TbUser<span class="class">.<span class="keyword">class</span>))</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3Controller层"><a href="#7-3Controller层" class="headerlink" title="7.3Controller层"></a>7.3Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/token/&#123;token&#125;"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getUserByToken</span><span class="params">(@PathVariable String token, String callback)</span> </span>&#123;</span><br><span class="line">    TaotaoResult result = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        result = userService.getUserByToken(token);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        result = TaotaoResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断是否为jsonp调用</span></span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(callback)) &#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        MappingJacksonValue mappingJacksonValue = <span class="keyword">new</span> MappingJacksonValue(result);</span><br><span class="line">        mappingJacksonValue.setJsonpFunction(callback);</span><br><span class="line">        <span class="keyword">return</span> mappingJacksonValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4测试"><a href="#7-4测试" class="headerlink" title="7.4测试"></a>7.4测试</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200601232720481.png" alt="image-20200601232720481"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>乔碧萝50岁自称萝莉<br>罗志祥40岁自称男孩<br>我自己20岁自称儿童<br>过个儿童节不过分吧……</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=521950090&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/SpringMVC%20V4.1%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/SpringMVC%20V4.1%E5%85%A5%E9%97%A8/">SpringMVC V4.1入门超详细解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,414 +454,124 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/01/%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-09T11:10:35.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">企业WEB项目实现商品详情页面展示功能</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/">矩阵连乘问题（从动态规划超详细解析）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、单点登录系统分析"><span class="toc-number">2.</span> <span class="toc-text">一、单点登录系统分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是SSO"><span class="toc-number">2.1.</span> <span class="toc-text">1.什么是SSO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-传统的登录流程"><span class="toc-number">2.2.</span> <span class="toc-text">2.传统的登录流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解决session共享方案"><span class="toc-number">2.3.</span> <span class="toc-text">3.解决session共享方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1第一种解决方案"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1第一种解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2第二种解决方案"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2第二种解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-单点登录系统流程"><span class="toc-number">2.4.</span> <span class="toc-text">4.单点登录系统流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、SSO开发"><span class="toc-number">3.</span> <span class="toc-text">二、SSO开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-系统架构"><span class="toc-number">3.1.</span> <span class="toc-text">1.系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用到的技术"><span class="toc-number">3.2.</span> <span class="toc-text">2.用到的技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-配置文件"><span class="toc-number">3.3.</span> <span class="toc-text">3.配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-服务开发"><span class="toc-number">3.4.</span> <span class="toc-text">4.服务开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1注册接口"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1注册接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1检查数据是否可用"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">4.1.1检查数据是否可用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2用户注册"><span class="toc-number">3.4.1.2.</span> <span class="toc-text">4.1.2用户注册</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2用户登录"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.2用户登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3通过token查询用户信息"><span class="toc-number">3.4.3.</span> <span class="toc-text">4.3通过token查询用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4安全退出"><span class="toc-number">3.4.4.</span> <span class="toc-text">4.4安全退出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-开发注册接口"><span class="toc-number">3.5.</span> <span class="toc-text">5.开发注册接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1数据校验"><span class="toc-number">3.5.1.</span> <span class="toc-text">5.1数据校验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-1需求分析"><span class="toc-number">3.5.1.1.</span> <span class="toc-text">5.1.1需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-2Service层"><span class="toc-number">3.5.1.2.</span> <span class="toc-text">5.1.2Service层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-3Controller层"><span class="toc-number">3.5.1.3.</span> <span class="toc-text">5.1.3Controller层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2用户注册"><span class="toc-number">3.5.2.</span> <span class="toc-text">5.2用户注册</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1需求分析"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">5.2.1需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2Service层"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">5.2.2Service层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3Controller层"><span class="toc-number">3.5.2.3.</span> <span class="toc-text">5.2.3Controller层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3测验"><span class="toc-number">3.5.3.</span> <span class="toc-text">5.3测验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-开发登录接口"><span class="toc-number">3.6.</span> <span class="toc-text">6.开发登录接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1需求分析"><span class="toc-number">3.6.1.</span> <span class="toc-text">6.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2Service层"><span class="toc-number">3.6.2.</span> <span class="toc-text">6.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3Controller层"><span class="toc-number">3.6.3.</span> <span class="toc-text">6.3Controller层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4测试"><span class="toc-number">3.6.4.</span> <span class="toc-text">6.4测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-根据token查询用户"><span class="toc-number">3.7.</span> <span class="toc-text">7.根据token查询用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1业务分析"><span class="toc-number">3.7.1.</span> <span class="toc-text">7.1业务分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2Service层"><span class="toc-number">3.7.2.</span> <span class="toc-text">7.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3Controller层"><span class="toc-number">3.7.3.</span> <span class="toc-text">7.3Controller层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4测试"><span class="toc-number">3.7.4.</span> <span class="toc-text">7.4测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-01T02:52:26.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-04-28T06:50:44.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/">复杂度分析，递归算法，排序算法最强入门攻略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/" class="archive-article-date">
-  	<time datetime="2020-04-28T05:14:46.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/">博客图片究极解决方案（七牛云图床）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-27T05:05:05.628Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/27/leetcode%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%EF%BC%88206%EF%BC%89/">leetcode  206.反转链表(链表)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/4/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -646,8 +609,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
