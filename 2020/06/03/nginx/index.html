@@ -6,15 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 日常 | J Sir</title>
+  <title>nginx史上最强入门教学 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8/index.html">
+  <meta name="description" content="一、nginx介绍1.什么是nginxNginx是一款高性能的http 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx史上最强入门教学">
+<meta property="og:url" content="http://yoursite.com/2020/06/03/nginx/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="一、nginx介绍1.什么是nginxNginx是一款高性能的http 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172113518.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172124859.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172133432.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603161906013.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603161946136.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194225255.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194243376.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194621456.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603195317644.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603195551666.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1591185387693.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1591185419506.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591185633666.gif">
+<meta property="article:published_time" content="2020-06-03T07:58:56.021Z">
+<meta property="article:modified_time" content="2020-06-03T12:11:11.304Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="淘淘商城">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172113518.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,109 +184,291 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-nginx" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/%E7%81%AB%E8%85%BF%E8%9B%8B%E7%82%92%E9%A5%AD/" class="archive-article-date">
-  	<time datetime="2020-05-18T05:44:01.758Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/%E7%81%AB%E8%85%BF%E8%9B%8B%E7%82%92%E9%A5%AD/">史上最强火腿蛋炒饭</a>
+    <h1 class="article-title" itemprop="name">
+      nginx史上最强入门教学
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/06/03/nginx/" class="archive-article-date">
+  	<time datetime="2020-06-03T07:58:56.021Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、nginx介绍"><a href="#一、nginx介绍" class="headerlink" title="一、nginx介绍"></a>一、nginx介绍</h1><h2 id="1-什么是nginx"><a href="#1-什么是nginx" class="headerlink" title="1.什么是nginx"></a>1.什么是nginx</h2><p>Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。</p>
+<a id="more"></a>
+
+<h2 id="2-nginx的应用场景"><a href="#2-nginx的应用场景" class="headerlink" title="2.nginx的应用场景"></a>2.nginx的应用场景</h2><p>1、http服务器。Nginx是一个http服务可以独立提供http服务。可以做网页静态服务器。</p>
+<p>2、虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</p>
+<p>3、反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用nginx做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。</p>
+<h2 id="3-nginx安装"><a href="#3-nginx安装" class="headerlink" title="3.nginx安装"></a>3.nginx安装</h2><p>详细步骤参见另一篇博客<a href="https://blog.csdn.net/JYplute/article/details/106217158" target="_blank" rel="noopener">《Linux下nginx的安装和使用(CentOS6.5为例)》</a></p>
+<h1 id="二、nginx实现虚拟主机"><a href="#二、nginx实现虚拟主机" class="headerlink" title="二、nginx实现虚拟主机"></a>二、nginx实现虚拟主机</h1><h2 id="1-什么是虚拟主机"><a href="#1-什么是虚拟主机" class="headerlink" title="1.什么是虚拟主机"></a>1.什么是虚拟主机</h2><p>虚拟主机是一种特殊的软硬件技术，它可以将网络上的每一台计算机分成多个虚拟主机，每个虚拟主机可以独立对外提供www服务，这样就可以实现一台主机对外提供多个web服务，每个虚拟主机之间是独立的，互不影响的。</p>
+<p>同一个服务器可能有一个ip，网站需要使用80端口。网站的域名不同。区分不同的网站有三种方式：</p>
+<p>1、ip区分</p>
+<p>2、端口区分</p>
+<p>3、域名区分</p>
+<h2 id="2-nginx配置文件的结构"><a href="#2-nginx配置文件的结构" class="headerlink" title="2.nginx配置文件的结构"></a>2.nginx配置文件的结构</h2><p>nginx的配置文件结构如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    .......</span><br><span class="line">&#125;</span><br><span class="line">http&#123;</span><br><span class="line">   .......</span><br><span class="line">   server&#123;</span><br><span class="line">	.......</span><br><span class="line">	&#125;</span><br><span class="line">   server&#123;</span><br><span class="line">	.......</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个server就是一个虚拟主机。</p>
+<h2 id="3-基于ip的虚拟主机配置"><a href="#3-基于ip的虚拟主机配置" class="headerlink" title="3.基于ip的虚拟主机配置"></a>3.基于ip的虚拟主机配置</h2><p>Linux操作系统允许添加IP别名，IP别名就是在一块物理网卡上绑定多个lP地址。这样就能够在使用单一网卡的同一个服务器上运行多个基于IP的虚拟主机。</p>
+<h3 id="3-1需求"><a href="#3-1需求" class="headerlink" title="3.1需求"></a>3.1需求</h3><p>一台nginx服务器绑定两个ip：192.168.101.3、192.168.101.103</p>
+<p>访问不同的ip请求不同的html目录，即：</p>
+<p>访问<a href="http://192.168.101.3将访问“html3”目录下的html网页" target="_blank" rel="noopener">http://192.168.101.3将访问“html3”目录下的html网页</a></p>
+<p>访问<a href="http://192.168.101.103将访问“html103”目录下的html网页" target="_blank" rel="noopener">http://192.168.101.103将访问“html103”目录下的html网页</a></p>
+<h3 id="3-2html目录创建"><a href="#3-2html目录创建" class="headerlink" title="3.2html目录创建"></a>3.2html目录创建</h3><p>将原来nginx的html目录拷贝两个目录 “html3”和“html103”，为了方便测试需要修改每个目录下的index.html内容使之个性化。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx</span><br><span class="line">cp -r html html3</span><br><span class="line">cp -r html html103</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3绑定多ip"><a href="#3-3绑定多ip" class="headerlink" title="3.3绑定多ip"></a>3.3绑定多ip</h3><p><strong>方法一：</strong></p>
+<p>使用标准的网络配置工具（比如ifconfig和route命令）添加lP别名：</p>
+<p>在eth0网卡再绑定一个ip：192.168.101.103</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/ifconfig eth0:1 192.168.101.103 broadcast 192.168.101.255 netmask 255.255.255.0 up</span><br><span class="line">/sbin/route add -host 192.168.101.103 dev eth0:1</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二：</strong></p>
+<p>1、将/etc/sysconfig/network-scripts/ifcfg-eth0文件复制一份，命名为ifcfg-eth0:1</p>
+<p>修改其中内容：</p>
+<p>DEVICE=eth0:1</p>
+<p>IPADDR=192.168.25.103</p>
+<p>其他项不用修改</p>
+<p>2、重启系统</p>
+<h3 id="3-4配置虚拟主机"><a href="#3-4配置虚拟主机" class="headerlink" title="3.4配置虚拟主机"></a>3.4配置虚拟主机</h3><p>修改/usr/local/nginx/conf/nginx.conf文件，添加两个虚拟主机，如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="comment">#配置虚拟主机192.168.101.3</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">	<span class="comment">#监听的ip和端口，配置192.168.101.3:80</span></span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">	<span class="comment">#虚拟主机名称这里配置ip地址</span></span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.101.3</span>;</span><br><span class="line">	<span class="comment">#所有的请求都以/开始，所有的请求都可以匹配此location</span></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">	    <span class="comment">#使用root指令指定虚拟主机目录即网页存放目录</span></span><br><span class="line">	    <span class="comment">#比如访问http://ip/test.html将找到/usr/local/html3/test.html</span></span><br><span class="line">	    <span class="comment">#比如访问http://ip/item/test.html将找到/usr/local/html3/item/test.html</span></span><br><span class="line"></span><br><span class="line">            <span class="attribute">root</span>   /usr/local/nginx/html3;</span><br><span class="line">	    <span class="comment">#指定欢迎页面，按从左到右顺序查找</span></span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#配置虚拟主机192.168.101.103</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.101.103</span>;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   /usr/local/nginx/html103;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5测试"><a href="#3-5测试" class="headerlink" title="3.5测试"></a>3.5测试</h3><p>启动nginx，观察端口监听状态：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172113518.jpg" alt="img"></p>
+<p>访问<a href="http://192.168.101.3" target="_blank" rel="noopener">http://192.168.101.3</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172124859.jpg" alt="img"></p>
+<p>访问<a href="http://192.168.101.103" target="_blank" rel="noopener">http://192.168.101.103</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591172133432.jpg" alt="img"></p>
+<h2 id="4-基于端口的虚拟主机"><a href="#4-基于端口的虚拟主机" class="headerlink" title="4.基于端口的虚拟主机"></a>4.基于端口的虚拟主机</h2><p>同上，修改listen即可</p>
+<h2 id="5-基于域名的虚拟主机"><a href="#5-基于域名的虚拟主机" class="headerlink" title="5.基于域名的虚拟主机"></a>5.基于域名的虚拟主机</h2><p>最有用的虚拟主机配置方式。</p>
+<p>一个域名只能绑定一个ip地址，一个ip地址可以被多个域名绑定。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603161906013.png" alt="image-20200603161906013"></p>
+<p>修改window的hosts文件：（C:\Windows\System32\drivers\etc）</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603161946136.png" alt="image-20200603161946136"></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">       <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">       <span class="attribute">server_name</span>  www.jy.com;</span><br><span class="line"></span><br><span class="line">       <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">       <span class="attribute">location</span> /&#123;</span><br><span class="line">           <span class="attribute">root</span>   html-www;</span><br><span class="line">           <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意，修改配置文件后，需要nginx重新加载配置文件。进入到/usr/local/nginx/sbin 目录下,重新启动nginx服务器</p>
+<p>./nginx -s reload</p>
+</blockquote>
+<h1 id="三、nginx反向代理"><a href="#三、nginx反向代理" class="headerlink" title="三、nginx反向代理"></a>三、nginx反向代理</h1><h2 id="1-什么是反向代理"><a href="#1-什么是反向代理" class="headerlink" title="1.什么是反向代理"></a>1.什么是反向代理</h2><p>通常的代理服务器，只用于代理内部网络对Internet的连接请求，客户机必须指定代理服务器,并将本来要直接发送到Web服务器上的http请求发送到代理服务器中由代理服务器向Internet上的web服务器发起请求，最终达到客户机上网的目的。</p>
+<p>​     而反向代理（Reverse Proxy）方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
+<h3 id="1-1正向代理"><a href="#1-1正向代理" class="headerlink" title="1.1正向代理"></a>1.1正向代理</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194225255.png" alt="image-20200603194225255"></p>
+<h3 id="1-2反向代理"><a href="#1-2反向代理" class="headerlink" title="1.2反向代理"></a>1.2反向代理</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194243376.png" alt="image-20200603194243376"></p>
+<p>Nginx只做请求的转发，后台有多个http服务器提供服务，nginx的功能就是把请求转发给后面的服务器，决定把请求转发给谁。</p>
+<h2 id="2-需求"><a href="#2-需求" class="headerlink" title="2.需求"></a>2.需求</h2><p>在一个虚拟机上创建两个tomcat实例，模拟多个服务器。</p>
+<p>通过访问不同的域名访问运行在不同端口的tomcat</p>
+<p>8080.jy.com 访问运行8080端口的tomcat</p>
+<p>8081.jy.com 访问运行8081端口的tomcat</p>
+<p>配置hosts文件：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603194621456.png" alt="image-20200603194621456"></p>
+<h2 id="3-Nginx的配置"><a href="#3-Nginx的配置" class="headerlink" title="3.Nginx的配置"></a>3.Nginx的配置</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置一个代理即tomcat1服务器</span></span><br><span class="line"><span class="attribute">upstream</span> tomcat_server1 &#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.10.130:8080</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#配置一个代理即tomcat2服务器</span></span><br><span class="line"><span class="attribute">upstream</span> tomcat_server2 &#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.10.130:8081</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#配置一个虚拟主机</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> aaa.test.com;</span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="comment">#域名aaa.test.com的请求全部转发到tomcat_server1即tomcat1服务上</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> http://tomcatserver1;</span><br><span class="line">        <span class="comment">#欢迎页面，按照从左到右的顺序查找页面</span></span><br><span class="line">        <span class="attribute">index</span> index.jsp index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> bbb.test.com;</span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="comment">#域名bbb.test.com的请求全部转发到tomcat_server2即tomcat2服务上</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> http://tomcatserver2;</span><br><span class="line">        <span class="attribute">index</span> index.jsp index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603195317644.png" alt="image-20200603195317644"></p>
+<h1 id="四、负载均衡"><a href="#四、负载均衡" class="headerlink" title="四、负载均衡"></a>四、负载均衡</h1><h2 id="1-什么是负载均衡"><a href="#1-什么是负载均衡" class="headerlink" title="1.什么是负载均衡"></a>1.什么是负载均衡</h2><p>负载均衡 建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。</p>
+<p>​     负载均衡，英文名称为Load Balance，其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。</p>
+<h2 id="2-需求-1"><a href="#2-需求-1" class="headerlink" title="2.需求"></a>2.需求</h2><p>nginx作为负载均衡服务器，用户请求先到达nginx，再由nginx根据负载配置将请求转发至 tomcat服务器。</p>
+<p>​    nginx负载均衡服务器：192.168.25.141</p>
+<p>​    tomcat1服务器：192.168.25.141:8080</p>
+<p>​    tomcat2服务器：192.168.25.141:8081</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200603195551666.png" alt="image-20200603195551666"></p>
+<h2 id="3-配置nginx的负载均衡"><a href="#3-配置nginx的负载均衡" class="headerlink" title="3.配置nginx的负载均衡"></a>3.配置nginx的负载均衡</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1591185387693.png" alt="img"></p>
+<h2 id="4-配置负载均衡的权重"><a href="#4-配置负载均衡的权重" class="headerlink" title="4.配置负载均衡的权重"></a>4.配置负载均衡的权重</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1591185419506.png" alt="img"></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">节点说明：</span><br><span class="line">在http节点里添加:</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义负载均衡设备的 Ip及设备状态 </span></span><br><span class="line"><span class="attribute">upstream</span> myServer &#123;   </span><br><span class="line"></span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:9090</span> down; </span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:8080</span> weight=<span class="number">2</span>; </span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:6060</span>; </span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:7070</span> backup; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在需要使用负载的Server节点下添加</span><br><span class="line"></span><br><span class="line"><span class="attribute">proxy_pass</span> http://myServer;</span><br><span class="line"></span><br><span class="line"><span class="attribute">upstream</span> 每个设备的状态:</span><br><span class="line"></span><br><span class="line">down 表示单前的server暂时不参与负载 </span><br><span class="line">weight  默认为<span class="number">1</span>.weight越大，负载的权重就越大。 </span><br><span class="line">max_fails ：允许请求失败的次数默认为<span class="number">1</span>.当超过最大次数时，返回proxy_next_upstream 模块定义的错误 </span><br><span class="line">fail_timeout:max_fails 次失败后，暂停的时间。 </span><br><span class="line">backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、网络拓扑图"><a href="#五、网络拓扑图" class="headerlink" title="五、网络拓扑图"></a>五、网络拓扑图</h1><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1591185633666.gif" alt="img"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>乌兹退役了，我的青春结束了</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=506196018&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">食神</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/03/nginx/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/" class="archive-article-date">
-  	<time datetime="2020-04-23T15:12:39.508Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/02/%E8%B4%AD%E7%89%A9%E8%BD%A6+%E8%AE%A2%E5%8D%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">电商项目购物车及订单系统实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/">家常炒面，蚝油生菜，冬瓜排骨汤的做法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">食神</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、nginx介绍"><span class="toc-number">1.</span> <span class="toc-text">一、nginx介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是nginx"><span class="toc-number">1.1.</span> <span class="toc-text">1.什么是nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-nginx的应用场景"><span class="toc-number">1.2.</span> <span class="toc-text">2.nginx的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-nginx安装"><span class="toc-number">1.3.</span> <span class="toc-text">3.nginx安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、nginx实现虚拟主机"><span class="toc-number">2.</span> <span class="toc-text">二、nginx实现虚拟主机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是虚拟主机"><span class="toc-number">2.1.</span> <span class="toc-text">1.什么是虚拟主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-nginx配置文件的结构"><span class="toc-number">2.2.</span> <span class="toc-text">2.nginx配置文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-基于ip的虚拟主机配置"><span class="toc-number">2.3.</span> <span class="toc-text">3.基于ip的虚拟主机配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1需求"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2html目录创建"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2html目录创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3绑定多ip"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3绑定多ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4配置虚拟主机"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4配置虚拟主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5测试"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-基于端口的虚拟主机"><span class="toc-number">2.4.</span> <span class="toc-text">4.基于端口的虚拟主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-基于域名的虚拟主机"><span class="toc-number">2.5.</span> <span class="toc-text">5.基于域名的虚拟主机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、nginx反向代理"><span class="toc-number">3.</span> <span class="toc-text">三、nginx反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是反向代理"><span class="toc-number">3.1.</span> <span class="toc-text">1.什么是反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1正向代理"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1正向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2反向代理"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2反向代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-需求"><span class="toc-number">3.2.</span> <span class="toc-text">2.需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Nginx的配置"><span class="toc-number">3.3.</span> <span class="toc-text">3.Nginx的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-测试"><span class="toc-number">3.4.</span> <span class="toc-text">4.测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、负载均衡"><span class="toc-number">4.</span> <span class="toc-text">四、负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是负载均衡"><span class="toc-number">4.1.</span> <span class="toc-text">1.什么是负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-需求-1"><span class="toc-number">4.2.</span> <span class="toc-text">2.需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-配置nginx的负载均衡"><span class="toc-number">4.3.</span> <span class="toc-text">3.配置nginx的负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-配置负载均衡的权重"><span class="toc-number">4.4.</span> <span class="toc-text">4.配置负载均衡的权重</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、网络拓扑图"><span class="toc-number">5.</span> <span class="toc-text">五、网络拓扑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -302,9 +505,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
