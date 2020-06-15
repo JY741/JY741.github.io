@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>汇编大学狗及格必看(三) | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="EverydayOneCatᗢᕡᓗ看來任務失敗了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编大学狗及格必看(三)">
+<meta property="og:url" content="http://yoursite.com/2020/06/15/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%89%E5%A4%A9/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCatᗢᕡᓗ看來任務失敗了">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i0.hdslb.com/bfs/album/b0f97a61db38e93629c299ae530ccff00c76adb1.gif@518w_1e_1c.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200615163159083.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200615164408543.png">
+<meta property="article:published_time" content="2020-06-15T02:40:45.504Z">
+<meta property="article:modified_time" content="2020-06-15T16:08:22.175Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.hdslb.com/bfs/album/b0f97a61db38e93629c299ae530ccff00c76adb1.gif@518w_1e_1c.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,35 +172,236 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-汇编第三天" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      汇编大学狗及格必看(三)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/15/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/06/15/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
   	<time datetime="2020-06-15T02:40:45.504Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/15/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%89%E5%A4%A9/">汇编大学狗及格必看(三)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>ᗢᕡᓗ看來任務失敗了</p>
+<p><img src="https://i0.hdslb.com/bfs/album/b0f97a61db38e93629c299ae530ccff00c76adb1.gif@518w_1e_1c.gif" alt=""></p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="一、-BX-和loop指令"><a href="#一、-BX-和loop指令" class="headerlink" title="一、[BX]和loop指令"></a>一、[BX]和loop指令</h1><h2 id="1-bx-和内存单元的描述"><a href="#1-bx-和内存单元的描述" class="headerlink" title="1.[bx]和内存单元的描述"></a>1.[bx]和内存单元的描述</h2><p>在masm编译器中，编译器会把mov ax,[0]认为是mov ax,0，就是把中括号直接无视了，这时候我们要想达到预期效果，需要用到bx</p>
+<p>bx也是一个通用寄存器，不过是用来存放偏移地址的，一般用法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov bx,xxH</span><br><span class="line">mov ax,[bx]</span><br></pre></td></tr></table></figure>
+
+<p>要完整地描述一个内存单元， 需要两种信息： ＠内存单元的地址； ＠内存单元的长度</p>
+<p>用[O]表示一个内存单元时， 0 表示单元的偏移地址， 段地址默认在ds 中， 单元的长度（类型）可以由具体指令中的其他操作对象（比如说寄存器）指出。</p>
+<h2 id="2-描述性的符号"><a href="#2-描述性的符号" class="headerlink" title="2.描述性的符号()"></a>2.描述性的符号()</h2><p>为了描述上的简洁，我们将使用一个描述性的符号” (） ” 来表示一个寄存器或一个内存单元中的内容。如：</p>
+<p>(ax)表示ax 中的内容、(al)表示al 中的内容；(20000H)表示内存20000H 单元的内容(0中的内存单元的地址为物理地址）；</p>
+<h2 id="3-约定符号idata表示常量"><a href="#3-约定符号idata表示常量" class="headerlink" title="3.约定符号idata表示常量"></a>3.约定符号idata表示常量</h2><p>我们在Debug 中写过类似的指令： mov ax,[O]， 表示将ds:O 处的数据送入ax 中。指令中， 在“ […]”里用一个常量0 表示内存单元的偏移地址。以后， 我们用idata 表示常量。比如：</p>
+<p>mov ax,[idata]就代表mov ax,[l ] 、mov ax,[2] 、mov ax,[3]等。<br>mov bx,idata 就代表mov bx,1、mov bx,2、mov bx,3 等。</p>
+<h2 id="4-Loop指令"><a href="#4-Loop指令" class="headerlink" title="4.Loop指令"></a>4.Loop指令</h2><p>loop指令就相当于do……while……循环</p>
+<p>CPU执行loop 指令的时候， 要进行两步操作，1、(cx) =(cx)-1;2、判断cx 中的值， 不为零则转至标号处执行程序， 如果为零则向下<br>执行。</p>
+<p>cx中通常存放循环次数，一般框架：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	mov cx，循环次数</span><br><span class="line">s:</span><br><span class="line">	循环执行的程序段</span><br><span class="line">	loop s</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-在Debug-中跟踪用loop-指令实现的循环程序"><a href="#5-在Debug-中跟踪用loop-指令实现的循环程序" class="headerlink" title="5.在Debug 中跟踪用loop 指令实现的循环程序"></a>5.在Debug 中跟踪用loop 指令实现的循环程序</h2><p>计算ffff:0006单元中的数乘以3, 结果存储在dx中</p>
+<p>分析：1、运算后的结果是否会超出dx所能存储的范围？</p>
+<p>ffff:0006单元中的数是一个字节型的数据，范围在0~255之间，则用它和3相乘结果不会大于65535, 可以在dx中存放下。<br>2、用循环累加来实现乘法，用哪个寄存器进行累加？</p>
+<p>将ffff:0006 单元中的数赋值给ax, 用dx进行累加。先设(dx)=O, 然后做3 次(dx)=(dx)+(ax)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">	mov ax,0ffffH	;这里在开头加0的目的是编译器不让开头为字母，所以加个0，表示的数是不变的</span><br><span class="line">	mov ds,ax</span><br><span class="line">	mov bx,6	;bx存偏移地址，以上设置ds:bx 指向ffff: 6</span><br><span class="line">	mov ax,[bx]</span><br><span class="line">	mov dx,0</span><br><span class="line">	mov cx,3	;表示循环3次</span><br><span class="line">  s:add dx,ax</span><br><span class="line">	loop s</span><br><span class="line">	</span><br><span class="line">	mov ax,4c00H	</span><br><span class="line">	int 21H	;程序返回</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>Debug调试：</p>
+<p>1、g指令</p>
+<p>循环程序段从CS:0012 开始， CS:0012前面的指令， 我们不想再一步步地跟踪， 希望能够一次执行完， 然后从CS:0012处开始跟踪。可以这样来使用g命令， “g0012”, 它表示执行程序到当前代码段（段地址在CS中）的0012b处</p>
+<p>2、p</p>
+<p>我们希望将循环一次执行完。可以使用p命令来达到目的。再次遇到loop指令时， 使用p命令来执行，Debug就会自动重复执行循环中的指令， 直到(cx)=0为止。</p>
+<h2 id="6-loop和-bx-的联合应用"><a href="#6-loop和-bx-的联合应用" class="headerlink" title="6.loop和[bx]的联合应用"></a>6.loop和[bx]的联合应用</h2><p>问题：计算ffff:0~ffff:b单元中的数据的和， 结果存储在dx中。</p>
+<p>分析：</p>
+<p>(1)运算后的结果是否会超出dx 所能存储的范围？<br>ffff: 0-ffff: b 内存单元中的数据是字节型数据， 范围在0~255之间，12个这样的数据相加， 结果不会大于65535, 可以在dx中存放下。</p>
+<p>(2)我们能否将ffff:0-ffff: b中的数据直接累加到dx中？<br>当然不行， 因为ffff:0-ffff: b中的数据是8位的， 不能直接加到16位寄存器dx中。</p>
+<p>( 3)我们能否将ffff:0~ ffff:b 中的数据累加到di中， 并设置(dh)=0, 从而实现累加到dx中？<br>这也不行， 因为dl 是8 位寄存器， 能容纳的数据的范围在0<del>255之间，ffff:0</del>ffff: b中的数据也都是8位， 如果仅向di中累加12个8位数据， 很有可能造成进位丢失。</p>
+<p>目前的方法（在后面我们还有别的方法）就是得用一个16位寄存器来做中介。将内存单元中的8位数据赋值到一个16位寄存器ax<br>中， 再将ax中的数据加到dx上， 从而使两个运算对象的类型匹配并且结果不会超界。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">	mov ax,0ffffh</span><br><span class="line">	mov ds,ax</span><br><span class="line">	mov bx,0	;初始化ds:bx指向ffff:0</span><br><span class="line">	mov dx,0	;初始化累加寄存器dx, (dx) &#x3D;0</span><br><span class="line">	mov cx,12	;初始化循环计数寄存器ex, (ex) &#x3D;12</span><br><span class="line">  s:mov ax,[bx]</span><br><span class="line">	add dx,ax	;间接向dx中加上((ds) *16+ (bx)）单元的数值</span><br><span class="line">	inc bx	;ds:bx指向下一个单元</span><br><span class="line">	loop s</span><br><span class="line">	</span><br><span class="line">	mov ax,4c00h</span><br><span class="line">	int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-段前缀"><a href="#7-段前缀" class="headerlink" title="7.段前缀"></a>7.段前缀</h2><p>指令“ mov ax,[bx]” 中， 内存单元的偏移地址由bx 给出， 而段地址默认在ds 中。我们可以在访问内存单元的指令中显式地给出内存单元的段地址所在的段寄存器。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,ds:[bx]</span><br><span class="line">mov ax,cs:[bx]</span><br><span class="line">mov ax,ss:[bx]</span><br><span class="line">mov ax,es:[bx]</span><br></pre></td></tr></table></figure>
+
+<p>这些出现在访问内存单元的指令中， 用千显式地指明内存单元的段地址的”ds:” “cs:” “ss:” “es:”, 在汇编语言中称为段前缀。</p>
+<p>段前缀的使用：将内存ffff:0-ffff: b 单元中的数据复制到0:200~0:20b 单元中</p>
+<p>分析：0:200-0:206 单元等同千0020:0-0020:b 单元， 它们描述的是同一段内存空间。(这样有助于我们知道循环12次)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line">code segment</span><br><span class="line">	mov ax,0ffffh</span><br><span class="line">	mov ds,ax</span><br><span class="line">	mov ax,0020h</span><br><span class="line">	mov es,ax	;es是一个临时的段寄存器，可以存放临时数据</span><br><span class="line">	mov bx,0	;(bx) &#x3D;O, 此时ds:bx 指向ffff:O, es:bx 指向0020:0</span><br><span class="line">	mov cx,12</span><br><span class="line">  s:mov dl,[bx]	;默认为ds,(dl) &#x3D; ((ds) *16+ (bx))， 将ffff:bx 中的数据送入dl</span><br><span class="line">	mov es:[bx],dl	;((es)*16+(bx))&#x3D;(dl)， 将dl 中的数据送入0020:bx</span><br><span class="line">	inc bx</span><br><span class="line">	loop s</span><br><span class="line">	</span><br><span class="line">	mov ax,4c00h</span><br><span class="line">	int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、包含多个段的程序"><a href="#二、包含多个段的程序" class="headerlink" title="二、包含多个段的程序"></a>二、包含多个段的程序</h1><p>前面的程序中， 只有一个代码段。现在有一个问题是， 如果程序需要用其他空间来存放数据， 使用哪里呢？</p>
+<p>程序取得所需空间的方法有两种， 一是在加载程序的时候为程序分配， 再就是程序在执行的过程中向系统申请。</p>
+<p>我们若要一个程序在被加载的时候取得所需的空间， 则必须要在源程序中做出说明。我们通过在源程序中定义段来进行内存空间的获取。</p>
+<h2 id="1-在代码段中使用数据"><a href="#1-在代码段中使用数据" class="headerlink" title="1.在代码段中使用数据"></a>1.在代码段中使用数据</h2><p>问题：编程计算以下8个数据的和， 结果存在ax寄存器中：0123h、0456h、0789h、0abch、0defh、0fedh、0cbah、0987h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line">code segment</span><br><span class="line">	dw 0123h,0456h,0789h,Oabch,Odefh,Ofedh,Ocbah,0987h</span><br><span class="line">	start: </span><br><span class="line">	mov bx,0</span><br><span class="line">	mov ax,0</span><br><span class="line">    mov cx,8</span><br><span class="line">  s:add ax,cs:[bx]</span><br><span class="line">  	add bx,2</span><br><span class="line">  	loop s</span><br><span class="line">  	mov ax,4c00h</span><br><span class="line">  	int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>程序第一行中的“ dw” 的含义是定义字型数据。dw 即“ defme word” 。在这里， 使用dw 定义了8 个字型数据（数据之间以逗号分隔）， 它们所占的内存空间的大小为16 个字节。在cs段中定义，因为用dw 定义的数据处千代码段的最开始， 所以偏移地址为0, 这8 个数据就在代码段的偏移0、2 、4、6、8、A、C 、E 处。</p>
+<p>dw用了系统会分配指定空间，我们也可用它来分配空间(栈中使用)</p>
+<p>在程序的第一条指令的前面加上了一个标号start,而这个标号在伪指令end 的后面出现。这里， 我们要再次探讨end 的作用。end 除了通知编译器程序结束外， 还可以通知编译器程序的入口在什么地方。</p>
+<h2 id="2-在代码段中使用栈"><a href="#2-在代码段中使用栈" class="headerlink" title="2.在代码段中使用栈"></a>2.在代码段中使用栈</h2><p>问题：定义的数据存放在cs：仁cs:F 单元中， 共8 个字单元。依次将这8 个字单元中的数据入栈， 然后再依次出栈到这8个字单元中， 从而实现数据的逆序存放。</p>
+<p>分析：</p>
+<p>我们首先要有一段可当作栈的内存空间。如前所述， 这段空间应该由系统来分配。可以在程序中通过定义数据来取得一段空间， 然后将这段空间当作栈空间来用</p>
+<p>我们要将cs:1 O~cs:2F的内存空间当作栈来用， 初始状态下栈为空， 所以ss:sp要指向栈底， 则设置ss: sp指向cs:30。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line">	dw 0123h,0456h,0789h,Oabch,Odefh,Ofedh,0cbah,0987h</span><br><span class="line">	dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span><br><span class="line">	;用dw定义16个字型数据， 在程序加载后， 将取得16个字的内存空间， 存放这16个数据。在后面的程序中将这段空间当作栈来使用</span><br><span class="line">start:  mov ax,cs</span><br><span class="line">		mov ss,ax	;让栈空间指向目前cs的</span><br><span class="line">		mov sp,30h	;将设置栈顶ss:sp指向cs:30</span><br><span class="line">		mov bx,0</span><br><span class="line">		mov cx,8</span><br><span class="line">	s:  push cs:[bx]</span><br><span class="line">		add bx,2</span><br><span class="line">		loop s	;以上将代码段0~15单元中的8个字型数据依次入栈</span><br><span class="line">		mov bx,0</span><br><span class="line">		mov cx,8</span><br><span class="line">	s0: pop cs: [bx]</span><br><span class="line">		add bx,2</span><br><span class="line">		loop s0	;以上依次出栈8个字型数据到代码段0~15单元中</span><br><span class="line">		mov ax,4c00h</span><br><span class="line">		int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start	;指明程序的入口在start处</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-将数据、代码、栈放入不同的段"><a href="#3-将数据、代码、栈放入不同的段" class="headerlink" title="3.将数据、代码、栈放入不同的段"></a>3.将数据、代码、栈放入不同的段</h2><p>在前面的内容中， 我们在程序中用到了数据和栈， 将数据、栈和代码都放到了一个段里面。这样做显然有两个问题：</p>
+<p>(l)把它们放到一个段中使程序显得混乱；<br>(2)前面程序中处理的数据很少， 用到的栈空间也小， 加上没有多长的代码， 放到一个段里面没有问题。但如果数据、栈和代码需要的空间超过64KB, 就不能放在一个段中</p>
+<p>多个段来表示和上一个一样的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack</span><br><span class="line">data segment </span><br><span class="line">	dw 0123h,0456h,0789h,Oabch,Odefh,Ofedh,Ocbah,0987h</span><br><span class="line">data ends</span><br><span class="line">stack segment</span><br><span class="line">	dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</span><br><span class="line">stack ends</span><br><span class="line">code segment </span><br><span class="line">start:</span><br><span class="line">	mov ax,stack</span><br><span class="line">	mov ss,ax</span><br><span class="line">	mov sp,20h	;设置栈顶ss:sp指向stack:20</span><br><span class="line">	mov ax,data</span><br><span class="line">	mov ds,ax	;ds指向data段</span><br><span class="line">	mov bx,0	;ds:bx指向data段中的第一个单元</span><br><span class="line">	mov cx,8</span><br><span class="line">  s:push [bx]	;默认段地址ds</span><br><span class="line">	add bx,2</span><br><span class="line">	loop s	;以上将data段中的0~15单元中的8个字型数据依次入栈</span><br><span class="line">	mov bx,O</span><br><span class="line">	mov cx,8</span><br><span class="line"> s0:pop [bx]</span><br><span class="line">	add bx,2</span><br><span class="line">	loop s0	;以上依次出栈8个字型数据到data段的0~15单元中</span><br><span class="line">	mov ax,4c00h</span><br><span class="line">	int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>这里我们分别定义了数据段，程序段，栈段。” 代码段” 、“数据段” 、“栈段“ 完全是我们的安排</p>
+<p>对千如下定义的段：<br>name segment<br>name ends<br>如果段中的数据占N个字节， 则程序加载后， 该段实际占有的空间为<strong>16*(N/16+1)</strong>。</p>
+<h1 id="三、更灵活的定位内存地址的方法"><a href="#三、更灵活的定位内存地址的方法" class="headerlink" title="三、更灵活的定位内存地址的方法"></a>三、更灵活的定位内存地址的方法</h1><h2 id="1-and和or指令"><a href="#1-and和or指令" class="headerlink" title="1.and和or指令"></a>1.and和or指令</h2><p>and指令： 逻辑与指令， 按位进行与运算。例如指令：<br>mov al, 01100011B<br>and  al, 00111011B<br>执行后： al=00100011B</p>
+<p>通过该指令可将操作对象的相应位设为o, 其他位不变。将al的第6位设为0的指令是： andal,1011111 IB</p>
+<p>or指令： 逻辑或指令， 按B位进行或运算。例如指令：<br>mov al, 01100011B<br>or     al, 00111011B<br>执行后： al=01111011B</p>
+<p>通过该指令可将操作对象的相应位设为1, 其他位不变。</p>
+<h2 id="2-ASCII码"><a href="#2-ASCII码" class="headerlink" title="2.ASCII码"></a>2.ASCII码</h2><p>世界上有很多编码方案， 有一种方案叫做ASCII编码， 是在计算机系统中通常被采用的。</p>
+<p>我们可以在汇编程序中， 用＇……＇的方式指明数据是以字符的形式给出的， 编译器将把它们转化为相对应的ASCII码。如：</p>
+<p>db ‘unIX’    db ‘foRK’    mov al,’a’    mov bl,’b’</p>
+<p>我们通过观察表得出：小写字母的ASCII码值比大写字母的ASCII码值大20H，就ASCII 码的二进制形式来看， 除第5 位（位数从0 开始计算）外， 大写字母和小写字母的其他各位都一样。大写字母ASCII 码的第5 位为0, 小写字母的第5 位为1。</p>
+<p>可以用and和or方法将一个数据中的某一位置0 还是置1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg</span><br><span class="line">datasg segment</span><br><span class="line">db &#39;BaSiC&#39;</span><br><span class="line">db &#39;iNfOrMaTiOn&#39;</span><br><span class="line">datasg ends</span><br><span class="line">codesg segmen七</span><br><span class="line">start: mov ax,datasg</span><br><span class="line">mov ds,ax	;设置ds指向da七asg段</span><br><span class="line">mov bx,O	;设置(bx)&#x3D;0,ds:bx指向，BaSic 的第一个字母</span><br><span class="line">mov cx,5	;设置循环次数5，因为&#39;Basic&#39;有5个字母</span><br><span class="line">s :mov al, [bx]	;将ASCII耳码从ds:bx所指向的单元中取出</span><br><span class="line">and al, 11011111B	;将al中的ASCII码的第5位置为0, 变为大写字母</span><br><span class="line">mov [bx],al	;将转变后的ASCII码写回原单元</span><br><span class="line">inc bx	;(bx)加1, ds :bx指向下一个字母</span><br><span class="line">loop s</span><br><span class="line"></span><br><span class="line">mov bx,5	设置(bx)&#x3D;S,ds:bx指向飞iNfOrMaTiOn的第一个字母</span><br><span class="line">mov cx,11	;设置循环次数11， 因为飞iNfOrMaTiOn配有11个字母</span><br><span class="line">s0 :mov al, [bx]</span><br><span class="line">or al,001000000B</span><br><span class="line">mov [bx],al</span><br><span class="line">inc bx</span><br><span class="line">loop s0</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-bx-idata-进行数组的处理"><a href="#3-bx-idata-进行数组的处理" class="headerlink" title="3.[bx+idata]进行数组的处理"></a>3.[bx+idata]进行数组的处理</h2><p>我们用[bx]的方式来指明一个内存单元， 还可以用一种更为灵活的方式来指明内存单元： ［bx+idata] 表示一个内存单元， 它的偏移地址为(bx)+idata(bx 中的数值加上idata)。</p>
+<p>我们对上述大小写进行改进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mov ax,datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov bx,O</span><br><span class="line">mov cx,5</span><br><span class="line">s: mov al,[bx]	;定位第一个字符串中的字符</span><br><span class="line">and al, 11011111b</span><br><span class="line">mov [bx),al</span><br><span class="line">mov al, [5+bx]	;定位第二个字符串中的字符</span><br><span class="line">or al,00100000b</span><br><span class="line">mov [5+bx),al</span><br><span class="line">inc bx</span><br><span class="line">loop s</span><br></pre></td></tr></table></figure>
+
+<p>C 语言： a[i], b[i]<br>汇编语言： O[bx], 5[bx]</p>
+<p>通过比较， 我们可以发现，［bx+idata]的方式为高级语言实现数组提供了便利机制</p>
+<h2 id="4-SI和DI"><a href="#4-SI和DI" class="headerlink" title="4.SI和DI"></a>4.SI和DI</h2><p>si 和di 是8086CPU 中和bx 功能相近的寄存器， si 和di 不能够分成两个8 位寄存器来使用。</p>
+<p>用si 和di 实现将字符串’welcome to masm!＇复制到它后面的数据区中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">codesg segmen</span><br><span class="line">start: mov ax, datasg</span><br><span class="line">mov ds,ax</span><br><span class="line">mov si,O</span><br><span class="line">mov di,16</span><br><span class="line">mov cx,8</span><br><span class="line">s : mov ax, [ s i]</span><br><span class="line">mov [di],ax</span><br><span class="line">add si,2</span><br><span class="line">add di,2</span><br><span class="line">loop s</span><br><span class="line">mov ax,4c00h</span><br><span class="line">int 21h</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>[bx+si]和[bx+di]还有[bx+si+idata]和[bx+di+idata]和之前功能差不多，这里不做过多赘述</p>
+<h2 id="5-不同的寻址方式的灵活应用"><a href="#5-不同的寻址方式的灵活应用" class="headerlink" title="5.不同的寻址方式的灵活应用"></a>5.不同的寻址方式的灵活应用</h2><p>将datasg 段中每个单词改为大写字母。、</p>
+<p>在datasg 中定义了4 个字符串， 每个长度为16 个字节（注意， 为了使我们在Debug 中可以直观地查看， 每个字符串的后面都加上了空格符， 以使它们的长度刚好为16 个字节）。因为它们是连续存放的， 我们可以将这4 个字符串看成一个4 行16 列的二维数组。按照要求， 我们需要修改每一个单词， 即二维数组的每一行的前3列。</p>
+<p>这里我们需要一个嵌套循环，但是cx只能放一个，实现不了嵌套。而8086CPU只有14个寄存器，我们需要用内存空间来进行存储，如果规定特定的内存空间，你必须要记住数据放到了哪个单元中，容易混乱。因此我们可以使用栈这个结构。</p>
+<blockquote>
+<p>一般来说， 在需要暂存数据的时候， 我们都应该使用栈</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg,ss:s七acksg</span><br><span class="line">datasg segment</span><br><span class="line">    db &#39;ibrn	&#39;</span><br><span class="line">    db &#39;dee		&#39;</span><br><span class="line">    db &#39;dos		&#39;</span><br><span class="line">    db &#39;vax		&#39;</span><br><span class="line">datasg ends</span><br><span class="line">stacksg segment</span><br><span class="line">	dw O,O,O,O,O,O,O,O	;定义一个段， 用来做栈段， 容量为16 个字节</span><br><span class="line">stacksg ends</span><br><span class="line">codesg segment</span><br><span class="line">    start:rnov ax,stacksg</span><br><span class="line">    rnov ss,ax</span><br><span class="line">    rnov sp,16</span><br><span class="line">    rnov ax,datasg</span><br><span class="line">    rnov ds,ax</span><br><span class="line">    rnov bx,O</span><br><span class="line">    mov cx,4</span><br><span class="line">    s0: push cx	;将外层循环的ex 值压栈</span><br><span class="line">        mov si,O</span><br><span class="line">        mov cx,3	;cx 设置为内层循环的次数</span><br><span class="line">    s: mov al, [bx+si]</span><br><span class="line">        and al, 11011111b</span><br><span class="line">        mov [bx+si],al</span><br><span class="line">        inc si</span><br><span class="line">    loop s</span><br><span class="line">        add bx,16</span><br><span class="line">        pop cx	;从栈顶弹出原ex 的值， 恢复ex</span><br><span class="line">    loop s0	;外层循环的loop 指令将cx 中的计数值减1</span><br><span class="line">    rnov ax,4c00H</span><br><span class="line">    int 21H</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、数据处理的两个基本问题"><a href="#四、数据处理的两个基本问题" class="headerlink" title="四、数据处理的两个基本问题"></a>四、数据处理的两个基本问题</h1><p>(1) 处理的数据在什么地方？<br>(2) 要处理的数据有多长？</p>
+<p>我们定义的描述性符号： reg和sreg。reg 来表示一个寄存器， 用sreg表示一个段寄存器。</p>
+<p>reg 的集合包括： ax、bx、ex、dx、ah、al、bh、bl、ch、cl、dh、di、sp、bp、si、di;<br>sreg的集合包括： ds、ss、cs、es 。</p>
+<h2 id="1-bx-、si-、di和bp"><a href="#1-bx-、si-、di和bp" class="headerlink" title="1.bx 、si 、di和bp"></a>1.bx 、si 、di和bp</h2><p>在8086CPU 中， 只有这4 个寄存器可以用在“ […]”中来进行内存单元的寻址。</p>
+<p>在［……］中， 这4个寄存器可以单个出现， 或只能以4种组合出现：bx和si、bx和di、bp和si、bp和di。</p>
+<p>但是，bx和bp不能组合，si和di不能组合</p>
+<p>1、bx默认在<strong>ds</strong>中，可以和si,di组合使用</p>
+<p>2、bp默认在<strong>ss</strong>中，可以和si,di组合使用</p>
+<h2 id="2-寻址方式"><a href="#2-寻址方式" class="headerlink" title="2.寻址方式"></a>2.寻址方式</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200615163159083.png" alt="image-20200615163159083" style="zoom: 67%;" />
+
+<ul>
+<li>直接寻址：[常数]</li>
+<li>寄存器间接寻址：[bx]</li>
+<li>寄存器相对寻址：[bx+常数]</li>
+<li>基址变址寻址：[bx+si]</li>
+<li>相对变址寻址：[bx+si+常数]</li>
+</ul>
+<h2 id="3-指令要处理的数据长度"><a href="#3-指令要处理的数据长度" class="headerlink" title="3.指令要处理的数据长度"></a>3.指令要处理的数据长度</h2><p>8086CPU的指令， 可以处理两种尺寸的数据， byte和word。所以在机器指令中要指明， 指令进行的是字操作还是字节操作。</p>
+<p>(1)通过寄存器名指明要处理的数据的尺寸。</p>
+<p>mov ax,1——字操作</p>
+<p>mov al,1——字节操作</p>
+<p>(2)在没有寄存器名存在的情况下， 用操作符X ptr 指明内存单元的长度， X在汇编指令中可以为word 或byte 。</p>
+<p>mov word ptr ds: [0J, 1</p>
+<p>mov byte ptr ds: [0],1</p>
+<p>mov byte ptr [1000H],l 访问的是地址为ds:1000H 的字节单元， 修改的是ds1000H 单元的内容；而mov word ptr [1000H],l 访问的是地址为ds:1000H 的字单元， 修改的是ds:1000H 和ds:1001H 两个单元的内容。</p>
+<p>(3) 其他方法</p>
+<p>有些指令默认了访问的是字单元还是字节单元， 比如， push [1000H]就不用指明访问的是字单元还是字节单元， 因为<strong>push 指令只进行字操作</strong>。</p>
+<h2 id="4-寻址方式的综合应用"><a href="#4-寻址方式的综合应用" class="headerlink" title="4.寻址方式的综合应用"></a>4.寻址方式的综合应用</h2><p>修改这些字段<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200615164408543.png" alt="image-20200615164408543" style="zoom: 67%;" /></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mov ax,seg</span><br><span class="line">mov ds,as</span><br><span class="line">mov bx,60h</span><br><span class="line">mov word ptr [bx+0ch],38</span><br><span class="line">mov word ptr [bx+0eh],70</span><br><span class="line">mov si,0	;用si 来定位产品字符串中的字符</span><br><span class="line">mov byte ptr [bx+10h+si],&#39;V&#39;</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+lOh+si),&#39;A&#39;</span><br><span class="line">inc si</span><br><span class="line">mov byte ptr [bx+lOh+si),&#39;X&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-div指令"><a href="#5-div指令" class="headerlink" title="5.div指令"></a>5.div指令</h2><p>div 是除法指令， 使用div 做除法的时候应注意以下问题。</p>
+<p>( 1) 除数： 有8 位和16 位两种， 在一个reg 或内存单元中。<br>(2) 被除数：默认放在AX 或DX和AX 中， 如果除数为8 位， 被除数则为16 位，默认在AX 中存放；如果除数为16 位， 被除数则为32位， 在DX和AX 中存放， DX存放高16 位， AX 存放低16 位。<br>(3)结果： 如果除数为8位， 则AL存储除法操作的商， AH存储除法操作的余数；如果除数为16 位， 则AX 存储除法操作的商， DX存储除法操作的余数。</p>
+<p>div byte ptr ds: [OJ<br>含义： （al)= (ax)/ ((ds) *16+0)的商<br>(ah)= (ax)/ ((ds) *16+0)的余数</p>
+<p>div word ptr es: [0]<br>含义： （ax)= [ (dx) <strong>*10000H</strong>+ (ax) ] / ((es) <em>16+0)的商——</em>10000H是为了变成32位<br>(dx) = [ (dx) *10000H+ (ax)] / ((es) *16+0)的余数</p>
+<p>编程， 利用除法指令计算100001/100。</p>
+<p>分析：被除数100001(186AIH)大于65535, 不能用ax 寄存器存放， 所以只能用dx和ax两个寄存器联合存放100001, 也就是说要进行16位的除法。除数100小千255, 可以在一个8位寄存器中存放， 但是， 因为被除数是32位的， 除数应为16位， 所以要用一个16位寄存器来存放除数100。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov dx,1</span><br><span class="line">mov ax,86A1H	;(dx) *1OOOOH+ (ax) &#x3D;100001</span><br><span class="line">mov bx,100	;bx16位</span><br><span class="line">div bx</span><br></pre></td></tr></table></figure>
+
+<p>程序执行后，（ax)=03E8H（即1000), (dx)=l（余数为1)</p>
+<p>编程， 利用除法指令计算1001/100。</p>
+<p>分析：被除数1001可用ax寄存器存放， 除数100可用8位寄存器存放， 也就是说， 要进行8位的除法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax,1001</span><br><span class="line">mov bl,100</span><br><span class="line">div bl</span><br></pre></td></tr></table></figure>
+
+<p>程序执行后，（al)=0AH（即10), ( ah)=1（余数为1)。</p>
+<h2 id="6-伪指令dd"><a href="#6-伪指令dd" class="headerlink" title="6.伪指令dd"></a>6.伪指令dd</h2><p>之前的回顾：db定义字节型，dw定义字形</p>
+<p>dd 是用来定义dword(double word, 双字）型数据的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">db 1</span><br><span class="line">dw 1</span><br><span class="line">dd 1</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+
+<p>第一个数据为01H, 在data:O 处， 占1 个字节；<br>第二个数据为0001H, 在data:1处， 占1 个字；<br>第三个数据为00000001H, 在data:3 处， 占2 个字。</p>
+<p>问题：用div 计算data 段中第一个数据除以第二个数据后的结果， 商存在第三个数据的存储单元中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">dd 100001</span><br><span class="line">dw 100</span><br><span class="line">dw 0</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+
+<p>分析：data 段中的第一个数据是被除数， 为dword（双字）型， 32 位， 所以在做除法之前， 用dx 和ax 存储。应将data:0 字单元中的低16 位存储在ax 中， data:2 字单元中的高16 位存储在dx 中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax,data</span><br><span class="line">mov ds,ax</span><br><span class="line">mov ax,ds:[0]	;ds:O字单元中的低16位存储在ax中</span><br><span class="line">mov dx,ds:[2]	;ds:2字单元中的高16位存储在dx中</span><br><span class="line">div word ptr ds:[4]	;用dx:ax中的32位数据除以ds:4字单元中的数据</span><br><span class="line">mov ds:[6],ax	;将商(ax)存储在ds:6字单元中</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-dup"><a href="#7-dup" class="headerlink" title="7.dup"></a>7.dup</h2><p>dup 是一个操作符， 在汇编语言中同db 、dw 、dd 等一样， 也是由编译器识别处理的符号。它是和db 、dw 、dd 等数据定义伪指令配合使用的， 用来进行数据的重复。</p>
+<p>db 3 dup (0)——定义了3 个字节， 它们的值都是o, 相当千db 0,0,0。</p>
+<p>db 3 dup (0,1,2)——定义了9 个字节， 它们是0 、l 、2 、0 、1 、2 、0 、1 、2, 相当千db 0,1,2,0,1,2,0,1,2。</p>
+<p>db 3 dup (‘abc’,’ABC’)——定义了18个字节， 它们是abcABCabcABCabcABC’， 相当千db’abcABCabcABCabcABC’o</p>
+<p>dup是一个十分有用的操作符， 比如要定义一个容量为200 个字节的栈段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack segment</span><br><span class="line">db 200 dup (0)</span><br><span class="line">stack ends</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>今天好像说错话了，难顶😥</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=409647285&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,388 +413,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/15/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%89%E5%A4%A9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/13/%E6%9C%BA%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9%20/" class="archive-article-date">
-  	<time datetime="2020-06-13T11:23:41.797Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/13/%E6%9C%BA%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9%20/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机组大学狗及格必看(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/13/%E6%9C%BA%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9%20/">机组大学狗及格必看(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">机组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、-BX-和loop指令"><span class="toc-number">2.</span> <span class="toc-text">一、[BX]和loop指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bx-和内存单元的描述"><span class="toc-number">2.1.</span> <span class="toc-text">1.[bx]和内存单元的描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-描述性的符号"><span class="toc-number">2.2.</span> <span class="toc-text">2.描述性的符号()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-约定符号idata表示常量"><span class="toc-number">2.3.</span> <span class="toc-text">3.约定符号idata表示常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Loop指令"><span class="toc-number">2.4.</span> <span class="toc-text">4.Loop指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-在Debug-中跟踪用loop-指令实现的循环程序"><span class="toc-number">2.5.</span> <span class="toc-text">5.在Debug 中跟踪用loop 指令实现的循环程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-loop和-bx-的联合应用"><span class="toc-number">2.6.</span> <span class="toc-text">6.loop和[bx]的联合应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-段前缀"><span class="toc-number">2.7.</span> <span class="toc-text">7.段前缀</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、包含多个段的程序"><span class="toc-number">3.</span> <span class="toc-text">二、包含多个段的程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-在代码段中使用数据"><span class="toc-number">3.1.</span> <span class="toc-text">1.在代码段中使用数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在代码段中使用栈"><span class="toc-number">3.2.</span> <span class="toc-text">2.在代码段中使用栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-将数据、代码、栈放入不同的段"><span class="toc-number">3.3.</span> <span class="toc-text">3.将数据、代码、栈放入不同的段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、更灵活的定位内存地址的方法"><span class="toc-number">4.</span> <span class="toc-text">三、更灵活的定位内存地址的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-and和or指令"><span class="toc-number">4.1.</span> <span class="toc-text">1.and和or指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ASCII码"><span class="toc-number">4.2.</span> <span class="toc-text">2.ASCII码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-bx-idata-进行数组的处理"><span class="toc-number">4.3.</span> <span class="toc-text">3.[bx+idata]进行数组的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SI和DI"><span class="toc-number">4.4.</span> <span class="toc-text">4.SI和DI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-不同的寻址方式的灵活应用"><span class="toc-number">4.5.</span> <span class="toc-text">5.不同的寻址方式的灵活应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、数据处理的两个基本问题"><span class="toc-number">5.</span> <span class="toc-text">四、数据处理的两个基本问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bx-、si-、di和bp"><span class="toc-number">5.1.</span> <span class="toc-text">1.bx 、si 、di和bp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-寻址方式"><span class="toc-number">5.2.</span> <span class="toc-text">2.寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-指令要处理的数据长度"><span class="toc-number">5.3.</span> <span class="toc-text">3.指令要处理的数据长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-寻址方式的综合应用"><span class="toc-number">5.4.</span> <span class="toc-text">4.寻址方式的综合应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-div指令"><span class="toc-number">5.5.</span> <span class="toc-text">5.div指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-伪指令dd"><span class="toc-number">5.6.</span> <span class="toc-text">6.伪指令dd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-dup"><span class="toc-number">5.7.</span> <span class="toc-text">7.dup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/13/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-06-13T06:52:29.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/13/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9/">汇编大学狗及格必看(二)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/09/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-06-09T02:52:36.259Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/09/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%80%E5%A4%A9/">汇编语言大学狗及格必看(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/08/%E6%9C%BA%E7%BB%84%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-06-08T03:47:35.913Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/08/%E6%9C%BA%E7%BB%84%E7%AC%AC%E4%B8%80%E5%A4%A9/">机组大学狗及格必看(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">机组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/C#%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-06-07T08:34:59.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/C#%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">C#大学狗及格必看(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/06/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E%E7%BB%88%E7%BB%93%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2020-06-06T15:14:02.875Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/06/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E%E7%BB%88%E7%BB%93%E7%AF%87/">淘淘商城终结篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/06/mysql%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-06-06T06:57:43.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/06/mysql%E5%AE%89%E8%A3%85/">Linux安装mysql(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/solr%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-06-05T14:07:41.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/solr%E9%9B%86%E7%BE%A4/">solr集群的搭建和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/nginx/" class="archive-article-date">
-  	<time datetime="2020-06-03T07:58:56.021Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/nginx/">nginx史上最强入门教学</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -622,8 +562,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
