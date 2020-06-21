@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>算法综合实验——背包问题 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="概述本文是我大二算法分析实验的综合大实验，可能跟大家的比起来难度微不足道，希望能对你有帮助🤪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法综合实验——背包问题">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述本文是我大二算法分析实验的综合大实验，可能跟大家的比起来难度微不足道，希望能对你有帮助🤪">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201054484-2140621471.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201103541-1051527560.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201113576-250716853.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201236643-500339807.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200621222940378.png">
+<meta property="article:published_time" content="2020-06-21T02:29:09.656Z">
+<meta property="article:modified_time" content="2020-06-21T15:00:34.396Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201054484-2140621471.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,226 +174,297 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-背包问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法综合实验——背包问题
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/06/21/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-06-21T02:29:09.656Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文是我大二算法分析实验的综合大实验，可能跟大家的比起来难度微不足道，希望能对你有帮助🤪</p>
+<a id="more"></a>
+
+<h1 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0/1背包"></a>0/1背包</h1><p>问题描述：</p>
+<p>给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?</p>
+<p>对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-1背包问题。</p>
+<h2 id="1-递归求解"><a href="#1-递归求解" class="headerlink" title="1.递归求解"></a>1.递归求解</h2><p>我们用F(n,C)表示将前n个物品放进容量为C的背包里，得到的最大的价值。</p>
+<p>我们用自顶向下的角度来看，假如我们已经进行到了最后一步（即求解将n个物品放到背包里获得的最大价值），此时我们便有两种选择</p>
+<ol>
+<li>不放第n个物品，此时总价值为F(n-1,C)</li>
+<li>放置第n个物品，此时总价值为Vn+F(n-1,C-Wn)</li>
+</ol>
+<p>两种选择中总价值最大的方案就是我们的最终方案:F(i,C)=max(F(i−1,C),v(i)+F(i−1,C−w(i)))</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 递归解决</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> w		物品的重量数组</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> v		物品的价值数组</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> index 当前待选择的物品索引</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> capacity	当前背包有效容量</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span>	最大价值</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">recursion</span><span class="params">(<span class="keyword">int</span>[] w,<span class="keyword">int</span>[] v,<span class="keyword">int</span> index,<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//基准条件：如果索引无效或者容量不足，直接返回当前价值0</span></span><br><span class="line">    <span class="keyword">if</span>(index&lt;<span class="number">0</span>||capacity&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不放第index个物品所得价值</span></span><br><span class="line">    <span class="keyword">int</span> res = recursion(w, v, index-<span class="number">1</span>, capacity);</span><br><span class="line">    <span class="comment">//放第index个物品所得价值（前提是：第index个物品可以放得下）</span></span><br><span class="line">    <span class="keyword">if</span>(w[index]&lt;=capacity) &#123;</span><br><span class="line">        res = Math.max(res, v[index]+recursion(w, v, index-<span class="number">1</span>, capacity-w[index]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">knapSack</span><span class="params">(<span class="keyword">int</span>[] w, <span class="keyword">int</span>[] v, <span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = w.length;</span><br><span class="line">    <span class="keyword">return</span> solveKS(w, v, size - <span class="number">1</span>, C);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] w = &#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span>[] v = &#123;<span class="number">12</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">15</span>&#125;;</span><br><span class="line">    System.out.println(knapSack(w,v,<span class="number">5</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-记忆化搜索-自顶向下备忘录法"><a href="#2-记忆化搜索-自顶向下备忘录法" class="headerlink" title="2.记忆化搜索(自顶向下备忘录法)"></a>2.记忆化搜索(自顶向下备忘录法)</h2><p>我们可以将已经求得的子问题的结果保存下来，这样对子问题只会求解一次</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自顶向下备忘录法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> w</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> v</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> index</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> capacity</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">top2buttom</span><span class="params">(<span class="keyword">int</span>[] w,<span class="keyword">int</span>[] v,<span class="keyword">int</span> index,<span class="keyword">int</span> capacity,<span class="keyword">int</span>[][] memo)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index&lt;<span class="number">0</span>||capacity&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果此子问题已经求解过，则直接返回上次求解的结果</span></span><br><span class="line">    <span class="keyword">if</span>(memo[index][capacity]!=<span class="number">0</span>)<span class="keyword">return</span> memo[index][capacity];</span><br><span class="line">    <span class="comment">//不放第index个物品所得价值</span></span><br><span class="line">    <span class="keyword">int</span> res = recursion(w, v, index-<span class="number">1</span>, capacity);</span><br><span class="line">    <span class="comment">//放第index个物品所得价值（前提是：第index个物品可以放得下）</span></span><br><span class="line">    <span class="keyword">if</span>(w[index]&lt;=capacity) &#123;</span><br><span class="line">        res = Math.max(res, v[index]+recursion(w, v, index-<span class="number">1</span>, capacity-w[index]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加子问题的解，便于下次直接使用</span></span><br><span class="line">    memo[index][capacity] = res;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-动态规划算法"><a href="#3-动态规划算法" class="headerlink" title="3.动态规划算法"></a>3.动态规划算法</h2><p>通过反证法可证明此问题符合动态规划算法的最优子结构性质，可以通过动态规划来求解。<a href="https://jy741.cn/2020/06/11/123.html" target="_blank" rel="noopener">了解动态规划</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201054484-2140621471.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201103541-1051527560.jpg" alt="img"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201113576-250716853.jpg" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 动态规划(自底向上)算法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> w</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> v</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> C</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">buttom2top</span><span class="params">(<span class="keyword">int</span>[] w,<span class="keyword">int</span>[] v,<span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = w.length;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span> || C&lt;=<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[size][C+<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//初始化第一行:仅考虑容量为C的背包放第0个物品的情况</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=C;i++) &#123;</span><br><span class="line">        dp[<span class="number">0</span>][i] = w[<span class="number">0</span>]&lt;=i? v[<span class="number">0</span>]:<span class="number">0</span>;<span class="comment">//如果容量可以放，就是第一个的价值，否则放不了为0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//根据此逐步填充</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;size;i++) &#123;<span class="comment">//每个物品的循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=C;j++) &#123;</span><br><span class="line">            dp[i][j] = dp[i-<span class="number">1</span>][j];<span class="comment">//要放此物品，说明前面的已经是最优解，根据这个最优解为基准看是增加还是不增加这个物品</span></span><br><span class="line">            <span class="keyword">if</span>(w[i]&lt;=j) &#123;<span class="comment">//如果容量够叫放进去试试看</span></span><br><span class="line">                dp[i][j] = Math.max(dp[i][j], v[i]+dp[i-<span class="number">1</span>][j-w[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[size-<span class="number">1</span>][C];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-动态规划的空间优化"><a href="#4-动态规划的空间优化" class="headerlink" title="4.动态规划的空间优化"></a>4.动态规划的空间优化</h2><p>上面的动态规划算法使用了O(n*C)的空间复杂度（因为我们使用了二维数组来记录子问题的解），其实我们完全可以只使用一维数组来存放结果，但同时我们需要注意的是，为了防止计算结果被覆盖，我们必须从后向前分别进行计算</p>
+<p>我们可以知道，当我们利用一维数组进行记忆化的时候，我们只需要使用到当前位置的值和该位置之前的值，举个例子：假设我们要计算<em>F</em>(<em>i</em>,4),我们需要用到的值为<em>F</em>(<em>i</em>−1,4)和<em>F</em>(<em>i</em>−1,4−<em>w</em>(<em>i</em>)),因此为了防止结果被覆盖，我们需要从后向前依次计算结果</p>
+<p>为保证每个物品只能使用一次，我们倒序遍历所有j的值，这样在更新dp[j]的时候，dp[j-list[i].w]的值尚未被修改，就不会出现一个物品重复使用的问题。</p>
+<p>优化后的状态转移方程：<strong>dp[j] = max{ dp[j-list[i].w] + v, dp[j] }</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 动态规划的空间优化</span></span><br><span class="line"><span class="comment">	 * 我们可以用一维数组来存储临时的值</span></span><br><span class="line"><span class="comment">	 * 如果我们还按照顺序来，计算的值需要前面的值：</span></span><br><span class="line"><span class="comment">	 * 假设我们要计算F(i,4),我们需要用到的值为F(i−1,4)和F(i−1,4−w(i))，如果前面的值被修改了，那就不准确了</span></span><br><span class="line"><span class="comment">	 * 因此为了防止结果被覆盖，我们需要从后向前依次计算结果</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">B2TPlus</span><span class="params">(<span class="keyword">int</span>[] w,<span class="keyword">int</span>[] v,<span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = w.length;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span> || C&lt;=<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[C+<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//初始化第一行</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= C; i++) &#123;</span><br><span class="line">        dp[i] = w[<span class="number">0</span>] &lt;= i ? v[<span class="number">0</span>] : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;size;i++) &#123;<span class="comment">//遍历每一个商品要不要添加</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=C;j&gt;=w[i];j--) &#123;<span class="comment">//从后向前</span></span><br><span class="line">            dp[j] = Math.max(dp[j], v[i]+dp[j-w[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[C];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析：其状态数量为nC, n为物品数量，C为背包总体积，状态转移复杂度为O(1)，所以综合时间复杂度为O(n*C)，优化后的空间复杂度仅为O(C)。</p>
+<h2 id="5-回溯法"><a href="#5-回溯法" class="headerlink" title="5.回溯法"></a>5.回溯法</h2><p>回溯法：为了避免生成那些不可能产生最佳解的问题状态，要不断地利用限界函数(bounding function)来处死那些实际上不可能产生所需解的活结点，以减少问题的计算量。这种具有限界函数的深度优先生成法称为回溯法。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1337511-20180306201236643-500339807.jpg" alt="img"></p>
+<p>对于有n种可选物品的0/1背包问题，其解空间由长度为n的0-1向量组成,可用子集数表示。同时在构建树过程中还需考虑容量是否够来判断有无右子树。在搜索解空间树时，只要其左儿子结点是一个可行结点，搜索就进入左子树。当右子树中有可能包含最优解时就进入右子树搜索。</p>
+<p>这里所谓回溯就是进入之后比较一下看看有没有进错，进错了就回溯回去进另一个。</p>
+<p>这里给出思想，时间紧急，明天就要交实验报告了，代码日后研究填坑。</p>
+<h1 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h1><p>问题描述：</p>
+<p>有N种物品和一个容量为T的背包，每种物品都就可以选择任意多个，第i种物品的价值为v[i]，体积为w[i]，求解：选哪些物品放入背包，可卡因使得这些物品的价值最大，并且体积总和不超过背包容量。</p>
+<p>跟01背包一样，完全背包也是一个很经典的动态规划问题，不同的地方在于01背包问题中，每件物品最多选择一件，而在完全背包问题中，只要背包装得下，每件物品可以选择任意多件。从每件物品的角度来说，与之相关的策略已经不再是选或者不选了，而是有取0件、取1件、取2件…直到取⌊T/Vi⌋（向下取整）件。</p>
+<h2 id="1-分析贪心算法的可行性"><a href="#1-分析贪心算法的可行性" class="headerlink" title="1.分析贪心算法的可行性"></a>1.分析贪心算法的可行性</h2><p>看到可以选择任意多件，你也许会想，那还不容易，选性价比最高的就好了。</p>
+<p>于是开启贪婪模式，把每种物品的价格除以体积来算出它们各自的性价比，然后只选择性价比最高的物品放入背包中。</p>
+<p>嗯，听起来好像没什么毛病，但仍旧有一个问题，那就是同一种物品虽然可以选择任意多件，但仍旧只能以件为单位，也就是说单个物品是无法拆分的，不能选择半件，只能多选一件或者少选一件。这样就造成了一个问题，往往无法用性价比最高的物品来装满整个背包，比如背包空间为10，性价比最高的物品占用空间为7，那么剩下的空间该如何填充呢？</p>
+<p>你当然会想到用性价比第二高的物品填充，如果仍旧无法填满，那就依次用第三、第四性价比物品来填充。</p>
+<p>听起来似乎可行，但我只需要举一个反例便能证明这个策略行不通。</p>
+<p>想要举反例很简单，比如只有两个物品：物品A：价值5，体积5，物品B：价值8：体积7，背包容量为10，物品B的性价比显然要比物品A高，那么用贪心算法必然会选择放入一个物品B，此时，剩余的空间已无法装下A或者B，所以得到的最高价值为8，而实际上，选择放入两个物品A即可得到更高的价值10。所以这里贪心算法并不适用。</p>
+<blockquote>
+<p>以上形象的分析摘自<a href="https://www.cnblogs.com/mfrank/p/10803417.html" target="_blank" rel="noopener">弗兰克的猫</a>博主的话</p>
+</blockquote>
+<h2 id="2-递归法"><a href="#2-递归法" class="headerlink" title="2.递归法"></a>2.递归法</h2><p>我们只需要找到递推关系式，就很容易使用递归解法来求解了。</p>
+<p>ks(i,t) = max{ks(i-1,t),ks(i-1, t - V[i] * k) + P[i] * k}; （0 &lt;= k * V[i] &lt;= t）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 递归法</span></span><br><span class="line"><span class="comment">	 * ks(i,t) = max&#123;ks(i-1,t),ks(i-1, t - V[i] * k) + P[i] * k&#125;; （0 &lt;= k * V[i] &lt;= t）</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> index	当前待选择的物品索引</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> c	当前背包有效容量</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">recursion</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//基准条件：如果索引无效或者容量不足，直接返回当前价值0</span></span><br><span class="line">    <span class="keyword">if</span>(index&lt;<span class="number">0</span>||c&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不放第index个物品所得价值</span></span><br><span class="line">    <span class="keyword">int</span> res = recursion(index-<span class="number">1</span>, c);</span><br><span class="line">    <span class="comment">//放第index个物品所得价值（前提是：第index个物品可以放得下）</span></span><br><span class="line">    <span class="keyword">if</span>(w[index]&lt;=c) &#123;</span><br><span class="line">        <span class="comment">// 取k个物品index，取其中使得总价值最大的k</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k*w[index]&lt;=c;k++) &#123;</span><br><span class="line">            res = Math.max(res,k*v[index]+ recursion(index-<span class="number">1</span>, c-k*w[index]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你对比一下01背包问题中的递归解法，就会发现唯一的区别便是这里多了一层循环，因为01背包中，对于第i个物品只有选和不选两种情况，只需要从这两种选择中选出最优的即可，而完全背包问题则需要在k种选择中选出最优解，这便是最内层循环在做的事情。</p>
+<h2 id="3-动态规划"><a href="#3-动态规划" class="headerlink" title="3.动态规划"></a>3.动态规划</h2><p>那这个问题可以不可以像01背包问题一样使用动态规划来求解呢？来证明一下即可。</p>
+<p>首先，先用反证法证明最优化原理：</p>
+<p>假设完全背包的解为F(n1,n2,…,nN)（n1，n2  分别代表第1、第2件物品的选取数量），完全背包的子问题为，将前i种物品放入容量为t的背包并取得最大价值，其对应的解为：F(n1,n2,…,ni)，假设该解不是子问题的最优解，即存在另一组解F(m1,m2,…,mi)，使得F(m1,m2,…,mi) &gt; F(n1,n2,…,ni)，那么F(m1,m2,…,mi,…,nN) 必然大于 F(n1,n2,…,nN)，因此  F(n1,n2,…,nN) 不是原问题的最优解，与原假设不符，所以F(n1,n2,…,ni)必然是子问题的最优解。</p>
+<p>再来看看无后效性：</p>
+<p>对于子问题的任意解，都不会影响后续子问题的解，也就是说，前i种物品如何选择，只要最终的剩余背包空间不变，就不会影响后面物品的选择。即满足无后效性。</p>
+<p>因此，完全背包问题也可以使用动态规划来解决。</p>
+<h3 id="3-1自上而下记忆法"><a href="#3-1自上而下记忆法" class="headerlink" title="3.1自上而下记忆法"></a>3.1自上而下记忆法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自上而下记忆法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> i</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> c</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> memo</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">top2buttom</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> c,<span class="keyword">int</span>[][] memo)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>||c&lt;=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果此子问题已经求解过，则直接返回上次求解的结果</span></span><br><span class="line">    <span class="keyword">if</span>(memo[i][c]!=<span class="number">0</span>)<span class="keyword">return</span> memo[i][c];</span><br><span class="line">    <span class="comment">//不放第index个物品所得价值</span></span><br><span class="line">    <span class="keyword">int</span> res = recursion(i-<span class="number">1</span>, c);</span><br><span class="line">    <span class="comment">//放第index个物品所得价值（前提是：第index个物品可以放得下）</span></span><br><span class="line">    <span class="keyword">if</span>(w[i]&lt;=c) &#123;</span><br><span class="line">        <span class="comment">// 取k个物品index，取其中使得总价值最大的k</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k*w[i]&lt;=c;k++) &#123;</span><br><span class="line">            res = Math.max(res,k*v[i]+ recursion(i-<span class="number">1</span>, c-k*w[i]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加子问题的解，便于下次直接使用</span></span><br><span class="line">    memo[i][c] = res;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2自底向上填表法"><a href="#3-2自底向上填表法" class="headerlink" title="3.2自底向上填表法"></a>3.2自底向上填表法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 自底向上填表法</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> C</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">buttom2top</span><span class="params">(<span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = w.length;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span> || C&lt;=<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[size][C+<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//初始化第一行:仅考虑容量为C的背包放第0个物品的情况</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=C;i++) &#123;</span><br><span class="line">        dp[<span class="number">0</span>][i] = w[<span class="number">0</span>]&lt;=i ?(i/w[<span class="number">0</span>])*w[<span class="number">0</span>]:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//根据此逐步填充</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;size;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=C;j++) &#123;</span><br><span class="line">            dp[i][j] = dp[i-<span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j&gt;=w[i]) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k*w[i]&lt;=j;k++) &#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i][j], k*v[i]+dp[i-<span class="number">1</span>][j-k*w[i]]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[size-<span class="number">1</span>][C];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3动态规划的空间优化"><a href="#3-3动态规划的空间优化" class="headerlink" title="3.3动态规划的空间优化"></a>3.3动态规划的空间优化</h3><p>跟01背包问题一样，完全背包的空间复杂度也可以进行优化，具体思路这里就不重复介绍了，可以翻看前面的01背包问题优化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 动态规划的空间优化</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> C</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">B2TPlus</span><span class="params">(<span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = w.length;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span> || C&lt;=<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[C+<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//初始化第一行:仅考虑容量为C的背包放第0个物品的情况</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=C;i++) &#123;</span><br><span class="line">        dp[i] = w[<span class="number">0</span>]&lt;=i ?(i/w[<span class="number">0</span>])*w[<span class="number">0</span>]:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;size;i++) &#123;<span class="comment">//遍历每一个商品要不要添加</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=C;j&gt;=w[i];j--) &#123;<span class="comment">//从后向前</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k*w[i]&lt;=j;k++) &#123;</span><br><span class="line">                dp[j] = Math.max(dp[j], k*v[i]+dp[j-k*w[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[C];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实完全背包问题也可以转化成01背包问题来求解，因为第i件物品最多选 ⌊T/Vi⌋(向下取整) 件，于是可以把第i种物品转化为⌊T/Vi⌋件体积和价值相同的物品，然后再来求解这个01背包问题。具体方法这里就不多说了，留给大家自行解决。</p>
+<h1 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h1><p>问题描述：</p>
+<p>有N种物品和一个容量为T的背包，第i种物品最多有M[i]件可用，价值为v[i]，体积为w[i]，求解：选哪些物品放入背包，可以使得这些物品的价值最大，并且体积总和不超过背包容量。</p>
+<p>对比一下完全背包，其实只是多了一个限制条件，完全背包问题中，物品可以选择任意多件，只要你装得下，装多少件都行。</p>
+<h2 id="1-递归法"><a href="#1-递归法" class="headerlink" title="1.递归法"></a>1.递归法</h2><p>都是老菜了，直接上桌：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ks(i,t) &#x3D; max&#123;ks(i-1, t - V[i] * k) + P[i] * k&#125;; （0 &lt;&#x3D; k &lt;&#x3D; M[i] &amp;&amp; 0 &lt;&#x3D; k * V[i] &lt;&#x3D; t）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ks</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span> || t == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">// 初始条件</span></span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(V[i] &gt; t)&#123;</span><br><span class="line">        <span class="comment">// 装不下该珠宝</span></span><br><span class="line">        result = ks(i-<span class="number">1</span>, t);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 可以装下</span></span><br><span class="line">        <span class="comment">// 取k个物品i，取其中使得总价值最大的k</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= M[i] &amp;&amp; k * V[i] &lt;= t; k++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp2 = ks(i-<span class="number">1</span>, t - V[i] * k) + P[i] * k;</span><br><span class="line">            <span class="keyword">if</span> (tmp2 &gt; result)&#123;</span><br><span class="line">                result = tmp2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-动态规划"><a href="#2-动态规划" class="headerlink" title="2.动态规划"></a>2.动态规划</h2><p>仅仅多了一个判断条件而已，所以只要弄懂了完全背包，多重背包就不值一提了。</p>
+<h3 id="2-1自上而下记忆法"><a href="#2-1自上而下记忆法" class="headerlink" title="2.1自上而下记忆法"></a>2.1自上而下记忆法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ks2</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 如果该结果已经被计算，那么直接返回</span></span><br><span class="line">    <span class="keyword">if</span> (results[i][t] != <span class="keyword">null</span>) <span class="keyword">return</span> results[i][t];</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span> || t == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">// 初始条件</span></span><br><span class="line">        result = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(V[i] &gt; t)&#123;</span><br><span class="line">        <span class="comment">// 装不下该珠宝</span></span><br><span class="line">        result = ks2(i-<span class="number">1</span>, t);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 可以装下</span></span><br><span class="line">        <span class="comment">// 取k个物品，取其中使得价值最大的</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= M[i] &amp;&amp; k * V[i] &lt;= t; k++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp2 = ks2(i-<span class="number">1</span>, t - V[i] * k) + P[i] * k;</span><br><span class="line">            <span class="keyword">if</span> (tmp2 &gt; result)&#123;</span><br><span class="line">                result = tmp2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    results[i][t] = result;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2自下而上填表法"><a href="#2-2自下而上填表法" class="headerlink" title="2.2自下而上填表法"></a>2.2自下而上填表法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">solve3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; P.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= T; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= M[i] &amp;&amp; k * V[i] &lt;= j; k++)&#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j] = Math.max(dp[i+<span class="number">1</span>][j], dp[i][j-k * V[i]] + k * P[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"最大价值为："</span> + dp[P.length][T]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3优化空间"><a href="#2-3优化空间" class="headerlink" title="2.3优化空间"></a>2.3优化空间</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">ksp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 开始填表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; i; m++)&#123;</span><br><span class="line">        <span class="comment">// 考虑第m个物品</span></span><br><span class="line">        <span class="comment">// 分两种情况</span></span><br><span class="line">        <span class="comment">// 1： M[m] * V[m] &gt; T 则可以当做完全背包问题来处理</span></span><br><span class="line">        <span class="keyword">if</span> (M[m] * V[m] &gt;= T) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> n = V[m]; n &lt;= t ; n++) &#123;</span><br><span class="line">                newResults[n] = Math.max(newResults[n], newResults[n - V[m]] + P[m]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 2： M[m] * V[m] &lt; T 则需要在 newResults[n-V[m]*k] + P[m] * k 中找到最大值，0 &lt;= k &lt;= M[m]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> n = V[m]; n &lt;= t ; n++) &#123;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (k &lt; M[m] &amp;&amp; n &gt; V[m] * k )&#123;</span><br><span class="line">                    newResults[n] = Math.max(newResults[n], newResults[n - V[m] * k] + P[m] * k);</span><br><span class="line">                    k++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 可以在这里输出中间结果</span></span><br><span class="line">        System.out.println(JSON.toJSONString(newResults));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newResults[newResults.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="贪心解决0-1背包问题"><a href="#贪心解决0-1背包问题" class="headerlink" title="贪心解决0/1背包问题"></a>贪心解决0/1背包问题</h1><p>问题描述：</p>
+<p>随机生成500个0/1背包问题（问题规模可以相对较小），如果使用贪心算法进行求解，统计能够求得最优值的概率，没有求得最优值，统计最坏的情况误差有多大。实验结果跟实验设置的参数（如：背包容量）关系很大，简要分析参数对结果的影响。</p>
+<h2 id="1-分析"><a href="#1-分析" class="headerlink" title="1.分析"></a>1.分析</h2><p>贪心算法求解背包问题的话前文也提到过，优先选择性价比最高的，选中或者不行再考虑性价比第二，第三……</p>
+<p>用贪心算法处理这个问题的难点在于如何知道第几个性价比最高(这个很容易实现)，性价比第二，第三……(有难度)</p>
+<p>我们想到了可以将价格、重量、性价比都封装到一个对象中，这个对象在组成一个对象数组，这样通过对对象数组中性价比成员的排序，我们可以得到对应的价格重量。<del>当然，我们还有一种更简便的方法：使用数据结构MAP，键是性价比，值是索引，来得到和之前一样的效果。</del>（空指针异常，原因未知）</p>
+<p>下面我们分析这个随机生成500个由哪些随机参数组成随机性：背包容量是必须的，而背包容量的确定我们可以参照物品个数及物品的重量区间，每个物品只有选择和被选择，所以我们确定背包容量时折个中，确保随机性。</p>
+<p>我们选择4<del>12个物体，每个物体的重量区间为[5</del>20]，背包容量根据物体个数*区间中位数13获得，物体的价值在1~20之间。</p>
+<h2 id="2-贪心算法实现"><a href="#2-贪心算法实现" class="headerlink" title="2.贪心算法实现"></a>2.贪心算法实现</h2><p>创建Knapsack对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Knapsack</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Knapsack</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/** 物品重量 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> weight;</span><br><span class="line">    <span class="comment">/** 物品价值 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="comment">/** 单位重量价值 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> unitValue;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Knapsack</span><span class="params">(<span class="keyword">int</span> weight, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>.unitValue = (weight == <span class="number">0</span>) ? <span class="number">0</span> : (<span class="keyword">double</span>)value / weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">int</span> weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getUnitValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> unitValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Knapsack snapsack)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> value = snapsack.unitValue;</span><br><span class="line">        <span class="keyword">if</span> (unitValue &gt; value)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (unitValue &lt; value)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法实现(注释为失败的尝试😭)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">greedy</span><span class="params">(<span class="keyword">int</span>[] w,<span class="keyword">int</span>[] v,<span class="keyword">int</span> C)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> size = w.length;</span><br><span class="line"><span class="comment">//		double[] keys = new double[size];</span></span><br><span class="line"><span class="comment">//		Map&lt;Double, Integer&gt; map = new HashMap&lt;Double, Integer&gt;();</span></span><br><span class="line"><span class="comment">//		for(int i=0;i&lt;size;i++) &#123;</span></span><br><span class="line"><span class="comment">//			map.put(w[i]==0?0:(double)v[i]/w[i], i);</span></span><br><span class="line"><span class="comment">//			keys[i] = w[i]==0?0:(double)v[i]/w[i];</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line"><span class="comment">//		Bubble(keys);</span></span><br><span class="line"><span class="comment">//		int tempC = C;//记录当前容量</span></span><br><span class="line"><span class="comment">//		int res = 0;</span></span><br><span class="line"><span class="comment">//		for(int i=0;i&lt;size;i++) &#123;</span></span><br><span class="line"><span class="comment">//			int n = map.get(keys[i]);</span></span><br><span class="line"><span class="comment">////			map.remove(keys[i]);</span></span><br><span class="line"><span class="comment">//			//判断当前物品是否可以放入背包中，若不能则继续循环，查找下一个物品</span></span><br><span class="line"><span class="comment">//			if(tempC&lt;w[map.get(keys[i])])continue;</span></span><br><span class="line"><span class="comment">//			tempC -= w[map.get(keys[i])];</span></span><br><span class="line"><span class="comment">//			res += v[map.get(keys[i])];</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line"><span class="comment">//		return res;</span></span><br><span class="line">		Knapsack[] bags = <span class="keyword">new</span> Knapsack[size];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;i++) &#123;</span><br><span class="line">			bags[i] = <span class="keyword">new</span> Knapsack(w[i], v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 对背包按单位重量价值从大到小排序</span></span><br><span class="line">        Arrays.sort(bags, Collections.reverseOrder());</span><br><span class="line">        <span class="keyword">int</span> tempC = C;<span class="comment">//记录当前容量</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;i++) &#123;</span><br><span class="line">        	 <span class="comment">//判断当前物品是否可以放入背包中，若不能则继续循环，查找下一个物品</span></span><br><span class="line">        	<span class="keyword">if</span>(tempC&lt;bags[i].getWeight())<span class="keyword">continue</span>;</span><br><span class="line">        	tempC -= bags[i].getWeight();</span><br><span class="line">        	res += bags[i].getValue();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MaxError = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">500</span>;i++) &#123;</span><br><span class="line">        Random random = <span class="keyword">new</span> Random(i);</span><br><span class="line">        <span class="keyword">int</span> size = random.nextInt(<span class="number">9</span>)+<span class="number">4</span>;<span class="comment">//物体数量：4~12</span></span><br><span class="line">        <span class="keyword">int</span> C = size*<span class="number">13</span>;</span><br><span class="line">        <span class="keyword">int</span>[] w = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">        <span class="keyword">int</span>[] v = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;size;j++) &#123;</span><br><span class="line">            w[j] = random.nextInt(<span class="number">16</span>)+<span class="number">5</span>;<span class="comment">//重量区间为[5~20]</span></span><br><span class="line">            v[j] = random.nextInt(<span class="number">20</span>)+<span class="number">1</span>;<span class="comment">//物体的价值在1~20之间。</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> greedy = greedy(w, v, C);</span><br><span class="line">        <span class="keyword">int</span> real = B2TPlus(w, v, C);</span><br><span class="line">        <span class="keyword">if</span>(greedy==real)count++;</span><br><span class="line">        MaxError = Math.max(MaxError, greedy-real&gt;<span class="number">0</span>?greedy-real:real-greedy);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"用贪心算法求得最优值概率为"</span>+(<span class="keyword">double</span>)count/<span class="number">500</span>);</span><br><span class="line">    System.out.println(<span class="string">"最坏的情况误差有"</span>+MaxError);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200621222940378.png" alt="image-20200621222940378"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>以上就是本学期最后一个实验呐，算法的路还很长，我只是刚刚踏入海滩拾贝而已，真正的深海等着我去翻越。老实说，这是我这学期最上心的一门课了(虽然也是一节课没听)，希望我微薄的努力不要白费吧😁给个好分数吧老师！！！！这个对我真的很重要啊啊啊啊啊啊</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31967229&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/19/Mybatis%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-04-19T03:00:30.959Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/19/Mybatis%E5%85%A5%E9%97%A8/">Mybatis入门教程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/21/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/hexo%E4%B8%8B%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-04-18T04:43:45.723Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/17/C#%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#大学狗及格必看(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/hexo%E4%B8%8B%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%A0%E8%BD%BD/">hexo下本地图片的加载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0-1背包"><span class="toc-number">2.</span> <span class="toc-text">0&#x2F;1背包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-递归求解"><span class="toc-number">2.1.</span> <span class="toc-text">1.递归求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-记忆化搜索-自顶向下备忘录法"><span class="toc-number">2.2.</span> <span class="toc-text">2.记忆化搜索(自顶向下备忘录法)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-动态规划算法"><span class="toc-number">2.3.</span> <span class="toc-text">3.动态规划算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-动态规划的空间优化"><span class="toc-number">2.4.</span> <span class="toc-text">4.动态规划的空间优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-回溯法"><span class="toc-number">2.5.</span> <span class="toc-text">5.回溯法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完全背包"><span class="toc-number">3.</span> <span class="toc-text">完全背包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析贪心算法的可行性"><span class="toc-number">3.1.</span> <span class="toc-text">1.分析贪心算法的可行性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归法"><span class="toc-number">3.2.</span> <span class="toc-text">2.递归法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-动态规划"><span class="toc-number">3.3.</span> <span class="toc-text">3.动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1自上而下记忆法"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1自上而下记忆法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2自底向上填表法"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2自底向上填表法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3动态规划的空间优化"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3动态规划的空间优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多重背包"><span class="toc-number">4.</span> <span class="toc-text">多重背包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-递归法"><span class="toc-number">4.1.</span> <span class="toc-text">1.递归法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-动态规划"><span class="toc-number">4.2.</span> <span class="toc-text">2.动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1自上而下记忆法"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1自上而下记忆法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2自下而上填表法"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2自下而上填表法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3优化空间"><span class="toc-number">4.2.3.</span> <span class="toc-text">2.3优化空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#贪心解决0-1背包问题"><span class="toc-number">5.</span> <span class="toc-text">贪心解决0&#x2F;1背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析"><span class="toc-number">5.1.</span> <span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-贪心算法实现"><span class="toc-number">5.2.</span> <span class="toc-text">2.贪心算法实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-测试"><span class="toc-number">5.3.</span> <span class="toc-text">3.测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%BD%91%E5%9D%80/" class="archive-article-date">
-  	<time datetime="2020-04-18T03:45:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%BD%91%E5%9D%80/">配置博客主题学习的网址</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-17T15:53:15.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">在github上搭建属于自己的博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-17T10:53:59.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
   
 
 
@@ -420,8 +502,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
