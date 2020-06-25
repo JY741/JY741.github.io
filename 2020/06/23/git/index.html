@@ -6,25 +6,82 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>企业WEB项目实现商品详情页面展示功能 | J Sir</title>
+  <title>Git&amp;GitHub最强入门 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分： a)    商品基本信息 b)    延迟加载商品详情。延迟一秒加载使用ajax c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。">
+  <meta name="description" content="EverydayOneCat🌍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="企业WEB项目实现商品详情页面展示功能">
-<meta property="og:url" content="http://yoursite.com/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/index.html">
+<meta property="og:title" content="Git&amp;GitHub最强入门">
+<meta property="og:url" content="http://yoursite.com/2020/06/23/git/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="概述在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分： a)    商品基本信息 b)    延迟加载商品详情。延迟一秒加载使用ajax c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。">
+<meta property="og:description" content="EverydayOneCat🌍">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590925041313.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924830971.jpg">
-<meta property="article:published_time" content="2020-05-31T10:57:43.975Z">
-<meta property="article:modified_time" content="2020-06-13T15:02:18.435Z">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/ea07844582d16da73b63ca29bd041deb7d233c43.gif@518w_1e_1c.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623214545943.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623214717994.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215354782.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215800153.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215932991.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215948682.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221511557.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221636246.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221840474.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233042181.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233126540.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233145122.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233200918.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/Git&GitHub.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200624095936476.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625101702723.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102030141.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102212056.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102411046.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102457056.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102638669.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102809166.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113015390.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113358385.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113439563.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113759078.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114541156.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114623740.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114702431.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114811721.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114850734.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625141243598.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625142340717.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625142505995.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143600031.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143631312.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143826897.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143908473.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143929737.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143952238.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151133524.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151226498.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151302702.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151430188.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151549984.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151604125.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151645318.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151659799.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151713361.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968258793.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968261303.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968289552.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968287323.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968281622.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968278910.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968276085.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968273267.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968270200.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968266657.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968264021.png">
+<meta property="article:published_time" content="2020-06-23T13:35:04.938Z">
+<meta property="article:modified_time" content="2020-06-25T07:28:10.080Z">
 <meta property="article:author" content="J Sir">
-<meta property="article:tag" content="淘淘商城">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/ea07844582d16da73b63ca29bd041deb7d233c43.gif@518w_1e_1c.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -173,14 +230,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-商品详情" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-git" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      企业WEB项目实现商品详情页面展示功能
+      Git&amp;GitHub最强入门
     </h1>
   
 
@@ -195,73 +252,359 @@
 		  </a>
 		  
         
-        <a href="/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" class="archive-article-date">
-  	<time datetime="2020-05-31T10:57:43.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+        <a href="/2020/06/23/git/" class="archive-article-date">
+  	<time datetime="2020-06-23T13:35:04.938Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发电商项目时，我们需要实现一个最基本的功能：点击商品的图片，打开商品详情页面。其中，商品页面分为三大部分：</p>
-<p>a)    商品基本信息</p>
-<p>b)    延迟加载商品详情。延迟一秒加载使用ajax</p>
-<p>c)    商品的规格参数。按需加载，当用户点击商品规格参数tab页，加载ajax。</p>
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>🌍</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/ea07844582d16da73b63ca29bd041deb7d233c43.gif@518w_1e_1c.gif" alt="img" style="zoom:50%;" />
+
 <a id="more"></a>
 
-<h2 id="1-功能分析"><a href="#1-功能分析" class="headerlink" title="1.功能分析"></a>1.功能分析</h2><p>1、Taotao-portal接收页面请求，接收到商品id。</p>
-<p>2、调用taotao-rest提供的商品详情的服务，把商品id作为参数传递给服务。接收到商品详细详细。</p>
-<p>3、渲染结果，展示商品详细页面</p>
-<p>4、为了提高响应速度，商品详情页的内容需要分步骤加载。</p>
-<p>第一步：先展示商品基本信息，例如商品的名称、图片、价格。</p>
-<p>第二步：展示商品的描述，此时商品页面已经展示完毕，需要ajax请求商品描述。展示的时机是页面加载完毕后一秒钟。</p>
-<p>第三步：展示商品规格。当用户点击商品规格选项卡时展示。使用ajax请求商品规格。</p>
-<p>5、在搜索页面点击商品的图片或者商品名称请求商品详情页面。</p>
-<p>商品详情页请求的url：/item/{itemId}.html</p>
-<p>商品描述请求的url：/item/desc/{itemId}.html</p>
-<p>商品规格请求的url：/item/param/{itemId}.html</p>
-<h2 id="2-处理流程"><a href="#2-处理流程" class="headerlink" title="2.处理流程"></a>2.处理流程</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924481922.gif" alt="img"></p>
-<h2 id="3-taotao-rest服务发布"><a href="#3-taotao-rest服务发布" class="headerlink" title="3.taotao-rest服务发布"></a>3.taotao-rest服务发布</h2><p>需要在taotao-rest工程中发布服务</p>
-<p>1、取商品基本信息的服务</p>
-<p>2、取商品描述的服务</p>
-<p>3、取商品规格的服务</p>
-<blockquote>
-<p>由于商品详情也是客户经常访问的，需要把商品信息添加到缓存中。Redis是内存数据库也属于稀缺资源，所以不应该永久占用，所以要设置过期时间。过期时间为一天。需要缓存同步。</p>
-</blockquote>
-<h3 id="3-1添加缓存逻辑"><a href="#3-1添加缓存逻辑" class="headerlink" title="3.1添加缓存逻辑"></a>3.1添加缓存逻辑</h3><p>Redis的hash类型中的key是不能设置过期时间。如果还需要对key进行分类可以使用折中的方案。</p>
-<p>Key的命名方式：XXXX:xxxx:<del>~</del></p>
-<p>这样存放在redis中，当我们用可视化客户端时就会以文件夹形式存储</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image001-1590925041313.png" alt="img"></p>
-<p>因此，在配置文件resource.properties添加url</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#商品基本信息url</span></span><br><span class="line"><span class="attr">ITEM_INFO_URL</span>=<span class="string">/item/info/</span></span><br><span class="line"><span class="comment">#商品描述url</span></span><br><span class="line"><span class="attr">ITEM_DESC_URL</span>=<span class="string">/item/desc/</span></span><br><span class="line"><span class="comment">#商品规格参数url</span></span><br><span class="line"><span class="attr">ITEM_PARAM_URL</span>=<span class="string">/item/param/</span></span><br></pre></td></tr></table></figure>
+<h1 id="一、版本控制"><a href="#一、版本控制" class="headerlink" title="一、版本控制"></a>一、版本控制</h1><h2 id="1-版本控制工具应该具备的功能"><a href="#1-版本控制工具应该具备的功能" class="headerlink" title="1.版本控制工具应该具备的功能"></a>1.版本控制工具应该具备的功能</h2><ul>
+<li>协同修改<ul>
+<li>多人并行不悖的修改服务器端的同一个文件。</li>
+</ul>
+</li>
+<li>数据备份<ul>
+<li>不仅保存目录和文件的当前状态，还能够保存每一个提交过的历史状态。</li>
+</ul>
+</li>
+<li>版本管理<ul>
+<li>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面SVN 采用的是增量式管理的方式，而Git 采取了文件系统快照的方式。</li>
+</ul>
+</li>
+<li>权限控制<ul>
+<li>对团队中参与开发的人员进行权限控制。</li>
+<li>对团队外开发者贡献的代码进行审核——Git 独有。</li>
+</ul>
+</li>
+<li>历史记录<ul>
+<li>查看修改人、修改时间、修改内容、日志信息。</li>
+<li>将本地文件恢复到某一个历史状态。</li>
+</ul>
+</li>
+<li>分支管理<ul>
+<li>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-版本控制工具"><a href="#2-版本控制工具" class="headerlink" title="2.版本控制工具"></a>2.版本控制工具</h2><p>集中式版本控制工具：CVS、SVN、VSS……</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623214545943.png" alt="image-20200623214545943" style="zoom:67%;" />
 
-<h3 id="3-2Dao层"><a href="#3-2Dao层" class="headerlink" title="3.2Dao层"></a>3.2Dao层</h3><p>因为都是单表查询所以使用逆向工程生成的mapper文件即可。</p>
-<p>tb_item</p>
-<p>tb_item_desc</p>
-<p>tb_item_param_item</p>
-<h3 id="3-3Service层"><a href="#3-3Service层" class="headerlink" title="3.3Service层"></a>3.3Service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemMapper itemMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemDescMapper itemDescMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> TbItemParamItemMapper itemParamItemMapper;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REDIS_ITEM_KEY&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REDIS_ITEM_KEY;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REDIS_ITEM_EXPIRE&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer REDIS_ITEM_EXPIRE;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> JedisClientSingle jedisClientSingle;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemBaseInfo</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存逻辑</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>);</span><br><span class="line">			<span class="keyword">if</span>(!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItem item = JsonUtils.jsonToPojo(json, TbItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(item);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//根据商品id查询商品信息</span></span><br><span class="line">		TbItem item = itemMapper.selectByPrimaryKey(itemId);</span><br><span class="line">		<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			jedisClientSingle.set(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>, JsonUtils.objectToJson(item));</span><br><span class="line">			<span class="comment">//设置key的有效期</span></span><br><span class="line">			jedisClientSingle.expire(REDIS_ITEM_KEY+<span class="string">":"</span>+itemId+<span class="string">":base"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(item);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemDesc</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//添加缓存逻辑</span></span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>);</span><br><span class="line">			<span class="comment">//判断是否有值</span></span><br><span class="line">			<span class="keyword">if</span> (!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItemDesc itemDesc = JsonUtils.jsonToPojo(json, TbItemDesc<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(itemDesc);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//创建查询条件</span></span><br><span class="line">		TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(itemId);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">			jedisClientSingle.set(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>, JsonUtils.objectToJson(itemDesc));</span><br><span class="line">			<span class="comment">//设置key的有效期</span></span><br><span class="line">			jedisClientSingle.expire(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":desc"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.ok(itemDesc);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParam</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//添加缓存</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//添加缓存逻辑</span></span><br><span class="line">			<span class="comment">//从缓存中取商品信息，商品id对应的信息</span></span><br><span class="line">			String json = jedisClientSingle.get(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>);</span><br><span class="line">			<span class="comment">//判断是否有值</span></span><br><span class="line">			<span class="keyword">if</span> (!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				<span class="comment">//把json转换成java对象</span></span><br><span class="line">				TbItemParamItem paramItem = JsonUtils.jsonToPojo(json, TbItemParamItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">return</span> TaotaoResult.ok(paramItem);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//根据商品id查询规格参数</span></span><br><span class="line">		<span class="comment">//设置查询条件</span></span><br><span class="line">		TbItemParamItemExample example = <span class="keyword">new</span> TbItemParamItemExample();</span><br><span class="line">		Criteria criteria = example.createCriteria();</span><br><span class="line">		criteria.andItemIdEqualTo(itemId);</span><br><span class="line">		<span class="comment">//执行查询</span></span><br><span class="line">		List&lt;TbItemParamItem&gt; list = itemParamItemMapper.selectByExampleWithBLOBs(example);</span><br><span class="line">		<span class="keyword">if</span> (list != <span class="keyword">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			TbItemParamItem paramItem = list.get(<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">//把商品信息写入缓存</span></span><br><span class="line">				jedisClientSingle.set(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>, JsonUtils.objectToJson(paramItem));</span><br><span class="line">				<span class="comment">//设置key的有效期</span></span><br><span class="line">				jedisClientSingle.expire(REDIS_ITEM_KEY + <span class="string">":"</span> + itemId + <span class="string">":param"</span>, REDIS_ITEM_EXPIRE);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> TaotaoResult.ok(paramItem);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TaotaoResult.build(<span class="number">400</span>, <span class="string">"无此商品规格"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分布式版本控制工具：Git、Mercurial、Bazaar、Darcs……</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623214717994.png" alt="image-20200623214717994" style="zoom:67%;" />
 
-<h3 id="3-4Controller层"><a href="#3-4Controller层" class="headerlink" title="3.4Controller层"></a>3.4Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/item"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemService itemService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/info/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemBaseInfo</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemBaseInfo(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/desc/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemDesc</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemDesc(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/param/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TaotaoResult <span class="title">getItemParam</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		TaotaoResult result = itemService.getItemParam(itemId);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二、Git简介"><a href="#二、Git简介" class="headerlink" title="二、Git简介"></a>二、Git简介</h1><h2 id="1-基本信息"><a href="#1-基本信息" class="headerlink" title="1.基本信息"></a>1.基本信息</h2><p>简史：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215354782.png" alt="image-20200623215354782" style="zoom:80%;" />
 
-<h2 id="4-taotao-portal商品详情页实现"><a href="#4-taotao-portal商品详情页实现" class="headerlink" title="4.taotao-portal商品详情页实现"></a>4.taotao-portal商品详情页实现</h2><h3 id="4-1需求分析"><a href="#4-1需求分析" class="headerlink" title="4.1需求分析"></a>4.1需求分析</h3><p>当用户访问商品详情页面时，需要加载商品基本信息。延迟加载商品描述、按需加载商品的规格参数。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1590924830971.jpg" alt="img"></p>
-<p>由于页面展示商品信息时，需要展示图片列表。多张图片在数据库中存储的格式是存储在同一个字段中使用逗号分隔的。所以商品展示时需要在pojo中做处理。故此在portal中自定义一个商品的pojo类继承TbItem同时新增一个get方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加此方法拆分图片列表</span></span><br><span class="line"><span class="keyword">public</span> String[] getImages() &#123;</span><br><span class="line">    <span class="keyword">if</span> (image != <span class="keyword">null</span> &amp;&amp; image != <span class="string">""</span>) &#123;</span><br><span class="line">        String[] strings = image.split(<span class="string">","</span>);</span><br><span class="line">        <span class="keyword">return</span> strings;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>官网地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></p>
+<p>优势：</p>
+<p>1、大部分操作在本地完成，不需要联网<br>2、完整性保证<br>3、尽可能添加数据而不是删除或修改数据<br>4、分支操作非常快捷流畅<br>5、与Linux 命令全面兼容</p>
+<p>安装：进入官网下载安装包，安装过程全部默认下一步就好。</p>
+<h2 id="2-Git结构"><a href="#2-Git结构" class="headerlink" title="2.Git结构"></a>2.Git结构</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215800153.png" alt="image-20200623215800153" style="zoom:50%;" />
 
-<h3 id="4-2Service层"><a href="#4-2Service层" class="headerlink" title="4.2Service层"></a>4.2Service层</h3><p><strong>商品基本信息的查询：</strong></p>
-<p>接收商品id调用mapper查询商品规格参数，返回规格参数pojo使用TaotaoResult包装。添加缓存逻辑。</p>
-<p><strong>商品描述延迟加载：</strong></p>
-<p>接收商品id，调用taotao-rest的服务，查询商品的基本信息。得到一个json字符串。需要把json转换成java对象。然后在jsp页面渲染。</p>
-<p><strong>商品规格参数展示：</strong></p>
-<p>接收商品id，调用taotao-rest的服务根据商品id查询商品描述信息。得到json数据。把json转换成java对象从java对象中把商品描述取出来。返回商品描述字符串。</p>
-<p>参数：商品id</p>
-<p>返回值：字符串（商品描述的html片段）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品内容展示Service</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_INFO_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_INFO_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;REST_BASE_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String REST_BASE_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_DESC_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_DESC_URL;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;ITEM_PARAM_URL&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String ITEM_PARAM_URL;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ItemInfo <span class="title">getItemInfoById</span><span class="params">(<span class="keyword">long</span> itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//调用rest的服务查询商品基本信息</span></span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL+ITEM_INFO_URL+itemId);</span><br><span class="line">			<span class="keyword">if</span>(!StringUtils.isBlank(json)) &#123;</span><br><span class="line">				TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, ItemInfo<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				<span class="keyword">if</span>(taotaoResult.getStatus()==<span class="number">200</span>) &#123;</span><br><span class="line">					ItemInfo itemInfo = (ItemInfo) taotaoResult.getData();</span><br><span class="line">					<span class="keyword">return</span> itemInfo;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//取商品描述</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemDescById</span><span class="params">(Long itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_DESC_URL + itemId);</span><br><span class="line">			<span class="comment">//转换成java对象</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, TbItemDesc<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="keyword">if</span> (taotaoResult.getStatus() == <span class="number">200</span>) &#123;</span><br><span class="line">				TbItemDesc itemDesc = (TbItemDesc) taotaoResult.getData();</span><br><span class="line">				<span class="comment">//取商品描述信息</span></span><br><span class="line">				String result = itemDesc.getItemDesc();</span><br><span class="line">				<span class="keyword">return</span> result;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//根据商品id查询规格参数</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemParam</span><span class="params">(Long itemId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_PARAM_URL + itemId);</span><br><span class="line">			<span class="comment">//把json转换成java对象</span></span><br><span class="line">			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, TbItemParamItem<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">			<span class="keyword">if</span> (taotaoResult.getStatus() == <span class="number">200</span>) &#123;</span><br><span class="line">				TbItemParamItem itemParamItem = (TbItemParamItem) taotaoResult.getData();</span><br><span class="line">				String paramData = itemParamItem.getParamData();</span><br><span class="line">				<span class="comment">//生成html</span></span><br><span class="line">				<span class="comment">// 把规格参数json数据转换成java对象</span></span><br><span class="line">				List&lt;Map&gt; jsonList = JsonUtils.jsonToList(paramData, Map<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">				StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">				sb.append(<span class="string">"&lt;table cellpadding=\"0\" cellspacing=\"1\" width=\"100%\" border=\"0\" class=\"Ptable\"&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"    &lt;tbody&gt;\n"</span>);</span><br><span class="line">				<span class="keyword">for</span>(Map m1:jsonList) &#123;</span><br><span class="line">					sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">					sb.append(<span class="string">"            &lt;th class=\"tdTitle\" colspan=\"2\"&gt;"</span>+m1.get(<span class="string">"group"</span>)+<span class="string">"&lt;/th&gt;\n"</span>);</span><br><span class="line">					sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">					List&lt;Map&gt; list2 = (List&lt;Map&gt;) m1.get(<span class="string">"params"</span>);</span><br><span class="line">					<span class="keyword">for</span>(Map m2:list2) &#123;</span><br><span class="line">						sb.append(<span class="string">"        &lt;tr&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"            &lt;td class=\"tdTitle\"&gt;"</span>+m2.get(<span class="string">"k"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"            &lt;td&gt;"</span>+m2.get(<span class="string">"v"</span>)+<span class="string">"&lt;/td&gt;\n"</span>);</span><br><span class="line">						sb.append(<span class="string">"        &lt;/tr&gt;\n"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				sb.append(<span class="string">"    &lt;/tbody&gt;\n"</span>);</span><br><span class="line">				sb.append(<span class="string">"&lt;/table&gt;"</span>);</span><br><span class="line">				<span class="comment">//返回html片段</span></span><br><span class="line">				<span class="keyword">return</span> sb.toString();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Git和代码托管中心"><a href="#3-Git和代码托管中心" class="headerlink" title="3.Git和代码托管中心"></a>3.Git和代码托管中心</h2><p>代码托管中心的任务：维护远程库</p>
+<ul>
+<li>局域网环境下：GitLab 服务器</li>
+<li>外网环境下：GitHub、码云</li>
+</ul>
+<h2 id="4-本地库和远程库"><a href="#4-本地库和远程库" class="headerlink" title="4.本地库和远程库"></a>4.本地库和远程库</h2><p>团队内部协作：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215932991.png" alt="image-20200623215932991" style="zoom:67%;" />
 
-<h3 id="4-3Controller层"><a href="#4-3Controller层" class="headerlink" title="4.3Controller层"></a>4.3Controller层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 商品内容展示</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> JY</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> ItemService itemService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/item/&#123;itemId&#125;"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">showItem</span><span class="params">(@PathVariable Long itemId,Model model)</span> </span>&#123;</span><br><span class="line">		ItemInfo item = itemService.getItemInfoById(itemId);</span><br><span class="line">		model.addAttribute(<span class="string">"item"</span>, item);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"item"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/item/desc/&#123;itemId&#125;"</span>,produces=MediaType.TEXT_HTML_VALUE+<span class="string">";charset=utf-8"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemDesc</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		String itemDescById = itemService.getItemDescById(itemId);</span><br><span class="line">		<span class="keyword">return</span> itemDescById;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/item/param/&#123;itemId&#125;"</span>, produces=MediaType.TEXT_HTML_VALUE+<span class="string">";charset=utf-8"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getItemParam</span><span class="params">(@PathVariable Long itemId)</span> </span>&#123;</span><br><span class="line">		String string = itemService.getItemParam(itemId);</span><br><span class="line">		<span class="keyword">return</span> string;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跨团队协作：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623215948682.png" alt="image-20200623215948682" style="zoom:67%;" />
 
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最近看老马打斗地主，真相一拳👊干碎他的眼镜👀</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1385126398&auto=0&height=66"></iframe>
+<h1 id="三、Git命令行操作"><a href="#三、Git命令行操作" class="headerlink" title="三、Git命令行操作"></a>三、Git命令行操作</h1><h2 id="1-本地仓库初始化"><a href="#1-本地仓库初始化" class="headerlink" title="1.本地仓库初始化"></a>1.本地仓库初始化</h2><p>命令：git init</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221511557.png" alt="image-20200623221511557"></p>
+<h2 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h2><p>作用：区分不同开发人员的身份</p>
+<p>辨析：这里设置的签名和登录远程库(代码托管中心)的账号、密码没有任何关系。</p>
+<p><strong>项目级别/仓库级别</strong>：仅在当前本地库范围内有效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name jy_pro</span><br><span class="line">git config user.email jyEmail_pro@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>信息保存位置：./.git/config 文件</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221636246.png" alt="image-20200623221636246"></p>
+<p><strong>系统用户级别</strong>：登录当前操作系统的用户范围</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name jy_pro</span><br><span class="line">git config --global user.email jyEmail_pro@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>信息保存位置：~/.gitconfig 文件</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623221840474.png" alt="image-20200623221840474"></p>
+<p>级别优先级:</p>
+<ul>
+<li>就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</li>
+<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
+<li>二者都没有不允许</li>
+</ul>
+<h2 id="3-基本操作"><a href="#3-基本操作" class="headerlink" title="3.基本操作"></a>3.基本操作</h2><ul>
+<li><p>状态查看：git status——查看工作区、暂存区状态</p>
+</li>
+<li><p>添加到寄存区：git add [file name]——将工作区的“新建/修改”添加到暂存区</p>
+</li>
+<li><p>提交到本地库：git commit -m “commit message” [file name]——将暂存区的内容提交到本地库</p>
+</li>
+<li><p>查看历史记录：</p>
+<ul>
+<li><p>git log——详细显示记录<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233042181.png" alt="image-20200623233042181" style="zoom:80%;" /></p>
+<p>多屏显示控制方式：空格向下翻页、b 向上翻页、q 退出</p>
+</li>
+<li><p>git log –pretty=oneline<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233126540.png" alt="image-20200623233126540" style="zoom:80%;" /></p>
+</li>
+<li><p>git log –oneline<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233145122.png" alt="image-20200623233145122"></p>
+</li>
+<li><p>git reflog<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200623233200918.png" alt="image-20200623233200918"></p>
+<p>HEAD@{移动到当前版本需要多少步}</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>前进后退</p>
+<ul>
+<li>基于索引值操作[推荐]<ul>
+<li>git reset –hard [局部索引值]</li>
+<li>git reset –hard a6ace91</li>
+</ul>
+</li>
+<li>使用^符号：只能后退<ul>
+<li>git reset –hard HEAD^</li>
+<li>注：一个^表示后退一步，n 个表示后退n 步</li>
+</ul>
+</li>
+<li>使用~符号：只能后退<ul>
+<li>git reset –hard HEAD~n</li>
+<li>注：表示后退n 步</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>reset 命令的三个参数对比</p>
+<ul>
+<li><p>–soft 参数——仅仅在本地库移动HEAD 指针</p>
+</li>
+<li><p>–mixed 参数——在本地库移动HEAD 指针并重置暂存区</p>
+</li>
+<li><p>–hard 参数——在本地库移动HEAD 指针、重置暂存区、重置工作区</p>
+</li>
+</ul>
+</li>
+<li><p>删除文件并找回</p>
+<ul>
+<li>前提：删除前，文件存在时的状态提交到了本地库。</li>
+<li>操作：git reset –hard [指针位置]<ul>
+<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
+<li>删除操作尚未提交到本地库：指针位置使用HEAD</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>比较文件差异</p>
+<ul>
+<li>git diff [文件名]——将工作区中的文件和暂存区进行比较</li>
+<li>git diff [本地库中历史版本] [文件名]——将工作区中的文件和本地库历史记录比较</li>
+<li>不带文件名比较多个文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4.分支管理"></a>4.分支管理</h2><p>分支：在版本控制过程中，使用多条线同时推进多个任务。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/Git&GitHub.jpg" alt="Git&amp;GitHub"></p>
+<p>分支的好处：</p>
+<ol>
+<li>同时并行推进多个功能开发，提高开发效率</li>
+<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败的分支删除重新开始即可。</li>
+</ol>
+<p>分支操作：</p>
+<ul>
+<li>创建分支——git branch [分支名]</li>
+<li>查看分支——git branch -v</li>
+<li>切换分支——git checkout [分支名]</li>
+<li>合并分支<ul>
+<li>第一步：切换到接受修改的分支（被合并，要增加新内容）上——git checkout [被合并分支名]</li>
+<li>第二步：执行merge 命令——git merge [有新内容分支名]</li>
+</ul>
+</li>
+<li>解决冲突<ul>
+<li>冲突的表现<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200624095936476.png" alt="image-20200624095936476" style="zoom:80%;" /></li>
+<li>冲突的解决<ul>
+<li>第一步：编辑文件，删除特殊符号</li>
+<li>第二步：把文件修改到满意的程度，保存退出</li>
+<li>第三步：git add [文件名]</li>
+<li>第四步：git commit -m “日志信息”——注意：此时commit 一定不能带具体文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、Git基本原理"><a href="#四、Git基本原理" class="headerlink" title="四、Git基本原理"></a>四、Git基本原理</h1><h2 id="1-哈希"><a href="#1-哈希" class="headerlink" title="1.哈希"></a>1.哈希</h2><p>哈希是一个系列的加密算法，各个不同的哈希算法虽然加密强度不同，但是有以下几个共同点：<br>①不管输入数据的数据量有多大，输入同一个哈希算法，得到的加密结果长度固定。<br>②哈希算法确定，输入数据确定，输出数据能够保证不变<br>③哈希算法确定，输入数据有变化，输出数据一定有变化，而且通常变化很大<br>④哈希算法不可逆<br>Git 底层采用的是SHA-1 算法。</p>
+<p>哈希算法可以被用来验证文件。原理如下图所示：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625101702723.png" alt="image-20200625101702723" style="zoom:67%;" />
+
+<p>Git 就是靠这种机制来从根本上保证数据完整性的。</p>
+<h2 id="2-Git保存版本的机制"><a href="#2-Git保存版本的机制" class="headerlink" title="2.Git保存版本的机制"></a>2.Git保存版本的机制</h2><h3 id="2-1集中式版本控制工具的文件管理机制"><a href="#2-1集中式版本控制工具的文件管理机制" class="headerlink" title="2.1集中式版本控制工具的文件管理机制"></a>2.1集中式版本控制工具的文件管理机制</h3><p>以文件变更列表的方式存储信息。这类系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102030141.png" alt="image-20200625102030141" style="zoom:80%;" />
+
+<h3 id="2-2Git的文件管理机制"><a href="#2-2Git的文件管理机制" class="headerlink" title="2.2Git的文件管理机制"></a>2.2Git的文件管理机制</h3><p>Git 把数据看作是小型文件系统的一组快照。每次提交更新时Git 都会对当前的全部文件制作一个快照并保存这个快照的索引。为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。所以Git 的工作方式可以称之为快照流。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102212056.png" alt="image-20200625102212056" style="zoom:80%;" />
+
+<h3 id="2-3Git文件管理机制细节"><a href="#2-3Git文件管理机制细节" class="headerlink" title="2.3Git文件管理机制细节"></a>2.3Git文件管理机制细节</h3><p>Git 的“提交对象”</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102411046.png" alt="image-20200625102411046" style="zoom: 67%;" />
+
+<p>提交对象及其父对象形成的链条</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102457056.png" alt="image-20200625102457056" style="zoom:80%;" />
+
+<h2 id="3-Git分支管理机制"><a href="#3-Git分支管理机制" class="headerlink" title="3.Git分支管理机制"></a>3.Git分支管理机制</h2><p>分支的创建：添加一个指针指向版本</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102638669.png" alt="image-20200625102638669" style="zoom:50%;" />
+
+<p>分支的切换：head指针指向分支，如果修改则跟着分支走</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625102809166.png" alt="image-20200625102809166" style="zoom:50%;" />
+
+<h1 id="五、GitHub"><a href="#五、GitHub" class="headerlink" title="五、GitHub"></a>五、GitHub</h1><h2 id="1-远程库"><a href="#1-远程库" class="headerlink" title="1.远程库"></a>1.远程库</h2><p>github创建：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113015390.png" alt="image-20200625113015390" style="zoom: 67%;" /></p>
+<h3 id="1-1创建远程库地址别名："><a href="#1-1创建远程库地址别名：" class="headerlink" title="1.1创建远程库地址别名："></a>1.1创建远程库地址别名：</h3><p>git remote -v 查看当前所有远程地址别名</p>
+<p>git remote add [别名] [远程地址]</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113358385.png" alt="image-20200625113358385" style="zoom:67%;" />
+
+<h3 id="1-2推送"><a href="#1-2推送" class="headerlink" title="1.2推送"></a>1.2推送</h3><p>git push [别名] [分支名]</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113439563.png" alt="image-20200625113439563" style="zoom:67%;" />
+
+<h3 id="1-3克隆"><a href="#1-3克隆" class="headerlink" title="1.3克隆"></a>1.3克隆</h3><p>git clone [远程地址]</p>
+<p>效果：</p>
+<ul>
+<li>完整的把远程库下载到本地</li>
+<li>创建origin 远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+<h2 id="2-团队"><a href="#2-团队" class="headerlink" title="2.团队"></a>2.团队</h2><h3 id="2-1团队成员邀请"><a href="#2-1团队成员邀请" class="headerlink" title="2.1团队成员邀请"></a>2.1团队成员邀请</h3><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625113759078.png" alt="image-20200625113759078" style="zoom: 67%;" />
+
+<p>“岳不群”其他方式把邀请链接发送给“令狐冲”，“令狐冲”登录自己的GitHub账号，访问邀请链接，接受邀请。</p>
+<h3 id="2-2拉取"><a href="#2-2拉取" class="headerlink" title="2.2拉取"></a>2.2拉取</h3><p>pull=fetch+merge</p>
+<p>git fetch [远程库地址别名] [远程分支名]——把远程库下载下来，可以查看</p>
+<p>git merge [远程库地址别名/远程分支名]——将远程库和本地库合并</p>
+<p>git pull [远程库地址别名] [远程分支名]——直接下载合并</p>
+<h3 id="2-3解决冲突"><a href="#2-3解决冲突" class="headerlink" title="2.3解决冲突"></a>2.3解决冲突</h3><p>如果不是基于GitHub 远程库的最新版所做的修改，不能推送，必须先拉取。</p>
+<p>拉取下来后如果进入冲突状态，则按照“分支冲突解决”操作解决即可。</p>
+<h3 id="2-4跨团队协作"><a href="#2-4跨团队协作" class="headerlink" title="2.4跨团队协作"></a>2.4跨团队协作</h3><ol>
+<li>Fork：</li>
+</ol>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114541156.png" alt="image-20200625114541156" style="zoom:67%;" />
+
+<ol start="2">
+<li>本地修改，然后推送到远程</li>
+<li>Pull Request</li>
+</ol>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114623740.png" alt="image-20200625114623740" style="zoom:67%;" />
+
+<ol start="4">
+<li>审核修改：</li>
+</ol>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114702431.png" alt="image-20200625114702431" style="zoom:50%;" />
+
+<ol start="5">
+<li>审核代码：</li>
+</ol>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114811721.png" alt="image-20200625114811721" style="zoom: 67%;" />
+
+<ol start="6">
+<li>合并代码：</li>
+</ol>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625114850734.png" alt="image-20200625114850734" style="zoom: 67%;" />
+
+<ol start="7">
+<li>将远程库修改拉取到本地</li>
+</ol>
+<h2 id="3-SSH-登录"><a href="#3-SSH-登录" class="headerlink" title="3.SSH 登录"></a>3.SSH 登录</h2><ul>
+<li>进入当前用户的家目录——$ cd ~</li>
+<li>删除.ssh 目录——$ rm -rvf .ssh</li>
+<li>运行命令生成.ssh 密钥目录<ul>
+<li>$ ssh-keygen -t rsa -C 邮箱地址——([注意：这里-C 这个参数是大写的C])</li>
+</ul>
+</li>
+<li>进入.ssh 目录查看文件列表——cd .ssh</li>
+<li>查看id_rsa.pub 文件内容——cat id_rsa.pub</li>
+<li>复制id_rsa.pub 文件内容，登录GitHub，点击用户头像→Settings→SSH and GPG keys</li>
+<li>New SSH Key</li>
+<li>输入复制的密钥信息</li>
+<li>回到Git bash 创建远程地址别名<ul>
+<li>$ git remote add origin_ssh <a href="mailto:git@github.com">git@github.com</a>:JY741/studyGit.git</li>
+</ul>
+</li>
+<li>推送文件进行测试</li>
+</ul>
+<h1 id="六、Eclipse中Git使用"><a href="#六、Eclipse中Git使用" class="headerlink" title="六、Eclipse中Git使用"></a>六、Eclipse中Git使用</h1><h2 id="1-工程初始化为本地库"><a href="#1-工程初始化为本地库" class="headerlink" title="1.工程初始化为本地库"></a>1.工程初始化为本地库</h2><p>工程→右键→Team→Share Project→Git</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625141243598.png" alt="image-20200625141243598" style="zoom:67%;" />
+
+<h2 id="2-Eclipse-中忽略文件"><a href="#2-Eclipse-中忽略文件" class="headerlink" title="2.Eclipse 中忽略文件"></a>2.Eclipse 中忽略文件</h2><p>Eclipse 特定文件：</p>
+<p>.classpath 文件<br>.project 文件<br>.settings 目录下所有文件</p>
+<p>这些都是Eclipse 为了管理我们创建的工程而维护的文件，和开发的代码没有直接关系。最好不要在Git 中进行追踪，也就是把它们忽略。</p>
+<p>为什么要忽略Eclipse 特定文件呢？</p>
+<p>同一个团队中很难保证大家使用相同的IDE 工具，而IDE 工具不同时，相关工程特定文件就有可能不同。如果这些文件加入版本控制，那么开发时很可能需要为了这些文件解决冲突。</p>
+<p>GitHub 官网样例文件：</p>
+<p><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a><br><a href="https://github.com/github/gitignore/blob/master/Java.gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore/blob/master/Java.gitignore</a></p>
+<p>编辑本地忽略配置文件，文件名任意(Java.gitignore)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Compiled class file</span><br><span class="line">*.class</span><br><span class="line"># Log file</span><br><span class="line">*.log</span><br><span class="line"># BlueJ files</span><br><span class="line">*.ctxt</span><br><span class="line"># Mobile Tools for Java (J2ME)</span><br><span class="line">.mtj.tmp&#x2F;</span><br><span class="line"># Package Files #</span><br><span class="line">*.jar</span><br><span class="line">*.war</span><br><span class="line">*.nar</span><br><span class="line">*.ear</span><br><span class="line">*.zip</span><br><span class="line">*.tar.gz</span><br><span class="line">*.rar</span><br><span class="line"># virtual machine crash logs, see http:&#x2F;&#x2F;www.java.com&#x2F;en&#x2F;download&#x2F;help&#x2F;error_hotspot.xml</span><br><span class="line">hs_err_pid*</span><br><span class="line">.classpath</span><br><span class="line">.project</span><br><span class="line">.settings</span><br><span class="line">target</span><br></pre></td></tr></table></figure>
+
+<p>在~/.gitconfig 文件中引入上述文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">excludesfile &#x3D; C:&#x2F;Users&#x2F;Lenovo&#x2F;Java.gitignore</span><br></pre></td></tr></table></figure>
+
+<p>[注意：这里路径中一定要使用“/”，不能使用“\”]</p>
+<h2 id="3-本地提交"><a href="#3-本地提交" class="headerlink" title="3.本地提交"></a>3.本地提交</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625142340717.png" alt="image-20200625142340717" style="zoom: 50%;" />
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625142505995.png" alt="image-20200625142505995"></p>
+<h2 id="4-推送到远程库"><a href="#4-推送到远程库" class="headerlink" title="4.推送到远程库"></a>4.推送到远程库</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143600031.png" alt="image-20200625143600031" style="zoom: 80%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143631312.png" alt="image-20200625143631312" style="zoom: 67%;" />
+
+<h2 id="5-克隆工程操作"><a href="#5-克隆工程操作" class="headerlink" title="5.克隆工程操作"></a>5.克隆工程操作</h2><p>Import……导入工程选git……选择clone URL</p>
+<p>到远程库复制工程地址</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143826897.png" alt="image-20200625143826897" style="zoom:67%;" />
+
+<p>指定工程的保存位置</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143908473.png" alt="image-20200625143908473"></p>
+<p>指定工程导入方式，这里只能用：Import as general project</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143929737.png" alt="image-20200625143929737" style="zoom:67%;" />
+
+<p>转换工程类型</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625143952238.png" alt="image-20200625143952238" style="zoom:67%;" />
+
+<h2 id="6-解决冲突"><a href="#6-解决冲突" class="headerlink" title="6.解决冲突"></a>6.解决冲突</h2><p>先pull下载，冲突文件→右键→Team→Merge Tool</p>
+<p>修改完成后正常执行add/commit 操作即可</p>
+<h1 id="七、Git工作流"><a href="#七、Git工作流" class="headerlink" title="七、Git工作流"></a>七、Git工作流</h1><p>在项目开发过程中使用Git 的方式</p>
+<h2 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h2><h3 id="1-1集中式工作流"><a href="#1-1集中式工作流" class="headerlink" title="1.1集中式工作流"></a>1.1集中式工作流</h3><p>像SVN 一样，集中式工作流以中央仓库作为项目所有修改的单点实体。所有修改都提交到Master 这个分支上。<br>这种方式与SVN 的主要区别就是开发人员有本地库。Git 很多特性并没有用到。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151133524.png" alt="image-20200625151133524" style="zoom:67%;" />
+
+<h3 id="1-2GitFlow工作流"><a href="#1-2GitFlow工作流" class="headerlink" title="1.2GitFlow工作流"></a>1.2GitFlow工作流</h3><p>Gitflow 工作流通过为功能开发、发布准备和维护设立了独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了一些非常必要的结构。</p>
+<h3 id="1-3Forking-工作流"><a href="#1-3Forking-工作流" class="headerlink" title="1.3Forking 工作流"></a>1.3Forking 工作流</h3><p>Forking 工作流是在GitFlow 基础上，充分利用了Git 的Fork 和pull request 的功能以达到代码审核的目的。更适合安全可靠地管理大团队的开发者，而且能接受不信任贡献者的提交。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151226498.png" alt="image-20200625151226498" style="zoom:67%;" />
+
+<h2 id="2-GitFlow工作流详解"><a href="#2-GitFlow工作流详解" class="headerlink" title="2.GitFlow工作流详解"></a>2.GitFlow工作流详解</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151302702.png" alt="image-20200625151302702"></p>
+<ul>
+<li>主干分支master<br>主要负责管理正在运行的生产环境代码。永远保持与正在运行的生产环境完全一致。</li>
+<li>开发分支develop<br>主要负责管理正在开发过程中的代码。一般情况下应该是最新的代码。</li>
+<li>bug 修理分支hotfix<br>主要负责管理生产环境下出现的紧急修复的代码。从主干分支分出，修理完毕并测试上线后，并回主干分支。并回后，视情况可以删除该分支。</li>
+<li>准生产分支（预发布分支） release<br>较大的版本上线前，会从开发分支中分出准生产分支，进行最后阶段的集成测试。该版本上线后，会合并到主干分支。生产环境运行一段阶段较稳定后可以视情况删除。</li>
+<li>功能分支feature<br>为了不影响较短周期的开发工作，一般把中长期开发模块，会从开发分支中独立出来。开发完成后会合并到开发分支。</li>
+</ul>
+<h2 id="3-Eclipse分支操作"><a href="#3-Eclipse分支操作" class="headerlink" title="3.Eclipse分支操作"></a>3.Eclipse分支操作</h2><p>创建分支：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151430188.png" alt="image-20200625151430188" style="zoom:80%;" />
+
+<p>切换分支审查代码：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151549984.png" alt="image-20200625151549984" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151604125.png" alt="image-20200625151604125" style="zoom: 80%;" />
+
+<p>检出远程新分支</p>
+<p>切换回master</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151645318.png" alt="image-20200625151645318"></p>
+<p>合并分支</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151659799.png" alt="image-20200625151659799"></p>
+<p>合并结果</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200625151713361.png" alt="image-20200625151713361"></p>
+<p>合并成功后，把master 推送到远程。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>分享一组滑稽缝合怪🤣</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968258793.png" alt="1592968258793">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968261303.png" alt="1592968261303">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968289552.png" alt="1592968289552">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968287323.png" alt="1592968287323">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968281622.png" alt="1592968281622">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968278910.png" alt="1592968278910">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968276085.png" alt="1592968276085">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968273267.png" alt="1592968273267">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968270200.png" alt="1592968270200">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968266657.png" alt="1592968266657">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1592968264021.png" alt="1592968264021"></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=469220277&auto=0&height=66"></iframe>
       
 
       
@@ -305,11 +648,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -365,7 +704,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/31/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/23/git/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,18 +718,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/01/%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          企业WEB项目单点登陆系统实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/30/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">企业WEB项目通过solr实现商品搜索功能</div>
+    <a href="/2020/06/23/%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从0开始的建站教程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,7 +747,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-功能分析"><span class="toc-number">1.1.</span> <span class="toc-text">1.功能分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-处理流程"><span class="toc-number">1.2.</span> <span class="toc-text">2.处理流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-taotao-rest服务发布"><span class="toc-number">1.3.</span> <span class="toc-text">3.taotao-rest服务发布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1添加缓存逻辑"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1添加缓存逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2Dao层"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2Dao层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3Service层"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4Controller层"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4Controller层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-taotao-portal商品详情页实现"><span class="toc-number">1.4.</span> <span class="toc-text">4.taotao-portal商品详情页实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1需求分析"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2Service层"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2Service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3Controller层"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3Controller层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、版本控制"><span class="toc-number">2.</span> <span class="toc-text">一、版本控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-版本控制工具应该具备的功能"><span class="toc-number">2.1.</span> <span class="toc-text">1.版本控制工具应该具备的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-版本控制工具"><span class="toc-number">2.2.</span> <span class="toc-text">2.版本控制工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Git简介"><span class="toc-number">3.</span> <span class="toc-text">二、Git简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本信息"><span class="toc-number">3.1.</span> <span class="toc-text">1.基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git结构"><span class="toc-number">3.2.</span> <span class="toc-text">2.Git结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Git和代码托管中心"><span class="toc-number">3.3.</span> <span class="toc-text">3.Git和代码托管中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-本地库和远程库"><span class="toc-number">3.4.</span> <span class="toc-text">4.本地库和远程库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Git命令行操作"><span class="toc-number">4.</span> <span class="toc-text">三、Git命令行操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-本地仓库初始化"><span class="toc-number">4.1.</span> <span class="toc-text">1.本地仓库初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设置签名"><span class="toc-number">4.2.</span> <span class="toc-text">2.设置签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-基本操作"><span class="toc-number">4.3.</span> <span class="toc-text">3.基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分支管理"><span class="toc-number">4.4.</span> <span class="toc-text">4.分支管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Git基本原理"><span class="toc-number">5.</span> <span class="toc-text">四、Git基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-哈希"><span class="toc-number">5.1.</span> <span class="toc-text">1.哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git保存版本的机制"><span class="toc-number">5.2.</span> <span class="toc-text">2.Git保存版本的机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1集中式版本控制工具的文件管理机制"><span class="toc-number">5.2.1.</span> <span class="toc-text">2.1集中式版本控制工具的文件管理机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2Git的文件管理机制"><span class="toc-number">5.2.2.</span> <span class="toc-text">2.2Git的文件管理机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3Git文件管理机制细节"><span class="toc-number">5.2.3.</span> <span class="toc-text">2.3Git文件管理机制细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Git分支管理机制"><span class="toc-number">5.3.</span> <span class="toc-text">3.Git分支管理机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、GitHub"><span class="toc-number">6.</span> <span class="toc-text">五、GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-远程库"><span class="toc-number">6.1.</span> <span class="toc-text">1.远程库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1创建远程库地址别名："><span class="toc-number">6.1.1.</span> <span class="toc-text">1.1创建远程库地址别名：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2推送"><span class="toc-number">6.1.2.</span> <span class="toc-text">1.2推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3克隆"><span class="toc-number">6.1.3.</span> <span class="toc-text">1.3克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-团队"><span class="toc-number">6.2.</span> <span class="toc-text">2.团队</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1团队成员邀请"><span class="toc-number">6.2.1.</span> <span class="toc-text">2.1团队成员邀请</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2拉取"><span class="toc-number">6.2.2.</span> <span class="toc-text">2.2拉取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3解决冲突"><span class="toc-number">6.2.3.</span> <span class="toc-text">2.3解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4跨团队协作"><span class="toc-number">6.2.4.</span> <span class="toc-text">2.4跨团队协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SSH-登录"><span class="toc-number">6.3.</span> <span class="toc-text">3.SSH 登录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、Eclipse中Git使用"><span class="toc-number">7.</span> <span class="toc-text">六、Eclipse中Git使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-工程初始化为本地库"><span class="toc-number">7.1.</span> <span class="toc-text">1.工程初始化为本地库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Eclipse-中忽略文件"><span class="toc-number">7.2.</span> <span class="toc-text">2.Eclipse 中忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-本地提交"><span class="toc-number">7.3.</span> <span class="toc-text">3.本地提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-推送到远程库"><span class="toc-number">7.4.</span> <span class="toc-text">4.推送到远程库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-克隆工程操作"><span class="toc-number">7.5.</span> <span class="toc-text">5.克隆工程操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-解决冲突"><span class="toc-number">7.6.</span> <span class="toc-text">6.解决冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、Git工作流"><span class="toc-number">8.</span> <span class="toc-text">七、Git工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分类"><span class="toc-number">8.1.</span> <span class="toc-text">1.分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1集中式工作流"><span class="toc-number">8.1.1.</span> <span class="toc-text">1.1集中式工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2GitFlow工作流"><span class="toc-number">8.1.2.</span> <span class="toc-text">1.2GitFlow工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3Forking-工作流"><span class="toc-number">8.1.3.</span> <span class="toc-text">1.3Forking 工作流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GitFlow工作流详解"><span class="toc-number">8.2.</span> <span class="toc-text">2.GitFlow工作流详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Eclipse分支操作"><span class="toc-number">8.3.</span> <span class="toc-text">3.Eclipse分支操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">9.</span> <span class="toc-text">结语</span></a></li></ol>
                     </div>
                 </span>
             </div>
