@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java | J Sir</title>
+  <title>品优购第三篇—规格及模板管理 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/tags/java/page/3/index.html">
+  <meta name="description" content="EverydayOneCat洗！🛀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="品优购第三篇—规格及模板管理">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/%E5%93%81%E4%BC%98%E8%B4%AD3/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat洗！🛀">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/3edbc246bbc57accc1a782f92bd9de5f160ed33f.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629233748236.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629233803437.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629234426225.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629234643806.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200630003638542.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200630003650644.png">
+<meta property="article:published_time" content="2020-06-28T15:01:04.627Z">
+<meta property="article:modified_time" content="2020-06-29T16:39:35.538Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="品优购">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/3edbc246bbc57accc1a782f92bd9de5f160ed33f.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,35 +177,277 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-品优购3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      品优购第三篇—规格及模板管理
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/06/28/%E5%93%81%E4%BC%98%E8%B4%AD3/" class="archive-article-date">
+  	<time datetime="2020-06-28T15:01:04.627Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>洗！🛀<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/3edbc246bbc57accc1a782f92bd9de5f160ed33f.gif" alt="img" style="zoom:67%;" /></p>
+<a id="more"></a>
+
+<h1 id="一、前端分层开发"><a href="#一、前端分层开发" class="headerlink" title="一、前端分层开发"></a>一、前端分层开发</h1><p>我们看前端代码，JS和html都放在一起，并不利于我们后期的维护。我们可以在前端代码中也运用MVC的设计模式，将代码进行分离，提高程序的可维护性。</p>
+<h2 id="1-自定义服务"><a href="#1-自定义服务" class="headerlink" title="1.自定义服务"></a>1.自定义服务</h2><p>在 AngularJS 中，服务是一个函数或对象，可在你的 AngularJS 应用中使用。我们在上次课中使用了内置服务$http .其实我们也可以自己来定义服务，而服务会封装一些操作。我们在不同的控制器中可以调用同一个服务，这样服务的代码将会被重用。</p>
+<p>在js文件夹下创建service文件夹。创建brandService.js前端服务层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//品牌服务</span></span><br><span class="line">app.service(<span class="string">"brandService"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$http</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.findAll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.get(<span class="string">"../brand/findAll.do"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.findPage = <span class="function"><span class="keyword">function</span>(<span class="params">page,rows</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.get(<span class="string">"../brand/findPage.do?page="</span>+page+<span class="string">"&amp;rows="</span>+rows);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.findOne = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.get(<span class="string">"../brand/findOne.do?id"</span>+id);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">entity</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.post(<span class="string">"../brand/add.do"</span>,entity);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params">entity</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.post(<span class="string">"../brand/update.do"</span>,entity);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.dele = <span class="function"><span class="keyword">function</span>(<span class="params">ids</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.get(<span class="string">"../brand/delete.do?ids="</span>+ids);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.search = <span class="function"><span class="keyword">function</span>(<span class="params">page,rows,searchEntity</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.post(<span class="string">"../brand/search.do?page="</span>+page+<span class="string">"&amp;rows="</span>+rows,searchEntity);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-代码分离"><a href="#2-代码分离" class="headerlink" title="2.代码分离"></a>2.代码分离</h2><p>我们刚才已经将与后端交互的部分放入自定义服务，目的是不同的控制层都可以重复调用服务层方法。所以我们还需要将代码分离出来，以便调用。</p>
+<h3 id="2-1前端基础层"><a href="#2-1前端基础层" class="headerlink" title="2.1前端基础层"></a>2.1前端基础层</h3><p>创建base.js </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app=angular.module(<span class="string">'pinyougou'</span>,[]);</span><br></pre></td></tr></table></figure>
+
+<p>创建base_pagination.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app=angular.module(<span class="string">'pinyougou'</span>,[<span class="string">'pagination'</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>一个用于不需要分页功能的页面，一个用于需要分页功能的页面.</p>
+<h3 id="2-2前端控制层"><a href="#2-2前端控制层" class="headerlink" title="2.2前端控制层"></a>2.2前端控制层</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">"brandController"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$http</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//读取列表数据绑定到表单中  </span></span><br><span class="line">	$scope.findAll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		brandService.findAll().success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			$scope.list = response;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//重新加载列表 数据</span></span><br><span class="line">	$scope.reloadList=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		 <span class="comment">//切换页码  </span></span><br><span class="line">		  $scope.search( $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//分页控件配置 </span></span><br><span class="line">	$scope.paginationConf = &#123;</span><br><span class="line">			 currentPage: <span class="number">1</span>,<span class="comment">//当前页</span></span><br><span class="line">			 totalItems: <span class="number">10</span>,<span class="comment">//总记录数</span></span><br><span class="line">			 itemsPerPage: <span class="number">10</span>,<span class="comment">//每页记录数</span></span><br><span class="line">			 perPageOptions: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>],<span class="comment">//分页选项</span></span><br><span class="line">			 onChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//当页码变更后自动触发的事件</span></span><br><span class="line">			        	 $scope.reloadList();<span class="comment">//重新加载</span></span><br><span class="line">			 &#125;</span><br><span class="line">	&#125;; </span><br><span class="line">	<span class="comment">//分页</span></span><br><span class="line">	$scope.findPage = <span class="function"><span class="keyword">function</span>(<span class="params">page,rows</span>)</span>&#123;</span><br><span class="line">		brandService.findPage(page,rows).success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			$scope.list=response.rows;	</span><br><span class="line">			$scope.paginationConf.totalItems=response.total;<span class="comment">//更新总记录数</span></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//保存</span></span><br><span class="line">	$scope.save = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">/* var methodName = "add";//方法名</span></span><br><span class="line"><span class="comment">		if(%scope.entity.id!=null)&#123;//如果有ID</span></span><br><span class="line"><span class="comment">			methodName = "update";</span></span><br><span class="line"><span class="comment">		&#125; */</span></span><br><span class="line">		<span class="keyword">var</span> object = <span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">if</span>(%scope.entity.id!=<span class="literal">null</span>)&#123;<span class="comment">//如果有ID</span></span><br><span class="line">			object = brandService.update($scope.entity);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			object = brandService.add($scope.entity);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//$http.post("../brand/"+methodName+".do",$scope.entity).success(function(response)&#123;</span></span><br><span class="line">		object.success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(response.success)&#123;</span><br><span class="line">				$scope.reloadList();<span class="comment">//重新加载</span></span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				alert(response.message);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//查询实体</span></span><br><span class="line">	$scope.findOne = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">		brandService.findOne(id).success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			$scope.entity = response;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	$scope.selectIds=[];<span class="comment">//选中的ID集合 </span></span><br><span class="line">	<span class="comment">//更新复选</span></span><br><span class="line">	$scope.updateSelection = <span class="function"><span class="keyword">function</span>(<span class="params">$event,id</span>)</span>&#123;<span class="comment">//$event是源，$event.target是特指那个标签</span></span><br><span class="line">		<span class="keyword">if</span>($event.target.checked)&#123;<span class="comment">//如果是被选中,则增加到数组</span></span><br><span class="line">			$scope.selectIds.push(id);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> idx = $scope.selectIds.indexOf(id);<span class="comment">//查找值的位置</span></span><br><span class="line">			$scope.selectIds.splice(idx,<span class="number">1</span>);<span class="comment">//参数1：移除的位置	参数2：移除的个数</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//批量删除 </span></span><br><span class="line">	$scope.dele = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//获取选中的复选框	</span></span><br><span class="line">		brandService.dele($scope.selectIds).success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(response.success)&#123;</span><br><span class="line">				$scope.reloadList();<span class="comment">//刷新列表</span></span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				alert(response.message);</span><br><span class="line">			&#125;	</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	$scope.searchEntity=&#123;&#125;;<span class="comment">//定义搜索对象 	</span></span><br><span class="line">	<span class="comment">//条件查询</span></span><br><span class="line">	$scope.search = <span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params">page,rows</span>)</span>&#123;</span><br><span class="line">		brandService.search(page,rows,$scope.searchEntity).success(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">			$scope.paginationConf.totalItems=response.total;<span class="comment">//总记录数 </span></span><br><span class="line">			$scope.list=response.rows;<span class="comment">//给列表变量赋值 </span></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3修改页面"><a href="#2-3修改页面" class="headerlink" title="2.3修改页面"></a>2.3修改页面</h3><p>去掉brand.html原来的JS代码，引入刚才我们建立的JS</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/base_pagination.js"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/service/brandService.js"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/controller/brandController.js"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-控制器继承"><a href="#3-控制器继承" class="headerlink" title="3.控制器继承"></a>3.控制器继承</h2><p>有些功能是每个页面都有可能用到的，比如分页，复选等等，如果我们再开发另一个功能，还需要重复编写。怎么能让这些通用的功能只写一次呢？我们通过继承的方式来实现。</p>
+<p>在js/controller目录下建立baseController.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//基本控制层 </span></span><br><span class="line">app.controller(<span class="string">'baseController'</span> ,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;	</span><br><span class="line">        <span class="comment">//重新加载列表 数据</span></span><br><span class="line">        $scope.reloadList=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	   <span class="comment">//切换页码  </span></span><br><span class="line">        $scope.search( $scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);    </span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//分页控件配置 </span></span><br><span class="line">	$scope.paginationConf = &#123;</span><br><span class="line">         currentPage: <span class="number">1</span>,</span><br><span class="line">         totalItems: <span class="number">10</span>,</span><br><span class="line">         itemsPerPage: <span class="number">10</span>,</span><br><span class="line">         perPageOptions: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>],</span><br><span class="line">         onChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        	     $scope.reloadList();<span class="comment">//重新加载</span></span><br><span class="line">     	&#125;</span><br><span class="line">	&#125;; 	</span><br><span class="line">	$scope.selectIds=[];<span class="comment">//选中的ID集合 </span></span><br><span class="line">	<span class="comment">//更新复选</span></span><br><span class="line">	$scope.updateSelection = <span class="function"><span class="keyword">function</span>(<span class="params">$event, id</span>) </span>&#123;		</span><br><span class="line">		<span class="keyword">if</span>($event.target.checked)&#123;<span class="comment">//如果是被选中,则增加到数组</span></span><br><span class="line">			$scope.selectIds.push( id);			</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> idx = $scope.selectIds.indexOf(id);</span><br><span class="line">              $scope.selectIds.splice(idx, <span class="number">1</span>);<span class="comment">//删除 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>修改brandController.js(新增$controller)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'brandController'</span> ,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$controller,brandService</span>)</span>&#123;	</span><br><span class="line">	$controller(<span class="string">'baseController'</span>,&#123;<span class="attr">$scope</span>:$scope&#125;);<span class="comment">//继承	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、规格管理"><a href="#二、规格管理" class="headerlink" title="二、规格管理"></a>二、规格管理</h1><p>其实还是和之前一样的增删改查附加一些逻辑，但是dubbox分层开发和之前的回顾还有AngularJs的学习还是很可以的。</p>
+<h2 id="1-新增规格"><a href="#1-新增规格" class="headerlink" title="1.新增规格"></a>1.新增规格</h2><h3 id="1-1前端"><a href="#1-1前端" class="headerlink" title="1.1前端"></a>1.1前端</h3><p>修改specificationController.js 新增以下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//entity(表格数据)由规格名称和规格选项list组成</span></span><br><span class="line"><span class="comment">//新增选项行</span></span><br><span class="line">$scope.addTableRow=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $scope.entity.specificationOptionList.push(&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//选项删除 </span></span><br><span class="line">$scope.deleTableRow=<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;			</span><br><span class="line">    $scope.entity.specificationOptionList.splice(index,<span class="number">1</span>);<span class="comment">//删除			</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>循环列表行，绑定表格内的编辑框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"pojo in entity.specificationOptionList"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">"pojo.optionName"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"规格选项"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">"pojo.orders"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"排序"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：要修改specification.html “新建”按钮，弹出窗口时对entity进行初始化，否则向集合添加数据时会报错！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">title</span>=<span class="string">"新建"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">"#editModal"</span> <span class="attr">ng-click</span>=<span class="string">"entity=&#123;'specificationOptionList':[]&#125;"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-file-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 新建<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改每行的删除按钮</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">title</span>=<span class="string">"删除"</span>  <span class="attr">ng-click</span>=<span class="string">"deleTablenRow($index)"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-file-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>$index 用于获取ng-repeat指令循环中的索引。</p>
+<p>绑定规格名称</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>规格名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-model</span>=<span class="string">"entity.specification.specName"</span>  <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"规格名称"</span> &gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2后端"><a href="#1-2后端" class="headerlink" title="1.2后端"></a>1.2后端</h3><p>实现思路：我们将规格和规格选项数据合并成一个对象来传递，这时我们需要用一个对象将这两个对象组合起来。在业务逻辑中，得到组合对象中的规格和规格选项列表，插入规格返回规格ID，然后循环插入规格选项。</p>
+<p>（1）我们要增加规格选项，必须要知道新增规格的ID, 所以我们在修改pinyougou-dao 的TbSpecificationMapper.xml ，在insert节点后添加如下配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">"java.lang.Long"</span> <span class="attr">order</span>=<span class="string">"AFTER"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">    SELECT LAST_INSERT_ID() AS id</span><br><span class="line"><span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样我们插入的对象会set属性一个对应的id</p>
+<p>在pinyougou-pojo 建立com.pinyougou.pojogroup包，包下建立Specification类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 规格组合实体类 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Specification</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">private</span> TbSpecification specification;</span><br><span class="line">	<span class="keyword">private</span> List&lt;TbSpecificationOption&gt; specificationOptionList;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> TbSpecification <span class="title">getSpecification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> specification;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSpecification</span><span class="params">(TbSpecification specification)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.specification = specification;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;TbSpecificationOption&gt; <span class="title">getSpecificationOptionList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> specificationOptionList;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSpecificationOptionList</span><span class="params">(List&lt;TbSpecificationOption&gt; specificationOptionList)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.specificationOptionList = specificationOptionList;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改Service层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Specification specification)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取规格实体</span></span><br><span class="line">    TbSpecification tbspecification = specification.getSpecification();				</span><br><span class="line">    specificationMapper.insert(tbspecification);	</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取规格选项集合</span></span><br><span class="line">    List&lt;TbSpecificationOption&gt; specificationOptionList = specification.getSpecificationOptionList();</span><br><span class="line">    <span class="keyword">for</span>( TbSpecificationOption option:specificationOptionList)&#123;</span><br><span class="line">        option.setSpecId(tbspecification.getId());<span class="comment">//设置规格ID</span></span><br><span class="line">        specificationOptionMapper.insert(option);<span class="comment">//新增规格</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-修改规格"><a href="#2-修改规格" class="headerlink" title="2.修改规格"></a>2.修改规格</h2><h3 id="2-1后端"><a href="#2-1后端" class="headerlink" title="2.1后端"></a>2.1后端</h3><p>我们点开修改首先要获得数据显示出来</p>
+<p>实现思路：通过规格ID，到后端查询规格和规格选项列表，然后通过组合实体类返回结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据ID获取实体</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Specification <span class="title">findOne</span><span class="params">(Long id)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    Specification specification=<span class="keyword">new</span> Specification();</span><br><span class="line">    <span class="comment">//获取规格实体</span></span><br><span class="line">    TbSpecification tbSpecification = specificationMapper.selectByPrimaryKey(id);</span><br><span class="line">    specification.setSpecification(tbSpecification);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取规格选项列表	</span></span><br><span class="line"></span><br><span class="line">    TbSpecificationOptionExample example=<span class="keyword">new</span> TbSpecificationOptionExample();</span><br><span class="line">    com.pinyougou.pojo.TbSpecificationOptionExample.Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andSpecIdEqualTo(id);</span><br><span class="line">    List&lt;TbSpecificationOption&gt; specificationOptionList = specificationOptionMapper.selectByExample(example);</span><br><span class="line"></span><br><span class="line">    specification.setSpecificationOptionList(specificationOptionList);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> specification;<span class="comment">//组合实体类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>保存修改结果</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 修改</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Specification specification)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取规格实体</span></span><br><span class="line">    TbSpecification tbspecification = specification.getSpecification();				</span><br><span class="line">    specificationMapper.updateByPrimaryKey(tbspecification);	</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除原来规格对应的规格选项	</span></span><br><span class="line"></span><br><span class="line">    TbSpecificationOptionExample example=<span class="keyword">new</span> TbSpecificationOptionExample();</span><br><span class="line">    com.pinyougou.pojo.TbSpecificationOptionExample.Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andSpecIdEqualTo(tbspecification.getId());</span><br><span class="line">    specificationOptionMapper.deleteByExample(example);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取规格选项集合</span></span><br><span class="line">    List&lt;TbSpecificationOption&gt; specificationOptionList = specification.getSpecificationOptionList();</span><br><span class="line">    <span class="keyword">for</span>( TbSpecificationOption option:specificationOptionList)&#123;</span><br><span class="line">        option.setSpecId(tbspecification.getId());<span class="comment">//设置规格ID</span></span><br><span class="line">        specificationOptionMapper.insert(option);<span class="comment">//新增规格</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2前端"><a href="#2-2前端" class="headerlink" title="2.2前端"></a>2.2前端</h3><p>修改specification.js的save方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($scope.entity.specification.id!=<span class="literal">null</span>)&#123;<span class="comment">//如果有ID</span></span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-删除规格"><a href="#3-删除规格" class="headerlink" title="3.删除规格"></a>3.删除规格</h2><p>实现思路：我们要删除规格的同时，还要记得将关联的规格选项删除掉。</p>
+<h3 id="3-1后端"><a href="#3-1后端" class="headerlink" title="3.1后端"></a>3.1后端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 批量删除</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long[] ids)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Long id:ids)&#123;</span><br><span class="line">        specificationMapper.deleteByPrimaryKey(id);			</span><br><span class="line">        <span class="comment">//删除原有的规格选项		</span></span><br><span class="line">        TbSpecificationOptionExample example=<span class="keyword">new</span> TbSpecificationOptionExample();</span><br><span class="line">        com.pinyougou.pojo.TbSpecificationOptionExample.Criteria criteria = example.createCriteria();</span><br><span class="line">        criteria.andSpecIdEqualTo(id);<span class="comment">//指定规格ID为条件</span></span><br><span class="line">        specificationOptionMapper.deleteByExample(example);<span class="comment">//删除</span></span><br><span class="line">    &#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2前端"><a href="#3-2前端" class="headerlink" title="3.2前端"></a>3.2前端</h3><p>列表的复选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-click</span>=<span class="string">"updateSelection($event,entity.id)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>删除按钮</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">title</span>=<span class="string">"删除"</span> <span class="attr">ng-click</span>=<span class="string">"dele()"</span> &gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="三、模板管理"><a href="#三、模板管理" class="headerlink" title="三、模板管理"></a>三、模板管理</h1><p>首选我们需要理解模板的作用。模板主要有两个：</p>
+<p>一是用于关联品牌与规格，二是定义扩充属性</p>
+<h2 id="1-表结构分析"><a href="#1-表结构分析" class="headerlink" title="1.表结构分析"></a>1.表结构分析</h2><p>tb_type_template 模板表</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Id</td>
+<td>Bigint</td>
+<td></td>
+<td>主键</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Varchar</td>
+<td>80</td>
+<td>模板名称</td>
+</tr>
+<tr>
+<td>Spec_ids</td>
+<td>Varchar</td>
+<td>1000</td>
+<td>关联规格（json格式）</td>
+</tr>
+<tr>
+<td>brand_ids</td>
+<td>Varchar</td>
+<td>1000</td>
+<td>关联品牌（json格式）</td>
+</tr>
+<tr>
+<td>custom_attribute_items</td>
+<td>Varchar</td>
+<td>2000</td>
+<td>扩展属性</td>
+</tr>
+</tbody></table>
+<h2 id="2-模板列表"><a href="#2-模板列表" class="headerlink" title="2.模板列表"></a>2.模板列表</h2><p>修改type_template.html ，引入JS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"../plugins/angularjs/angular.min.js"</span>&gt;  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="../</span>plugins/angularjs/pagination.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;link rel="</span>stylesheet<span class="string">" href="</span>../plugins/angularjs/pagination.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>../js/base_pagination.js<span class="string">"&gt;  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>../js/service/typeTemplateService.js<span class="string">"&gt;  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>../js/controller/baseController.js<span class="string">"&gt;  &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>../js/controller/typeTemplateController.js<span class="string">"&gt;  &lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>放置分页组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tm-pagination</span> <span class="attr">conf</span>=<span class="string">"paginationConf"</span>&gt;</span><span class="tag">&lt;/<span class="name">tm-pagination</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"hold-transition skin-red sidebar-mini"</span> <span class="attr">ng-app</span>=<span class="string">"pinyougou"</span> <span class="attr">ng-controller</span>=<span class="string">"typeTemplateController"</span> &gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"entity in list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span>			                              </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.brandIds&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.specIds&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>									 </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.customAttributeItems&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>		                                                                  </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"text-center"</span>&gt;</span>                                           </span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn bg-olive btn-xs"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">"#editModal"</span> &gt;</span>修改<span class="tag">&lt;/<span class="name">button</span>&gt;</span>                                           </span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-select2组件"><a href="#3-select2组件" class="headerlink" title="3.select2组件"></a>3.select2组件</h2><p>在弹出窗口中有个品牌下拉列表，要求品牌是可以选择多个，这与我们之前的单选的下拉列表是不同的。我们要想实现这个功能，需要使用<strong>select2</strong> 组件来完成。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629233748236.png" alt="image-20200629233748236"></p>
+<p>我们来看例子：我们需要的就是这样可以多选的下拉框</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629233803437.png" alt="image-20200629233803437"></p>
+<h2 id="4-品牌下拉列表"><a href="#4-品牌下拉列表" class="headerlink" title="4.品牌下拉列表"></a>4.品牌下拉列表</h2><h3 id="4-1后端"><a href="#4-1后端" class="headerlink" title="4.1后端"></a>4.1后端</h3><p>我们需要select2支持的json格式——id:xx,text:”xx”。让这个下拉列表的数据从数据库中提取，修改后端代码</p>
+<p>（1）pinyougou-dao 工程 ，在TbBrandMapper.xml中添加SQL语句配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOptionList"</span>  <span class="attr">resultType</span>=<span class="string">"java.util.Map"</span> &gt;</span></span><br><span class="line">    select id,name as text from tb_brand</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）在pinyougou-dao 的TbBrandMapper中添加方法定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Map&gt; <span class="title">selectOptionList</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>（3）修改pinyougou-sellergoods-service的BrandServiceImpl.java，增加方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 列表数据</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Map&gt; <span class="title">selectOptionList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> brandMapper.selectOptionList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）修改pinyougou-manager-web的BrandController.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/selectOptionList"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Map&gt; <span class="title">selectOptionList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> brandService.selectOptionList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629234426225.png" alt="image-20200629234426225"></p>
+<h3 id="4-2前端"><a href="#4-2前端" class="headerlink" title="4.2前端"></a>4.2前端</h3><p>（1）修改 type_template.html 引入JS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"../plugins/select2/select2.css"</span> /&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"../plugins/select2/select2-bootstrap.css"</span> /&gt;</span><br><span class="line">&lt;script src=<span class="string">"../plugins/select2/select2.min.js"</span> type=<span class="string">"text/javascript"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>javascript<span class="string">" src="</span>../js/angular-select2.js<span class="string">"&gt;  &lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）修改pinyougou-manager-web的brandService.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下拉列表数据</span></span><br><span class="line"><span class="keyword">this</span>.selectOptionList=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $http.get(<span class="string">'../brand/selectOptionList.do'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（3）修改pinyougou-manager-web的typeTemplateController.js</p>
+<blockquote>
+<p>因为我们在模板控制层中需要使用品牌服务层的方法，所以需要添加<strong>依赖注入</strong>，一旦出现依赖注入要赶紧添加js引入</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//控制层 </span></span><br><span class="line">app.controller(<span class="string">'typeTemplateController'</span> ,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$controller   ,typeTemplateService ,brandService</span>)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$scope.brandList=&#123;<span class="attr">data</span>:[]&#125;;<span class="comment">//品牌列表</span></span><br><span class="line"><span class="comment">//读取品牌列表</span></span><br><span class="line">$scope.findBrandList=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    brandService.selectOptionList().success(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            $scope.brandList=&#123;<span class="attr">data</span>:response&#125;;	</span><br><span class="line">        &#125;</span><br><span class="line">    );		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）修改type_template.html ，添加JS引入——由于这里有依赖注入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/service/brandService.js"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>特别注意一下，JS引入的位置，要在typeTemplateController.js之前，因为该控制器要使用到它</p>
+<p>（5）在type_template.html 用select2组件实现多选下拉框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">select2</span>  <span class="attr">select2-model</span>=<span class="string">"entity.brandIds"</span> <span class="attr">config</span>=<span class="string">"brandList"</span> <span class="attr">multiple</span> <span class="attr">placeholder</span>=<span class="string">"选择品牌（可多选）"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>multiple 表示可多选</p>
+<p>Config用于配置数据来源</p>
+<p>select2-model用于指定用户选择后提交的变量</p>
+<p>（6）修改type_template.html ，添加初始化</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"hold-transition skin-red sidebar-mini"</span> <span class="attr">ng-app</span>=<span class="string">"pinyougou"</span> <span class="attr">ng-controller</span>=<span class="string">"typeTemplateController"</span> <span class="attr">ng-init</span>=<span class="string">"findBrandList()"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200629234643806.png" alt="image-20200629234643806" style="zoom: 67%;" />
+
+<h2 id="5-扩展属性"><a href="#5-扩展属性" class="headerlink" title="5.扩展属性"></a>5.扩展属性</h2><p>实现增加减少行，和之前基本一样，这里回归一下增强记忆。</p>
+<p>在typeTemplateController.js中新增代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新增扩展属性行</span></span><br><span class="line">$scope.addTableRow=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;	</span><br><span class="line">    $scope.entity.customAttributeItems.push(&#123;&#125;);		</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除扩展属性行</span></span><br><span class="line">$scope.deleTableRow=<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;			</span><br><span class="line">    $scope.entity.customAttributeItems.splice(index,<span class="number">1</span>);<span class="comment">//删除			</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在type_template.html中的“新建”按钮，执行实体的初始化操作</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">title</span>=<span class="string">"新建"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">"#editModal"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">ng-click</span>=<span class="string">"entity=&#123;customAttributeItems:[]&#125;"</span></span></span><br><span class="line"><span class="tag">        &gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-file-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 新建<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>循环表格</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"pojo in entity.customAttributeItems"</span>&gt;</span>							</span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">ng-model</span>=<span class="string">"pojo.text"</span> <span class="attr">placeholder</span>=<span class="string">"属性名称"</span> &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">ng-click</span>=<span class="string">"deleTableRow($index)"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">title</span>=<span class="string">"删除"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-trash-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>$index 用于获取ng-repeat指令循环中的索引。</p>
+<h2 id="6-修改模板"><a href="#6-修改模板" class="headerlink" title="6.修改模板"></a>6.修改模板</h2><p>修改模板时先显示模板对象的内容，但由于品牌和规格还有扩展属性都是json格式的数据，我们读出来后不能之间显示，得先把json转成对象(集合)</p>
+<p>修改typeTemplateController.js的findOne方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询实体 </span></span><br><span class="line">$scope.findOne=<span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;				</span><br><span class="line">    typeTemplateService.findOne(id).success(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            $scope.entity= response;					</span><br><span class="line">            $scope.entity.brandIds=  <span class="built_in">JSON</span>.parse($scope.entity.brandIds);<span class="comment">//转换品牌列表</span></span><br><span class="line">            $scope.entity.specIds=  <span class="built_in">JSON</span>.parse($scope.entity.specIds);<span class="comment">//转换规格列表</span></span><br><span class="line">            $scope.entity.customAttributeItems= <span class="built_in">JSON</span>.parse($scope.entity.customAttributeItems);<span class="comment">//转换扩展属性</span></span><br><span class="line">        &#125;</span><br><span class="line">    );				</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-优化模板列表的显示"><a href="#7-优化模板列表的显示" class="headerlink" title="7.优化模板列表的显示"></a>7.优化模板列表的显示</h2><p>我们现在完成的列表中都是以JSON格式显示的，不利于用户的查询。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200630003638542.png" alt="image-20200630003638542"></p>
+<p>我们需要将信息以更友好的方式展现出来,如下图形式</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200630003650644.png" alt="image-20200630003650644"></p>
+<p>我们需要将一个json字符串中某个属性的值提取出来，用逗号拼接成一个新的字符串。这样的功能比较常用，所以我们将方法写到baseController.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取json字符串数据中某个属性，返回拼接字符串 逗号分隔</span></span><br><span class="line">$scope.jsonToString=<span class="function"><span class="keyword">function</span>(<span class="params">jsonString,key</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> json=<span class="built_in">JSON</span>.parse(jsonString);<span class="comment">//将json字符串转换为json对象</span></span><br><span class="line">    <span class="keyword">var</span> value=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;json.length;i++)&#123;		</span><br><span class="line">        <span class="keyword">if</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            value+=<span class="string">","</span></span><br><span class="line">        &#125;</span><br><span class="line">        value+=json[i][key];			</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面上使用该函数进行转换</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"entity in list"</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"checkbox"</span>  <span class="attr">ng-click</span>=<span class="string">"updateSelection($event,entity.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;entity.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;jsonToString(entity.brandIds,'text')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;jsonToString(entity.specIds,'text')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>								 <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;jsonToString(entity.customAttributeItems,'text')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>		                                                                  </span><br><span class="line">	 <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"text-center"</span>&gt;</span>                                           </span><br><span class="line">	 <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn bg-olive btn-xs"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">"#editModal"</span> <span class="attr">ng-click</span>=<span class="string">"findOne(entity.id)"</span>&gt;</span>修改<span class="tag">&lt;/<span class="name">button</span>&gt;</span>                                           </span><br><span class="line">	 <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>无内鬼，来点网抑云</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1386726633&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,200 +457,124 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/28/%E5%93%81%E4%BC%98%E8%B4%AD3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/27/%E5%93%81%E4%BC%98%E8%B4%AD2-AngularJS-%E5%93%81%E7%89%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">品优购第二篇——AngularJs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前端分层开发"><span class="toc-number">2.</span> <span class="toc-text">一、前端分层开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自定义服务"><span class="toc-number">2.1.</span> <span class="toc-text">1.自定义服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-代码分离"><span class="toc-number">2.2.</span> <span class="toc-text">2.代码分离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1前端基础层"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1前端基础层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2前端控制层"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2前端控制层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3修改页面"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3修改页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-控制器继承"><span class="toc-number">2.3.</span> <span class="toc-text">3.控制器继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、规格管理"><span class="toc-number">3.</span> <span class="toc-text">二、规格管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-新增规格"><span class="toc-number">3.1.</span> <span class="toc-text">1.新增规格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1前端"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2后端"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2后端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改规格"><span class="toc-number">3.2.</span> <span class="toc-text">2.修改规格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1后端"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2前端"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2前端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-删除规格"><span class="toc-number">3.3.</span> <span class="toc-text">3.删除规格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1后端"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2前端"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2前端</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、模板管理"><span class="toc-number">4.</span> <span class="toc-text">三、模板管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表结构分析"><span class="toc-number">4.1.</span> <span class="toc-text">1.表结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-模板列表"><span class="toc-number">4.2.</span> <span class="toc-text">2.模板列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-select2组件"><span class="toc-number">4.3.</span> <span class="toc-text">3.select2组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-品牌下拉列表"><span class="toc-number">4.4.</span> <span class="toc-text">4.品牌下拉列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1后端"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.1后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2前端"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.2前端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-扩展属性"><span class="toc-number">4.5.</span> <span class="toc-text">5.扩展属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-修改模板"><span class="toc-number">4.6.</span> <span class="toc-text">6.修改模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-优化模板列表的显示"><span class="toc-number">4.7.</span> <span class="toc-text">7.优化模板列表的显示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  	<time datetime="2020-05-01T02:52:26.147Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-04-28T06:50:44.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/%E9%80%92%E5%BD%92%EF%BC%8C%E6%8E%92%E5%BA%8F/">复杂度分析，递归算法，排序算法最强入门攻略</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2020-04-27T02:44:18.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/27/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%BB%93%E6%9E%84/">线性表数据结构(含源码分析)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/java/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/tags/java/">1</a><a class="page-number" href="/tags/java/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -432,9 +612,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
