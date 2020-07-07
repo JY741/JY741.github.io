@@ -6,22 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>家常炒面，蚝油生菜，冬瓜排骨汤的做法 | J Sir</title>
+  <title>数学建模之一元回归分析 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在前面考虑到看此博客的靓仔&#x2F;靓女不仅是想看学习笔记的，今天开辟&lt;日常&gt;和&lt;食神&gt;标签 日常记录生活，食神记录厨艺 希望大家喜欢😜😘">
+  <meta name="description" content="概述此文作为我的数模开篇，主要讲述建模的大概历程和一元回归分析类问题的解决方案。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="家常炒面，蚝油生菜，冬瓜排骨汤的做法">
-<meta property="og:url" content="http://yoursite.com/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/index.html">
+<meta property="og:title" content="数学建模之一元回归分析">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="写在前面考虑到看此博客的靓仔&#x2F;靓女不仅是想看学习笔记的，今天开辟&lt;日常&gt;和&lt;食神&gt;标签 日常记录生活，食神记录厨艺 希望大家喜欢😜😘">
+<meta property="og:description" content="概述此文作为我的数模开篇，主要讲述建模的大概历程和一元回归分析类问题的解决方案。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-23T15:12:39.508Z">
-<meta property="article:modified_time" content="2020-04-23T15:56:38.124Z">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707133614533.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134018869.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134416343.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134428404.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144324007.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144411933.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144448196.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144815852.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707145058845.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707145249638.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707150109838.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707150217574.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/c9420164540d5bd7c069d65b2fcb07de0c9a17a6.jpg@518w_1e_1c.jpg">
+<meta property="article:published_time" content="2020-07-07T05:26:17.796Z">
+<meta property="article:modified_time" content="2020-07-07T07:12:58.616Z">
 <meta property="article:author" content="J Sir">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="食神">
-<meta property="article:tag" content="日常">
+<meta property="article:tag" content="建模">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707133614533.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -170,14 +182,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-食神首秀" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-数学建模—一元回归分析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      家常炒面，蚝油生菜，冬瓜排骨汤的做法
+      数学建模之一元回归分析
     </h1>
   
 
@@ -192,46 +204,104 @@
 		  </a>
 		  
         
-        <a href="/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/" class="archive-article-date">
-  	<time datetime="2020-04-23T15:12:39.508Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2020-07-07T05:26:17.796Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>考虑到看此博客的靓仔/靓女不仅是想看学习笔记的，今天开辟&lt;日常&gt;和&lt;食神&gt;标签</p>
-<p>日常记录生活，食神记录厨艺</p>
-<p>希望大家喜欢😜😘</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>此文作为我的数模开篇，主要讲述建模的大概历程和一元回归分析类问题的解决方案。</p>
 <a id="more"></a>
 
-<h1 id="家常炒面"><a href="#家常炒面" class="headerlink" title="家常炒面"></a>家常炒面</h1><ol>
-<li>准备1/2洋葱，两个鸡蛋，一个青椒，一点大白菜，两瓣蒜，两只火腿肠备用，并把火腿肠切完后放入鸡蛋中搅拌均匀</li>
-<li>将水烧开，面下锅煮致断生捞出放入凉水中浸泡</li>
-<li>加入中量油滑锅，放入切碎的蒜片炸香，之后放入鸡蛋火腿，一段时间后加入青椒，洋葱翻炒。</li>
-<li>放入面条，加少许盐翻炒一会</li>
-<li>加入耗油30g，生抽10g，老抽5g，白砂糖3g，之后加入切好的大白菜再次翻炒</li>
-<li>出锅，芜湖！</li>
-</ol>
-<h1 id="蚝油生菜"><a href="#蚝油生菜" class="headerlink" title="蚝油生菜"></a>蚝油生菜</h1><ol>
-<li>加水烧开，放入生菜，看差不多熟了就捞出来</li>
-<li>调酱汁：耗油50g，玉米淀粉5g，糖2g（真不能加多，血的教训），蒜末20g，盐2g，加水80g混合</li>
-<li>倒入10g油，放入酱汁，炒至大泡出现，浇在生菜上</li>
-<li>上菜，起飞！</li>
-</ol>
-<h1 id="冬瓜排骨汤"><a href="#冬瓜排骨汤" class="headerlink" title="冬瓜排骨汤"></a>冬瓜排骨汤</h1><ol>
-<li>排骨加盐5g腌制半小时</li>
-<li>排骨冷水下锅加入三片姜片和一段大葱焯水</li>
-<li>锅中加少量油，加入生姜，大葱炒香，再倒入排骨炒至表面微黄，加一点生抽上色</li>
-<li>加入没过排骨的水，大火烧开后小火炖40分钟</li>
-<li>加入冬瓜再煮20分钟</li>
-<li>喝汤，根据自己口味加盐</li>
-<li>出锅，加入葱花</li>
-</ol>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>今天看rng打edg的比赛，我滴乖乖，您别说，平常都是给我喂饭，这下倒好了，直接搁你嘴里种水稻了🤯</p>
-<p>看完比赛我已经吃了十大碗了，一是这两队互相给我下饭，二是，这菜，真™香</p>
-<p>今天作为食神类首秀，向马老师的肉🐣葱🐔请神！</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=33854083&auto=0&height=66"></iframe>
+<h1 id="一、常见统计建模方法"><a href="#一、常见统计建模方法" class="headerlink" title="一、常见统计建模方法"></a>一、常见统计建模方法</h1><blockquote>
+<p>注：参照汪晓银老师的讲义，如有侵权，联系作者</p>
+</blockquote>
+<h2 id="1-预测与预报"><a href="#1-预测与预报" class="headerlink" title="1.预测与预报"></a>1.预测与预报</h2><p>灰色预测模型    回归分析预测</p>
+<p>微分方程预测    马尔科夫预测</p>
+<p>时间序列预测    小波分析预测</p>
+<p>神经网络预测    混沌序列预测</p>
+<p>向量自回归        联立方程组</p>
+<p>相空间重构        局部线性加权法</p>
+<h2 id="2-评价与决策"><a href="#2-评价与决策" class="headerlink" title="2.评价与决策"></a>2.评价与决策</h2><p>模糊综合评判        主成分综合评价</p>
+<p>层次分析法（AHP）      数据包络（DEA）分析</p>
+<p>秩和比综合评价法      优劣解距离法(TOPSIS)</p>
+<p>投影寻踪综合评价      方差分析</p>
+<p>协方差分析         混合线性模型</p>
+<p>灰色关联          粗糙集评价</p>
+<p>熵权法</p>
+<h2 id="3-分类与判别"><a href="#3-分类与判别" class="headerlink" title="3.分类与判别"></a>3.分类与判别</h2><p>模糊聚类    系统聚类</p>
+<p>动态聚类    密度聚类</p>
+<p>神经网络    贝叶斯判别</p>
+<p>费舍尔判别   模糊识别</p>
+<p>支持向量机</p>
+<h2 id="4-关联与因果"><a href="#4-关联与因果" class="headerlink" title="4.关联与因果"></a>4.关联与因果</h2><p>Person相关      Sperman或kendall等级相关系数</p>
+<p>Copula相关      偏相关系数</p>
+<p>通径分析       典型相关系数</p>
+<p>标准化回归      logistic回归</p>
+<p>生存分析（事件史分析）</p>
+<p>主成分分析      因子分析     对应分析</p>
+<p>偏最小二乘回归</p>
+<p>格兰杰因果检验      滞后模型</p>
+<h2 id="5-优化与控制"><a href="#5-优化与控制" class="headerlink" title="5.优化与控制"></a>5.优化与控制</h2><p>线性规划、整数规划、0-1规划</p>
+<p>非线性规划与智能优化算法</p>
+<p>多目标规划和目标规划</p>
+<p>动态规划</p>
+<p>网络优化</p>
+<p>排队论与计算机仿真</p>
+<p>模糊规划</p>
+<p>灰色规划</p>
+<h1 id="二、个人笔记"><a href="#二、个人笔记" class="headerlink" title="二、个人笔记"></a>二、个人笔记</h1><p>基本概括本节课重要知识点(完全不懂的就没记ˋ( ° ▽、° ) )</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707133614533.png" alt="image-20200707133614533"></p>
+<h1 id="三、例题分析"><a href="#三、例题分析" class="headerlink" title="三、例题分析"></a>三、例题分析</h1><p>本模块代码由SAS编译运行，<a href="https://baike.baidu.com/item/SAS/891078?fr=aladdin" target="_blank" rel="noopener">SAS百度百科</a>。附下载链接：</p>
+<p>链接：<a href="https://pan.baidu.com/s/1cdavydo3YvLqwP1Ko0z7ew" target="_blank" rel="noopener">https://pan.baidu.com/s/1cdavydo3YvLqwP1Ko0z7ew</a><br>提取码：ckyq</p>
+<h2 id="1-一元线性回归"><a href="#1-一元线性回归" class="headerlink" title="1.一元线性回归"></a>1.一元线性回归</h2><p>《吸附方程》某种物质在不同温度下可以吸附另一种物质，如果温度x(单位：℃)与吸附重量Y(单位：mg)的观测值如下表所示：<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134018869.png" alt="image-20200707134018869"  /><br>试求线性回归方程并用三种方法作显著性检验，若x0＝2，求Y0的0.95预测区间。</p>
+<h3 id="1-1SAS代码"><a href="#1-1SAS代码" class="headerlink" title="1.1SAS代码"></a>1.1SAS代码</h3><p>打开SAS，选择文件——新建程序——在编辑器内编辑</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span> y@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1.5 4.8 1.8 5.7 2.4 7 3 8.3 3.5 10.9 3.9 12.4 4.4 13.1 4.8 13.6 5 15.3 2 .</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span>plot y<span class="comment">*x;</span>symbol i=rl v=dot;proc reg;model y=<span class="meta">x</span>/cli;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中@@的作用是让下面的数据可以写在一行</p>
+<p>最后写2 .  ；这个点表示我们要预测的值</p>
+</blockquote>
+<h3 id="1-2结果分析"><a href="#1-2结果分析" class="headerlink" title="1.2结果分析"></a>1.2结果分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134416343.png" alt="image-20200707134416343"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707134428404.png" alt="image-20200707134428404"></p>
+<h2 id="2-一元非线性回归"><a href="#2-一元非线性回归" class="headerlink" title="2.一元非线性回归"></a>2.一元非线性回归</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144324007.png" alt="image-20200707144324007" style="zoom:67%;" />
+
+<p>方法主要是：将非线性化为线性</p>
+<h3 id="2-1SAS代码"><a href="#2-1SAS代码" class="headerlink" title="2.1SAS代码"></a>2.1SAS代码</h3><p>我们先看图：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144411933.png" alt="image-20200707144411933" style="zoom:50%;" />
+
+<p>明显这是一条曲线，所以我们假设<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144448196.png" alt="image-20200707144448196" style="zoom:50%;" /></p>
+<p>我们将非线性化为线性：</p>
+<ul>
+<li>y和1/x线性关系</li>
+<li>log(y)和log(x)线性关系</li>
+<li>log(y)和x线性关系</li>
+</ul>
+<p>编写SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;<span class="meta">input</span> <span class="meta">x</span> y@@;</span><br><span class="line">x1=1/<span class="meta">x</span>;lx<span class="meta">=log(</span><span class="meta">x</span>);ly<span class="meta">=log(</span>y);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1 1.85 2 1.37 3 1.02 4 0.75 4 0.56 6 0.41 6 0.31 8 0.23 8 0.17</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span>plot y<span class="comment">*x;</span>symbol i=spline v=star;</span><br><span class="line"><span class="keyword">proc reg;</span>model y=x1;</span><br><span class="line"><span class="keyword">proc reg;</span>model ly=lx;</span><br><span class="line"><span class="keyword">proc reg;</span>model ly=<span class="meta">x</span>;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>每一个proc reg;model后面都跟着一个线性表达式</p>
+<h3 id="2-2结果分析"><a href="#2-2结果分析" class="headerlink" title="2.2结果分析"></a>2.2结果分析</h3><p>y=a+b/x:</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707144815852.png" alt="image-20200707144815852"></p>
+<p>y=a*x^b:</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707145058845.png" alt="image-20200707145058845"></p>
+<p>y=a*e^bx:</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707145249638.png" alt="image-20200707145249638"></p>
+<p>很明显看出来，这三个都适用，最好的是哪个呢？根据之前的，选SSE最小的，但是有两个不是直接是y的SSE，因此我们要继续计算</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707150109838.png" alt="image-20200707150109838" style="zoom:50%;" />
+
+<p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;<span class="meta">input</span> <span class="meta">x</span> y @@;</span><br><span class="line">x1=1/<span class="meta">x</span>;lx<span class="meta">=log(</span><span class="meta">x</span>);ly<span class="meta">=log(</span>y);</span><br><span class="line">y1=0.1159+1.9291<span class="comment">*x1;</span>q1+(y-y1)<span class="comment">**2;</span></span><br><span class="line">y2<span class="meta">=exp(</span>0.9638-1.1292<span class="comment">*lx);</span>q2+(y-y2)<span class="comment">**2;</span></span><br><span class="line">y3<span class="meta">=exp(</span>0.9230-0.3221<span class="comment">*x);</span>q3+(y-y3)<span class="comment">**2;</span></span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1 1.85 2 1.37 3 1.02 4 0.75 4 0.56 6 0.41 6 0.31 8 0.23 8 0.17</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc print;</span>var q1-q3;run;</span><br></pre></td></tr></table></figure>
+
+<p>这里面q1+其实就是累加的意思，两个*表示指数</p>
+<p>结果：<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707150217574.png" alt="image-20200707150217574"></p>
+<p>看最后一行，但三个最小，说明第三个最合适，也就是</p>
+<p>y=2.5168*e^(-0.3221x)</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>每日一猫还是不能丢的[]<del>(￣▽￣)</del>*</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/c9420164540d5bd7c069d65b2fcb07de0c9a17a6.jpg@518w_1e_1c.jpg" alt="img"></p>
+
       
 
       
@@ -275,15 +345,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">食神</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建模</a>
         		</li>
       		
 		</ul>
@@ -339,7 +401,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +415,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/25/leetcode%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%881%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode  1.两数之和(Hash表)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/23/web%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%A7%A3%E5%86%B3get%E6%8F%90%E4%BA%A4%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">web项目中解决get提交乱码问题</div>
+    <a href="/2020/07/04/%E5%93%81%E4%BC%98%E8%B4%AD5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">品优购第五章—商品管理&amp;图片上传</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -391,7 +444,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#家常炒面"><span class="toc-number">2.</span> <span class="toc-text">家常炒面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#蚝油生菜"><span class="toc-number">3.</span> <span class="toc-text">蚝油生菜</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#冬瓜排骨汤"><span class="toc-number">4.</span> <span class="toc-text">冬瓜排骨汤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、常见统计建模方法"><span class="toc-number">2.</span> <span class="toc-text">一、常见统计建模方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-预测与预报"><span class="toc-number">2.1.</span> <span class="toc-text">1.预测与预报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-评价与决策"><span class="toc-number">2.2.</span> <span class="toc-text">2.评价与决策</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-分类与判别"><span class="toc-number">2.3.</span> <span class="toc-text">3.分类与判别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-关联与因果"><span class="toc-number">2.4.</span> <span class="toc-text">4.关联与因果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-优化与控制"><span class="toc-number">2.5.</span> <span class="toc-text">5.优化与控制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、个人笔记"><span class="toc-number">3.</span> <span class="toc-text">二、个人笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、例题分析"><span class="toc-number">4.</span> <span class="toc-text">三、例题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一元线性回归"><span class="toc-number">4.1.</span> <span class="toc-text">1.一元线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1SAS代码"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.1SAS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2结果分析"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.2结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-一元非线性回归"><span class="toc-number">4.2.</span> <span class="toc-text">2.一元非线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1SAS代码"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1SAS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2结果分析"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2结果分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
                     </div>
                 </span>
             </div>
