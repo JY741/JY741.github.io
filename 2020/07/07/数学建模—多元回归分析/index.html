@@ -6,15 +6,47 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | J Sir</title>
+  <title>数学建模—多元回归分析 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="EverydayOneCat木星全貌🪐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模—多元回归分析">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat木星全貌🪐">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/44fa0e0b337338b26ecfbc657bf15690a538a0c1.jpg@518w_1e_1c.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707194734722.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707195415538.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707195937609.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707200529201.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707200943602.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708100150053.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708100655780.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708101429697.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102032701.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102331149.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102702512.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102750386.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102856861.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708104029414.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708110207405.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708110406964.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708111348504.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708115457361.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708115545799.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1594180902840.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120337854.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120529409.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120750281.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708132212881.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708133615822.png">
+<meta property="article:published_time" content="2020-07-07T11:28:47.947Z">
+<meta property="article:modified_time" content="2020-07-08T05:38:32.290Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="建模">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/44fa0e0b337338b26ecfbc657bf15690a538a0c1.jpg@518w_1e_1c.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,35 +195,180 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-数学建模—多元回归分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数学建模—多元回归分析
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="archive-article-date">
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="archive-article-date">
   	<time datetime="2020-07-07T11:28:47.947Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">数学建模—多元回归分析</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>木星全貌🪐</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/44fa0e0b337338b26ecfbc657bf15690a538a0c1.jpg@518w_1e_1c.jpg" alt="img" style="zoom:67%;" />
 
-        <div class="article-info info-on-right">
-          
+<a id="more"></a>
+
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="1-笔记"><a href="#1-笔记" class="headerlink" title="1.笔记"></a>1.笔记</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707194734722.png" alt="image-20200707194734722"></p>
+<p>在了接受域中，接受X为0的假设，X对外没有比较显著的线性关系。</p>
+<h2 id="2-知识点补充"><a href="#2-知识点补充" class="headerlink" title="2.知识点补充"></a>2.知识点补充</h2><p>多元回归模型：含两个以上解释变量的回归模型</p>
+<p>多元线性回归模型的假设:</p>
+<ul>
+<li>解释变量Xi 是确定性变量，不是随机变量</li>
+<li>解释变量之间互不相关，即无多重共线性</li>
+<li>随机误差项不存在序列相关关系</li>
+<li>随机误差项与解释变量之间不相关</li>
+<li>随机误差项服从0均值、同方差的正态分布</li>
+</ul>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><h2 id="1-多元线性回归"><a href="#1-多元线性回归" class="headerlink" title="1.多元线性回归"></a>1.多元线性回归</h2><p>某品种水稻糙米含镉量y(mg/kg)与地上部生物量x1(10g/盆)及土壤含镉量x2(100mg/kg)的8组观测值如表。试建立多元线性回归模型。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707195415538.png" alt="image-20200707195415538" style="zoom:80%;" />
+
+<h3 id="1-1SAS代码"><a href="#1-1SAS代码" class="headerlink" title="1.1SAS代码"></a>1.1SAS代码</h3><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line"><span class="meta">input</span> x1-x2 y@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1.7 9.08 4.93 12 1.89 1.86</span></span><br><span class="line"><span class="emphasis">9.67 3.06 2.33 0.76 10.2 5.78</span></span><br><span class="line"><span class="emphasis">17.67 0.05 0.06 15.91 0.73 0.43</span></span><br><span class="line"><span class="emphasis">15.74 1.03 0.87 5.41 6.25 3.86</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc reg;</span></span><br><span class="line">model y=x1 x2;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2结果分析"><a href="#1-2结果分析" class="headerlink" title="1.2结果分析"></a>1.2结果分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707195937609.png" alt="image-20200707195937609"></p>
+<p>我们可以通过WORD将这些复制做成表格更加美观直接，每个表下面都需要有文字说明：</p>
+<p>由方差分析表可知，其F value=386.30,pr&gt;F的值&lt;0.0001，远小于0.05，说明F值落在了拒绝域里面，故拒绝原假设，接受备择假设，认为y1与x1,x2之间具有显著性的线性关系；</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707200529201.png" alt="image-20200707200529201"></p>
+<p>由参数估计表可知，x2对应的t值为1.61，Pr&gt;|t|的值=0.1691，大于0.05，说明1.61落在了接受域中，接受x2为0的假设，x2对外没有比较显著的线性贡献。</p>
+<p>为此，需要在程序中model y1=x1 x2中去掉x2，再次运行：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200707200943602.png" alt="image-20200707200943602"></p>
+<p>对常数检验t值分别为t=37.53、,Pr&gt;|t|的值&lt;0.0001,远小于0.05，说明截距项通过检验，估计值为5.67953。<br>同理可知x1的系数通过检验，估计值为-0.32103</p>
+<p>回归方程：y=-0.32103x1+5.67953</p>
+<p>许多实际问题中可能还会出现某几个变量的系数并没有通过检验，此时，可以在原程序中的modely1=x1-x2中去掉没用通过的变量,直到所有的系数均通过检验。或者使用逐步回归方法，让软件自动保留通过检验的变量。</p>
+<h2 id="2-多元非线性回归"><a href="#2-多元非线性回归" class="headerlink" title="2.多元非线性回归"></a>2.多元非线性回归</h2><blockquote>
+<p>将非线性回归方程转化为线性回归方程。转化时应首先选择适合的非线性回归形式，并将其线性化。再确定线性化回归方程的系<br>数，最后确定非线性回归方程中未知的系数或参数。</p>
+</blockquote>
+<p>湖北省油菜投入与产出的统计分析</p>
+<p>1.投入指标<br>（1）土地（S）。土地用播种面积来表示。农作物播种面积是指当年从事农业<br>（2）劳动（L）。劳动用劳动用工数（成年劳动力一人劳动一天为一个工）来表示。劳动用工中包含着直接和间接生产用工。<br>（3）资本（K）。资本用物质费用来表示。物质费用包含直接费用和间接费用。主要有种子秧苗费、农家肥费、化肥费、农药费、畜力、固定资产折旧费和管理及其他费用等。</p>
+<p>2.产出指标<br>产出指标用湖北省历年油菜生产的总产量(Y)来表示。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708100150053.png" alt="image-20200708100150053" style="zoom: 67%;" />
+
+<h3 id="2-1SAS代码"><a href="#2-1SAS代码" class="headerlink" title="2.1SAS代码"></a>2.1SAS代码</h3><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;<span class="meta">input</span> y k s l t @@;</span><br><span class="line">x1<span class="meta">=log(</span>k);x2<span class="meta">=log(</span>s);x3<span class="meta">=log(</span>l);y1<span class="meta">=log(</span>y);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">70.8972 40076.5884 825.1305 15347.4273 1</span></span><br><span class="line"><span class="emphasis">83.7506 48008.7690 915.1500 15832.0950 2</span></span><br><span class="line"><span class="emphasis">70.8627 44593.8425 804.150 13306.8090 3</span></span><br><span class="line"><span class="emphasis">78.3451 43460.3229 783.2100 13314.5700 4</span></span><br><span class="line"><span class="emphasis">98.0749 72657.2633 923.8050 14596.1190 5</span></span><br><span class="line"><span class="emphasis">134.8767 146108.3421 1282.8900 20911.1070 7</span></span><br><span class="line"><span class="emphasis">147.5315 162433.3500 1244.7000 18670.5000 8</span></span><br><span class="line"><span class="emphasis">154.7607 166979.6325 1330.5150 18627.2100 9</span></span><br><span class="line"><span class="emphasis">159.9743 190395.5262 1505.4600 20775.3480 10</span></span><br><span class="line"><span class="emphasis">198.4942 205914.6645 1738.4100 22599.3300 11</span></span><br><span class="line"><span class="emphasis">194.7943 189762.7335 1677.0900 20963.6250 12</span></span><br><span class="line"><span class="emphasis">187.1013 193463.610 1761.9450 21936.2153 14</span></span><br><span class="line"><span class="emphasis">235.1184 183768.4035 1779.1500 19606.2330 15</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc reg;</span>model y1=x1 x2 x3 t ; <span class="comment">/*selection=stepwise*/</span></span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2结果分析"><a href="#2-2结果分析" class="headerlink" title="2.2结果分析"></a>2.2结果分析</h3><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708100655780.png" alt="image-20200708100655780"></p>
+<p>F值为145.06，对应的Pr&gt;F的概率小于0.001，说明F值落在了拒绝域中。故拒绝原假设H0:x1,x2,x3x,t都为0，x1,x2,x3x,t对y1有显著的线性关系。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708101429697.png" alt="image-20200708101429697"></p>
+<p>这里我们遵循一个原则，先看变量，再看常数。变量如果要去，需要一个一个去，因为他们之间可能有线性关系，一个变量会影响另一个变量。</p>
+<p>我们可以通过增加一段SAS代码查看变量之间的线性关系。</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">proc corr;</span>var x1 x2 x3 t;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102032701.png" alt="image-20200708102032701"></p>
+<p>可以看到，x1 x2 x3 t之间都有线性关系，这种其实是极不稳定的。</p>
+<p>回到上面的表，我们看到常数显著性概率大于0.05，但是我们得先看变量，先不去管他。接着看x3,t都大于0.05很多，我们取最大的t显著性概率为0.9466，远大于0.05。因此将model y1=x1 x2 x3 t;去掉他，即改为model y1=x1 x2 x3 ;</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102331149.png" alt="image-20200708102331149"></p>
+<p>截距项Intercept(常数)的显著性概率为0.6117，大于0.05，因此将model y1=x1 x2 x3 ; 改为model y1=x1 x2 x3/noint;（去掉常数项）</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102702512.png" alt="image-20200708102702512"></p>
+<p>这时候F检验也过了，T检验也过了。我们可以得出式子：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102750386.png" alt="image-20200708102750386" style="zoom:50%;" /></p>
+<p>F=34565.8 R2=0.9999    K，S，L的t值分别为（3.01） (6.59) (-9.98)</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708102856861.png" alt="image-20200708102856861" style="zoom:67%;" />
+
+<p>但是我们通过经济学解释就会发现这个式子很不合理：K(资本)增长1%Y增长0.22851%，S(土地)增长1%Y增长1.21%，L(劳动)增长1%Y增长-0.65225%，而且不会随着时间t增长。弹性大于1，这个式子说明湖北省油菜产量主要靠土地来增长，显然不符合现实。本模型虽然满足数学规则，但不能通过经济检验。</p>
+<p>上述说明我们刚刚对变量的逐一减法并不适用这一问题，我们可以依据经济学来修改模型：随着现代发展，劳动力其实对产量并无太大影响，反而年数增长带来的技术进步影响更为显著。</p>
+<p>model y1=x1 x2 t/noint;</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708104029414.png" alt="image-20200708104029414"></p>
+<p>虽然x2依然大于0.05，但是相差并不大，勉强可以算，这样才更符合现实。</p>
+<h2 id="3-逐步回归"><a href="#3-逐步回归" class="headerlink" title="3.逐步回归"></a>3.逐步回归</h2><p>逐步回归和上面对变量逐一减法想法，他是一个一个把变量加进去，不符合就删掉某个变量。</p>
+<p>逐步回归选择变量快捷，但对于存在多重共线的自变量选择，有时并不准确，使用时注意分辨。</p>
+<p>SAS使用逐步回归的方法是，模型从y1=x1开始，符合就加成y1=x1 x2，不符合就变成y1=x2……..还有一种更为简单的方式，将model y1=x1 x2 x3 t ;<br>改为model y1=x1 x2 x3 t /selection=stepwise;机器自动判断。</p>
+<blockquote>
+<p>注意，为了筛选变量宽容，程序中默认显著度为0.15，而不是0.05，以避免条件过于严格只用筛选无法进行。</p>
+</blockquote>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708110207405.png" alt="image-20200708110207405"></p>
+<p>从程序结果中不难看出，x2、x1、t进入模型。因此modely1=x1 x2 x3 t /selection=stepwise;改为model y1=x1 x2 t /noint;再运行一遍即可。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708110406964.png" alt="image-20200708110406964"></p>
+<h2 id="4-标准化回归"><a href="#4-标准化回归" class="headerlink" title="4.标准化回归"></a>4.标准化回归</h2><p>由于单位量纲不一样，偏回归系数的大小不能完全反映自变量对因变量影响的大小。要想真实反映自变量的贡献，标准化回归是个好的选择。</p>
+<p>标准化回归系数（Beta值）在多元回归中被用来比较变量间的重要性。</p>
+<p>还是用上面的例子，将model y1=x1 x2 t /noint;改为model y1=x1 x2 t /noint stb;运行即可。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708111348504.png" alt="image-20200708111348504"></p>
+<p>从最后一列（标准化回归系数）可看出，x1重要性超过x2和t。与原先的参数大小比有变化。</p>
+<p>同时这个也符合现实，在现实生活中，湖北省油菜很大的产量来自于资本的投资。</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708115457361.png" alt="image-20200708115457361"></p>
+ <img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708115545799.png" alt="image-20200708115545799"  />
+
+<h2 id="1-问题一的分析与求解"><a href="#1-问题一的分析与求解" class="headerlink" title="1.问题一的分析与求解"></a>1.问题一的分析与求解</h2><p>为探究各种化肥（主要为N 、P 、K 肥）的投入量对于土豆产量的影响程度大小，我们决定使用多元回归模型，通过比较回归方程系数的大小来比较各种化肥的投入量对土豆产量影响程度的大小。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/1594180902840.jpg" alt="1594180902840"></p>
+<p>编写SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;<span class="meta">input</span> n p k y@@;</span><br><span class="line">x1<span class="meta">=log(</span>n);x2<span class="meta">=log(</span>p);x3<span class="meta">=log(</span>k);y1<span class="meta">=log(</span>y);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">0 196 372 15.18</span></span><br><span class="line"><span class="emphasis">34 196 372 21.36</span></span><br><span class="line"><span class="emphasis">67 196 372 25.72</span></span><br><span class="line"><span class="emphasis">101 196 372 32.29</span></span><br><span class="line"><span class="emphasis">435 196 372 34.03</span></span><br><span class="line"><span class="emphasis">202 196 372 39.45</span></span><br><span class="line"><span class="emphasis">259 196 372 43.15</span></span><br><span class="line"><span class="emphasis">336 196 372 43.46</span></span><br><span class="line"><span class="emphasis">404 196 372 40.83</span></span><br><span class="line"><span class="emphasis">471 196 372 30.75</span></span><br><span class="line"><span class="emphasis">259 0 372 33.46</span></span><br><span class="line"><span class="emphasis">259 24 372 32.47</span></span><br><span class="line"><span class="emphasis">259 49 372 36.06</span></span><br><span class="line"><span class="emphasis">259 73 372 37.96</span></span><br><span class="line"><span class="emphasis">259 98 372 41.04</span></span><br><span class="line"><span class="emphasis">259 147 372 40.09</span></span><br><span class="line"><span class="emphasis">259 196 372 41.26</span></span><br><span class="line"><span class="emphasis">259 245 372 42.17</span></span><br><span class="line"><span class="emphasis">259 294 372 40.36</span></span><br><span class="line"><span class="emphasis">259 342 372 42.73</span></span><br><span class="line"><span class="emphasis">259 196 0 18.98</span></span><br><span class="line"><span class="emphasis">259 196 47 27.35</span></span><br><span class="line"><span class="emphasis">259 196 93 34.86</span></span><br><span class="line"><span class="emphasis">259 196 140 38.52</span></span><br><span class="line"><span class="emphasis">259 196 186 38.44</span></span><br><span class="line"><span class="emphasis">259 196 279 37.73</span></span><br><span class="line"><span class="emphasis">259 196 372 38.43</span></span><br><span class="line"><span class="emphasis">259 196 465 43.87</span></span><br><span class="line"><span class="emphasis">259 196 558 42.77</span></span><br><span class="line"><span class="emphasis">259 196 651 46.22</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc reg;</span>model y1=x1 x2 x3;</span><br><span class="line"><span class="keyword">proc corr;</span>var x1 x2 x3;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>首先我们对自变量x1、x2、x3 之间的相关性进行判断，计算得相关系数如下表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120337854.png" alt="image-20200708120337854" style="zoom:80%;" />
+
+<p>通过相关系数表我们可以看出各自变量之间得相关系数的绝对值均小于0.09，因此可以认为自变量之间无相关性，使用多元回归分析效果较好。</p>
+<p>接着使用最小二乘法对自变量和因变量进行多元回归分析，对得到的回归方程进行F检验，得到方差分析表：<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120529409.png" alt="image-20200708120529409"></p>
+<p>由方差分析表可知，其 F value=11.95，对应的Pr&gt;F的概率小于0.001，故11.95落在了拒绝域中，拒绝原假设H0：x1,x2,x3都为0。认为y1 与x1、x2、x3 之间有显著性的线性关系。</p>
+<p>接着对各参数进行显著性检验，通过t 检验得到如下参数估计表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708120750281.png" alt="image-20200708120750281"></p>
+<p>由参数估计表可知：</p>
+<p>（1）对自变量x1检验的t值为5.26，Pr&gt;|t|的值小于0.001，因此拒绝原假设认为x1系数为0，说明x1的系数通过检验，x1与y1有显著的线性关系。</p>
+<p>（2）对自变量x2 检验的t 值为t=1.56，Pr&gt;|t|的值=0.1334，大于0.05，因此接受原假设认为x2 系数为0，说明x2 的系数没有通过检验，x2 与y 没有显著的线性关系，且其回归系数最小，即x2 对y 的影响不明显，因此在回归方程中去除自变量x2。</p>
+<p>（3）对自变量x3 检验的t 值为t=3.01，Pr&gt;|t|的值=0.0062，小于0.05，因此拒绝原假设认为x3 系数为0，说明x3 的系数通过检验，x1 与y 有显著的线性关系。</p>
+<p>去除变量x2 后，继续对y 与x1、x3 进行回归分析，步骤同上。在方程通过F 检验后得到如下参数估计表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708132212881.png" alt="image-20200708132212881"></p>
+<p>x1&gt;x3&gt;x2，综上所述，化肥种类对土豆产量影响程度由大到小的排列顺序为氮肥、钾肥和磷肥。</p>
+<h2 id="2-问题二和问题三的分析与求解"><a href="#2-问题二和问题三的分析与求解" class="headerlink" title="2.问题二和问题三的分析与求解"></a>2.问题二和问题三的分析与求解</h2><p>观察数据发现存在部分重复数据，因此对数据进行分选处理，在两种化肥投入量不变的情况下研究第三种化肥投入量与土豆产量之间存在的关系。分别做出y 与的散点图，观察y 与x1、x2、x3 的大致关系，确定合适的关系模型，从而求得最大产量。再建立利润方程，使用线性规划求处最大利润。</p>
+<p>暂时不会，后续会了再补充。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200708133615822.png" alt="image-20200708133615822"></p>
+<p>高考的xdm加油！分享一首我高中高考冲刺的歌(●ˇ∀ˇ●)</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=27901965&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,384 +380,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-07-07T05:26:17.796Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模之一元回归分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">数学建模之一元回归分析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建模</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-笔记"><span class="toc-number">2.1.</span> <span class="toc-text">1.笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-知识点补充"><span class="toc-number">2.2.</span> <span class="toc-text">2.知识点补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#例题"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-多元线性回归"><span class="toc-number">3.1.</span> <span class="toc-text">1.多元线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1SAS代码"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1SAS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2结果分析"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-多元非线性回归"><span class="toc-number">3.2.</span> <span class="toc-text">2.多元非线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1SAS代码"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1SAS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2结果分析"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-逐步回归"><span class="toc-number">3.3.</span> <span class="toc-text">3.逐步回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-标准化回归"><span class="toc-number">3.4.</span> <span class="toc-text">4.标准化回归</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业"><span class="toc-number">4.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题一的分析与求解"><span class="toc-number">4.1.</span> <span class="toc-text">1.问题一的分析与求解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题二和问题三的分析与求解"><span class="toc-number">4.2.</span> <span class="toc-text">2.问题二和问题三的分析与求解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/04/%E5%93%81%E4%BC%98%E8%B4%AD5/" class="archive-article-date">
-  	<time datetime="2020-07-04T02:18:11.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/04/%E5%93%81%E4%BC%98%E8%B4%AD5/">品优购第五章—商品管理&amp;图片上传</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/30/%E5%93%81%E4%BC%98%E8%B4%AD4-04.%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%95%86%E5%AE%B6%E5%85%A5%E9%A9%BB%E5%AE%A1%E6%A0%B8/" class="archive-article-date">
-  	<time datetime="2020-06-30T07:18:21.025Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/30/%E5%93%81%E4%BC%98%E8%B4%AD4-04.%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%95%86%E5%AE%B6%E5%85%A5%E9%A9%BB%E5%AE%A1%E6%A0%B8/">品优购Ⅳ—安全框架与商家入驻审核</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/%E5%93%81%E4%BC%98%E8%B4%AD3/" class="archive-article-date">
-  	<time datetime="2020-06-28T15:01:04.627Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/%E5%93%81%E4%BC%98%E8%B4%AD3/">品优购第三篇—规格及模板管理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/27/%E5%93%81%E4%BC%98%E8%B4%AD2-AngularJS-%E5%93%81%E7%89%8C/" class="archive-article-date">
-  	<time datetime="2020-06-27T10:07:33.654Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/27/%E5%93%81%E4%BC%98%E8%B4%AD2-AngularJS-%E5%93%81%E7%89%8C/">品优购第二篇——AngularJs</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/26/%E5%93%81%E4%BC%98%E8%B4%AD-Dubbox/" class="archive-article-date">
-  	<time datetime="2020-06-26T09:57:33.550Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/26/%E5%93%81%E4%BC%98%E8%B4%AD-Dubbox/">品优购开篇-Dubbox框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/23/git/" class="archive-article-date">
-  	<time datetime="2020-06-23T13:35:04.938Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/23/git/">Git&amp;GitHub最强入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/23/%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-06-23T08:57:23.897Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/23/%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B/">从0开始的建站教程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/21/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-06-21T02:29:09.656Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/21/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">算法综合实验——背包问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2020/page/7/">7</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -618,8 +529,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
