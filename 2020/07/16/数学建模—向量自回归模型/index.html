@@ -6,117 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数学建模-时间序列分析 | J Sir</title>
+  <title>数学建模—向量自回归模型 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="EverydayOneCat海洋！">
+  <meta name="description" content="EverydayOneCat非常快乐&#x2F;十分快乐.gif">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学建模-时间序列分析">
-<meta property="og:url" content="http://yoursite.com/2020/07/11/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="数学建模—向量自回归模型">
+<meta property="og:url" content="http://yoursite.com/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%90%91%E9%87%8F%E8%87%AA%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="EverydayOneCat海洋！">
+<meta property="og:description" content="EverydayOneCat非常快乐&#x2F;十分快乐.gif">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/787811314504059f68154863292d5ca84d56c132.gif">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143326562.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143353945.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143413124.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103348004.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103401807.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103508683.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103540507.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104501189.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104611321.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711105552462.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104722474.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711134100075.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711114823754.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711115054139.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711115237015.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711130717961.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711131311574.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132024022.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132257519.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132704326.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133054410.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133105822.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133317505.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155321160.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155350282.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155427275.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155454965.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155522220.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155905801.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711160003127.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170129178.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170241403.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170741965.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170844259.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171054139.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171410473.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171635936.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711173026422.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171929770.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711172237321.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711172657286.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233116659.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233206614.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233552697.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233746204.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233856197.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233924300.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711234321344.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711234330329.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712103719265.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104015913.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104028956.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104126688.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104736968.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104749329.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712111526775.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110248454.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110321230.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110452182.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110725586.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712113718281.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712113954779.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712114017028.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712114300170.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115452313.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115354214.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140722673.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140843032.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140738779.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141041020.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141103666.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141244059.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141622621.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141813927.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142223055.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142320478.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142355048.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115950952.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120025799.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120558943.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120537754.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120903657.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120930111.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121156624.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121504800.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121800765.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121952807.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712122048269.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712141948656.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142006529.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142025155.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142051379.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142112187.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142543568.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142612981.png">
-<meta property="article:published_time" content="2020-07-11T02:23:53.197Z">
-<meta property="article:modified_time" content="2020-07-12T06:36:56.806Z">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8aeee06122ba87a407a657ad2efb9832c3b51129.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130718676.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716120711758.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716120948930.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121128122.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121313115.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121504022.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121517184.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121532225.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121914957.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122014047.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122053188.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122121168.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122146988.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122206152.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716124328607.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125540857.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125727726.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125916480.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130257682.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130045085.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130337593.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130513882.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130540066.png">
+<meta property="article:published_time" content="2020-07-16T03:10:17.538Z">
+<meta property="article:modified_time" content="2020-07-16T05:12:42.403Z">
 <meta property="article:author" content="J Sir">
 <meta property="article:tag" content="建模">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/787811314504059f68154863292d5ca84d56c132.gif">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8aeee06122ba87a407a657ad2efb9832c3b51129.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -265,14 +193,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-数学建模-时间序列分析" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-数学建模—向量自回归模型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数学建模-时间序列分析
+      数学建模—向量自回归模型
     </h1>
   
 
@@ -287,329 +215,273 @@
 		  </a>
 		  
         
-        <a href="/2020/07/11/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-07-11T02:23:53.197Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
+        <a href="/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%90%91%E9%87%8F%E8%87%AA%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-07-16T03:10:17.538Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>海洋！<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/787811314504059f68154863292d5ca84d56c132.gif" alt="img" style="zoom:67%;" /></p>
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>非常快乐/十分快乐.gif</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8aeee06122ba87a407a657ad2efb9832c3b51129.gif" alt="8aeee06122ba87a407a657ad2efb9832c3b51129"></p>
 <a id="more"></a>
 
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="1-笔记"><a href="#1-笔记" class="headerlink" title="1.笔记"></a>1.笔记</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143326562.png" alt="image-20200712143326562"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143353945.png" alt="image-20200712143353945"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712143413124.png" alt="image-20200712143413124"></p>
-<h2 id="2-平稳性检验"><a href="#2-平稳性检验" class="headerlink" title="2.平稳性检验"></a>2.平稳性检验</h2><p>时序图检验：根据平稳时间序列均值、方差为常数的性质，平稳序列的时序图应该显示出该序列始终在一个常数值附近随机波动，而且波动的范围有界、无明显趋势及周期特征。</p>
-<p>自相关图检验：平稳序列通常具有短期相关性。该性质用自相关系数来描述就是随着延迟期数的增加，平稳序列的自相关系数会很快地衰减向零。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="1-笔记"><a href="#1-笔记" class="headerlink" title="1.笔记"></a>1.笔记</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130718676.png" alt="image-20200716130718676"></p>
+<h2 id="2-向量自回归模型建模流程"><a href="#2-向量自回归模型建模流程" class="headerlink" title="2.向量自回归模型建模流程"></a>2.向量自回归模型建模流程</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716120711758.png" alt="image-20200716120711758" style="zoom:67%;" />
+
+<p>1、变量平稳性检验——ADF检验：</p>
+<p>原假设H0：序列不平稳</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716120948930.png" alt="image-20200716120948930"></p>
+<p>Matlab代码：(现阶段不知道啥意思)</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[h1,p1,adf,ljz]=adftest(x)</span><br><span class="line">h1 =</span><br><span class="line"><span class="number">0</span></span><br><span class="line">p1 =</span><br><span class="line"><span class="number">0.9982</span></span><br><span class="line">adf =</span><br><span class="line"><span class="number">2.8923</span></span><br><span class="line">ljz =</span><br><span class="line"><span class="number">-1.9489</span></span><br></pre></td></tr></table></figure>
+
+<p>2、如果非平稳，我们不忙着做差分，我们先来看看协整关系检验：简单的说就是变量自身非平稳，但其线性组合却是平稳的，这种组合反映了变量之间长期稳定的比例关系。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121128122.png" alt="image-20200716121128122" style="zoom:80%;" />
+
+<p>3、VAR(p)模型最优滞后阶数的确定</p>
+<p>一般采用AIC、SBC等信息准则采用多种方法进行综合判断。</p>
+<p>判别标准：在p的取值范围内，选择使AIC、SBS最小的p值为最优</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121313115.png" alt="image-20200716121313115"></p>
+<p>从图中我们看出p=2为最优，但是我们做预测，一般选择简单的一阶，反正也相差不是很大。</p>
+<p>4、估计VAR模型的参数</p>
+<p>5、VAR模型的检验</p>
+<h2 id="3-案例分析"><a href="#3-案例分析" class="headerlink" title="3.案例分析"></a>3.案例分析</h2><p>2010年上海世博会是首次在中国举办的世界博览会。从1851年伦敦开始，世博会正日益成为各国人民交流历史文化、展示科技成果、体现合作精神、展望未来发展的重要舞台。以1990-2008年的可能受世博会影响的我国8个指标数据定量分析2010年上海世博会的影响力。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121504022.png" alt="image-20200716121504022" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121517184.png" alt="image-20200716121517184" style="zoom: 67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121532225.png" alt="image-20200716121532225" style="zoom:67%;" />
+
 <p>SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span>  sha@@;</span><br><span class="line">year=<span class="literal">_n_</span>;</span><br><span class="line">dif<span class="meta">=dif(</span>sha);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">97 130 156.5 135.2 137.7 180.5 205.2 190 188.6 196.7</span></span><br><span class="line"><span class="emphasis">180.3 210.8 196 223 238.2 263.5 292.6 317 335.4 327</span></span><br><span class="line"><span class="emphasis">321.9 353.5 397.8 436.8 465.7 476.7 462.6 460.8</span></span><br><span class="line"><span class="emphasis">501.8 501.5 489.5 542.3 512.2 559.8 542 567</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">run;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot sha<span class="comment">*year=1 dif*year=2;</span></span><br><span class="line">symbol1 v=circle i=join c=black;</span><br><span class="line">symbol2 v=star i=join c=red;</span><br><span class="line"><span class="keyword">proc arima </span>data=a;</span><br><span class="line">identify var=sha nlag=22;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line"><span class="meta">input</span> x1 x2 x3 x4 x5 x6 x7 x8@@;</span><br><span class="line">y1<span class="meta">=log(</span>x1); y2<span class="meta">=log(</span>x2); y3<span class="meta">=log(</span>x3); y4<span class="meta">=log(</span>x4);</span><br><span class="line">     y5<span class="meta">=log(</span>x5); y6<span class="meta">=log(</span>x6); y7<span class="meta">=log(</span>x7); y8<span class="meta">=log(</span>x8);<span class="comment">/*对x1∽x8取对数，以消除趋势的变化和多重共线性*/</span></span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">18667.82	1510.2	6767.2	   174.73	1.8	17041	699.75	22.01</span></span><br><span class="line"><span class="emphasis">21781.5	    1700.6	8542.5	   263.3	1.8	17465	812.96	22.79</span></span><br><span class="line"><span class="emphasis">26923.48	2026.6	10317.8	   355.6	3.2	17861	938.29	23.43</span></span><br><span class="line"><span class="emphasis">35333.92	2577.4	12093.1	   438.6	3.2	18262	1051.5	24.58</span></span><br><span class="line"><span class="emphasis">48197.86	3496.2	13868.4	   500.3	3.2	18653	1357.1	25.72</span></span><br><span class="line"><span class="emphasis">60793.73	4283	15643.7    588.67	2	19040	1702.4	26.86</span></span><br><span class="line"><span class="emphasis">71176.59	4838.9	17567.2	   674.43	1.7	19922	2024.2	27.89</span></span><br><span class="line"><span class="emphasis">78973.04	5160.3	19194.2	   742.8	1.4	20781	2208.2	28.29</span></span><br><span class="line"><span class="emphasis">84402.28	5425.1	22491.4	   710.77	1.4	21616	2336.7	28.42</span></span><br><span class="line"><span class="emphasis">89677.05	5854	23732	   843.23	1	22412	2475.2	28.32</span></span><br><span class="line"><span class="emphasis">99214.55	6280	26221.8	   1016.04	1	23151	2694.7	28.44</span></span><br><span class="line"><span class="emphasis">109655.17	6859.6	30001.2	   1122.64	1	23940	2945.7	28.61</span></span><br><span class="line"><span class="emphasis">120332.69	7702.8	35488.8	   1343.95	0.7	24780	3184.9	28.72</span></span><br><span class="line"><span class="emphasis">135822.76	8472.2	45811.7	   1140.29	0.7	25639	3558	29.32</span></span><br><span class="line"><span class="emphasis">159878.34	9421.6	59028.2	   1693.25	0.7	26476	4163	30.72</span></span><br><span class="line"><span class="emphasis">183217.4	10493	75095.1	   2025.51	0.7	27331	5153	31.96</span></span><br><span class="line"><span class="emphasis">211923.5	11759.5	93368.7	   2221.03	0.7	28310	5828	33.35</span></span><br><span class="line"><span class="emphasis">257305.6	13785.8	117464.5   2610.97	0.7	29350	6769	34.47</span></span><br><span class="line"><span class="emphasis">300670	    14306.9	148738.3   2432.53	0.7	30210	7983	35.63</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"> <span class="comment">/*VAR model unit root test原始序列*/</span></span><br><span class="line"><span class="keyword">proc arima </span>data=ex;</span><br><span class="line">    identify var=y1 stationarity=(adf=3);<span class="comment">/*平稳性检验-ADF检验，adf=3表示检验模型是滞后3阶*/</span></span><br><span class="line"> identify var=y2 stationarity=(adf=3);</span><br><span class="line">   identify var=y3 stationarity=(adf=3);</span><br><span class="line">   identify var=y4 stationarity=(adf=3);</span><br><span class="line">   identify var=y5 stationarity=(adf=3);</span><br><span class="line">   identify var=y6 stationarity=(adf=3);</span><br><span class="line">   identify var=y7 stationarity=(adf=3);</span><br><span class="line">   identify var=y8 stationarity=(adf=3);</span><br><span class="line"><span class="keyword">run;</span></span><br><span class="line"><span class="comment">/*VAR model unit root test一阶差分*/</span></span><br><span class="line"><span class="keyword">proc arima </span>data=ex;</span><br><span class="line">   identify var=y1(1) stationarity=(adf=3);</span><br><span class="line">  identify var=y2(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y3(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y4(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y5(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y6(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y7(1) stationarity=(adf=3);</span><br><span class="line">   identify var=y8(1) stationarity=(adf=3);</span><br><span class="line"><span class="keyword">run;</span></span><br><span class="line"><span class="comment">/*VAR model unit root test二阶差分*/</span></span><br><span class="line"><span class="keyword"> proc arima </span>data=ex;</span><br><span class="line">   identify var=y1(1,1) stationarity=(adf=3);</span><br><span class="line">  identify var=y2(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y3(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y4(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y5(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y6(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y7(1,1) stationarity=(adf=3);</span><br><span class="line">   identify var=y8(1,1) stationarity=(adf=3);</span><br><span class="line"><span class="keyword">proc varmax </span>data=ex;</span><br><span class="line">  model y1-y8/minic=(type=aic p=2 q=0)  <span class="comment">/*根据AIC信息最小准则，在p=0,1时确定p的最优值。并在最优p值的条件下，估计VAR模型*/</span></span><br><span class="line">               print=(diagnose roots)<span class="comment">/*显示模型的特征根其他检验，判断模型的稳定性和拟合效果*/</span></span><br><span class="line">             cointtest=(johansen=(type=trace));<span class="comment">/*协整检验*/</span></span><br><span class="line">             <span class="meta">output</span> lead=5;<span class="comment">/*向前5步预测*/</span></span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
 
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103348004.png" alt="image-20200711103348004" style="zoom:67%;" />
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716121914957.png" alt="image-20200716121914957" style="zoom:80%;" />
 
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103401807.png" alt="image-20200711103401807"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103508683.png" alt="image-20200711103508683" style="zoom:67%;" />
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122014047.png" alt="image-20200716122014047" style="zoom:80%;" />
 
-<p>此图没有明显周期，也没有明显趋势，基本可以判断是平稳的</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711103540507.png" alt="image-20200711103540507"></p>
-<p>延迟了1步之后，他的相关系数稳定接近于0，说明这个序列具有短期相关性。</p>
-<h2 id="2-纯随机性检验"><a href="#2-纯随机性检验" class="headerlink" title="2.纯随机性检验"></a>2.纯随机性检验</h2><p>纯随机序列也称为白噪声序列，标准正态白噪声序列时序图</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104501189.png" alt="image-20200711104501189" style="zoom:50%;" />
+<p>VAR(1)模型参数估计结果：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122053188.png" alt="image-20200716122053188"></p>
+<p>稳定性检验：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122121168.png" alt="image-20200716122121168" style="zoom:67%;" />
 
-<p>1、首先判断是否平稳，平稳后才能判断是否纯随机</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104611321.png" alt="image-20200711104611321" style="zoom:67%;" />
+<p>单方程显著性检验：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122146988.png" alt="image-20200716122146988" style="zoom:67%;" />
 
-<p>2、白噪声检验</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711105552462.png" alt="image-20200711105552462"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711104722474.png" alt="image-20200711104722474" style="zoom:67%;" />
+<p>预测：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716122206152.png" alt="image-20200716122206152" style="zoom: 80%;" />
 
-<h2 id="3-平稳时间序列建模"><a href="#3-平稳时间序列建模" class="headerlink" title="3.平稳时间序列建模"></a>3.平稳时间序列建模</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711134100075.png" alt="image-20200711134100075" style="zoom:67%;" />
-
-<p>选择合适的模型ARMA拟合1950年——1998年北京市城乡居民定期储蓄比例序列。</p>
-<p>先进行平稳性检验：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> year prop;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1950	83.5</span></span><br><span class="line"><span class="emphasis">1951	63.1</span></span><br><span class="line"><span class="emphasis">1952	71</span></span><br><span class="line"><span class="emphasis">1953	76.3</span></span><br><span class="line"><span class="emphasis">1954	70.5</span></span><br><span class="line"><span class="emphasis">1955	80.5</span></span><br><span class="line"><span class="emphasis">1956	73.6</span></span><br><span class="line"><span class="emphasis">1957	75.2</span></span><br><span class="line"><span class="emphasis">1958	69.1</span></span><br><span class="line"><span class="emphasis">1959	71.4</span></span><br><span class="line"><span class="emphasis">1960	73.6</span></span><br><span class="line"><span class="emphasis">1961	78.8</span></span><br><span class="line"><span class="emphasis">1962	84.4</span></span><br><span class="line"><span class="emphasis">1963	84.1</span></span><br><span class="line"><span class="emphasis">1964	83.3</span></span><br><span class="line"><span class="emphasis">1965	83.1</span></span><br><span class="line"><span class="emphasis">1966	81.6</span></span><br><span class="line"><span class="emphasis">1967	81.4</span></span><br><span class="line"><span class="emphasis">1968	84</span></span><br><span class="line"><span class="emphasis">1969	82.9</span></span><br><span class="line"><span class="emphasis">1970	83.5</span></span><br><span class="line"><span class="emphasis">1971	83.2</span></span><br><span class="line"><span class="emphasis">1972	82.2</span></span><br><span class="line"><span class="emphasis">1973	83.2</span></span><br><span class="line"><span class="emphasis">1974	83.5</span></span><br><span class="line"><span class="emphasis">1975	83.8</span></span><br><span class="line"><span class="emphasis">1976	84.5</span></span><br><span class="line"><span class="emphasis">1977	84.8</span></span><br><span class="line"><span class="emphasis">1978	83.9</span></span><br><span class="line"><span class="emphasis">1979	83.9</span></span><br><span class="line"><span class="emphasis">1980	81</span></span><br><span class="line"><span class="emphasis">1981	82.2</span></span><br><span class="line"><span class="emphasis">1982	82.7</span></span><br><span class="line"><span class="emphasis">1983	82.3</span></span><br><span class="line"><span class="emphasis">1984	80.9</span></span><br><span class="line"><span class="emphasis">1985	80.3</span></span><br><span class="line"><span class="emphasis">1986	81.3</span></span><br><span class="line"><span class="emphasis">1987	81.6</span></span><br><span class="line"><span class="emphasis">1988	83.4</span></span><br><span class="line"><span class="emphasis">1989	88.2</span></span><br><span class="line"><span class="emphasis">1990	89.6</span></span><br><span class="line"><span class="emphasis">1991	90.1</span></span><br><span class="line"><span class="emphasis">1992	88.2</span></span><br><span class="line"><span class="emphasis">1993	87</span></span><br><span class="line"><span class="emphasis">1994	87</span></span><br><span class="line"><span class="emphasis">1995	88.3</span></span><br><span class="line"><span class="emphasis">1996	87.8</span></span><br><span class="line"><span class="emphasis">1997	84.7</span></span><br><span class="line"><span class="emphasis">1998	80.2</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot prop<span class="comment">*year=1;</span></span><br><span class="line">symbol1 v=diamond i=join c=red;</span><br><span class="line"><span class="keyword">proc arima </span>data=a;</span><br><span class="line">identify var=prop nlag=22;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711114823754.png" alt="image-20200711114823754" style="zoom:50%;" />
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711115054139.png" alt="image-20200711115054139"></p>
-<p>在0上下波动，说明此序列平稳。</p>
-<p>白噪声检验：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711115237015.png" alt="image-20200711115237015"></p>
-<p>拒绝原假设H0：p1=……=pi=0，说明序列之间有信息传递，是可以做一个ARMA模型的。</p>
-<blockquote>
-<p>相对最优定阶方法：</p>
-<p>为了尽量避免因个人经验不足导致的模型识别问题，SAS系统还提供了相对最优模型识别。只要在identify命令中加上一个可选命令minic，就可以获得一定范围内的最优模型定界。</p>
-</blockquote>
-<p>修改代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=prop nlag=22 minic p=(0:5)  q=(0:5);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711130717961.png" alt="image-20200711130717961"></p>
-<p>说明p=4，q=0。推断出为AR模型</p>
-<p>增加SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=4 q=0;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711131311574.png" alt="image-20200711131311574"></p>
-<p>发现2,3,4没通过t检验。修改p=1</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132024022.png" alt="image-20200711132024022"></p>
-<p>可得出AR模型公式，类似于下图<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132257519.png" alt="image-20200711132257519" style="zoom:50%;" /></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711132704326.png" alt="image-20200711132704326"></p>
-<p>残差需要接受白噪声检验。可以看出所有的都接受了原假设：残差序列为白噪声序列</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133054410.png" alt="image-20200711133054410"></p>
-<p>编写预测代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forecast id=year lead=5 <span class="meta">out</span>=<span class="meta">out</span>;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133105822.png" alt="image-20200711133105822"></p>
-<p>编写代码画图：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">proc gplot </span>data=<span class="meta">out</span>;</span><br><span class="line">plot prop<span class="comment">*year=2 forecast*year=3 l95*year=4 u95*year=4/overlay;</span></span><br><span class="line">symbol2 v=star i=none c=black ;</span><br><span class="line">symbol3 v=none i=join c=red w=2;</span><br><span class="line">symbol4 v=none i=join c=green l=2 ;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711133317505.png" alt="image-20200711133317505"></p>
-<h2 id="4-非平稳序列差分方式的选择"><a href="#4-非平稳序列差分方式的选择" class="headerlink" title="4.非平稳序列差分方式的选择"></a>4.非平稳序列差分方式的选择</h2><p>1、原序列时序图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155321160.png" alt="image-20200711155321160" style="zoom:67%;" />
-
-
-
-<p>差不多呈线性，我们使用一阶差分，差分后序列时序图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155350282.png" alt="image-20200711155350282" style="zoom: 80%;" />
-
-<p>2、原序列时序图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155427275.png" alt="image-20200711155427275" style="zoom:67%;" />
-
-<p>曲线趋势，我们选择二阶差分：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155454965.png" alt="image-20200711155454965" style="zoom:80%;" />
-
-<p>3、原序列时序图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155522220.png" alt="image-20200711155522220" style="zoom:67%;" />
-
-<p>差不多可以看出来是周期，我们通过SAS来观测周期时长</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711155905801.png" alt="image-20200711155905801" style="zoom: 80%;" />
-
-<p>可以看出周期为12，我们先做一阶差分，再做12步差分：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711160003127.png" alt="image-20200711160003127" style="zoom:80%;" />
-
-<h2 id="5-ARIMA模型建模步骤"><a href="#5-ARIMA模型建模步骤" class="headerlink" title="5.ARIMA模型建模步骤"></a>5.ARIMA模型建模步骤</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170129178.png" alt="image-20200711170129178" style="zoom:67%;" />
-
-<p>对1952年——1988年中国农业实际国民收入指数序列建模</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p>请结合下列数据，建立向量自回归模型，并预测2008-2010年GDP的值。</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>GDP 亿元</th>
+<th>进出口总额</th>
+<th>城市基础设施投资</th>
+<th>价格指数</th>
+<th>就业率</th>
+<th>城市人口比率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单位</td>
+<td>亿美元</td>
+<td>亿美元</td>
+<td>亿元</td>
+<td>1</td>
+<td>%</td>
+<td>%</td>
+</tr>
+<tr>
+<td>1990</td>
+<td>781.66</td>
+<td>74.3</td>
+<td>47.20</td>
+<td>108.20</td>
+<td>98.5</td>
+<td>67.4</td>
+</tr>
+<tr>
+<td>1991</td>
+<td>893.77</td>
+<td>80.4</td>
+<td>61.40</td>
+<td>110.50</td>
+<td>98.6</td>
+<td>67.6</td>
+</tr>
+<tr>
+<td>1992</td>
+<td>1114.32</td>
+<td>97.6</td>
+<td>84.40</td>
+<td>121.60</td>
+<td>98.3</td>
+<td>67.9</td>
+</tr>
+<tr>
+<td>1993</td>
+<td>1519.23</td>
+<td>127.3</td>
+<td>167.90</td>
+<td>146.10</td>
+<td>97.6</td>
+<td>69.0</td>
+</tr>
+<tr>
+<td>1994</td>
+<td>1990.86</td>
+<td>158.7</td>
+<td>238.20</td>
+<td>181.00</td>
+<td>97.2</td>
+<td>70.1</td>
+</tr>
+<tr>
+<td>1995</td>
+<td>2499.43</td>
+<td>190.3</td>
+<td>273.80</td>
+<td>214.90</td>
+<td>97.3</td>
+<td>70.8</td>
+</tr>
+<tr>
+<td>1996</td>
+<td>2957.55</td>
+<td>222.6</td>
+<td>378.80</td>
+<td>234.60</td>
+<td>97.3</td>
+<td>71.5</td>
+</tr>
+<tr>
+<td>1997</td>
+<td>3438.79</td>
+<td>247.6</td>
+<td>412.90</td>
+<td>241.20</td>
+<td>97.2</td>
+<td>72.2</td>
+</tr>
+<tr>
+<td>1998</td>
+<td>3801.09</td>
+<td>313.4</td>
+<td>531.40</td>
+<td>241.20</td>
+<td>97.1</td>
+<td>73.0</td>
+</tr>
+<tr>
+<td>1999</td>
+<td>4188.73</td>
+<td>386.04</td>
+<td>501.40</td>
+<td>244.80</td>
+<td>96.9</td>
+<td>73.8</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>4771.17</td>
+<td>547.10</td>
+<td>449.90</td>
+<td>250.90</td>
+<td>96.5</td>
+<td>74.6</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>5210.12</td>
+<td>608.98</td>
+<td>510.80</td>
+<td>250.90</td>
+<td>95.7</td>
+<td>75.3</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>5741.03</td>
+<td>726.64</td>
+<td>583.50</td>
+<td>252.20</td>
+<td>95.2</td>
+<td>76.4</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>6694.23</td>
+<td>1123.97</td>
+<td>604.62</td>
+<td>252.5</td>
+<td>95.1</td>
+<td>77.6</td>
+</tr>
+<tr>
+<td>2004</td>
+<td>8072.83</td>
+<td>1600.26</td>
+<td>672.58</td>
+<td>257.8</td>
+<td>95.5</td>
+<td>81.2</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>9247.66</td>
+<td>1863.65</td>
+<td>885.74</td>
+<td>260.3</td>
+<td>95.6</td>
+<td>84.5</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>10572.2</td>
+<td>2274.89</td>
+<td>1125.54</td>
+<td>263.4</td>
+<td>95.6</td>
+<td>85.8</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>12494.0</td>
+<td>2829.73</td>
+<td>1466.33</td>
+<td>271.7</td>
+<td>95.7</td>
+<td>86.8</td>
+</tr>
+</tbody></table>
+<h2 id="1-平稳性检验"><a href="#1-平稳性检验" class="headerlink" title="1.平稳性检验"></a>1.平稳性检验</h2><p> 在平稳性检验中我们使用的是ADF 单位根检验法对6 组变量进行滞后3 期的平稳性检验。</p>
 <p>SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line">t=<span class="literal">_n_</span>;</span><br><span class="line"><span class="meta">input</span> agric@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">100     101.6   103.3   111.5   116.5   120.1   120.3   100.6   83.6    </span></span><br><span class="line"><span class="emphasis">84.7    88.7    98.9    111.9   122.9   131.9   134.2   131.6   132.2   </span></span><br><span class="line"><span class="emphasis">139.8   142     140.5   153.1   159.2   162.3   159.1   155.1   161.2   </span></span><br><span class="line"><span class="emphasis">171.5  168.4   180.4   201.6   218.7  247    253.7   261.4  273.2   279.4  </span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot agric<span class="comment">*t=1;</span></span><br><span class="line">symbol1 c=red i=join v=square;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=agric(1) stationarity=(adf) nlag=18;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line"><span class="meta">input</span> x1-x6@@;</span><br><span class="line">y1<span class="meta">=log(</span>x1); y2<span class="meta">=log(</span>x2); y3<span class="meta">=log(</span>x3); y4<span class="meta">=log(</span>x4);y5<span class="meta">=log(</span>x5); y6<span class="meta">=log(</span>x6);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">781.66	74.3	47.20	108.20	98.5	67.4</span></span><br><span class="line"><span class="emphasis">893.77	80.4	61.40	110.50	98.6	67.6</span></span><br><span class="line"><span class="emphasis">1114.32	97.6	84.40	121.60	98.3	67.9</span></span><br><span class="line"><span class="emphasis">1519.23	127.3	167.90	146.10	97.6	69.0</span></span><br><span class="line"><span class="emphasis">1990.86	158.7	238.20	181.00	97.2	70.1</span></span><br><span class="line"><span class="emphasis">2499.43	190.3	273.80	214.90	97.3	70.8</span></span><br><span class="line"><span class="emphasis">2957.55	222.6	378.80	234.60	97.3	71.5</span></span><br><span class="line"><span class="emphasis">3438.79	247.6	412.90	241.20	97.2	72.2</span></span><br><span class="line"><span class="emphasis">3801.09	313.4	531.40	241.20	97.1	73.0</span></span><br><span class="line"><span class="emphasis">4188.73	386.04	501.40	244.80	96.9	73.8</span></span><br><span class="line"><span class="emphasis">4771.17	547.10	449.90	250.90	96.5	74.6</span></span><br><span class="line"><span class="emphasis">5210.12	608.98	510.80	250.90	95.7	75.3</span></span><br><span class="line"><span class="emphasis">5741.03	726.64	583.50	252.20	95.2	76.4</span></span><br><span class="line"><span class="emphasis">6694.23	1123.97	604.62	252.5	95.1	77.6</span></span><br><span class="line"><span class="emphasis">8072.83	1600.26	672.58	257.8	95.5	81.2</span></span><br><span class="line"><span class="emphasis">9247.66	1863.65	885.74	260.3	95.6	84.5</span></span><br><span class="line"><span class="emphasis">10572.2	2274.89	1125.54	263.4	95.6	85.8</span></span><br><span class="line"><span class="emphasis">12494.0	2829.73	1466.33	271.7	95.7	86.8</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"> <span class="comment">/*VAR model unit root test原始序列*/</span></span><br><span class="line"><span class="keyword">proc arima </span>data=ex;</span><br><span class="line">    identify var=y1 stationarity=(adf=3);</span><br><span class="line"> identify var=y2 stationarity=(adf=3);</span><br><span class="line">   identify var=y3 stationarity=(adf=3);</span><br><span class="line">   identify var=y4 stationarity=(adf=3);</span><br><span class="line">   identify var=y5 stationarity=(adf=3);</span><br><span class="line">   identify var=y6 stationarity=(adf=3);</span><br><span class="line"><span class="keyword">run;</span></span><br><span class="line"><span class="keyword">proc varmax </span>data=ex;</span><br><span class="line">model y1-y6/minic=(type=aic p=2 q=0)</span><br><span class="line">print=(diagnose roots)</span><br><span class="line">cointtest=(johansen=(type=trace));</span><br><span class="line"><span class="meta">output</span> lead=3;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170241403.png" alt="image-20200711170241403"></p>
-<p>有向上发展的趋势，我们需要进行差分</p>
-<p>一步(一阶)差分：dif(xx)<br>二部差分：dif2(xx)<br>二阶差分：dif(dif(xx))</p>
-<p>修改SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line">t=<span class="literal">_n_</span>;</span><br><span class="line"><span class="meta">input</span> agric@@;</span><br><span class="line">dif<span class="meta">=dif(</span>agric);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot dif<span class="comment">*t=1;</span></span><br><span class="line">symbol1 c=red i=join v=square;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=dif stationarity=(adf) nlag=18;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716124328607.png" alt="image-20200716124328607" style="zoom:80%;" />
 
-<p>自相关系数图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170741965.png" alt="image-20200711170741965" style="zoom:80%;" />
-
-<p>可以看出差不多在0左右徘徊，我们再来看看时序图：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711170844259.png" alt="image-20200711170844259"></p>
-<p>综合以上，基本稳定。接着我们看一阶差分之后的白噪性检验：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171054139.png" alt="image-20200711171054139"></p>
-<p>只要有一个里面比0.05小，就说明有信息传递，可以用时间序列拟合。</p>
-<p>接下来做一阶差分的模型识别，修改SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=dif nlag=18 minic p=(0:5) q=(0:5);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171410473.png" alt="image-20200711171410473"></p>
-<p>得到p=1，q=0，模型为ARIMA(1,1,0)（中间参数是代表阶数）</p>
-<p>模型的检验：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=1;</span><br></pre></td></tr></table></figure>
-
-<p>进行参数的检验：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171635936.png" alt="image-20200711171635936"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711173026422.png" alt="image-20200711173026422" style="zoom:67%;" />
-
-<p>对模型进行显著性检验，即对残差序列进行白噪声检验：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711171929770.png" alt="image-20200711171929770"></p>
-<p>都大于0.05，接受原假设，说明残差之间没有信息传递。</p>
-<p>预测代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forecast lead=10 id=time interval=year <span class="meta">out</span>=<span class="meta">out</span>;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711172237321.png" alt="image-20200711172237321"></p>
-<p>这里预测的是一阶差分之后的数据量，我们如果想要看本来的数据，可以修改代码来使预测的数据导入原始序列：</p>
-<p>一步(一阶)差分：xx(1)<br>二部差分：xx(2)<br>二阶差分：xx(1,1)<br>一阶12步差分：xx(1,12)</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=agric(1) nlag=18 minic p=(0:5) q=(0:5);<span class="comment">/*agric(1)相当于dif*/</span></span><br><span class="line">estimate p=1;</span><br><span class="line">forecast lead=10 id=time interval=year <span class="meta">out</span>=<span class="meta">out</span>;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711172657286.png" alt="image-20200711172657286"></p>
-<h2 id="6-疏系数模型"><a href="#6-疏系数模型" class="headerlink" title="6.疏系数模型"></a>6.疏系数模型</h2><p>对1917年－1975年美国23岁妇女每万人生育率序列建模</p>
-<p>初始SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> year <span class="meta">x</span>@@;</span><br><span class="line">dif<span class="meta">=dif(</span><span class="meta">x</span>);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1917	183.1</span></span><br><span class="line"><span class="emphasis">1918	183.9</span></span><br><span class="line"><span class="emphasis">1919	163.1</span></span><br><span class="line"><span class="emphasis">1920	179.5</span></span><br><span class="line"><span class="emphasis">1921	181.4</span></span><br><span class="line"><span class="emphasis">1922	173.4</span></span><br><span class="line"><span class="emphasis">1923	167.6</span></span><br><span class="line"><span class="emphasis">1924	177.4</span></span><br><span class="line"><span class="emphasis">1925	171.7</span></span><br><span class="line"><span class="emphasis">1926	170.1</span></span><br><span class="line"><span class="emphasis">1927	163.7</span></span><br><span class="line"><span class="emphasis">1928	151.9</span></span><br><span class="line"><span class="emphasis">1929	145.4</span></span><br><span class="line"><span class="emphasis">1930	145</span></span><br><span class="line"><span class="emphasis">1931	138.9</span></span><br><span class="line"><span class="emphasis">1932	131.5</span></span><br><span class="line"><span class="emphasis">1933	125.7</span></span><br><span class="line"><span class="emphasis">1934	129.5</span></span><br><span class="line"><span class="emphasis">1935	129.6</span></span><br><span class="line"><span class="emphasis">1936	129.5</span></span><br><span class="line"><span class="emphasis">1937	132.2</span></span><br><span class="line"><span class="emphasis">1938	134.1</span></span><br><span class="line"><span class="emphasis">1939	132.1</span></span><br><span class="line"><span class="emphasis">1940	137.4</span></span><br><span class="line"><span class="emphasis">1941	148.1</span></span><br><span class="line"><span class="emphasis">1942	174.1</span></span><br><span class="line"><span class="emphasis">1943	174.7</span></span><br><span class="line"><span class="emphasis">1944	156.7</span></span><br><span class="line"><span class="emphasis">1945	143.3</span></span><br><span class="line"><span class="emphasis">1946	189.7</span></span><br><span class="line"><span class="emphasis">1947	212</span></span><br><span class="line"><span class="emphasis">1948	200.4</span></span><br><span class="line"><span class="emphasis">1949	201.8</span></span><br><span class="line"><span class="emphasis">1950	200.7</span></span><br><span class="line"><span class="emphasis">1951	215.6</span></span><br><span class="line"><span class="emphasis">1952	222.5</span></span><br><span class="line"><span class="emphasis">1953	231.5</span></span><br><span class="line"><span class="emphasis">1954	237.9</span></span><br><span class="line"><span class="emphasis">1955	244</span></span><br><span class="line"><span class="emphasis">1956	259.4</span></span><br><span class="line"><span class="emphasis">1957	268.8</span></span><br><span class="line"><span class="emphasis">1958	264.3</span></span><br><span class="line"><span class="emphasis">1959	264.5</span></span><br><span class="line"><span class="emphasis">1960	268.1</span></span><br><span class="line"><span class="emphasis">1961	264</span></span><br><span class="line"><span class="emphasis">1962	252.8</span></span><br><span class="line"><span class="emphasis">1963	240</span></span><br><span class="line"><span class="emphasis">1964	229.1</span></span><br><span class="line"><span class="emphasis">1965	204.8</span></span><br><span class="line"><span class="emphasis">1966	193.3</span></span><br><span class="line"><span class="emphasis">1967	179</span></span><br><span class="line"><span class="emphasis">1968	178.1</span></span><br><span class="line"><span class="emphasis">1969	181.1</span></span><br><span class="line"><span class="emphasis">1970	165.6</span></span><br><span class="line"><span class="emphasis">1971	159.8</span></span><br><span class="line"><span class="emphasis">1972	136.1</span></span><br><span class="line"><span class="emphasis">1973	126.3</span></span><br><span class="line"><span class="emphasis">1974	123.3</span></span><br><span class="line"><span class="emphasis">1975	118.5</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*year dif*year;</span></span><br><span class="line">symbol c=black i=join v=square;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span> nlag=22;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233116659.png" alt="image-20200711233116659"></p>
-<p>发现初始序列并不稳定，我们做一阶差分。</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=<span class="meta">x</span>(1);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233206614.png" alt="image-20200711233206614"></p>
-<p>自相关系数趋向于0，说明一阶差分后稳定了</p>
-<p>接着我们需要确定模型</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=<span class="meta">x</span>(1) nlag=22 minic p=(0:5) q=(0:5);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233552697.png" alt="image-20200711233552697"></p>
-<p>这里最好选择p=1，但是我们为了研究疏系数模型，我们取次小的p=4来研究</p>
-<p>参数分析：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=4;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233746204.png" alt="image-20200711233746204"></p>
-<p>常数，AR2，AR3接受了原假设，需要去掉，修改代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=(1 4) noint;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233856197.png" alt="image-20200711233856197"></p>
-<p>残差检验：所有的都要大于0.05</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711233924300.png" alt="image-20200711233924300"></p>
-<p>接着就可以做预测了：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">forecast lead=5 id=year <span class="meta">out</span>=<span class="meta">out</span>;</span><br><span class="line"><span class="keyword">proc gplot </span>data=<span class="meta">out</span>;</span><br><span class="line">plot <span class="meta">x</span><span class="comment">*year=1 forecast*year=2 l95*year=3 u95*year=3/overlay;</span></span><br><span class="line">symbol1 c=black i=none v=star;</span><br><span class="line">symbol2 c=red i=join v=none;</span><br><span class="line">symbol3 c=green i=join v=none;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711234321344.png" alt="image-20200711234321344"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711234330329.png" alt="image-20200711234330329"></p>
-<h2 id="7-简单季节模型"><a href="#7-简单季节模型" class="headerlink" title="7.简单季节模型"></a>7.简单季节模型</h2><p>拟合1962——1991年德国工人季度失业率序列</p>
-<p>初始SAS代码：(首先这个肯定不平稳，我们直接跳到一阶差分)</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1<span class="meta">=dif(</span><span class="meta">x</span>);</span><br><span class="line">time=1962+<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1.1	0.5	0.4	0.7	1.6	0.6	0.5	0.7</span></span><br><span class="line"><span class="emphasis">1.3	0.6	0.5	0.7	1.2	0.5	0.4	0.6</span></span><br><span class="line"><span class="emphasis">0.9	0.5	0.5	1.1	2.9	2.1	1.7	2</span></span><br><span class="line"><span class="emphasis">2.7	1.3	0.9	1	1.6	0.6	0.5	0.7</span></span><br><span class="line"><span class="emphasis">1.1	0.5	0.5	0.6	1.2	0.7	0.7	1</span></span><br><span class="line"><span class="emphasis">1.5	1	0.9	1.1	1.5	1	1	1.6</span></span><br><span class="line"><span class="emphasis">2.6	2.1	2.3	3.6	5	4.5	4.5	4.9</span></span><br><span class="line"><span class="emphasis">5.7	4.3	4	4.4	5.2	4.3	4.2	4.5</span></span><br><span class="line"><span class="emphasis">5.2	4.1	3.9	4.1	4.8	3.5	3.4	3.5</span></span><br><span class="line"><span class="emphasis">4.2	3.4	3.6	4.3	5.5	4.8	5.4	6.5</span></span><br><span class="line"><span class="emphasis">8	7	7.4	8.5	10.1	8.9	8.8	9</span></span><br><span class="line"><span class="emphasis">10	8.7	8.8	8.9	10.4	8.9	8.9	9</span></span><br><span class="line"><span class="emphasis">10.2	8.6	8.4	8.4	9.9	8.5	8.6	8.7</span></span><br><span class="line"><span class="emphasis">9.8	8.6	8.4	8.2	8.8	7.6	7.5	7.6</span></span><br><span class="line"><span class="emphasis">8.1	7.1	6.9	6.6	6.8	6	6.2	6.2</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712103719265.png" alt="image-20200712103719265"></p>
-<p>可以看出，一阶差分之后周期性还是很明显的。我们可以发现周期大概是四，因此我们在此基础上再来四步差分。修改SAS代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1_4=dif4<span class="meta">(dif(</span><span class="meta">x</span>));</span><br><span class="line">time=1962+<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1_4*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1 4);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104015913.png" alt="image-20200712104015913"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104028956.png" alt="image-20200712104028956"></p>
-<p>综合自相关系数表和时序图可以看出此时时间序列平稳了，接着我们还需要看白噪声检验：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104126688.png" alt="image-20200712104126688"></p>
-<p>都小于0.05，说明一阶四步差分之后的序列可以做时间序列的模型。</p>
-<p>接着我们要预测模型（此步上面都有，不再赘述），试出来是p=4，再进行参数检验，最后p=(1 4) noint，定阶模型为ARIMA((1,4),(1,4),0)。</p>
-<p>最后看残差的白噪声检验，通过了就可以做预测了，附上SAS代码</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1<span class="meta">=dif(</span><span class="meta">x</span>);</span><br><span class="line">dif1_4=dif4<span class="meta">(dif(</span><span class="meta">x</span>));</span><br><span class="line">time=1962+<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1_4*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1 4);</span><br><span class="line">estimate p=(1 4) noint;</span><br><span class="line">forecast lead=5 id=time <span class="meta">out</span>=<span class="meta">out</span>;</span><br><span class="line"><span class="keyword">proc gplot </span>data=<span class="meta">out</span>;</span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time=1 forecast*time=2 /overlay;</span></span><br><span class="line">symbol1 c=black i=none v=star;</span><br><span class="line">symbol2 c=red i=join v=none;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104736968.png" alt="image-20200712104736968"></p>
-<p>参数估计：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712104749329.png" alt="image-20200712104749329" style="zoom:67%;" /></p>
-<h2 id="8-乘积季节模型"><a href="#8-乘积季节模型" class="headerlink" title="8.乘积季节模型"></a>8.乘积季节模型</h2><p>拟合1948——1981年美国女性月度失业率序列</p>
-<p>初始SAS代码：(原始序列不稳定确定过程略过，直接先进行一阶差分)</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1_12=dif12<span class="meta">(dif(</span><span class="meta">x</span>));</span><br><span class="line">time=<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">446	650	592	561	491	592	604	635	580</span></span><br><span class="line"><span class="emphasis">510	553	554	628	708	629	724	820	865</span></span><br><span class="line"><span class="emphasis">1007	1025	955	889	965	878	1103	1092	978</span></span><br><span class="line"><span class="emphasis">823	827	928	838	720	756	658	838	684</span></span><br><span class="line"><span class="emphasis">779	754	794	681	658	644	622	588	720</span></span><br><span class="line"><span class="emphasis">670	746	616	646	678	552	560	578	514</span></span><br><span class="line"><span class="emphasis">541	576	522	530	564	442	520	484	538</span></span><br><span class="line"><span class="emphasis">454	404	424	432	458	556	506	633	708</span></span><br><span class="line"><span class="emphasis">1013	1031	1101	1061	1048	1005	987	1006	1075</span></span><br><span class="line"><span class="emphasis">854	1008	777	982	894	795	799	781	776</span></span><br><span class="line"><span class="emphasis">761	839	842	811	843	753	848	756	848</span></span><br><span class="line"><span class="emphasis">828	857	838	986	847	801	739	865	767</span></span><br><span class="line"><span class="emphasis">941	846	768	709	798	831	833	798	806</span></span><br><span class="line"><span class="emphasis">771	951	799	1156	1332	1276	1373	1325	1326</span></span><br><span class="line"><span class="emphasis">1314	1343	1225	1133	1075	1023	1266	1237	1180</span></span><br><span class="line"><span class="emphasis">1046	1010	1010	1046	985	971	1037	1026	947</span></span><br><span class="line"><span class="emphasis">1097	1018	1054	978	955	1067	1132	1092	1019</span></span><br><span class="line"><span class="emphasis">1110	1262	1174	1391	1533	1479	1411	1370	1486</span></span><br><span class="line"><span class="emphasis">1451	1309	1316	1319	1233	1113	1363	1245	1205</span></span><br><span class="line"><span class="emphasis">1084	1048	1131	1138	1271	1244	1139	1205	1030</span></span><br><span class="line"><span class="emphasis">1300	1319	1198	1147	1140	1216	1200	1271	1254</span></span><br><span class="line"><span class="emphasis">1203	1272	1073	1375	1400	1322	1214	1096	1198</span></span><br><span class="line"><span class="emphasis">1132	1193	1163	1120	1164	966	1154	1306	1123</span></span><br><span class="line"><span class="emphasis">1033	940	1151	1013	1105	1011	963	1040	838</span></span><br><span class="line"><span class="emphasis">1012	963	888	840	880	939	868	1001	956</span></span><br><span class="line"><span class="emphasis">966	896	843	1180	1103	1044	972	897	1103</span></span><br><span class="line"><span class="emphasis">1056	1055	1287	1231	1076	929	1105	1127	988</span></span><br><span class="line"><span class="emphasis">903	845	1020	994	1036	1050	977	956	818</span></span><br><span class="line"><span class="emphasis">1031	1061	964	967	867	1058	987	1119	1202</span></span><br><span class="line"><span class="emphasis">1097	994	840	1086	1238	1264	1171	1206	1303</span></span><br><span class="line"><span class="emphasis">1393	1463	1601	1495	1561	1404	1705	1739	1667</span></span><br><span class="line"><span class="emphasis">1599	1516	1625	1629	1809	1831	1665	1659	1457</span></span><br><span class="line"><span class="emphasis">1707	1607	1616	1522	1585	1657	1717	1789	1814</span></span><br><span class="line"><span class="emphasis">1698	1481	1330	1646	1596	1496	1386	1302	1524</span></span><br><span class="line"><span class="emphasis">1547	1632	1668	1421	1475	1396	1706	1715	1586</span></span><br><span class="line"><span class="emphasis">1477	1500	1648	1745	1856	2067	1856	2104	2061</span></span><br><span class="line"><span class="emphasis">2809	2783	2748	2642	2628	2714	2699	2776	2795</span></span><br><span class="line"><span class="emphasis">2673	2558	2394	2784	2751	2521	2372	2202	2469</span></span><br><span class="line"><span class="emphasis">2686	2815	2831	2661	2590	2383	2670	2771	2628</span></span><br><span class="line"><span class="emphasis">2381	2224	2556	2512	2690	2726	2493	2544	2232</span></span><br><span class="line"><span class="emphasis">2494	2315	2217	2100	2116	2319	2491	2432	2470</span></span><br><span class="line"><span class="emphasis">2191	2241	2117	2370	2392	2255	2077	2047	2255</span></span><br><span class="line"><span class="emphasis">2233	2539	2394	2341	2231	2171	2487	2449	2300</span></span><br><span class="line"><span class="emphasis">2387	2474	2667	2791	2904	2737	2849	2723	2613</span></span><br><span class="line"><span class="emphasis">2950	2825	2717	2593	2703	2836	2938	2975	3064</span></span><br><span class="line"><span class="emphasis">3092	3063	2991						</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1_12*time;</span></span><br><span class="line">symbol c=black i=join v=none;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712111526775.png" alt="image-20200712111526775"></p>
-<p>可以看出周期差不多是12，因此在进行12步差分</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=<span class="meta">x</span>(1,12);</span><br></pre></td></tr></table></figure>
-
-<p>先进行差分平稳：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110248454.png" alt="image-20200712110248454" style="zoom:67%;" />
-
-<p>得到的自相关系数图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110321230.png" alt="image-20200712110321230" style="zoom:67%;" />
-
-<p>偏自相关系数图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110452182.png" alt="image-20200712110452182" style="zoom:67%;" />
-
-<p>从上面这两张图差不多可以看出进行了差分后并没有完全平稳，接着我们制定模型，中间的参数检验逐步把p(AR)和q(MA)不符合的去掉，最后得到p=0,q=1 noint;</p>
-<p>再看残差白噪声检验：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712110725586.png" alt="image-20200712110725586" style="zoom:67%;" />
-
-<p>好几个小于0.05，说明残差直接有信息传递，这时候我们发现简单季节模型并不适用，我们考虑使用乘积季节模型</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712113718281.png" alt="image-20200712113718281"></p>
-<p>最终调试出来的代码：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=1 q=(1)(12) noint;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712113954779.png" alt="image-20200712113954779"></p>
-<p>参数检验通过</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712114017028.png" alt="image-20200712114017028"></p>
-<p>残差白噪声检验也通过了。</p>
-<p>模型定阶：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712114300170.png" alt="image-20200712114300170" style="zoom:67%;" /></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115452313.png" alt="image-20200712115452313"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115354214.png" alt="image-20200712115354214" style="zoom:67%;" />
-
-<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><h2 id="1-平稳时间序列"><a href="#1-平稳时间序列" class="headerlink" title="1.平稳时间序列"></a>1.平稳时间序列</h2><p>现有201个连续的生产纪录，如下</p>
-<p>81.9     89.4     79.0     81.4     84.8     85.9     88.0     80.3     82.6<br>83.5     80.2     85.2     87.2     83.5     84.3     82.9     84.7     82.9<br>81.5     83.4     87.7     81.8     79.6     85.8     77.9     89.7     85.4<br>86.3     80.7     83.8     90.5     84.5     82.4     86.7     83.0     81.8<br>89.3     79.3     82.7     88.0     79.6     87.8     83.6     79.5     83.3<br>88.4     86.6     84.6     79.7     86.0     84.2     83.0     84.8     83.6<br>81.8     85.9     88.2     83.5     87.2     83.7     87.3     83.0     90.5<br>80.7     83.1     86.5     90.0     77.5     84.7     84.6     87.2     80.5<br>86.1     82.6     85.4     84.7     82.8     81.9     83.6     86.8     84.0<br>84.2     82.8     83.0     82.0     84.7     84.4     88.9     82.4     83.0<br>85.0     82.2     81.6     86.2     85.4     82.1     81.4     85.0     85.8<br>84.2     83.5     86.5     85.0     80.4     85.7     86.7     86.7     82.3<br>86.4     82.5     82.0     79.5     86.7     80.5     91.7     81.6     83.9<br>85.6     84.8     78.4     89.9     85.0     86.2     83.0     85.4     84.4<br>84.5     86.2     85.6     83.2     85.7     83.5     80.1     82.2     88.6<br>82.0     85.0     85.2     85.3     84.3     82.3     89.7     84.8     83.1<br>80.6     87.4     86.8     83.5     86.2     84.1     82.3     84.8     86.6<br>83.5     78.1     88.8     81.9     83.3     80.0     87.2     83.3     86.6<br>79.5     84.1     82.2     90.8     86.5     79.7     81.0     87.2     81.6<br>84.4     84.4     82.2     88.9     80.9     85.1     87.1     84.0     76.5<br>82.7     85.1     83.3     90.4     81.0     80.3     79.8     89.0     83.7<br>80.9     87.3     81.1     85.6     86.6     80.0     86.6     83.3     83.1<br>82.3     86.7     80.2<br>（1）判断该序列的平稳性<br>（2）如果该序列平稳且非白噪声。选择适当模型拟合该序列的发展<br>（3）写出拟合模型，预测该序列后5年的95%预测的置信区间。</p>
-<p>1、首先我们进行平稳性和非白噪声检验并初步确立模型，编写对应的SAS代码</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;</span><br><span class="line"><span class="meta">input</span> prop@@;</span><br><span class="line">year=<span class="literal">_n_</span>;</span><br><span class="line">dif<span class="meta">=dif(</span>prop);</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">/*数据区*/</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot prop<span class="comment">*year=1;</span></span><br><span class="line">symbol1 v=diamond i=join c=red;</span><br><span class="line"><span class="keyword">proc arima </span>data=ex;</span><br><span class="line">identify var=prop nlag=22 minic p=(0:5)  q=(0:5);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p>时序图：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140722673.png" alt="image-20200711140722673" style="zoom:67%;" />
-
-<p>已知时间序列为平稳序列的条件如下：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140843032.png" alt="image-20200711140843032"></p>
-<p>观察时间序列图可知，序列基本上在一条水平线上下波动，可知该组数据的均值基本不变，为固定值，满足条件（1）；序列的波动性较小可判断其方差存在且可能为常数，满足条件（2）。因此，从该时间序列图我们猜测数据可能为平稳序列。接着，通过自相关图中自相关系数的变化进一步判断。</p>
-<p>自相关系数图：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711140738779.png" alt="image-20200711140738779"></p>
-<p>由自相关系数图可知，当跨越步数p为0 时，自相关系数为1，此时自相关系数最大。随着跨越步数的逐渐增大，自相关系数的绝对值越小。跨越步数越大，自相关系数的绝对值越接近于0，具有拖尾的性质。可见，该序列是平稳序列。</p>
-<p>2、在序列为平稳序列的基础上，我们对该序列进行白噪声检验</p>
-<p>白噪声检验表：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141041020.png" alt="image-20200711141041020"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141103666.png" alt="image-20200711141103666" style="zoom:80%;" />
-
-<p>说明存在序列相关性，不满足纯随机序列 ，可以用时间序列拟合</p>
-<p>3、调用SAS,对生产量进行minic 识别，指定p 和q 的最小值都为0，最大值都为6，得到BIC 信息指数如下：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141244059.png" alt="image-20200711141244059"></p>
-<p>暂时确定p=0，q=1，该序列为MA模型。</p>
-<p>4、使用条件最小二乘估计进行参数估计，参数估计值如下表：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141622621.png" alt="image-20200711141622621"></p>
-<p>其中，第一列为估计的参数名称，第二列是参数的估计值，第三列是参数估计值的标准误，第四列是参数显著性检验的 t 值，第五列为显著性检验的概率值 P。</p>
-<p>可以发现 MU 和 MA1 ,1 的 P 值均小于 0.05 ，通过了 t 检验，得出移动平均系数多项式：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711141813927.png" alt="image-20200711141813927" style="zoom:67%;" /></p>
-<p>根据移动平均模型的定义：𝑥𝑡=Θ(𝐵)𝜀𝑡，又可以推出 时间序列模型：𝑥𝑡=84.12889+(1−0.47959𝐵)𝜀𝑡</p>
-<p>5、接着对模型进行显著性检验，即对残差序列进行白噪声检验，得到的残差序列检验表如下：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142223055.png" alt="image-20200711142223055"></p>
-<p>可以看出，对 36 期的残差序列进行显著性检验后，其 P 值均大于 0.05 ，接受了原假设，服从白噪声序列，说明拟合模型能够提取观察值序列中几乎所有的样本相关信能够提取观察值序列中几乎所有的样本相关信息息。。</p>
-<p>6、预测该序列后5 年的 95% 预测的置信区间 ，结果如表：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142320478.png" alt="image-20200711142320478"></p>
-<p>通过预测数据绘制除原数据与预测数据的拟合曲线如下图：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200711142355048.png" alt="image-20200711142355048"></p>
-<p>由预测曲线图可以看出，大部分原数据在预测曲线上，预测趋势与原数据走势基本相似。<br>不在预测曲线上的数据几乎全部落在95%的预测曲线内，预测效果较好。</p>
-<h2 id="2-非平稳时间序列"><a href="#2-非平稳时间序列" class="headerlink" title="2.非平稳时间序列"></a>2.非平稳时间序列</h2><p>习题：某城市连续14年的月度婴儿出生率数据如下<br>26.663    23.598    26.931    24.740    25.806    24.364    24.477    23.901<br>23.175    23.227    21.672    21.870    21.439    21.089    23.709    21.669<br>21.752    20.761    23.479    23.824    23.105    23.110    21.759    22.073<br>21.937    20.035    23.590    21.672    22.222    22.123    23.950    23.504<br>22.238    23.142    21.059    21.573    21.548    20.000    22.424    20.615<br>21.761    22.874    24.104    23.748    23.262    22.907    21.519    22.025<br>22.604    20.894    24.677    23.673    25.320    23.583    24.671    24.454<br>24.122    24.252    22.084    22.991    23.287    23.049    25.076    24.037<br>24.430    24.667    26.451    25.618    25.014    25.110    22.964    23.981<br>23.798    22.270    24.775    22.646    23.988    24.737    26.276    25.816<br>25.210    25.199    23.162    24.707    24.364    22.644    25.565    24.062<br>25.431    24.635    27.009    26.606    26.268    26.462    25.246    25.180<br>24.657    23.304    26.982    26.199    27.210    26.122    26.706    26.878<br>26.152    26.379    24.712    25.688    24.990    24.239    26.721    23.475<br>24.767    26.219    28.361    28.599    27.914    27.784    25.693    26.881<br>26.217    24.218    27.914    26.975    28.527    27.139    28.982    28.169<br>28.056    29.136    26.291    26.987    26.589    24.848    27.543    26.896<br>28.878    27.390    28.065    28.141    29.048    28.484    26.634    27.735<br>27.132    24.924    28.963    26.589    27.931    28.009    29.229    28.759<br>28.405    27.945    25.912    26.619    26.076    25.286    27.660    25.951<br>26.398    25.565    28.865    30.000    29.261    29.012    26.992    27.897</p>
-<p>（1）选择适当的模型拟合该序列的发展<br>（2）使用该拟合模型预测下一年度该城市月度婴儿出生率</p>
-<p>1、首先我们先绘制原本数据的时间序列图，初始SAS代码如下：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">time=<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">26.663	23.598	26.931	24.740	25.806	24.364	24.477	23.901</span></span><br><span class="line"><span class="emphasis">23.175	23.227	21.672	21.870	21.439	21.089	23.709	21.669</span></span><br><span class="line"><span class="emphasis">21.752	20.761	23.479	23.824	23.105	23.110	21.759	22.073</span></span><br><span class="line"><span class="emphasis">21.937	20.035	23.590	21.672	22.222	22.123	23.950	23.504</span></span><br><span class="line"><span class="emphasis">22.238	23.142	21.059	21.573	21.548	20.000	22.424	20.615</span></span><br><span class="line"><span class="emphasis">21.761	22.874	24.104	23.748	23.262	22.907	21.519	22.025</span></span><br><span class="line"><span class="emphasis">22.604	20.894	24.677	23.673	25.320	23.583	24.671	24.454</span></span><br><span class="line"><span class="emphasis">24.122	24.252	22.084	22.991	23.287	23.049	25.076	24.037</span></span><br><span class="line"><span class="emphasis">24.430	24.667	26.451	25.618	25.014	25.110	22.964	23.981</span></span><br><span class="line"><span class="emphasis">23.798	22.270	24.775	22.646	23.988	24.737	26.276	25.816</span></span><br><span class="line"><span class="emphasis">25.210	25.199	23.162	24.707	24.364	22.644	25.565	24.062</span></span><br><span class="line"><span class="emphasis">25.431	24.635	27.009	26.606	26.268	26.462	25.246	25.180</span></span><br><span class="line"><span class="emphasis">24.657	23.304	26.982	26.199	27.210	26.122	26.706	26.878</span></span><br><span class="line"><span class="emphasis">26.152	26.379	24.712	25.688	24.990	24.239	26.721	23.475</span></span><br><span class="line"><span class="emphasis">24.767	26.219	28.361	28.599	27.914	27.784	25.693	26.881</span></span><br><span class="line"><span class="emphasis">26.217	24.218	27.914	26.975	28.527	27.139	28.982	28.169</span></span><br><span class="line"><span class="emphasis">28.056	29.136	26.291	26.987	26.589	24.848	27.543	26.896</span></span><br><span class="line"><span class="emphasis">28.878	27.390	28.065	28.141	29.048	28.484	26.634	27.735</span></span><br><span class="line"><span class="emphasis">27.132	24.924	28.963	26.589	27.931	28.009	29.229	28.759</span></span><br><span class="line"><span class="emphasis">28.405	27.945	25.912	26.619	26.076	25.286	27.660	25.951</span></span><br><span class="line"><span class="emphasis">26.398	25.565	28.865	30.000	29.261	29.012	26.992	27.897</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p>时间序列图：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712115950952.png" alt="image-20200712115950952"></p>
-<p>自相关系数：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120025799.png" alt="image-20200712120025799" style="zoom:67%;" />
-
-<p>可以看出序列非平稳，接着我们对序列进行差分处理，希望消除其周期性和趋势性。</p>
-<p>2、一阶差分</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif<span class="meta">=dif(</span><span class="meta">x</span>);</span><br><span class="line">time=<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p>时间序列图：<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120558943.png" alt="image-20200712120558943"></p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120537754.png" alt="image-20200712120537754" style="zoom:80%;" />
-
-<p>可以看出数据仍存在明显的周期性。估计其周期大致为12，接着用逐步差分消除周期性。</p>
-<p>3、十二步差分</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1_12=dif12<span class="meta">(dif(</span><span class="meta">x</span>));</span><br><span class="line">time=<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1_12*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1,12);</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120903657.png" alt="image-20200712120903657"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712120930111.png" alt="image-20200712120930111"></p>
-<p>由该自相关系数图同样可以观察到周期性减弱了许多，但仍然可能残余部分周期信息未被提取完全。我们先认为序列为平稳序列，对其进行白噪声检验。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121156624.png" alt="image-20200712121156624"></p>
-<p>4、因为数据序列为平稳序列且为非白噪声序列，所以数据间存在一定的相关性，我们决定先尝试使用ARIMA 模型中的简单季节模型进行预测</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">identify var=<span class="meta">x</span>(1,12) minic p=(0:5) q=(0:5);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121504800.png" alt="image-20200712121504800"></p>
-<p>由上表可知，当p=0,q=3 时，模型最优。模型为ARMA(0,3)。</p>
-<p>5、接下来进行参数估计：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=0 q=3;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121800765.png" alt="image-20200712121800765"></p>
-<p>由上参数检验表可知常数 、q=3 的P 值＞0.05，参数不通过检验。因此删除上述未通过检验的参数再进行检验</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimate p=0 q=2 noint;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712121952807.png" alt="image-20200712121952807"></p>
-<p>参数全部通过检验，接着对模型进行显著性检验，即对残差进行白噪声检验</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712122048269.png" alt="image-20200712122048269"></p>
-<p>很多都小于0.05，说明残差之间有信息传递。此模型并不适用，因此，我们选择使用ARIMA 模型中的乘积季节模型进行预测。</p>
-<p>6、这里我们使得P、Q=0……5来一个个看，发现D(步数)等于12时均不能达到，我们这时候可以把D=2，即看成24步，再次来算就容易多了</p>
-<p>最终确定为<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712141948656.png" alt="image-20200712141948656"></p>
-<p>参数检验表：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142006529.png" alt="image-20200712142006529"></p>
-<p>残差序列检验表：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142025155.png" alt="image-20200712142025155"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142051379.png" alt="image-20200712142051379"></p>
-<p>该模型的方程为：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142112187.png" alt="image-20200712142112187"></p>
-<p>7、得到模型我们就可以做预测了</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">goptions vsize=7cm hsize=10cm;</span><br><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> <span class="meta">x</span>@@;</span><br><span class="line">dif1_12=dif12<span class="meta">(dif(</span><span class="meta">x</span>));</span><br><span class="line">time=<span class="literal">_n_</span>;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc gplot;</span></span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time dif1_12*time;</span></span><br><span class="line">symbol c=black i=join v=star;</span><br><span class="line"><span class="keyword">proc arima;</span></span><br><span class="line">identify var=<span class="meta">x</span>(1,24) minic p=(0:5) q=(0:5);</span><br><span class="line">estimate p=(0) q=(2)(24) noint;</span><br><span class="line">forecast lead=12 id=time <span class="meta">out</span>=<span class="meta">out</span>;</span><br><span class="line"><span class="keyword">proc gplot </span>data=<span class="meta">out</span>;</span><br><span class="line">plot <span class="meta">x</span><span class="comment">*time=1 forecast*time=2 /overlay;</span></span><br><span class="line">symbol1 c=black i=none v=star;</span><br><span class="line">symbol2 c=red i=join v=none;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
-
-<p>预测结果如下表所示：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142543568.png" alt="image-20200712142543568"></p>
-<p>通过预测数据绘制除原数据与预测数据的拟合曲线如下图：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200712142612981.png" alt="image-20200712142612981"></p>
-<p>由预测曲线图可以看出，大部分原数据在预测曲线上，预测趋势与原数据走势基本相似。<br>不在预测曲线上的数据几乎全部落在95%的预测曲线内，预测效果较好。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>鉴于本人最近嘴唇有了溃疡，决定鸽几天数学建模，看看品优购舒服一下(‾◡◝)</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1461430536&auto=0&height=66"></iframe>
+<p>检验的原假设为序列不是平稳序列，备择假设为序列是平稳序列。由上表可知x1 、x2、x4 、x5 中均存在Pr＜Tau 的概率＜0.05，因此拒绝原假设，认为x1 、x2、x4 、x5是平稳序列。但x3 、x6 中Pr＜Tau 的概率均＞0.05，所以接受原假设，认为序列不是平稳序列。因此我们还需要对序列进行协整关系检验。</p>
+<h2 id="2-协整关系检验"><a href="#2-协整关系检验" class="headerlink" title="2.协整关系检验"></a>2.协整关系检验</h2><p>由于自变量本身非平稳，因此需要检验其线性组合之间是否平稳，这种组合反映了变量之间长期稳定的比例关系。我们采用特征根迹检验法，得到的检验表如下：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125540857.png" alt="image-20200716125540857"></p>
+<p>当r=0 时， trace=193.3870＞ 93.92； 当r=1 时， trace=101.0363＞ 68.68； 当r=2 时，trace=46.7559＜47.21，说明变量间存在协整关系，个数是2 个；同理当r=3、4、5，时trace均小于5% Critical Value，说明变量间都存在协整关系，最大个数为5 个。因此，我们可以对变量使用向量自回归模型。</p>
+<h2 id="3-确定VAR-p-模型最优滞后阶数"><a href="#3-确定VAR-p-模型最优滞后阶数" class="headerlink" title="3.确定VAR(p)模型最优滞后阶数"></a>3.确定VAR(p)模型最优滞后阶数</h2><p>采用AIC 信息准则采用多种方法进行综合判断，当信息保留值最大，即AIC 取值最小时p的取值即为最优滞后阶数。得到的AIC 取值表如下:</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125727726.png" alt="image-20200716125727726"></p>
+<p>由AIC 取值表可以看出，当p=1 是，AIC 最小，所以我们确定的模型为VAR(1)。</p>
+<h2 id="4-参数估计"><a href="#4-参数估计" class="headerlink" title="4.参数估计"></a>4.参数估计</h2><p>我们使用最小二乘法对VAR(1)模型参数进行估计，根据得到的参数写出VAR(1)的数学模型如下：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716125916480.png" alt="image-20200716125916480"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130257682.png" alt="image-20200716130257682"></p>
+<h2 id="5-模型检验"><a href="#5-模型检验" class="headerlink" title="5.模型检验"></a>5.模型检验</h2><p>首先对模型进行稳定性检验，得到的检验表如下：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130045085.png" alt="image-20200716130045085"></p>
+<p>由上检验表可知，模型的所有特征根都在单位圆之内，所以模型是稳定的。接着对单方程进行检验，得到检验表如下：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130337593.png" alt="image-20200716130337593"></p>
+<p>由单方程检验表可知，所有方程Pr&gt;F 的概率均小于0.05，说明8 个方程的显著性均较好，该模型可以用来预测后三年的GDP 数值。预测所得的结果如下表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130513882.png" alt="image-20200716130513882"></p>
+<p>转化为x做出如下表格：<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716130540066.png" alt="image-20200716130540066"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>让你们见识一下什么叫做说了半天啥都没说：</p>
+<p>有一说一，这种事情我见的多了，我只想说懂得都懂，不懂的我也不多说了，说了你也不明白，不如不说，细细品吧，你也别来问我怎么回事，这里面利益牵扯太大了，说了对你我都没有好处，你就当不知道就行了，其余的我只能说这里水很深，牵扯到很多东西，详细情况你们很难找到的，网上大部分都删干净了。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=17413740&auto=0&height=66"></iframe>
       
 
       
@@ -709,7 +581,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/11/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%90%91%E9%87%8F%E8%87%AA%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -723,18 +595,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E4%B8%8E%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数学建模-数据比较与影响因素分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/10/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%A4%9A%E5%85%83%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数学建模—多元分析</div>
+    <a href="/2020/07/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E4%B8%8E%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模-数据比较与影响因素分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -761,7 +624,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-笔记"><span class="toc-number">2.1.</span> <span class="toc-text">1.笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-平稳性检验"><span class="toc-number">2.2.</span> <span class="toc-text">2.平稳性检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-纯随机性检验"><span class="toc-number">2.3.</span> <span class="toc-text">2.纯随机性检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-平稳时间序列建模"><span class="toc-number">2.4.</span> <span class="toc-text">3.平稳时间序列建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-非平稳序列差分方式的选择"><span class="toc-number">2.5.</span> <span class="toc-text">4.非平稳序列差分方式的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-ARIMA模型建模步骤"><span class="toc-number">2.6.</span> <span class="toc-text">5.ARIMA模型建模步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疏系数模型"><span class="toc-number">2.7.</span> <span class="toc-text">6.疏系数模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-简单季节模型"><span class="toc-number">2.8.</span> <span class="toc-text">7.简单季节模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-乘积季节模型"><span class="toc-number">2.9.</span> <span class="toc-text">8.乘积季节模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业"><span class="toc-number">3.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-平稳时间序列"><span class="toc-number">3.1.</span> <span class="toc-text">1.平稳时间序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-非平稳时间序列"><span class="toc-number">3.2.</span> <span class="toc-text">2.非平稳时间序列</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-笔记"><span class="toc-number">2.1.</span> <span class="toc-text">1.笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-向量自回归模型建模流程"><span class="toc-number">2.2.</span> <span class="toc-text">2.向量自回归模型建模流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-案例分析"><span class="toc-number">2.3.</span> <span class="toc-text">3.案例分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业"><span class="toc-number">3.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-平稳性检验"><span class="toc-number">3.1.</span> <span class="toc-text">1.平稳性检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-协整关系检验"><span class="toc-number">3.2.</span> <span class="toc-text">2.协整关系检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-确定VAR-p-模型最优滞后阶数"><span class="toc-number">3.3.</span> <span class="toc-text">3.确定VAR(p)模型最优滞后阶数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参数估计"><span class="toc-number">3.4.</span> <span class="toc-text">4.参数估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-模型检验"><span class="toc-number">3.5.</span> <span class="toc-text">5.模型检验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
                     </div>
                 </span>
             </div>
