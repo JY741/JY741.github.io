@@ -6,15 +6,57 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | J Sir</title>
+  <title>数学建模—广义线性回归 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/7/index.html">
+  <meta name="description" content="EverydayOneCat“ฅ🐈”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模—广义线性回归">
+<meta property="og:url" content="http://yoursite.com/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat“ฅ🐈”">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/4d82a22a807f6822a936c5768314d3731e8924df.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235802092.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193223379.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193244970.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193445241.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193502025.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193535761.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193550890.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193733395.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193820391.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194258318.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194458285.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194745131.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194827509.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716200236399.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716200939958.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717104307983.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233219430.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233244789.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233303915.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233331560.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233913373.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234007185.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234039772.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234259460.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235421624.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235515028.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105113045.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105356194.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105613824.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105844459.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717131938686.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717132040264.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717132119800.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717133011559.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717135451483.png">
+<meta property="article:published_time" content="2020-07-16T11:25:05.264Z">
+<meta property="article:modified_time" content="2020-07-17T06:00:07.242Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="建模">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/4d82a22a807f6822a936c5768314d3731e8924df.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,394 +205,571 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-数学建模—广义线性回归" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模—广义线性回归
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="archive-article-date">
+  	<time datetime="2020-07-16T11:25:05.264Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>“ฅ🐈”</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/4d82a22a807f6822a936c5768314d3731e8924df.gif" alt="4d82a22a807f6822a936c5768314d3731e8924df" style="zoom:67%;" />
+
+<a id="more"></a>
+
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="1-笔记"><a href="#1-笔记" class="headerlink" title="1.笔记"></a>1.笔记</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235802092.png" alt="image-20200716235802092"></p>
+<h2 id="2-Logistic回归分析"><a href="#2-Logistic回归分析" class="headerlink" title="2.Logistic回归分析"></a>2.Logistic回归分析</h2><h3 id="2-1例一"><a href="#2-1例一" class="headerlink" title="2.1例一"></a>2.1例一</h3><p>例：研究不同治疗方法对某病疗效的影响</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193223379.png" alt="image-20200716193223379" style="zoom: 67%;" />
+
+<p>这种简单的数据可以直接通过计算得出</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193244970.png" alt="image-20200716193244970" style="zoom:67%;" />
+
+<p>也可以编译SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">Input</span> treat effect count@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1 1 16 1 0 48 2 1 40 2 0 20</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span><span class="meta">order</span> =data;<span class="comment">/*使用logistic回归*/</span></span><br><span class="line">freq count;<span class="comment">/*count为频数变量*/</span></span><br><span class="line">model effect=treat;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>Logistic回归因变量信息表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193445241.png" alt="image-20200716193445241" style="zoom:67%;" />
+
+<p>模型拟合检验表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193502025.png" alt="image-20200716193502025" style="zoom:67%;" />
+
+<p>模型拟合检验表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193535761.png" alt="image-20200716193535761" style="zoom:67%;" />
+
+<p>说明按照线性模型来做是没错的。</p>
+<p>模型参数的最大似然估计表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193550890.png" alt="image-20200716193550890" style="zoom:67%;" />
+
+<p>根据此可写出回归方程：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193733395.png" alt="image-20200716193733395" style="zoom:67%;" /><br>OR的点估计与区间估计表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716193820391.png" alt="image-20200716193820391" style="zoom:67%;" />
+
+<h3 id="2-2例二"><a href="#2-2例二" class="headerlink" title="2.2例二"></a>2.2例二</h3><p>例2：研究性别及疾病严重程度对某病疗效的影响</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194258318.png" alt="image-20200716194258318" style="zoom:50%;" />
+
+<p>这就涉及多个变量，编写SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a; <span class="meta">Input</span> sex degree effect count@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">0 0 1 21 0 0 0 6 0 1 1 9 0 1 0 9 1 0 1 8</span></span><br><span class="line"><span class="emphasis">1 0 0 10 1 1 1 4 1 1 0 11</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>descending;<span class="comment">/*和order相反，这个是倒序*/</span></span><br><span class="line">freq count;</span><br><span class="line">model effect= sex degree/scale=none aggregate;<span class="comment">/*scale=none aggregate是要求对模型进行拟合优度检验*/</span></span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>拟合优度检验表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194458285.png" alt="image-20200716194458285" style="zoom:67%;" />
+
+<p>这里面的原假设H0：模型判断的结果和实际的结果没有差距。</p>
+<p>说明：这两个统计量是用于刻画预测值与观测值之间的差异。当P值越接近于1，则其值越小，说明模型拟合的越好。</p>
+<p>模型和模型参数检验：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194745131.png" alt="image-20200716194745131" style="zoom:67%;" />
+
+<p>优势比的检验：（圈下来的就是优势比）</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716194827509.png" alt="image-20200716194827509"></p>
+<p>因为刚刚是desc降序，这时候看谁是1(分子)，优势比是1比0，也就是表示男性有效的治疗是女性的0.279倍，表示疾病严重有效的治疗是疾病不严重治疗的0.348倍。</p>
+<p>说明男性的治疗效果比女性治疗效果差一些，严重的治疗效果比不严重的差一些。</p>
+<h3 id="2-3多分类自变量"><a href="#2-3多分类自变量" class="headerlink" title="2.3多分类自变量"></a>2.3多分类自变量</h3><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716200236399.png" alt="image-20200716200236399" style="zoom:67%;" />
+
+<p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>b; <span class="meta">Input</span> sex$ treat$ respone$ count@@;</span><br><span class="line">dsex=(sex=<span class="string">'m'</span>);<span class="comment">/*规定sex=‘m’时，赋值为1*/</span></span><br><span class="line">treata=(treat=<span class="string">'A'</span>);<span class="comment">/*规定treat=‘A’时，赋值为1*/</span></span><br><span class="line">treatb=(treat=<span class="string">'B'</span>);<span class="comment">/*规定treat=‘B’时，赋值为1*/</span></span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">m A cured 78 m A not 28 m B cured 101 m B not 11</span></span><br><span class="line"><span class="emphasis">m C cured 68 m C not 46 f A cured 40 f A not 5</span></span><br><span class="line"><span class="emphasis">f B cured 54 f B not 5 f C cured 34 f C not 6</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic;</span> freq count; </span><br><span class="line">model respone=dsex treata treatb/scale=none aggregate;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里面treata、treatb为哑变量，可以将多分类无序变量转化成水平数-1 的二分类变量。</p>
+<p>由于没有规定顺序，先出来的就是分子。比方说dsex的m先出来，到了优势比就是m是分子；treata的A先出来，他的分子就是A；treatb同理。</p>
+<p>这里拟合优度检验、模型和参数检验都和上面差不多，就不着重分析了，我们主要来看优势比检验。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716200939958.png" alt="image-20200716200939958" style="zoom:80%;" />
+
+<p>m/f=0.382，男性优势不如女性优势。<br>A/C=1.795，B/C=4.762，说明ABC三种药物B药效最好，A其次，C最差。</p>
+<h3 id="2-4连续型变量"><a href="#2-4连续型变量" class="headerlink" title="2.4连续型变量"></a>2.4连续型变量</h3><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717104307983.png" alt="image-20200717104307983" style="zoom:50%;" />
+
+<p>研究学生的成绩对考研成功与否的影响。</p>
+<p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>study; <span class="meta">Input</span> ky shu1 shu2 shu3@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">0 84 63 74</span></span><br><span class="line"><span class="emphasis">0 89 71 88</span></span><br><span class="line"><span class="emphasis">1 98 92 98</span></span><br><span class="line"><span class="emphasis">0 83 63 60</span></span><br><span class="line"><span class="emphasis">0 93 78 72</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>des;</span><br><span class="line">model ky=shu1 shu2 shu3 /selection=stepwise;<span class="comment">/*采用逐步回归法*/</span></span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>入选模型的剔除检验表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233219430.png" alt="image-20200716233219430" style="zoom:67%;" />
+
+<p>高等代数1，高等代数2，线性系统理论等对于考研的影响很显著。</p>
+<p>入选模型的参数估计：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233244789.png" alt="image-20200716233244789" style="zoom:67%;" />
+
+<p>依据此写出回归方程：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233303915.png" alt="image-20200716233303915" style="zoom: 67%;" /></p>
+<p>做一个预测表：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233331560.png" alt="image-20200716233331560" style="zoom:67%;" />
+
+<p>由上表知：预测准确率达24/26=92.3%。</p>
+<h3 id="2-5多分类因变量"><a href="#2-5多分类因变量" class="headerlink" title="2.5多分类因变量"></a>2.5多分类因变量</h3><p>研究性别及疾病严重程度对某病疗效的影响</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716233913373.png" alt="image-20200716233913373" style="zoom:67%;" />
+
+<p>对于这种多分类因变量，我们通常把部分看成整体来求</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234007185.png" alt="image-20200716234007185" style="zoom:67%;" />
+
+<p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>ex;<span class="meta">input</span> sex treat effect$ count@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">1 1 marked 16 1 1 some 5 1 1 none 6</span></span><br><span class="line"><span class="emphasis">1 0 marked 6 1 0 some 7 1 0 none 7</span></span><br><span class="line"><span class="emphasis">0 1 marked 5 0 1 some 2 0 1 none 7</span></span><br><span class="line"><span class="emphasis">0 0 marked 1 0 0 some 0 0 0 none 10</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span><span class="meta">order</span>=data;</span><br><span class="line">freq count;</span><br><span class="line">Model effect=sex treat/scale=none aggregate;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234039772.png" alt="image-20200716234039772" style="zoom:67%;" />
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716234259460.png" alt="image-20200716234259460"></p>
+<h2 id="3-Probit回归"><a href="#3-Probit回归" class="headerlink" title="3.Probit回归"></a>3.Probit回归</h2><p>标准正态分布的密度和累积正态分布函数图:</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235421624.png" alt="image-20200716235421624" style="zoom:67%;" />
+
+<p>SAS实现：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">Input</span> @@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>des;</span><br><span class="line">model /<span class="meta">link</span>=probit;<span class="comment">/*实现Probit回归法*/</span></span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p>Logit转换与Probit转换的对比图：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200716235515028.png" alt="image-20200716235515028" style="zoom:67%;" />
+
+<p>1）当自变量中分类变量较多时，用Logistic回归；当自变量中连续性变量较多且服从正态分布时，用Probit回归；<br>2）Logistic回归的系数可以得到很好的解释，而Probit回归的系数解释起来较麻烦。<br>4）实际中Logistic回归与Probit回归分析的结果非常接近。</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p>上班方式的影响因素分析及预测<br>Y表示骑车上班(Y=1bike,Y=0,BUS),X1年龄,X2月收入,X3性别(1男,0女)。数据见下表。请回答下列问题。</p>
+<ol>
+<li>建立上班出行方式的logit回归模型，并作相应的统计检验。</li>
+<li>结合模型，分析上班方式的影响因素？影响大小顺序是怎样的？</li>
+<li>检验模型的预测功能，并预测第29-32个人的出行方式会是怎样的？</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>人员序号</th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>18</td>
+<td>850</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>21</td>
+<td>1200</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>23</td>
+<td>850</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>23</td>
+<td>950</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>28</td>
+<td>1200</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>31</td>
+<td>850</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>36</td>
+<td>1500</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>42</td>
+<td>1000</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>46</td>
+<td>950</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>48</td>
+<td>1200</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>55</td>
+<td>1800</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>56</td>
+<td>2100</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13</td>
+<td>58</td>
+<td>1800</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>14</td>
+<td>18</td>
+<td>850</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>15</td>
+<td>20</td>
+<td>1000</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>16</td>
+<td>25</td>
+<td>1200</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>17</td>
+<td>27</td>
+<td>1300</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>18</td>
+<td>28</td>
+<td>1500</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>19</td>
+<td>30</td>
+<td>950</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>20</td>
+<td>32</td>
+<td>1000</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>21</td>
+<td>33</td>
+<td>1800</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>22</td>
+<td>33</td>
+<td>1000</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>23</td>
+<td>38</td>
+<td>1200</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>24</td>
+<td>41</td>
+<td>1500</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>25</td>
+<td>45</td>
+<td>1800</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>26</td>
+<td>48</td>
+<td>1000</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>27</td>
+<td>52</td>
+<td>1500</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>28</td>
+<td>56</td>
+<td>1800</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>29</td>
+<td>49</td>
+<td>1200</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>36</td>
+<td>900</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>28</td>
+<td>1200</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>55</td>
+<td>1150</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1-第一问"><a href="#1-第一问" class="headerlink" title="1.第一问"></a>1.第一问</h2><p>由于自变量x1,x2不是分类变量而是连续型的变量，所以在建立回归模型时使用逐步回归法，找出对上班方式影响显著的因素。</p>
+<p>编写SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> x1-x3 y@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">18	850	0	0</span></span><br><span class="line"><span class="emphasis">21	1200	0	0</span></span><br><span class="line"><span class="emphasis">23	850	0	1</span></span><br><span class="line"><span class="emphasis">23	950	0	1</span></span><br><span class="line"><span class="emphasis">28	1200	0	1</span></span><br><span class="line"><span class="emphasis">31	850	0	0</span></span><br><span class="line"><span class="emphasis">36	1500	0	1</span></span><br><span class="line"><span class="emphasis">42	1000	0	1</span></span><br><span class="line"><span class="emphasis">46	950	0	1</span></span><br><span class="line"><span class="emphasis">48	1200	0	0</span></span><br><span class="line"><span class="emphasis">55	1800	0	1</span></span><br><span class="line"><span class="emphasis">56	2100	0	1</span></span><br><span class="line"><span class="emphasis">58	1800	0	1</span></span><br><span class="line"><span class="emphasis">18	850	1	0</span></span><br><span class="line"><span class="emphasis">20	1000	1	0</span></span><br><span class="line"><span class="emphasis">25	1200	1	0</span></span><br><span class="line"><span class="emphasis">27	1300	1	0</span></span><br><span class="line"><span class="emphasis">28	1500	1	0</span></span><br><span class="line"><span class="emphasis">30	950	1	1</span></span><br><span class="line"><span class="emphasis">32	1000	1	0</span></span><br><span class="line"><span class="emphasis">33	1800	1	0</span></span><br><span class="line"><span class="emphasis">33	1000	1	0</span></span><br><span class="line"><span class="emphasis">38	1200	1	0</span></span><br><span class="line"><span class="emphasis">41	1500	1	0</span></span><br><span class="line"><span class="emphasis">45	1800	1	1</span></span><br><span class="line"><span class="emphasis">48	1000	1	0</span></span><br><span class="line"><span class="emphasis">52	1500	1	1</span></span><br><span class="line"><span class="emphasis">56	1800	1	1</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>descending;</span><br><span class="line">model y=x1-x3/scale=none aggregate selection=stepwise;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105113045.png" alt="image-20200717105113045"></p>
+<p>可以看出，最后进入模型的是 x1年龄因素和 x3性别因素，因此认为年龄因素和性别因素对于上班方式的影响显著，而根据数据没有证据说明月收入因素对于上班方式的影响显著。</p>
+<p>接着我们看模型显著性检验：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105356194.png" alt="image-20200717105356194"></p>
+<p>原假设为Logistic 回归方程的所有系数全为零，即因变量Y 与自变量线性无关. 通过检验，结果如上表所示. 每种检验的P 值均小于0.05，接受备择假设，拒绝原假设，所以因变量Y 与自变量线性相关. 说明可以选择Logistic 回归模型.</p>
+<p>拟合优度检验表：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105613824.png" alt="image-20200717105613824"></p>
+<p>都大于0.05，接受原假设：模型判断的结果和实际结果没有差距，说明模型拟合的很好。</p>
+<p>参数估计：我们使用最大似然法来估计回归方程中的B，并用Newton-Raphson 迭代算法，求出参数的最大似然估计.</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717105844459.png" alt="image-20200717105844459"></p>
+<p>可以看出x1,x3 两个因素是上班方式的影响因素。常数项的卡方检验值为2.8620，P 值为0.0907 大于0.05 所以接受原假设认为等于0，而x1,x3 的卡方检验值分别为4.9856 和4.5059，P 值分别为0.0256 和0.0338 均小于0.05 所以拒绝原假设，认为B1和B3 不等于0，所以回归方程为：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717131938686.png" alt="image-20200717131938686" style="zoom:67%;" />即<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717132040264.png" alt="image-20200717132040264" style="zoom: 80%;" /></p>
+<p>优势比估计OR 的点估计与区间估计：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717132119800.png" alt="image-20200717132119800"></p>
+<p>可以看出x1 年龄因素中年龄大的骑自行车概率是年龄小的1.108 倍，x3 性别因素中男性骑自行车的概率是女性的0.108 倍，所以认为年龄较大的女性骑自行车的概率更大。</p>
+<h2 id="2-第二问"><a href="#2-第二问" class="headerlink" title="2.第二问"></a>2.第二问</h2><p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> x1-x3 y@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>descending;</span><br><span class="line">model y=x1-x3/noint stb;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717133011559.png" alt="image-20200717133011559"></p>
+<p>可以看出，经过标准化之后的变量系数的大小分别为 x3,x1,x2，所以得出结论性别因素是三个影响因素中最能够影响上班方式的因素，其次是年龄因素，影响最小的是月收入因素。</p>
+<p>综合以上分析，得出结论影响上班方式的因素的影响大小顺序为：性别 &gt;年龄 &gt;月收入</p>
+<h2 id="3-第三问"><a href="#3-第三问" class="headerlink" title="3.第三问"></a>3.第三问</h2><p>由问题一中的拟合优度检验可以知道，用Logistic 回归模型判断出的结果和原始的结果数据没有差距，说明模型的预测能力很好。</p>
+<p>SAS代码：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data </span>a;</span><br><span class="line"><span class="meta">input</span> x1-x3 y@@;</span><br><span class="line"><span class="emphasis">cards;</span></span><br><span class="line"><span class="emphasis">数据区</span></span><br><span class="line"><span class="emphasis">49	1200	1 .</span></span><br><span class="line"><span class="emphasis">36	900	1 .</span></span><br><span class="line"><span class="emphasis">28	1200	0 .</span></span><br><span class="line"><span class="emphasis">55	1150	0 .</span></span><br><span class="line"><span class="emphasis">;</span></span><br><span class="line"><span class="keyword">proc logistic </span>descending;</span><br><span class="line">model y=x1-x3/scale=none aggregate selection=stepwise;</span><br><span class="line"><span class="keyword">proc reg;</span>model y=x1 x3/noint cli;</span><br><span class="line"><span class="keyword">run;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200717135451483.png" alt="image-20200717135451483"></p>
+<p>预测出第29-32个人的出行方式分别为骑自行车、乘公交、骑自行车、骑自行车。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>包弟，我能去你家过年吗🤓</p>
+<p>乐言？批言！</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1462471222&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/25/leetcode%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%881%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-25T04:44:05.754Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/25/leetcode%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%881%EF%BC%89/">leetcode  1.两数之和(Hash表)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建模</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/" class="archive-article-date">
-  	<time datetime="2020-04-23T15:12:39.508Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/16/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%90%91%E9%87%8F%E8%87%AA%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模—向量自回归模型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/%E9%A3%9F%E7%A5%9E%E9%A6%96%E7%A7%80/">家常炒面，蚝油生菜，冬瓜排骨汤的做法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">食神</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-笔记"><span class="toc-number">2.1.</span> <span class="toc-text">1.笔记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Logistic回归分析"><span class="toc-number">2.2.</span> <span class="toc-text">2.Logistic回归分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1例一"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1例一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2例二"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2例二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3多分类自变量"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3多分类自变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4连续型变量"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4连续型变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5多分类因变量"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5多分类因变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Probit回归"><span class="toc-number">2.3.</span> <span class="toc-text">3.Probit回归</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业"><span class="toc-number">3.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-第一问"><span class="toc-number">3.1.</span> <span class="toc-text">1.第一问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-第二问"><span class="toc-number">3.2.</span> <span class="toc-text">2.第二问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-第三问"><span class="toc-number">3.3.</span> <span class="toc-text">3.第三问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/web%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%A7%A3%E5%86%B3get%E6%8F%90%E4%BA%A4%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-23T04:19:38.186Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/web%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%A7%A3%E5%86%B3get%E6%8F%90%E4%BA%A4%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">web项目中解决get提交乱码问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/21/Spring%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-04-21T02:04:31.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/21/Spring%E5%85%A5%E9%97%A8/">Spring V4.2入门详解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/19/Mybatis%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-04-19T03:00:30.959Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/19/Mybatis%E5%85%A5%E9%97%A8/">Mybatis入门教程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/hexo%E4%B8%8B%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2020-04-18T04:43:45.723Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/hexo%E4%B8%8B%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E7%9A%84%E5%8A%A0%E8%BD%BD/">hexo下本地图片的加载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%BD%91%E5%9D%80/" class="archive-article-date">
-  	<time datetime="2020-04-18T03:45:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%BD%91%E5%9D%80/">配置博客主题学习的网址</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-17T15:53:15.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">在github上搭建属于自己的博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/17/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-17T10:53:59.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2020/page/5/">5</a><a class="page-number" href="/archives/2020/page/6/">6</a><span class="page-number current">7</span>
-    </nav>
   
 
 
@@ -588,8 +807,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
