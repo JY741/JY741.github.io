@@ -6,15 +6,81 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | J Sir</title>
+  <title>数学建模—常见的优化模型 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/6/index.html">
+  <meta name="description" content="EverydayOneCat🌬🌬💨肝ing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模—常见的优化模型">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat🌬🌬💨肝ing">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/680bde95ea79672028f309578e29a20b168f8be8.png@518w_1e_1c.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722113221752.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120523869.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120616909.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120700958.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722121735078.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722142904830.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143023663.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143250473.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143438637.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143554154.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143607289.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143624518.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171632862.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171726395.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171756570.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171817704.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171838381.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171859761.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172224475.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172307292.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172349386.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172554831.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172823239.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722173528947.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722173541674.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204336845.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204504638.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204523264.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204626737.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722205623610.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722205637902.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723125216937.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151017712.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151039409.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151715725.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723152847421.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1595578515836.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1595578571462.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image004-1595578571463.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image006-1595578571463.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image008.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image010.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image012.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image014.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image016.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image018.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image020.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image022.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image024.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image026.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image028.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image030.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image032.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image034.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image036.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image038.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image040.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200724162052918.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200724162114650.png">
+<meta property="article:published_time" content="2020-07-22T03:01:59.896Z">
+<meta property="article:modified_time" content="2020-07-24T08:28:34.381Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="建模">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/680bde95ea79672028f309578e29a20b168f8be8.png@518w_1e_1c.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,460 +229,361 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-数学建模—常见的优化模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模—常见的优化模型
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/07/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-07-22T03:01:59.896Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>🌬🌬💨肝ing</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/680bde95ea79672028f309578e29a20b168f8be8.png@518w_1e_1c.png" alt="680bde95ea79672028f309578e29a20b168f8be8.png@518w_1e_1c" style="zoom:67%;" />
+
+<a id="more"></a>
+
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="1-运输问题"><a href="#1-运输问题" class="headerlink" title="1.运输问题"></a>1.运输问题</h2><p>前面线性规划文章中已经讲过经典的运输问题。这个例子只是一个补充，在考虑经济效益的基础上进行运输问题的研究。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722113221752.png" alt="image-20200722113221752" style="zoom:67%;" />
+
+<p>建立模型：</p>
+<p>ai:第i个水库供水量<br>bi:第i个小区基本用水量<br>ci:第i个小区额外用水量<br>dij:从第i歌水库运到第j个小区的管理费</p>
+<p>决策变量：xij：从第i个水库运到第j个小区的水量<br>$$<br>maxZ=\sum_{i=1}^{3}\sum_{j=1}^{4}{x_{ij}}\<br>std:<br>\begin{cases}<br>x_{34}=0,  &amp; \text{} \<br>\sum_{j=1}^{4}{x_{ij}}\leq a_i, &amp; \text{i=1,2,3}\<br>\sum_{i=1}^{3}{x_{ij}}\ge b_j, &amp; \text{j=1,2,3,4}\<br>\sum_{j=1}^{4}{x_{ij}}\le c_j+b_j, &amp; \text{j=1,2,3,4}<br>\end{cases}<br>$$<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120523869.png" alt="image-20200722120523869" style="zoom: 50%;" /></p>
+<p>供水量提高一倍模型一样，修改一下数据即可。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120616909.png" alt="image-20200722120616909" style="zoom:50%;" />
+
+<h2 id="2-装箱问题"><a href="#2-装箱问题" class="headerlink" title="2.装箱问题"></a>2.装箱问题</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722120700958.png" alt="image-20200722120700958" style="zoom:67%;" />
+
+<p>这道题建模主要难点在于三个货舱中实际载重必须与其最大载重成比例。其实解决方法很简单，我们把他们都比上比例的值相等即可。</p>
+<p>模型假设：</p>
+<p>每种货物可以分割到任意小；<br>每种货物可以在一个或多个货舱中任意分布；<br>多种货物可以混装，并保证不留空隙；</p>
+<p>ai:第i个货舱最大载重<br>bi:第i个货舱最大容积<br>cj:第j个货物的最大重量<br>dj:第j个货物的空间<br>ej:第j个货物的利润<br>T:常数</p>
+<p>决策变量：xij：第i个前舱放货物j的重量<br>$$<br>maxZ=\sum_{i=1}^{3}\sum_{j=1}^{4}{x_{ij}<em>e_{j}}\<br>std:<br>\begin{cases}<br>\frac{\sum_{j=1}^{4}{x_{ij}}}{a_i}=T, &amp; \text{i=1,2,3}\<br>\sum_{i=1}^{3}{x_{ij}}\le c_j, &amp; \text{j=1,2,3,4}\<br>\sum_{j=1}^{4}{x_{ij}</em>d_j}\leq b_i, &amp; \text{i=1,2,3}\<br>\sum_{j=1}^{4}{x_{ij}}\le a_i, &amp; \text{i=1,2,3}<br>\end{cases}<br>$$<br><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722121735078.png" alt="image-20200722121735078" style="zoom:67%;" /></p>
+<h2 id="3-生产计划问题"><a href="#3-生产计划问题" class="headerlink" title="3.生产计划问题"></a>3.生产计划问题</h2><p>汽车厂生产三种类型的汽车，已知各类型每辆车对钢材、劳动时间的需求，利润及工厂每月的现有量。<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722142904830.png" alt="image-20200722142904830" style="zoom:67%;" /></p>
+<p>(1)制订月生产计划，使工厂的利润最大。</p>
+<p>(2)如果生产某一类型汽车，则至少要生产80辆，那么最优的生产计划应作何改变？</p>
+<p>第一问很简单，普通的建立线性规划模型即可：</p>
+<p>设每月生产小、中、大型汽车的数量分别为x1, x2, x3</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143023663.png" alt="image-20200722143023663" style="zoom:67%;" />
+
+<p>这里有个需要注意的小细节，一般通常数据量较小的时候，我们可以通过整数规划来求解（因为汽车数量没有小数一说），但是一旦数据量较大，我们就需要去掉整数的条件来使得运算更加快速。具体方法我们通过本例来讲述：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143250473.png" alt="image-20200722143250473" style="zoom:67%;" />
+
+<p>1）舍去小数：取x1=64，x2=167，算出目标函数值z=629，与LP最优值632.2581相差不大。<br>2）试探：如取x1=65，x2=167；x1=64，x2=168等，计算函数值z，通过比较可能得到更优的解。<br>• 但必须检验它们是否满足约束条件。</p>
+<p>+++</p>
+<p>第二问：若生产某类汽车，则至少生产80辆，我们可以得到条件x1,x2,, x3=0 或&gt;=80</p>
+<p>方法1：分解为8个LP子模型</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143438637.png" alt="image-20200722143438637" style="zoom:67%;" />
+
+<p>x1=80，x2= 150，x3=0，最优值z=610</p>
+<p>方法2：引入0-1变量，化为整数规划</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143554154.png" alt="image-20200722143554154" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143607289.png" alt="image-20200722143607289" style="zoom:67%;" />
+
+<p>方法3：化为非线性规划</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722143624518.png" alt="image-20200722143624518" style="zoom: 80%;" />
+
+<p>非线性规划（Non- Linear Programming，简记NLP）虽然可用现成的数学软件求解( 如LINGO,MATLAB)，但是其结果常依赖于初值的选择。</p>
+<h2 id="4-分段函数问题"><a href="#4-分段函数问题" class="headerlink" title="4.分段函数问题"></a>4.分段函数问题</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171632862.png" alt="image-20200722171632862" style="zoom:67%;" />
+
+<p>决策变量：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171726395.png" alt="image-20200722171726395" style="zoom:67%;" /></p>
+<p>目标函数：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171756570.png" alt="image-20200722171756570" style="zoom:80%;" /></p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171817704.png" alt="image-20200722171817704" style="zoom:67%;" />
+
+<p>约束条件：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171838381.png" alt="image-20200722171838381" style="zoom:67%;" /></p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722171859761.png" alt="image-20200722171859761" style="zoom:67%;" />
+
+<p>对于用分段函数定义的c(x)，一般的非线性规划软件也难以输入和求解，得想办法将模型化简。</p>
+<p>+++</p>
+<p>方法一：相乘</p>
+<p>x1 , x2 , x3 <del>以价格10, 8, 6(千元/吨)采购A的吨数，x</del>购买A的总吨数</p>
+<p>x1到达500，x2才能不为0，也就是x1=500或者x2=0，遇到这种或问题，想到相乘；x3同理</p>
+<p>x= x1+x2+x3, c(x) = 10x1+8x2+6x3</p>
+<p>目标函数：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172224475.png" alt="image-20200722172224475" style="zoom:80%;" /></p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172307292.png" alt="image-20200722172307292" style="zoom:67%;" />
+
+<p>非线性规划模型，可以用LINGO求解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Model: </span><br><span class="line">Max&#x3D; 4.8*x11 + 4.8*x21 + 5.6*x12 + 5.6*x22 - 10*x1 - 8*x2 - 6*x3;</span><br><span class="line">x11+x12 &lt; x + 500;</span><br><span class="line">x21+x22 &lt; 1000;</span><br><span class="line">x11 - x21 &gt; 0;</span><br><span class="line">2*x12 - 3*x22 &gt; 0;</span><br><span class="line">x&#x3D;x1+x2+x3;</span><br><span class="line">(x1 - 500) * x2&#x3D;0;</span><br><span class="line">(x2 - 500) * x3&#x3D;0;</span><br><span class="line">x1 &lt; 500;</span><br><span class="line">x2 &lt; 500;</span><br><span class="line">x3 &lt; 500;</span><br><span class="line">x &gt; 0;</span><br><span class="line">x11 &gt; 0;</span><br><span class="line">x12 &gt; 0;</span><br><span class="line">x21 &gt; 0;</span><br><span class="line">x22 &gt; 0;</span><br><span class="line">x1 &gt; 0;</span><br><span class="line">x2 &gt; 0;</span><br><span class="line">x3 &gt; 0;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172349386.png" alt="image-20200722172349386" style="zoom:67%;" />
+
+<p>+++</p>
+<p>方法二：转化为整数规划</p>
+<p>y1, y2 , y3=1 ~以价格10, 8, 6(千元/吨)采购A</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172554831.png" alt="image-20200722172554831" style="zoom: 80%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722172823239.png" alt="image-20200722172823239" style="zoom: 80%;" />
+
+<p>购买1000吨原油A，与库存的500吨原油A和1000吨原油B一起，生产汽油乙，利润为5,000千元。优于方法1的结果</p>
+<p>+++</p>
+<p>这里还有方法三：直接处理处理分段线性函数c(x)</p>
+<p>这一段👴看了一遍没看懂，不高兴研究了。其实懂得方法一二已经足够用了，这里我直接照搬。看懂的xdm把流弊打在公屏上。</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722173528947.png" alt="image-20200722173528947" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722173541674.png" alt="image-20200722173541674" style="zoom:67%;" />
+
+<h2 id="5-分派问题"><a href="#5-分派问题" class="headerlink" title="5.分派问题"></a>5.分派问题</h2><p>选课策略：要求至少选两门数学课、三门运筹学课和两门计算机课</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204336845.png" alt="image-20200722204336845" style="zoom:80%;" />
+
+<p>(1)为了选修课程门数最少，应学习哪些课程？<br>(2)选修课程最少，且学分尽量多，应学习哪些课程？</p>
+<p>第一问：</p>
+<p>选或者不选我们想到0-1规划模型</p>
+<p>决策变量：xi=1 ~选修课号i 的课程（xi=0 ~不选）</p>
+<p>目标函数：选修课程总数最少<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204504638.png" alt="image-20200722204504638" style="zoom:67%;" /></p>
+<p>约束条件：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204523264.png" alt="image-20200722204523264" style="zoom:80%;" /></p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722204626737.png" alt="image-20200722204626737" style="zoom:67%;" />
+
+<p>第二问：多目标规划</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722205623610.png" alt="image-20200722205623610" style="zoom:67%;" />
+
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200722205637902.png" alt="image-20200722205637902" style="zoom: 67%;" />
+
+<h2 id="6-饮料厂的生产与检修计划"><a href="#6-饮料厂的生产与检修计划" class="headerlink" title="6.饮料厂的生产与检修计划"></a>6.饮料厂的生产与检修计划</h2><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723125216937.png" alt="image-20200723125216937" style="zoom:67%;" />
+
+<p>第一问：</p>
+<p>模型假设：</p>
+<p>• 饮料厂在第1周开始时没有库存；<br>• 从费用最小考虑, 第4周末不能有库存；<br>• 周末有库存时需支出一周的存贮费；<br>• 每周末的库存量等于下周初的库存量。</p>
+<p>决策变量：</p>
+<p>x1~ x4：第1<del>4周的生产量<br>y1</del> y3：第1~3周末库存量</p>
+<p>目标函数：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151017712.png" alt="image-20200723151017712" style="zoom:80%;" /></p>
+<p>约束条件：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151039409.png" alt="image-20200723151039409" style="zoom: 80%;" />
+
+<p>接着到了本题重点第二问：</p>
+<p>检修安排在任一周均可，所以这四周分为检修和不检修，导入0-1变量。0-1变量wt ：wt=1~ 检修安排在第t周(t=1,2,3,4）</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723151715725.png" alt="image-20200723151715725" style="zoom: 80%;" />
+
+<p>增加约束条件：检修1次<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200723152847421.png" alt="image-20200723152847421" style="zoom:80%;" /></p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><h2 id="题目：选区划分"><a href="#题目：选区划分" class="headerlink" title="题目：选区划分"></a>题目：选区划分</h2><p> 在—个遥远的国家，Sark Mevo 所领导的政党最终击败了Reguel Tekris王子领导的联合党派。Mevo希望巩固他在首都地区的席位。首都由14个街区组成，这些街区将分组为多个选区。下图是首都地区的示意图。在图中用数字1到14对这些街区进行了编号。每个街区中的另外两个数字是预计该街区会投票给Mevo的选民数和该街区的选民总数。所有选民都必须投票，且选举胜出方必须得到绝对多数选票。一个选区可以由多个相邻的街区组成，且选区内总选民数应在30,000到100,000之间。如果两个街区不相邻，例如12和13，则它们不能组成一个选区。如果某个街区选民人数不少于50,000，则允许此街区单独作为一个选区。但是由于Mevo本人就居住在街区10内，因此迫于舆论压力，他不能将这个街区单独作为一个选区。</p>
+<p>请设计出一个将首都划分为5个选区的方案，以使Mevo得到的席位数最多。如果这样做有困难，可以尝试划分为6个选区。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1595578515836.gif" alt="img"></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>经核算首都共有54万人，而每个选区至多10000人，所以五个选区是不行的，要划分成六个选区。</p>
+<p>令<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image002-1595578571462.gif" alt="img"> 能够组成一个14行6列的矩阵</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image004-1595578571463.gif" alt="img">)第<em>i</em>街区Mevo派选民，<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image006-1595578571463.gif" alt="img">第<em>i</em>街区总人数</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image008.gif" alt="img"> 是一个14维的矩阵。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image010.gif" alt="img"></p>
+<p>令<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image012.gif" alt="img">)为第<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image014.gif" alt="img">个选区的选民总人数</p>
+<p>目标函数：希望获得席位数最多</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image016.gif" alt="img">;</p>
+<p>约束一：每个街道必须并入一个选区</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image018.gif" alt="img"></p>
+<p>约束二：满足选区人数要求，单位：单位：百人</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image020.gif" alt="img"></p>
+<p>约束三：胜利和失败的条件</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image022.gif" alt="img"></p>
+<p>约束四：选区中街道之间必须关联。 </p>
+<p>当<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image024.gif" alt="img">)时，<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image026.gif" alt="img"></p>
+<p>约束五：第10个街区不能单独成选区。因为第10行只有一个数为1（约束一的规定），现在就要求这一列还有别的<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image028.gif" alt="img">为1，两者相乘为1。因为不想用过滤条件，自己和自己相乘为1.</p>
+<p>即<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image030.gif" alt="img">。所以就定义下列约束条件。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image032.gif" alt="img">，所以就要求下式大于等于2.</p>
+<p>约束六：第<em>i</em>个街区单独成选区的条件是人数大于5万</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image034.gif" alt="img">)则要求<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image036.gif" alt="img">)，<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image038.gif" alt="img"></p>
+<p>约束七 缩小迭代次数，规定人数最多的选取下标为1，以此类推。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/clip_image040.gif" alt="img"></p>
+<p>最后就是0-1和整数约束了</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>根据上面分析的模型编写lingo代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">model:</span><br><span class="line">sets:</span><br><span class="line">jq&#x2F;1..14&#x2F;:a,b;</span><br><span class="line">xq&#x2F;1..6&#x2F;:z,s,bili;</span><br><span class="line">link1(jq,xq):x;</span><br><span class="line">link2(jq,jq):r;</span><br><span class="line">endsets</span><br><span class="line">data:</span><br><span class="line">a&#x3D;175 150 142 420 180 90 120 100 260 340 25 270 290 150;</span><br><span class="line">b&#x3D;300 500 200 700 200 400 300 300 400 600 100 600 400 400;</span><br><span class="line">r&#x3D;1 1 0 0 1 0 0 0 0 0 0 0 0 0 </span><br><span class="line">1 1 1 0 1 0 0 0 0 0 0 0 0 0</span><br><span class="line">0 1 1 1 1 0 0 0 0 0 0 0 0 0</span><br><span class="line">0 0 1 1 1 0 0 0 0 1 0 0 0 0</span><br><span class="line">1 1 1 1 1 1 0 0 0 1 0 0 0 0</span><br><span class="line">0 0 0 0 1 1 1 1 0 0 0 0 0 0</span><br><span class="line">0 0 0 0 0 1 1 1 1 0 0 0 0 0</span><br><span class="line">0 0 0 0 0 1 1 1 1 1 1 0 0 0</span><br><span class="line">0 0 0 0 0 0 1 1 1 0 1 1 0 0</span><br><span class="line">0 0 0 1 1 0 0 1 0 1 1 0 1 0</span><br><span class="line">0 0 0 0 0 0 0 1 1 1 1 1 1 0</span><br><span class="line">0 0 0 0 0 0 0 0 1 0 1 1 0 1</span><br><span class="line">0 0 0 0 0 0 0 0 0 1 1 0 1 1</span><br><span class="line">0 0 0 0 0 0 0 0 0 0 0 1 1 1;</span><br><span class="line">enddata</span><br><span class="line">max&#x3D;@sum(xq:z);</span><br><span class="line">@for(jq(i):@sum(xq(j):x(i,j))&#x3D;1);</span><br><span class="line">@for(xq(j):s(j)&#x3D;@sum(jq(i):b(i)*x(i,j)));</span><br><span class="line">@for(xq:s&lt;1000;s&gt;300);</span><br><span class="line">@for(xq(j):z(j)&#x3D;@if(@sum(jq(i):a(i)*x(i,j))#gt#0.5*s(j),1,0));</span><br><span class="line">@for(xq(j):@for(link2(i,k)|i#ne#k:x(i,j)+x(k,j)&lt;@if(r(i,k)#eq#0,1,x(i,j)+x(k,j))));</span><br><span class="line">@sum(link1(i,j):x(10,j)*x(i,j))&gt;2;</span><br><span class="line">@for(xq(j):s(j)&gt;@if(@sum(jq(i):x(i,j))#eq#1,500,s(j)));</span><br><span class="line">@for(link1:@bin(x));</span><br><span class="line">@for(xq(j):bili&#x3D;@sum(jq(i):a(i)*x(i,j))&#x2F;s(j));</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200724162052918.png" alt="image-20200724162052918"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200724162114650.png" alt="image-20200724162114650"></p>
+<p>根据结果可知席数最多为5个选区。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>我妈嫌占空间把从小陪到大的台式机给卖给收废品的了，真的吐了😭NMD就值50</p>
+<p>很烦，最近不想学了</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30251317&auto=0&height=66"></iframe>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/17/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88%E6%80%9D%E8%B7%AF+PageHelper%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-05-17T12:03:00.885Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/17/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88%E6%80%9D%E8%B7%AF+PageHelper%E4%BD%BF%E7%94%A8/">SSM框架整合思路+PageHelper使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建模</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/16/Maven%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-16T12:07:00.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/07/23/%E7%BD%91%E6%98%93%E4%BA%91%E7%A0%B4%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          网易云破解VIP及无版权曲目——杰伦回来了
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/20/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E2%80%94%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E4%B8%8E%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模—非线性规划与目标规划</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/16/Maven%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/">Maven install安装不到想要的仓库内(解决方案)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-运输问题"><span class="toc-number">2.1.</span> <span class="toc-text">1.运输问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-装箱问题"><span class="toc-number">2.2.</span> <span class="toc-text">2.装箱问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-生产计划问题"><span class="toc-number">2.3.</span> <span class="toc-text">3.生产计划问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分段函数问题"><span class="toc-number">2.4.</span> <span class="toc-text">4.分段函数问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-分派问题"><span class="toc-number">2.5.</span> <span class="toc-text">5.分派问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-饮料厂的生产与检修计划"><span class="toc-number">2.6.</span> <span class="toc-text">6.饮料厂的生产与检修计划</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业"><span class="toc-number">3.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目：选区划分"><span class="toc-number">3.1.</span> <span class="toc-text">题目：选区划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-number">3.2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/16/SVN/" class="archive-article-date">
-  	<time datetime="2020-05-16T10:50:20.347Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/16/SVN/">eclipse中SVN的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/14/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%9B%BE%E5%BA%8A/" class="archive-article-date">
-  	<time datetime="2020-05-14T09:17:11.089Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/14/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%9B%BE%E5%BA%8A/">Typora+腾讯云图床+Picgo实现真正的博客图片一键上传</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/SpringMVC%20V4.1%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/SpringMVC%20V4.1%E5%85%A5%E9%97%A8/">SpringMVC V4.1入门超详细解析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-09T11:10:35.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E7%9F%A9%E9%98%B5%E8%BF%9E%E4%B9%98%E9%97%AE%E9%A2%98/">矩阵连乘问题（从动态规划超详细解析）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-08T06:51:46.844Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/L%E5%9E%8B%E9%AA%A8%E7%89%8C%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">L型骨牌覆盖问题(分治思想)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-05-08T02:17:45.351Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%85%A8%E6%8E%92%E5%BA%8F/">求n个元素的全排序(从分治思想超详细解析)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T07:08:39.603Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E5%A0%86%EF%BC%8C%E5%9B%BE,%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/">堆，图，字符串匹配算法超详细讲解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-01T10:48:21.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E6%95%A3%E5%88%97%E8%A1%A8%E5%92%8C%E6%A0%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">散列表和树史上最快入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2020/page/4/">4</a><a class="page-number" href="/archives/2020/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/2020/page/7/">7</a><a class="page-number" href="/archives/2020/page/8/">8</a><a class="extend next" rel="next" href="/archives/2020/page/7/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -654,8 +621,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
