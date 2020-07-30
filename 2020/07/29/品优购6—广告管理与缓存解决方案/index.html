@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>品优购Ⅵ—广告管理与缓存解决方案 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/5/index.html">
+  <meta name="description" content="概述本篇将介绍如下几个方面： 完成运营商后台广告类型管理与广告管理、完成前台工程广告轮播图的展示、使用SpringDataRedis操作字符串、set、List、hash等类型缓存、使用SpringDataRedis实现广告数据的缓存。 广告管理1.后台管理1.1搭建广告工程基于高内聚低耦合的原则，我们需要单独搭建广告服务工程。 具体操作和创建pinyougou-sellergoods服务工程差">
+<meta property="og:type" content="article">
+<meta property="og:title" content="品优购Ⅵ—广告管理与缓存解决方案">
+<meta property="og:url" content="http://yoursite.com/2020/07/29/%E5%93%81%E4%BC%98%E8%B4%AD6%E2%80%94%E5%B9%BF%E5%91%8A%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BC%93%E5%AD%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="概述本篇将介绍如下几个方面： 完成运营商后台广告类型管理与广告管理、完成前台工程广告轮播图的展示、使用SpringDataRedis操作字符串、set、List、hash等类型缓存、使用SpringDataRedis实现广告数据的缓存。 广告管理1.后台管理1.1搭建广告工程基于高内聚低耦合的原则，我们需要单独搭建广告服务工程。 具体操作和创建pinyougou-sellergoods服务工程差">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/83222944_p0.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200730121831269.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200730170914785.png">
+<meta property="article:published_time" content="2020-07-29T11:35:31.208Z">
+<meta property="article:modified_time" content="2020-07-30T09:23:18.863Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="品优购">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/83222944_p0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,448 +173,328 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-品优购6—广告管理与缓存解决方案" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      品优购Ⅵ—广告管理与缓存解决方案
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/07/29/%E5%93%81%E4%BC%98%E8%B4%AD6%E2%80%94%E5%B9%BF%E5%91%8A%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BC%93%E5%AD%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-07-29T11:35:31.208Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/83222944_p0.jpg" alt="83222944_p0"></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本篇将介绍如下几个方面：</p>
+<p>完成运营商后台广告类型管理与广告管理、完成前台工程广告轮播图的展示、使用SpringDataRedis操作字符串、set、List、hash等类型缓存、使用SpringDataRedis实现广告数据的缓存。</p>
+<h1 id="广告管理"><a href="#广告管理" class="headerlink" title="广告管理"></a>广告管理</h1><h2 id="1-后台管理"><a href="#1-后台管理" class="headerlink" title="1.后台管理"></a>1.后台管理</h2><h3 id="1-1搭建广告工程"><a href="#1-1搭建广告工程" class="headerlink" title="1.1搭建广告工程"></a>1.1搭建广告工程</h3><p>基于高内聚低耦合的原则，我们需要单独搭建广告服务工程。</p>
+<p>具体操作和创建pinyougou-sellergoods服务工程差不多，这里给出几点注意事项：</p>
+<p>1、我们目前有两个服务工程，当两个工程同时启动时会发生端口冲突，因为连接dubbox注册中心的端口默认是20880。所以我们需要配置一下pinyougou-content-service工程的dubbox端口</p>
+<p>2、由于需要用到上传服务，还需要添加common工具包的依赖</p>
+<h3 id="1-2广告图片上传"><a href="#1-2广告图片上传" class="headerlink" title="1.2广告图片上传"></a>1.2广告图片上传</h3><p>将pinyougou-shop-web有关服务上传的资源拷贝到pinyougou-manager-web</p>
+<p>在pinyougou-manager-web 的springmvc.xml中添加配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置多媒体解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultEncoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 设定文件上传的最大值 5MB，5*1024*1024 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"5242880"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在contentController.js编写代码(注意引入uploadService)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//上传广告图</span></span><br><span class="line">$scope.uploadFile=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    uploadService.uploadFile().success(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(response.success)&#123;</span><br><span class="line">                $scope.entity.pic=response.message;					</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                alert(<span class="string">"上传失败！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ).error(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">"上传出错！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    );		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改content.html实现上传功能</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span>            </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>图片<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"file"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">"uploadFile()"</span>&gt;</span>上传<span class="tag">&lt;/<span class="name">button</span>&gt;</span>	                             </span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;entity.pic&#125;&#125;"</span> <span class="attr">height</span>=<span class="string">"100px"</span> <span class="attr">width</span>=<span class="string">"200px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3广告类目选择"><a href="#1-3广告类目选择" class="headerlink" title="1.3广告类目选择"></a>1.3广告类目选择</h3><p>在contentController.js中添加代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载广告分类列表</span></span><br><span class="line">$scope.findContentCategoryList=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    contentCategoryService.findAll().success(</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            $scope.contentCategoryList=response;				</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在content.html 初始化调用此方法，将广告分类改为下拉列表</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>  <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">ng-model</span>=<span class="string">"entity.categoryId"</span> <span class="attr">ng-options</span>=<span class="string">"item.id as item.name  for item in contentCategoryList"</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4广告状态"><a href="#1-4广告状态" class="headerlink" title="1.4广告状态"></a>1.4广告状态</h3><p>修改content.html </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">ng-model</span>=<span class="string">"entity.status"</span> <span class="attr">ng-true-value</span>=<span class="string">"1"</span> <span class="attr">ng-false-value</span>=<span class="string">"0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改contentController.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$scope.status=[<span class="string">"无效"</span>,<span class="string">"有效"</span>];</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-前台展示"><a href="#2-前台展示" class="headerlink" title="2.前台展示"></a>2.前台展示</h2><p>修改首页，当其轮播广告图根据后台设置的广告列表动态产生。</p>
+<h3 id="2-1搭建门面工程"><a href="#2-1搭建门面工程" class="headerlink" title="2.1搭建门面工程"></a>2.1搭建门面工程</h3><p>创建war模块pinyougou-portal-web ，此工程为网站前台的入口，参照其它war模块编写配置文件。不需要添加SpringSecurity框架</p>
+<p>pom.xml中配置tomcat启动端口为9103</p>
+<h3 id="2-2后端实现"><a href="#2-2后端实现" class="headerlink" title="2.2后端实现"></a>2.2后端实现</h3><p>在pinyougou-content-interface工程ContentService接口增加方法定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据广告类型ID查询列表</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">findByCategoryId</span><span class="params">(Long categoryId)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在pinyougou-content-service工程ContentServiceImpl类增加方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">findByCategoryId</span><span class="params">(Long categoryId)</span> </span>&#123;</span><br><span class="line">    TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line">    Criteria criteria = example.createCriteria();</span><br><span class="line">    criteria.andCategoryIdEqualTo(categoryId);</span><br><span class="line">    criteria.andStatusEqualTo(<span class="string">"1"</span>);<span class="comment">//条件：有效</span></span><br><span class="line">    example.setOrderByClause(<span class="string">"sort_order"</span>);<span class="comment">//排序</span></span><br><span class="line">    <span class="keyword">return</span> contentMapper.selectByExample(example);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在pinyougou-portal-web创建控制器类 ContentController </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/content"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Reference</span></span><br><span class="line">	<span class="keyword">private</span> ContentService contentService;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据广告分类ID查询广告列表</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> categoryId</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/findByCategoryId"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">findByCategoryId</span><span class="params">(Long categoryId)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> contentService.findByCategoryId(categoryId);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3前端代码"><a href="#2-3前端代码" class="headerlink" title="2.3前端代码"></a>2.3前端代码</h3><p>在pinyougou-portal-web工程创建contentService.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.service(<span class="string">"contentService"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$http</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//根据分类ID查询广告列表</span></span><br><span class="line">	<span class="keyword">this</span>.findByCategoryId=<span class="function"><span class="keyword">function</span>(<span class="params">categoryId</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> $http.get(<span class="string">"content/findByCategoryId.do?categoryId="</span>+categoryId);</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在pinyougou-portal-web创建contentController.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//广告控制层（运营商后台）</span></span><br><span class="line">app.controller(<span class="string">"contentController"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,contentService</span>)</span>&#123;	</span><br><span class="line">	$scope.contentList=[];<span class="comment">//广告集合	</span></span><br><span class="line">	$scope.findByCategoryId=<span class="function"><span class="keyword">function</span>(<span class="params">categoryId</span>)</span>&#123;</span><br><span class="line">		contentService.findByCategoryId(categoryId).success(</span><br><span class="line">			<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">				$scope.contentList[categoryId]=response;</span><br><span class="line">			&#125;</span><br><span class="line">		);		</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在body上添加指令</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"pinyougou"</span> <span class="attr">ng-controller</span>=<span class="string">"contentController"</span> <span class="attr">ng-init</span>=<span class="string">"findByCategoryId(1)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改首页轮播图</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"yui3-u Center banerArea"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--banner轮播--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myCarousel"</span> <span class="attr">data-ride</span>=<span class="string">"carousel"</span> <span class="attr">data-interval</span>=<span class="string">"4000"</span> <span class="attr">class</span>=<span class="string">"sui-carousel slide"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"carousel-indicators"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-target</span>=<span class="string">"#myCarousel"</span> <span class="attr">data-slide-to</span>=<span class="string">"&#123;&#123;$index&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"&#123;&#123;$index==0?'active':''&#125;&#125;"</span> <span class="attr">ng-repeat</span>=<span class="string">"item in contentList[1]"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"carousel-inner"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"&#123;&#123;$index==0?'active':''&#125;&#125; item"</span> <span class="attr">ng-repeat</span>=<span class="string">"item in contentList[1]"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123;item.url&#125;&#125;"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;item.pic&#125;&#125;"</span>  /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里首个循环需要增加class=”active”，效果是直接显示，否则可能页面会先出现一段空白，极不美观。</p>
+<p>效果：</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200730121831269.png" alt="image-20200730121831269" style="zoom:67%;" />
+
+<h1 id="缓存解决方案"><a href="#缓存解决方案" class="headerlink" title="缓存解决方案"></a>缓存解决方案</h1><p>首页每天有大量的人访问，对数据库造成很大的访问压力，甚至是瘫痪。我们通常的做法有两种：一种是数据缓存、一种是网页静态化。我们今天讨论第一种解决方案。</p>
+<h2 id="1-SpringDataRedis简介"><a href="#1-SpringDataRedis简介" class="headerlink" title="1.SpringDataRedis简介"></a>1.SpringDataRedis简介</h2><h3 id="1-1演变过程"><a href="#1-1演变过程" class="headerlink" title="1.1演变过程"></a>1.1演变过程</h3><p>1、<a href="http://lib.csdn.net/base/redis" target="_blank" rel="noopener"><strong>redis</strong></a>是一款开源的Key-Value<a href="http://lib.csdn.net/base/mysql" target="_blank" rel="noopener"><strong>数据库</strong></a>，运行在内存中，由ANSI C编写。企业开发通常采用Redis来实现缓存。同类的产品还有memcache 、memcached 、MongoDB等。</p>
+<p>2、Jedis是Redis官方推出的一款面向<a href="http://lib.csdn.net/base/java" target="_blank" rel="noopener"><strong>Java</strong></a>的客户端，提供了很多接口供Java语言调用。可以在Redis官网下载，当然还有一些开源爱好者提供的客户端，如Jredis、SRP等等，推荐使用Jedis。</p>
+<p>3、Spring-data-redis是spring大家族的一部分，提供了在srping应用中通过简单的配置访问redis服务，对reids底层开发包(Jedis,  JRedis, and RJC)进行了高度封装，RedisTemplate提供了redis各种操作、异常处理及序列化，支持发布订阅，并对spring 3.1 cache进行了实现。</p>
+<p>spring-data-redis针对jedis提供了如下功能：<br>     1.连接池自动管理，提供了一个高度封装的“RedisTemplate”类<br>     2.针对jedis客户端中大量api进行了归类封装,将同一类型操作封装为operation接口<br>     ValueOperations：简单K-V操作<br>     SetOperations：set类型数据操作<br>     ZSetOperations：zset类型数据操作<br>     HashOperations：针对map类型的数据操作<br>     ListOperations：针对list类型的数据操作</p>
+<h3 id="1-2配置"><a href="#1-2配置" class="headerlink" title="1.2配置"></a>1.2配置</h3><p>pom.xml需要引入Jedis和SpringDataRedis依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 缓存 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.data<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line">		  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>resources下创建properties文件夹，建立redis-config.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">redis.host</span>=<span class="string">127.0.0.1 </span></span><br><span class="line"><span class="meta">redis.port</span>=<span class="string">6379 </span></span><br><span class="line"><span class="meta">redis.pass</span>= <span class="string"></span></span><br><span class="line"><span class="meta">redis.database</span>=<span class="string">0 </span></span><br><span class="line"><span class="meta">redis.maxIdle</span>=<span class="string">300 </span></span><br><span class="line"><span class="meta">redis.maxWait</span>=<span class="string">3000 </span></span><br><span class="line"><span class="meta">redis.testOnBorrow</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<p>maxIdle ：最大空闲数</p>
+<p>maxWaitMillis:连接时的最大等待毫秒数</p>
+<p>testOnBorrow：在提取一个jedis实例时，是否提前进行验证操作；如果为true，则得到的jedis实例均是可用的；</p>
+<p>resources下创建spring文件夹 ，创建applicationContext-redis.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath*:properties/*.properties"</span> /&gt;</span>   </span><br><span class="line"><span class="comment">&lt;!-- redis 相关配置 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"poolConfig"</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisPoolConfig"</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdle"</span> <span class="attr">value</span>=<span class="string">"$&#123;redis.maxIdle&#125;"</span> /&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxWaitMillis"</span> <span class="attr">value</span>=<span class="string">"$&#123;redis.maxWait&#125;"</span> /&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testOnBorrow"</span> <span class="attr">value</span>=<span class="string">"$&#123;redis.testOnBorrow&#125;"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"JedisConnectionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.data.redis.connection.jedis.JedisConnectionFactory"</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">p:host-name</span>=<span class="string">"$&#123;redis.host&#125;"</span> <span class="attr">p:port</span>=<span class="string">"$&#123;redis.port&#125;"</span> <span class="attr">p:password</span>=<span class="string">"$&#123;redis.pass&#125;"</span> <span class="attr">p:pool-config-ref</span>=<span class="string">"poolConfig"</span>/&gt;</span>  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"redisTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.data.redis.core.RedisTemplate"</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connectionFactory"</span> <span class="attr">ref</span>=<span class="string">"JedisConnectionFactory"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3Value类型操作"><a href="#1-3Value类型操作" class="headerlink" title="1.3Value类型操作"></a>1.3Value类型操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">ContextConfiguration</span>(<span class="title">locations</span></span>=<span class="string">"classpath:spring/applicationContext-redis.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestValue</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> RedisTemplate redisTemplate;	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		redisTemplate.boundValueOps(<span class="string">"name"</span>).set(<span class="string">"itcast"</span>);		</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		String str = (String) redisTemplate.boundValueOps(<span class="string">"name"</span>).get();</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		redisTemplate.delete(<span class="string">"name"</span>);;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4Set类型操作"><a href="#1-4Set类型操作" class="headerlink" title="1.4Set类型操作"></a>1.4Set类型操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">ContextConfiguration</span>(<span class="title">locations</span></span>=<span class="string">"classpath:spring/applicationContext-redis.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSet</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 存入值</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		redisTemplate.boundSetOps(<span class="string">"nameset"</span>).add(<span class="string">"曹操"</span>);		</span><br><span class="line">		redisTemplate.boundSetOps(<span class="string">"nameset"</span>).add(<span class="string">"刘备"</span>);	</span><br><span class="line">		redisTemplate.boundSetOps(<span class="string">"nameset"</span>).add(<span class="string">"孙权"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 提取值</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Set members = redisTemplate.boundSetOps(<span class="string">"nameset"</span>).members();</span><br><span class="line">		System.out.println(members);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除集合中的某一个值</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		redisTemplate.boundSetOps(<span class="string">"nameset"</span>).remove(<span class="string">"孙权"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除整个集合</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAllValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">		redisTemplate.delete(<span class="string">"nameset"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5List类型操作"><a href="#1-5List类型操作" class="headerlink" title="1.5List类型操作"></a>1.5List类型操作</h3><p>（1）右压栈</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 右压栈：后添加的对象排在后边</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSetValue1</span><span class="params">()</span></span>&#123;		</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist1"</span>).rightPush(<span class="string">"刘备"</span>);</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist1"</span>).rightPush(<span class="string">"关羽"</span>);</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist1"</span>).rightPush(<span class="string">"张飞"</span>);		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 显示右压栈集合</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGetValue1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List list = redisTemplate.boundListOps(<span class="string">"namelist1"</span>).range(<span class="number">0</span>, <span class="number">10</span>);<span class="comment">/*起始位置，最后位置*/</span></span><br><span class="line">    System.out.println(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）左压栈</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 左压栈：后添加的对象排在前边</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSetValue2</span><span class="params">()</span></span>&#123;		</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist2"</span>).leftPush(<span class="string">"刘备"</span>);</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist2"</span>).leftPush(<span class="string">"关羽"</span>);</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist2"</span>).leftPush(<span class="string">"张飞"</span>);		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 显示左压栈集合</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGetValue2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List list = redisTemplate.boundListOps(<span class="string">"namelist2"</span>).range(<span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line">    System.out.println(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（3）根据索引查询元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询集合某个元素</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSearchByIndex</span><span class="params">()</span></span>&#123;</span><br><span class="line">    String s = (String) redisTemplate.boundListOps(<span class="string">"namelist1"</span>).index(<span class="number">1</span>);</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）移除某个元素的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 移除集合某个元素</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRemoveByIndex</span><span class="params">()</span></span>&#123;</span><br><span class="line">    redisTemplate.boundListOps(<span class="string">"namelist1"</span>).remove(<span class="number">1</span>, <span class="string">"关羽"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6Hash类型操作"><a href="#1-6Hash类型操作" class="headerlink" title="1.6Hash类型操作"></a>1.6Hash类型操作</h3><p>（1）存入值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSetValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"namehash"</span>).put(<span class="string">"a"</span>, <span class="string">"唐僧"</span>);</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"namehash"</span>).put(<span class="string">"b"</span>, <span class="string">"悟空"</span>);</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"namehash"</span>).put(<span class="string">"c"</span>, <span class="string">"八戒"</span>);</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"namehash"</span>).put(<span class="string">"d"</span>, <span class="string">"沙僧"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）提取所有的KEY</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGetKeys</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Set s = redisTemplate.boundHashOps(<span class="string">"namehash"</span>).keys();		</span><br><span class="line">    System.out.println(s);		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：[a, b, c, d]</p>
+<p>（3）提取所有的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGetValues</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List values = redisTemplate.boundHashOps(<span class="string">"namehash"</span>).values();</span><br><span class="line">    System.out.println(values);		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：[唐僧, 悟空, 八戒, 沙僧]</p>
+<p>（4）根据KEY提取值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGetValueByKey</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Object object = redisTemplate.boundHashOps(<span class="string">"namehash"</span>).get(<span class="string">"b"</span>);</span><br><span class="line">    System.out.println(object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（5）根据KEY移除值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRemoveValueByKey</span><span class="params">()</span></span>&#123;</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"namehash"</span>).delete(<span class="string">"c"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-缓存广告数据"><a href="#2-缓存广告数据" class="headerlink" title="2.缓存广告数据"></a>2.缓存广告数据</h2><p>现在我们首页的广告每次都是从数据库读取，这样当网站访问量达到高峰时段，对数据库压力很大，并且影响执行效率。我们需要将这部分广告数据缓存起来。</p>
+<h3 id="2-1读取缓存"><a href="#2-1读取缓存" class="headerlink" title="2.1读取缓存"></a>2.1读取缓存</h3><p>因为缓存对于我们整个的系统来说是通用功能。广告需要用，其它数据可能也会用到，所以我们将配置放在公共组件层（pinyougou-common）中较为合理。</p>
+<p>配置可参照上文，配好后让pinyougou-content-service依赖pinyougou-common</p>
+<p>修改 pinyougou-content-service的ContentServiceImpl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span> </span><br><span class="line"><span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">findByCategoryId</span><span class="params">(Long categoryId)</span> </span>&#123;</span><br><span class="line">    List&lt;TbContent&gt; list = (List&lt;TbContent&gt;) redisTemplate.boundHashOps(<span class="string">"content"</span>).get(categoryId);</span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>) &#123;</span><br><span class="line">        System.out.println(<span class="string">"从数据库读取数据放入缓存"</span>);</span><br><span class="line">        TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line">        Criteria criteria = example.createCriteria();</span><br><span class="line">        criteria.andCategoryIdEqualTo(categoryId);</span><br><span class="line">        criteria.andStatusEqualTo(<span class="string">"1"</span>);<span class="comment">//条件：有效</span></span><br><span class="line">        example.setOrderByClause(<span class="string">"sort_order"</span>);<span class="comment">//排序</span></span><br><span class="line">        list=contentMapper.selectByExample(example);</span><br><span class="line">        redisTemplate.boundHashOps(<span class="string">"content"</span>).put(categoryId, list);<span class="comment">//存入缓存</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"从缓存读取数据"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200730170914785.png" alt="image-20200730170914785"></p>
+<h3 id="2-2更新缓存"><a href="#2-2更新缓存" class="headerlink" title="2.2更新缓存"></a>2.2更新缓存</h3><p>当广告数据发生变更时，需要将缓存数据清除，这样再次查询才能获取最新的数据</p>
+<p>修改pinyougou-content-service工程ContentServiceImpl.java 的add方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(TbContent content)</span> </span>&#123;</span><br><span class="line">    contentMapper.insert(content);	</span><br><span class="line">    <span class="comment">//清除缓存</span></span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"content"</span>).delete(content.getCategoryId());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>考虑到用户可能会修改广告的分类，这样需要把原分类的缓存和新分类的缓存都清除掉。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 修改</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(TbContent content)</span></span>&#123;</span><br><span class="line">    <span class="comment">//查询修改前的分类Id</span></span><br><span class="line">    Long categoryId = contentMapper.selectByPrimaryKey(content.getId()).getCategoryId();</span><br><span class="line">    redisTemplate.boundHashOps(<span class="string">"content"</span>).delete(categoryId);</span><br><span class="line">    contentMapper.updateByPrimaryKey(content);</span><br><span class="line">    <span class="comment">//如果分类ID发生了修改,清除修改后的分类ID的缓存</span></span><br><span class="line">    <span class="keyword">if</span>(categoryId.longValue()!=content.getCategoryId().longValue())&#123;</span><br><span class="line">        redisTemplate.boundHashOps(<span class="string">"content"</span>).delete(content.getCategoryId());</span><br><span class="line">    &#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除广告后清除缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 批量删除</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long[] ids)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Long id:ids)&#123;</span><br><span class="line">        <span class="comment">//清除缓存</span></span><br><span class="line">        Long categoryId = contentMapper.selectByPrimaryKey(id).getCategoryId();<span class="comment">//广告分类ID</span></span><br><span class="line">        redisTemplate.boundHashOps(<span class="string">"content"</span>).delete(categoryId);</span><br><span class="line">        contentMapper.deleteByPrimaryKey(id);</span><br><span class="line">    &#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>对比数模学品优购真的是一种享受🤔</p>
+<p>👴不想回建模了，拜拜了您嘞</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=443070046&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2020-05-30T04:52:52.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">企业WEB项目通过solr实现商品搜索功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/vim%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:16:28.996Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/vim%E5%9D%91/">vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">品优购</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/29/%E5%93%81%E4%BC%98%E8%B4%AD6%E2%80%94%E5%B9%BF%E5%91%8A%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BC%93%E5%AD%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/solr%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T12:31:38.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/29/getPath()%E8%BF%94%E5%9B%9E%E8%B7%AF%E5%BE%84%E4%B8%8D%E7%9C%9F%E5%AE%9E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">getResource().getPath()返回路径带%20问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">Linux下Solr的安装及配置(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#广告管理"><span class="toc-number">2.</span> <span class="toc-text">广告管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-后台管理"><span class="toc-number">2.1.</span> <span class="toc-text">1.后台管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1搭建广告工程"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1搭建广告工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2广告图片上传"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2广告图片上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3广告类目选择"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3广告类目选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4广告状态"><span class="toc-number">2.1.4.</span> <span class="toc-text">1.4广告状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-前台展示"><span class="toc-number">2.2.</span> <span class="toc-text">2.前台展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1搭建门面工程"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1搭建门面工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2后端实现"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2后端实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3前端代码"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3前端代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#缓存解决方案"><span class="toc-number">3.</span> <span class="toc-text">缓存解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SpringDataRedis简介"><span class="toc-number">3.1.</span> <span class="toc-text">1.SpringDataRedis简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1演变过程"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1演变过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2配置"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3Value类型操作"><span class="toc-number">3.1.3.</span> <span class="toc-text">1.3Value类型操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4Set类型操作"><span class="toc-number">3.1.4.</span> <span class="toc-text">1.4Set类型操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5List类型操作"><span class="toc-number">3.1.5.</span> <span class="toc-text">1.5List类型操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6Hash类型操作"><span class="toc-number">3.1.6.</span> <span class="toc-text">1.6Hash类型操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-缓存广告数据"><span class="toc-number">3.2.</span> <span class="toc-text">2.缓存广告数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1读取缓存"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1读取缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2更新缓存"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2更新缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:32:37.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">Linux安装tomcat并配置开机自启动(CentOS为例)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:12:59.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">Linux安装jdk(CentOS为例)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-05-26T11:36:39.762Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">WEB项目系统添加redis缓存逻辑和功能</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-25T06:20:31.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">Redis在Linux上的安装和集群搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-24T08:44:59.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-22T14:01:00.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">企业WEB开发前台工程搭建,ajax跨域的解决</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" class="archive-article-date">
-  	<time datetime="2020-05-22T01:58:26.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">企业WEB项目中商品规格的实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/6/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -642,8 +532,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
