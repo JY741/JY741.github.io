@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200609164643612.png">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20200609174303089.png">
 <meta property="article:published_time" content="2020-06-09T02:52:36.259Z">
-<meta property="article:modified_time" content="2020-06-13T11:55:57.751Z">
+<meta property="article:modified_time" content="2020-09-10T03:54:21.703Z">
 <meta property="article:author" content="J Sir">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
@@ -380,7 +380,7 @@
 <p>“jmp 段地址： 偏移地址” 指令的功能为： 用指令中给出的段地址修改cs, 偏移地址修改IP。</p>
 <p>jmp 3:0186 在含义上好似mov CS,3 mov IP,O1B6。</p>
 <p>(2)若想仅修改1P 的内容， 可用形如“jmp 某一合法寄存器” 的指令完成， 如</p>
-<p>jmpax, 指令执行前： ax=1OOOH, CS=2000H, IP=0003H    指令执行后： ax=1OOOH, CS=2000H, IP=1OOOH</p>
+<p>jmp ax, 指令执行前： ax=1OOOH, CS=2000H, IP=0003H    指令执行后： ax=1OOOH, CS=2000H, IP=1OOOH</p>
 <p>“jmp 某一合法寄存器” 指令的功能为： 用寄存器中的值修改IP。jmp ax, 在含义上好似： mov IP,ax。</p>
 <h2 id="12-代码段"><a href="#12-代码段" class="headerlink" title="12.代码段"></a>12.代码段</h2><p>前面讲过， 对于8086PC 机， 在编程时， 可以根据需要， 将一组内存单元定义为一个段。我们可以将长度为N(N􀁎64KB)的一组代码， 存在一组地址连续、起始地址为16 的倍数的内存单元中， 我们可以认为， 这段内存是用来存放代码的， 从而定义了一个代码段。</p>
 <p>长度为10 个字节的指令， 存放在123BOH<del>123B9H 的一组内存单元中， 我们就可以认为， 123BOH</del>123B9H 这段内存是用来存放代码的， 是一个代码段， 它的段地址为123BH, 长度为10 个字节。</p>
