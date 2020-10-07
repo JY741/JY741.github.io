@@ -197,103 +197,11 @@
 <li>W：根据坐标平移对象；E：旋转对象；R：缩放对象</li>
 <li>ALT拖动物体坐标轴可以实现物体的复制</li>
 <li>鼠标右键+鼠标中键的旋转可实现镜头的快慢</li>
+<li>H：隐藏物体；CTRL+H：显示隐藏物体</li>
 </ul>
-<h1 id="开关门互动实现"><a href="#开关门互动实现" class="headerlink" title="开关门互动实现"></a>开关门互动实现</h1><h2 id="1-简单开关门"><a href="#1-简单开关门" class="headerlink" title="1.简单开关门"></a>1.简单开关门</h2><p>这里我们用第三人称游戏包作为基础，还需要应用到StarterContent内容包。</p>
-<p>先从StarterContent的Props导入门，接着我们要实现门的开关，我们需要设置一个触发器，这里我们选择盒体触发器。</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114137810.png" alt="image-20201004114137810" style="zoom:80%;" />
-
-<p>将盒体触发器包裹门，接着选中盒体触发器<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114237382.png" alt="image-20201004114237382"></p>
-<p>选中蓝图——&gt;打开关卡蓝图，进入关卡蓝图界面，右键添加进入离开盒体触发的事件。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114436685.png" alt="image-20201004114436685"></p>
-<p>接着由于我们需要开关门，我们需要选中门，把门设置成可移动的</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114640998.png" alt="image-20201004114640998"></p>
-<p>接着进入关卡蓝图界面，右键创建一个对门的引用，接着设置其旋转<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114814191.png" alt="image-20201004114814191"></p>
-<p>我们要实现的是门的旋转，门是依靠z轴进行旋转的，我们设置z轴为85°，接着连接各线，可实现简单的旋转</p>
-<h2 id="2-渐进效果"><a href="#2-渐进效果" class="headerlink" title="2.渐进效果"></a>2.渐进效果</h2><p>我们现实中门是慢慢开的，为了更加逼真，我们添加时间抽来实现门的慢慢打开效果。</p>
-<p>右键创建一个时间抽，双击进入，接着由于我们一开始门没有旋转，即第0秒旋转0°，我们添加一个【0，0】的关键帧，然后在设置一个【2，85】的关键帧，即2秒内旋转85°。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004115524654.png" alt="image-20201004115524654"></p>
-<p>最后把线连好，即可实现</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004115723987.png" alt="image-20201004115723987"></p>
-<h2 id="3-蓝图类实现"><a href="#3-蓝图类实现" class="headerlink" title="3.蓝图类实现"></a>3.蓝图类实现</h2><p>我们可以在一个场景中需要多次用到门的开关，我们不可能每次都像上面一样去一个一个设置，因此我们需要一个统一的门来实现门的开关互动。这里我们需要用到蓝图类。</p>
-<p>在内容浏览器右键——&gt;蓝图类——&gt;Actor，接着进入蓝图类编辑界面，我们需要添加如下组件</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004151139258.png" alt="image-20201004151139258"></p>
-<p>其中静态网格都能在右边的静态网格体重找到对应的物体，而box则是一个盒体碰撞，这里注意，门和盒体都在同一级下，最终调整大小如下：</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004151317792.png" alt="image-20201004151317792" style="zoom:80%;" />
-
-<p>接着我们来添加事件实现门的开关效果，基本和上面类似：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004151417207.png" alt="image-20201004151417207"></p>
-<blockquote>
-<p>为什么要相对旋转：</p>
-<p>相对旋转是相对于这个物体（如这里是Door）来确定角度的，和这个对应的还有一个场景旋转，是相对一个世界角度（万古不变的）来讲，如果这里用的场景旋转，那么门会先变成场景中的0°角度，达不到我们想要的效果。</p>
-</blockquote>
-<p>接着我们只要把写好的蓝图类拖拽到场景中即可使用。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004152358164.png" alt="image-20201004152358164"></p>
-<h2 id="4-通过键盘按键实现"><a href="#4-通过键盘按键实现" class="headerlink" title="4.通过键盘按键实现"></a>4.通过键盘按键实现</h2><p>我们可以通过蓝图事件实现按下键盘e键开关门的效果</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004160041514.png" alt="image-20201004160041514"></p>
-<h2 id="5-通过鼠标点击实现"><a href="#5-通过鼠标点击实现" class="headerlink" title="5.通过鼠标点击实现"></a>5.通过鼠标点击实现</h2><p>在世界场景设置中开启鼠标点击事件</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004165921991.png" alt="image-20201004165921991"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004165943791.png" alt="image-20201004165943791"></p>
-<p>在蓝图事件中添加点击事件和鼠标显示事件</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004165804879.png" alt="image-20201004165804879"></p>
-<h1 id="位置平移"><a href="#位置平移" class="headerlink" title="位置平移"></a>位置平移</h1><h2 id="1-电梯的升降"><a href="#1-电梯的升降" class="headerlink" title="1.电梯的升降"></a>1.电梯的升降</h2><p>目标：通过键盘e键实现电梯的升降</p>
-<p>在内容浏览器创建蓝图类：电梯_BP。添加一个立方体和盒体触发器</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004233014138.png" alt="image-20201004233014138">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004232449631.png" alt="image-20201004232449631"></p>
-<p>这里注意Box要是立方体的子级，否则电梯上升过程中不会带着触发器一起，也就实现不了上升后实现下降的功能了。</p>
-<p>在事件中实现键盘e操作：</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004233522271.png" alt="image-20201004233522271"></p>
-<p>接着设置时间轴，插值为【0，0】和【0，1】，这里不直接设置上升多少，而是通过一个插值Alpha来实现。插值的作用是当Alpha=0时，走A；当Alpha=1时，走B；当是0<del>1中的一个值时，走A</del>B对应的值。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005110916647.png" alt="image-20201005110916647"></p>
-<p>这里由于我们要实现电梯的升降，改变的是z轴的位置，我们需要设置相对位置。</p>
-<h2 id="2-自动双开门"><a href="#2-自动双开门" class="headerlink" title="2.自动双开门"></a>2.自动双开门</h2><p>复制电梯_BP蓝图类，在此基础上进行修改。</p>
-<p>修改立方体材质为玻璃类型，并把它一分为二，使得外观和玻璃门一致</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005154439222.png" alt="image-20201005154439222">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005154458420.png" alt="image-20201005154458420"></p>
-<p>和上面电梯一样，只是这里我们需要触发盒体触发器的时候同时修改两个门的相对位置。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005154720918.png" alt="image-20201005154720918"></p>
-<h1 id="拾取钥匙开门"><a href="#拾取钥匙开门" class="headerlink" title="拾取钥匙开门"></a>拾取钥匙开门</h1><h2 id="1-实现条件开门"><a href="#1-实现条件开门" class="headerlink" title="1.实现条件开门"></a>1.实现条件开门</h2><p>在Door_BP中添加布尔变量：是否可以开门（红色代表布尔变量）</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005161016139.png" alt="image-20201005161016139"></p>
-<p>接着我们在蓝图中按E开门时添加判断：通过刚刚的布尔值创建一个分支，只有是否可以开门为True的时候才可以执行后续的开门动作。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005161236396.png" alt="image-20201005161236396"></p>
-<h2 id="2-创建钥匙类"><a href="#2-创建钥匙类" class="headerlink" title="2.创建钥匙类"></a>2.创建钥匙类</h2><p>创建Key_BP蓝图类，钥匙用一个立方体，并用球体触发器包裹住</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005164602409.png" alt="image-20201005164602409">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005164610969.png" alt="image-20201005164610969"></p>
-<p>创建蓝图逻辑，玩家需要按住E键拾取，前面的逻辑和上面一样</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005164709275.png" alt="image-20201005164709275"></p>
-<p>接着我们拾取钥匙后要实现对Door_BP中布尔变量的修改，这里我们用到获取类的所有Actor，修改布尔值，同时销毁这个盒体actor</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005164950232.png" alt="image-20201005164950232"></p>
-<p>接下来我们测试运行，发现只有E键拾取钥匙后才能开门，效果实现。</p>
-<h1 id="蓝图通信和自定义事件"><a href="#蓝图通信和自定义事件" class="headerlink" title="蓝图通信和自定义事件"></a>蓝图通信和自定义事件</h1><h2 id="1-蓝图通信"><a href="#1-蓝图通信" class="headerlink" title="1.蓝图通信"></a>1.蓝图通信</h2><p>蓝图通信就是不同的蓝图类实现交互的事件。上面的是取钥匙开门案例其实已经用到了：在key类中修改door中的布尔变量值。</p>
-<p>这里我们还需要引入一个概念——类型转换：</p>
-<p>当你想要通过触发器操作另一个类时（蓝图通信），你需要类型转换，同时类型转换还有一个作用：只有针对要转换的类才会生效，其他的AI触发了这个盒子并不会生效</p>
-<p>我们创建一个触发加速_BP蓝图类来简单介绍一下类型转换，组件我们只需要添加一个盒体触发器就可以了</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005180523406.png" alt="image-20201005180523406" style="zoom:80%;" />
-
-<h2 id="2-自定义事件实现触发加速"><a href="#2-自定义事件实现触发加速" class="headerlink" title="2.自定义事件实现触发加速"></a>2.自定义事件实现触发加速</h2><p>自定义事件也就是我们可以通过我们蓝图类本身的一些属性来实现我们想要的功能，如上面的加速，我们需要修改ThirdPersonCharacter类通过改变其行走的最大速度来实现加速的功能。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005180740081.png" alt="image-20201005180740081"></p>
-<p>接着我们会回到触发加速_BP类，当我们进入盒体触发器范围，我们把速度调整为1500，出去后回归正常</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005180841913.png" alt="image-20201005180841913" style="zoom:80%;" />
-
-<h1 id="实现键盘控制物体自转"><a href="#实现键盘控制物体自转" class="headerlink" title="实现键盘控制物体自转"></a>实现键盘控制物体自转</h1><h2 id="1-物体自转实现"><a href="#1-物体自转实现" class="headerlink" title="1.物体自转实现"></a>1.物体自转实现</h2><p>创建物体自传_BP蓝图类</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005221946868.png" alt="image-20201005221946868"></p>
-<p>事件是每帧都会进行后续连线的操作，也就是每帧围绕z轴旋转2°</p>
-<p>创建布尔类型是否可以旋转来判断自转的开关。</p>
-<h2 id="2-按键实现自转开关"><a href="#2-按键实现自转开关" class="headerlink" title="2.按键实现自转开关"></a>2.按键实现自转开关</h2><p>创建自定义事件控制旋转</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005222246593.png" alt="image-20201005222246593"></p>
-<p>这里就相当于布尔值的取反，当我们第一次进来默认是false，我们按1键后执行这个自定义事件，这个布尔值变成true，接着执行事件Tick后的操作（也就是不停自转）。<br>当我们在转的时候按1键想停止自转，这时候布尔值是true，按1键后执行自定义事件变为false，停止自转。</p>
-<p>接着我们进入ThirdPersonCharacter蓝图类，创建一个新图表，接着添加一个变量自转物体引用，将变量类型设置为上面创建的物体自传_BP蓝图类</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005223142287.png" alt="image-20201005223142287"></p>
-<p>这里我们引用外部蓝图类实现蓝图通信时需要先判断是否可用——Is Valid，否则直接引用会报错。</p>
-<p>一切编写好后，我们不仅需要保存，同时还需要把刚刚引用的自传物体引用设置为公有，方便后面我们在场景中指定引用的特定物体。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005223404401.png" alt="image-20201005223404401"></p>
-<p>打开这个选项后，我们需要点击编译才可以在场景中选中人物模型设置那个物体被引用，因为我们在蓝图只是一个蓝图类的引用，但是不是实例的引用，不清楚哪个需要自转。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005223738786.png" alt="image-20201005223738786"></p>
-<p>这里我们可以自己选择物体指定，也可以吸附物体来指定。</p>
-<p>接着我们测试发现功能实现了。</p>
-<h2 id="3-实现一堆物体自转"><a href="#3-实现一堆物体自转" class="headerlink" title="3.实现一堆物体自转"></a>3.实现一堆物体自转</h2><p>上面的我们只能实现对单个或者指定的多个实现控制自转，如果我们场景中需要一堆自转的，我们可以用下面的方法实现</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005230042420.png" alt="image-20201005230042420"></p>
-<p>这里ForEachLoop是循环遍历场景中所有该类的演员，和场景中所有演员都通信一次，即可实现每个物体都自转了。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>👴把英雄联盟给删了，猜猜👴能撑多久😅</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=167655&auto=0&height=66"></iframe>
-
-
+        
+          <a class="article-more-a" href="/2020/10/04/%E8%99%9A%E5%B9%BB4%E2%80%94%E8%93%9D%E5%9B%BE%E5%85%A5%E9%97%A8/#more">more >></a>
+        
       
 
       

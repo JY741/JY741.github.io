@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>虚幻4—蓝图入门 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="EverydayOneCat早！上！好！    之前学习虚幻4操作基础的时候忘记笔记了，这里简单记录一下虚幻4的基础操作。后续有时间再更新其他的基础：如BSP、碰撞、地形和植被、光线等等。   鼠标右键+wasd实现镜头前后左右旋转，qe实现上下旋转 W：根据坐标平移对象；E：旋转对象；R：缩放对象 ALT拖动物体坐标轴可以实现物体的复制 鼠标右键+鼠标中键的旋转可实现镜头的快慢  开关门互动实现">
+  <meta name="description" content="EverydayOneCat早！上！好！    之前学习虚幻4操作基础的时候忘记笔记了，这里简单记录一下虚幻4的基础操作。后续有时间再更新其他的基础：如BSP、碰撞、地形和植被、光线等等。   鼠标右键+wasd实现镜头前后左右旋转，qe实现上下旋转 W：根据坐标平移对象；E：旋转对象；R：缩放对象 ALT拖动物体坐标轴可以实现物体的复制 鼠标右键+鼠标中键的旋转可实现镜头的快慢 H：隐藏物体；C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚幻4—蓝图入门">
 <meta property="og:url" content="http://yoursite.com/2020/10/04/%E8%99%9A%E5%B9%BB4%E2%80%94%E8%93%9D%E5%9B%BE%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="EverydayOneCat早！上！好！    之前学习虚幻4操作基础的时候忘记笔记了，这里简单记录一下虚幻4的基础操作。后续有时间再更新其他的基础：如BSP、碰撞、地形和植被、光线等等。   鼠标右键+wasd实现镜头前后左右旋转，qe实现上下旋转 W：根据坐标平移对象；E：旋转对象；R：缩放对象 ALT拖动物体坐标轴可以实现物体的复制 鼠标右键+鼠标中键的旋转可实现镜头的快慢  开关门互动实现">
+<meta property="og:description" content="EverydayOneCat早！上！好！    之前学习虚幻4操作基础的时候忘记笔记了，这里简单记录一下虚幻4的基础操作。后续有时间再更新其他的基础：如BSP、碰撞、地形和植被、光线等等。   鼠标右键+wasd实现镜头前后左右旋转，qe实现上下旋转 W：根据坐标平移对象；E：旋转对象；R：缩放对象 ALT拖动物体坐标轴可以实现物体的复制 鼠标右键+鼠标中键的旋转可实现镜头的快慢 H：隐藏物体；C">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/d8ed5bf378542ea016a33b155fcd74c51696460f.jpg@518w_1e_1c.jpg">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114137810.png">
@@ -53,8 +53,37 @@
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005223404401.png">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005223738786.png">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005230042420.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221158876.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221444654.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221811918.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222106492.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222145913.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222548393.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222645230.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222840718.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006223627769.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006223821931.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006231545501.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007140210063.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007140807116.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007141810954.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007142226919.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007152154446.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007154633213.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007155104574.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007165317252.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173636954.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173819510.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173912019.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213231761.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213624188.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213754211.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007222443682.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007222726611.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007223508878.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007224309763.png">
 <meta property="article:published_time" content="2020-10-04T03:21:24.916Z">
-<meta property="article:modified_time" content="2020-10-05T15:05:24.588Z">
+<meta property="article:modified_time" content="2020-10-07T14:43:47.474Z">
 <meta property="article:author" content="J Sir">
 <meta property="article:tag" content="虚幻">
 <meta name="twitter:card" content="summary">
@@ -248,7 +277,10 @@
 <li>W：根据坐标平移对象；E：旋转对象；R：缩放对象</li>
 <li>ALT拖动物体坐标轴可以实现物体的复制</li>
 <li>鼠标右键+鼠标中键的旋转可实现镜头的快慢</li>
+<li>H：隐藏物体；CTRL+H：显示隐藏物体</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="开关门互动实现"><a href="#开关门互动实现" class="headerlink" title="开关门互动实现"></a>开关门互动实现</h1><h2 id="1-简单开关门"><a href="#1-简单开关门" class="headerlink" title="1.简单开关门"></a>1.简单开关门</h2><p>这里我们用第三人称游戏包作为基础，还需要应用到StarterContent内容包。</p>
 <p>先从StarterContent的Props导入门，接着我们要实现门的开关，我们需要设置一个触发器，这里我们选择盒体触发器。</p>
 <img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201004114137810.png" alt="image-20201004114137810" style="zoom:80%;" />
@@ -341,6 +373,76 @@
 <h2 id="3-实现一堆物体自转"><a href="#3-实现一堆物体自转" class="headerlink" title="3.实现一堆物体自转"></a>3.实现一堆物体自转</h2><p>上面的我们只能实现对单个或者指定的多个实现控制自转，如果我们场景中需要一堆自转的，我们可以用下面的方法实现</p>
 <p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201005230042420.png" alt="image-20201005230042420"></p>
 <p>这里ForEachLoop是循环遍历场景中所有该类的演员，和场景中所有演员都通信一次，即可实现每个物体都自转了。</p>
+<h1 id="简单解谜游戏"><a href="#简单解谜游戏" class="headerlink" title="简单解谜游戏"></a>简单解谜游戏</h1><p>我们做一个小demo来对上面的功能实现一个汇总：首先玩家通过钥匙才能开门，接着要到达二层，需要想办法打开机关门，这里设计的思路是需要所有灯都打开才能让门打开进入电梯。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221158876.png" alt="image-20201006221158876"></p>
+<h2 id="1-实现打开门的提示"><a href="#1-实现打开门的提示" class="headerlink" title="1.实现打开门的提示"></a>1.实现打开门的提示</h2><p>我们需要在Door_BP蓝图类增加一个文本渲染组件，调整好角度后，设置他为不可见</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221444654.png" alt="image-20201006221444654">)<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006221811918.png" alt="image-20201006221811918"></p>
+<p>蓝图中实现功能：进入盒体触发器范围内自动显示文本提示</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222106492.png" alt="image-20201006222106492" style="zoom:80%;" />
+
+<p>打开门后关闭提示，关闭门后显示提示</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222145913.png" alt="image-20201006222145913" style="zoom:80%;" />
+
+<h2 id="2-实现开灯功能"><a href="#2-实现开灯功能" class="headerlink" title="2.实现开灯功能"></a>2.实现开灯功能</h2><p>创建LIght_BP蓝图类，添加组件如下：静态网格组件设置为挂灯类型，添加聚光源组件，接着用盒体触发器将他们包裹起来，按照上面添加文本提示。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222548393.png" alt="image-20201006222548393"></p>
+<p>这里需要将类型转换为第三人称类，一方面为了蓝图通信，一方面为了只有第三人称任务才可以触发开关事件</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222645230.png" alt="image-20201006222645230"></p>
+<p>蓝图实现按E打开灯</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006222840718.png" alt="image-20201006222840718"></p>
+<h2 id="3-打开所有灯触发机关"><a href="#3-打开所有灯触发机关" class="headerlink" title="3.打开所有灯触发机关"></a>3.打开所有灯触发机关</h2><p>这里我们需要判断所有灯有没有打开，添加一个布尔类型的变量：是否打开灯<br>当我们打开灯时设置为true，反之为false。</p>
+<p>接着我们需要循环遍历Light_BP中所有的演员，判断其是否打开。我们增加一个布尔变量：是否可以打开机关，如果所有的都打开了，我们设置这个布尔值为true，否则一旦有一个不符合标准这个值为false，并且推出这个循环。</p>
+<p>这里我们之前用的ForEachLoop就不能满足要求了，我们需要用到ForEachLoopWithBreak。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006223627769.png" alt="image-20201006223627769"></p>
+<p>当这个循环结束后，我们需要判断是否可以打开机关这个布尔值是否为true，如果是，则执行开启机关这一自定义事件。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006223821931.png" alt="image-20201006223821931"></p>
+<h1 id="多个角色控制权转换"><a href="#多个角色控制权转换" class="headerlink" title="多个角色控制权转换"></a>多个角色控制权转换</h1><p>在多主角游戏中，我们常常需要变化角色来实现不同的目的。</p>
+<p>我们在场景中重复添加几个第三人称模型，打开关卡蓝图，将这些模型引入。接着我们用到MultiGate来实现多个目的的实现。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201006231545501.png" alt="image-20201006231545501"></p>
+<p>这里Radom就是随即执行任意引脚，loop就是可以循环执行，不会因为每个执行一次后就中断。</p>
+<h1 id="角色上下车功能"><a href="#角色上下车功能" class="headerlink" title="角色上下车功能"></a>角色上下车功能</h1><h2 id="1-实现角色和车的通信"><a href="#1-实现角色和车的通信" class="headerlink" title="1.实现角色和车的通信"></a>1.实现角色和车的通信</h2><p>首先我们需要在项目中添加一个载具类的蓝图功能</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007140210063.png" alt="image-20201007140210063"></p>
+<p>接着将汽车类添加到场景中</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007140807116.png" alt="image-20201007140807116"></p>
+<p>将盒体触发器包裹住汽车类，接着自定义事件：上车</p>
+<p>接着我们要在角色类中实现按F上车功能，需要添加一个汽车类Sedan的引用，在应用这个变量时，还得判断是否有效才能执行上车功能</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007141810954.png" alt="image-20201007141810954"></p>
+<p>接着我们回到汽车Sedan类，实现当我们角色到汽车旁边时，可以实现上车逻辑。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007142226919.png" alt="image-20201007142226919"></p>
+<p>要实现角色和车之间的蓝图通信，需要类型转换，保证了只有角色到旁边才能实现上车逻辑，同时角色类中需要保证汽车类引用的有效性，所以我们在汽车类中需要设置角色类中的引用为他自身（汽车类）。</p>
+<p>接着，我们需要角色走到汽车旁边按F键时，将控制权交给汽车。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007152154446.png" alt="image-20201007152154446"></p>
+<h2 id="2-实现角色上车位置的变换"><a href="#2-实现角色上车位置的变换" class="headerlink" title="2.实现角色上车位置的变换"></a>2.实现角色上车位置的变换</h2><p>上面我们只实现了视角的切换，但是人且不会移动到车的座位上。下面我们针对此来实现位置功能变换。</p>
+<p>在汽车类添加一个球体触发器，位置移到座椅上，由于这个是来确定角色上车后的位置，需要把碰撞设为没有，防止和角色的胶囊体碰撞起冲突。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007154633213.png" alt="image-20201007154633213"></p>
+<p>在角色类中引用自己</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007155104574.png" alt="image-20201007155104574"></p>
+<p>这是我们测试发现人确实上车时会移动到座位上，但是一旦车开走人却还在原地不动。解决这个问题，我们需要将角色依附在刚刚创建的球体触发器上，这样就可以随着球体触发器移动，而球体触发器是汽车的子组件，跟随着汽车移动。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007165317252.png" alt="image-20201007165317252"></p>
+<p>这里我们需要设置的是保持场景而不是保持相对，因为这两个是不同蓝图类的对象，如果保持相对，角色对象就会根据球体触发器的位置旋转缩放来放置在场景中，不知道飞哪去了。</p>
+<h2 id="3-实现角色下车功能"><a href="#3-实现角色下车功能" class="headerlink" title="3.实现角色下车功能"></a>3.实现角色下车功能</h2><p>角色下车功能和上车流程恰恰相反。</p>
+<p>首先，我们需要将角色对象和汽车分离，接着需要变化到下车位置，同时打开人物碰撞，把控制权交给角色，在这期间还需要一个镜头的切换。</p>
+<p>分离：<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173636954.png" alt="image-20201007173636954"></p>
+<p>变换位置：这里需要注意在不需要缩放的同时，我们位置的旋转需要是z轴（平面的左右跟着动），否则摄像头切换好了也会歪。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173819510.png" alt="image-20201007173819510"></p>
+<p>开启碰撞+镜头转换：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007173912019.png" alt="image-20201007173912019"></p>
+<h2 id="4-下车减速功能"><a href="#4-下车减速功能" class="headerlink" title="4.下车减速功能"></a>4.下车减速功能</h2><p>我们要实现角色下车汽车会自动减速停下来的功能。</p>
+<p>这里讲一下汽车类自带的一个事件</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213231761.png" alt="image-20201007213231761"></p>
+<p>这个的功能就是只要你按w他就会给轮子加速，为了防止我们下车后由于下车的瞬间还在按w导致后面停下来了轮子还在转，我们需要设置一个下车的布尔变量，默认为true。当我们上车时，设置为false。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213624188.png" alt="image-20201007213624188"></p>
+<p>这里我们引入Vechicle Movement，先把手刹拉上，再把油门速度减为0。</p>
+<p>同时还要设置只有在车上时才能按w加速</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007213754211.png" alt="image-20201007213754211"></p>
+<h1 id="冲刺、瞬移、多段跳"><a href="#冲刺、瞬移、多段跳" class="headerlink" title="冲刺、瞬移、多段跳"></a>冲刺、瞬移、多段跳</h1><h2 id="1-冲刺"><a href="#1-冲刺" class="headerlink" title="1.冲刺"></a>1.冲刺</h2><p>实现按Shift加速角色行走</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007222443682.png" alt="image-20201007222443682"></p>
+<h2 id="2-瞬移"><a href="#2-瞬移" class="headerlink" title="2.瞬移"></a>2.瞬移</h2><p>如果连续按两次Shift，可以实现瞬移功能。</p>
+<p>我们需要定义一个整数变量次数，每按一次Shift就+1，当大于等于2时可以实现瞬移效果，但是考虑到要短时间连续按，如果两秒之内没有按，我们则需要重置为0。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007222726611.png" alt="image-20201007222726611"></p>
+<p>为了实现角色瞬移效果，我们首先需要得到角色的位置，接着我们还需要判断角色现在面朝哪个方向，我们需要按照这个方向来进行直线位移。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007223508878.png" alt="image-20201007223508878"></p>
+<h2 id="3-多段跳"><a href="#3-多段跳" class="headerlink" title="3.多段跳"></a>3.多段跳</h2><p>这里我们只需要修改虚幻4给我们默认配置好的属性就行了</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201007224309763.png" alt="image-20201007224309763"></p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>👴把英雄联盟给删了，猜猜👴能撑多久😅</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=167655&auto=0&height=66"></iframe>
 
@@ -487,7 +589,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开关门互动实现"><span class="toc-number">2.</span> <span class="toc-text">开关门互动实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简单开关门"><span class="toc-number">2.1.</span> <span class="toc-text">1.简单开关门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-渐进效果"><span class="toc-number">2.2.</span> <span class="toc-text">2.渐进效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-蓝图类实现"><span class="toc-number">2.3.</span> <span class="toc-text">3.蓝图类实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-通过键盘按键实现"><span class="toc-number">2.4.</span> <span class="toc-text">4.通过键盘按键实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-通过鼠标点击实现"><span class="toc-number">2.5.</span> <span class="toc-text">5.通过鼠标点击实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#位置平移"><span class="toc-number">3.</span> <span class="toc-text">位置平移</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-电梯的升降"><span class="toc-number">3.1.</span> <span class="toc-text">1.电梯的升降</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自动双开门"><span class="toc-number">3.2.</span> <span class="toc-text">2.自动双开门</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拾取钥匙开门"><span class="toc-number">4.</span> <span class="toc-text">拾取钥匙开门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现条件开门"><span class="toc-number">4.1.</span> <span class="toc-text">1.实现条件开门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建钥匙类"><span class="toc-number">4.2.</span> <span class="toc-text">2.创建钥匙类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#蓝图通信和自定义事件"><span class="toc-number">5.</span> <span class="toc-text">蓝图通信和自定义事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-蓝图通信"><span class="toc-number">5.1.</span> <span class="toc-text">1.蓝图通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自定义事件实现触发加速"><span class="toc-number">5.2.</span> <span class="toc-text">2.自定义事件实现触发加速</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现键盘控制物体自转"><span class="toc-number">6.</span> <span class="toc-text">实现键盘控制物体自转</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-物体自转实现"><span class="toc-number">6.1.</span> <span class="toc-text">1.物体自转实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-按键实现自转开关"><span class="toc-number">6.2.</span> <span class="toc-text">2.按键实现自转开关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实现一堆物体自转"><span class="toc-number">6.3.</span> <span class="toc-text">3.实现一堆物体自转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开关门互动实现"><span class="toc-number">2.</span> <span class="toc-text">开关门互动实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简单开关门"><span class="toc-number">2.1.</span> <span class="toc-text">1.简单开关门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-渐进效果"><span class="toc-number">2.2.</span> <span class="toc-text">2.渐进效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-蓝图类实现"><span class="toc-number">2.3.</span> <span class="toc-text">3.蓝图类实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-通过键盘按键实现"><span class="toc-number">2.4.</span> <span class="toc-text">4.通过键盘按键实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-通过鼠标点击实现"><span class="toc-number">2.5.</span> <span class="toc-text">5.通过鼠标点击实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#位置平移"><span class="toc-number">3.</span> <span class="toc-text">位置平移</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-电梯的升降"><span class="toc-number">3.1.</span> <span class="toc-text">1.电梯的升降</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自动双开门"><span class="toc-number">3.2.</span> <span class="toc-text">2.自动双开门</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拾取钥匙开门"><span class="toc-number">4.</span> <span class="toc-text">拾取钥匙开门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现条件开门"><span class="toc-number">4.1.</span> <span class="toc-text">1.实现条件开门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建钥匙类"><span class="toc-number">4.2.</span> <span class="toc-text">2.创建钥匙类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#蓝图通信和自定义事件"><span class="toc-number">5.</span> <span class="toc-text">蓝图通信和自定义事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-蓝图通信"><span class="toc-number">5.1.</span> <span class="toc-text">1.蓝图通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自定义事件实现触发加速"><span class="toc-number">5.2.</span> <span class="toc-text">2.自定义事件实现触发加速</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现键盘控制物体自转"><span class="toc-number">6.</span> <span class="toc-text">实现键盘控制物体自转</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-物体自转实现"><span class="toc-number">6.1.</span> <span class="toc-text">1.物体自转实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-按键实现自转开关"><span class="toc-number">6.2.</span> <span class="toc-text">2.按键实现自转开关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实现一堆物体自转"><span class="toc-number">6.3.</span> <span class="toc-text">3.实现一堆物体自转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简单解谜游戏"><span class="toc-number">7.</span> <span class="toc-text">简单解谜游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现打开门的提示"><span class="toc-number">7.1.</span> <span class="toc-text">1.实现打开门的提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现开灯功能"><span class="toc-number">7.2.</span> <span class="toc-text">2.实现开灯功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-打开所有灯触发机关"><span class="toc-number">7.3.</span> <span class="toc-text">3.打开所有灯触发机关</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多个角色控制权转换"><span class="toc-number">8.</span> <span class="toc-text">多个角色控制权转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#角色上下车功能"><span class="toc-number">9.</span> <span class="toc-text">角色上下车功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-实现角色和车的通信"><span class="toc-number">9.1.</span> <span class="toc-text">1.实现角色和车的通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现角色上车位置的变换"><span class="toc-number">9.2.</span> <span class="toc-text">2.实现角色上车位置的变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-实现角色下车功能"><span class="toc-number">9.3.</span> <span class="toc-text">3.实现角色下车功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-下车减速功能"><span class="toc-number">9.4.</span> <span class="toc-text">4.下车减速功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#冲刺、瞬移、多段跳"><span class="toc-number">10.</span> <span class="toc-text">冲刺、瞬移、多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-冲刺"><span class="toc-number">10.1.</span> <span class="toc-text">1.冲刺</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-瞬移"><span class="toc-number">10.2.</span> <span class="toc-text">2.瞬移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-多段跳"><span class="toc-number">10.3.</span> <span class="toc-text">3.多段跳</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">11.</span> <span class="toc-text">结语</span></a></li></ol>
                     </div>
                 </span>
             </div>
