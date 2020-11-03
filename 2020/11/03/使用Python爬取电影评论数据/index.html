@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>使用Python爬取电影评论数据与处理 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="EverydayOneCat🎃万圣节快乐👻">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Python爬取电影评论数据与处理">
+<meta property="og:url" content="http://yoursite.com/2020/11/03/%E4%BD%BF%E7%94%A8Python%E7%88%AC%E5%8F%96%E7%94%B5%E5%BD%B1%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat🎃万圣节快乐👻">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103173343756.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103174251402.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103174436068.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103194642991.png">
+<meta property="article:published_time" content="2020-11-03T06:37:11.292Z">
+<meta property="article:modified_time" content="2020-11-03T12:05:59.264Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,452 +174,874 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-使用Python爬取电影评论数据" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Python爬取电影评论数据与处理
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/11/03/%E4%BD%BF%E7%94%A8Python%E7%88%AC%E5%8F%96%E7%94%B5%E5%BD%B1%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2020-11-03T06:37:11.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>🎃万圣节快乐👻</p>
+<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c.png" alt="d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c" style="zoom:80%;" />
+
+<a id="more"></a>
+
+<blockquote>
+<p>注：由于猫眼电影网站的网页结构会发生变化，导致代码运行错误，所以下列代码仅供参考静态网页爬取流程。</p>
+</blockquote>
+<h1 id="1-爬取猫眼TOP100榜电影"><a href="#1-爬取猫眼TOP100榜电影" class="headerlink" title="1.爬取猫眼TOP100榜电影"></a>1.爬取猫眼TOP100榜电影</h1><p>猫眼电影库榜单网页如下所示，URL为：<a href="https://maoyan.com/board/4?offset=0" target="_blank" rel="noopener">https://maoyan.com/board/4?offset=0</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103173343756.png" alt="image-20201103173343756"></p>
+<p>当我们选择下一页时，可以发现页面的URL变成了<a href="http://maoyan.com/board/4?offset=10" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=10</a> ，参数<code>offset</code>变为10，再点击下一页，URL变成了<a href="http://maoyan.com/board/4?offset=20" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=20</a> ，参数<code>offset</code>变成了20。</p>
+<p>因此，我们可以总结出规律，<code>offset</code>代表偏移量值，由于每页仅显示10部电影，所以获取TOP100电影只需要分开请求10次，而10次的<code>offset</code>参数分别设置为0、10、20…90即可。</p>
+<p>首先我们导入需要使用的库：</p>
+<p>注：由于我们这里用的BeautifulSoup解析器为lxml，他需要安装C语言库，所以我们这边需要引入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lxml</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-提取相关信息"><a href="#2-提取相关信息" class="headerlink" title="2.提取相关信息"></a>2.提取相关信息</h1><p>接下来，我们提取每部影片的相关信息，包含基本信息（片名、主演、上映时间）与热评的URL。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">爬取Top100内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#需要爬取的网页</span></span><br><span class="line">url_movie = [<span class="string">'https://maoyan.com/board/4?offset='</span>+str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100</span>,<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment">#模拟浏览器</span></span><br><span class="line">headers_movie = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Edg/86.0.622.58'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取网页</span></span><br><span class="line">resp_movie = [requests.get(url, headers = headers_movie) <span class="keyword">for</span> url <span class="keyword">in</span> url_movie]</span><br><span class="line"></span><br><span class="line"><span class="comment">#我们可以使用.apparent_encoding属性提取网页的编码方式，并使用.text提取网页内容</span></span><br><span class="line"><span class="comment">#提取网页编码方式</span></span><br><span class="line"><span class="keyword">for</span> resp <span class="keyword">in</span> resp_movie:</span><br><span class="line">    resp.encoding =resp.apparent_encoding</span><br><span class="line"><span class="comment">#提取网页内容</span></span><br><span class="line">html_movie = [resp.text <span class="keyword">for</span> resp <span class="keyword">in</span> resp_movie]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析网页</span></span><br><span class="line">soup_movie = [BeautifulSoup(html,<span class="string">'lxml'</span>) <span class="keyword">for</span> html <span class="keyword">in</span> html_movie]</span><br><span class="line"><span class="comment"># print(soup_movie[0])</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们检查一下每个电影的模块，以此来编写获得我们想要的数据的规则</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103174251402.png" alt="image-20201103174251402"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取热评URL</span></span><br><span class="line"><span class="comment"># for soup in soup_movie:</span></span><br><span class="line"><span class="comment">#     for i in soup.find_all('p',class_='name'):</span></span><br><span class="line"><span class="comment">#         print(i)</span></span><br><span class="line"><span class="comment">#         print(i.select('a'))</span></span><br><span class="line"><span class="comment">#         print(i.select('a')[0]['href'])</span></span><br><span class="line">url_comment = [<span class="string">'https://maoyan.com'</span>+(i.select(<span class="string">'a'</span>)[<span class="number">0</span>][<span class="string">'href'</span>])</span><br><span class="line">               <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'name'</span>)]</span><br><span class="line"><span class="comment"># print(url_comment)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取电影名</span></span><br><span class="line">movie_name = [soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'name'</span>)[i].text <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_name)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取主演</span></span><br><span class="line">movie_actor = [soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'star'</span>)[i].text.strip() <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_actor)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取上映时间</span></span><br><span class="line">movie_time = [soup.find_all(<span class="string">'p'</span>, class_=<span class="string">'releasetime'</span>)[i].text <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_time)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-爬取电影详情热评"><a href="#3-爬取电影详情热评" class="headerlink" title="3.爬取电影详情热评"></a>3.爬取电影详情热评</h1><p>下面我们将爬取每部影片的热评网页。接着提取每部影片的相关热评，每部影片包含10条热评。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103174436068.png" alt="image-20201103174436068"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">爬取电影详情热评</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 模拟浏览器</span></span><br><span class="line">headers_comment = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取网页</span></span><br><span class="line">resp_comment = [requests.get(url,headers=headers_comment) <span class="keyword">for</span> url <span class="keyword">in</span> url_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取网页的编码方式</span></span><br><span class="line"><span class="keyword">for</span> resp <span class="keyword">in</span> resp_comment:</span><br><span class="line">    resp.encoding = resp.apparent_encoding</span><br><span class="line"></span><br><span class="line"><span class="comment">#提取网页内容</span></span><br><span class="line">html_comment = [resp.text <span class="keyword">for</span> resp <span class="keyword">in</span> resp_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment">#解析网页</span></span><br><span class="line">soup_comment = [BeautifulSoup(html,<span class="string">"lxml"</span>) <span class="keyword">for</span> html <span class="keyword">in</span> html_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment">#提取热评</span></span><br><span class="line">movie_comment = [[soup.find_all(<span class="string">'div'</span>,class_=<span class="string">"comment-content"</span>)[i].text <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)] <span class="keyword">for</span> soup <span class="keyword">in</span> soup_comment]</span><br><span class="line"><span class="comment"># print(movie_comment[0])</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-pandas库"><a href="#4-pandas库" class="headerlink" title="4.pandas库"></a>4.pandas库</h1><p>pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。</p>
+<p>Pandas中常见的数据结构有两种：</p>
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>DateFrame</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类似一维数组的对象</td>
+<td>类似多维数组/表格数组；每列数据可以是不同的类型；索引包括列索引和行索引</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h2><p>通过字典创建DataFrame</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dic_data =[&#123;<span class="string">'a'</span>:<span class="number">1</span>,<span class="string">'b'</span>:<span class="number">5</span>&#125;,</span><br><span class="line"> &#123;<span class="string">'a'</span>:<span class="number">2</span>,<span class="string">'b'</span>:<span class="number">6</span>&#125;,</span><br><span class="line"> &#123;<span class="string">'a'</span>:<span class="number">3</span>,<span class="string">'b'</span>:<span class="number">7</span>&#125;,]</span><br><span class="line">test2 = pd.DataFrame(dic_data)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201103194642991.png" alt="image-20201103194642991"></p>
+<h2 id="示例数据"><a href="#示例数据" class="headerlink" title="示例数据"></a>示例数据</h2><p>下面使用seaborn自带的数据进行演示，Seaborn是Python的一个作图工具，示例数据名为<code>小费数据集</code>，该数据集包含某一酒店顾客消费金额、以及付小费的情况，还包括付账人的性别、是否吸烟，消费星期等等，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="right">特征名称</th>
+<th align="right">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">total_bill</td>
+<td align="right">账单总额</td>
+</tr>
+<tr>
+<td align="right">tip</td>
+<td align="right">小费</td>
+</tr>
+<tr>
+<td align="right">sex</td>
+<td align="right">性别</td>
+</tr>
+<tr>
+<td align="right">smoker</td>
+<td align="right">是否抽烟</td>
+</tr>
+<tr>
+<td align="right">day</td>
+<td align="right">消费星期</td>
+</tr>
+<tr>
+<td align="right">time</td>
+<td align="right">聚餐时间段</td>
+</tr>
+<tr>
+<td align="right">size</td>
+<td align="right">聚餐人数</td>
+</tr>
+</tbody></table>
+<p>在seaborn使用load_dataset导入数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">data = sns.load_dataset(<span class="string">'tips'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看前5行"><a href="#查看前5行" class="headerlink" title="查看前5行"></a>查看前5行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">total_bill</th>
+<th align="right">tip</th>
+<th align="right">sex</th>
+<th align="right">smoker</th>
+<th align="right">day</th>
+<th align="right">time</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">16.99</td>
+<td align="right">1.01</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">10.34</td>
+<td align="right">1.66</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">21.01</td>
+<td align="right">3.50</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">23.68</td>
+<td align="right">3.31</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">24.59</td>
+<td align="right">3.61</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">4</td>
+</tr>
+</tbody></table>
+<h2 id="value-counts"><a href="#value-counts" class="headerlink" title="value_counts()"></a>value_counts()</h2><p>使用<code>value_counts()</code>查看某一列的取值分布，例如查看消费星期的分布。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'day'</span>].value_counts()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Sat     87</span><br><span class="line">Sun     76</span><br><span class="line">Thur    62</span><br><span class="line">Fri     19</span><br><span class="line">Name: day, dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，<code>day</code>这一列中，<code>Sat(周六)</code>有87个样本，说明数据中有87人在周六消费。</p>
+<h2 id="groupby"><a href="#groupby" class="headerlink" title="groupby"></a>groupby</h2><p><code>groupby</code>实现对数据分组统计，如下所示：</p>
+<p>不同性别的<code>tip(小费金额)</code>的总和。</p>
+<p>In [148]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.groupby([<span class="string">'sex'</span>])[<span class="string">'total_bill'</span>].sum()</span><br></pre></td></tr></table></figure>
+
+<p>Out[148]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sex</span><br><span class="line">Male      <span class="number">3256.82</span></span><br><span class="line">Female    <span class="number">1570.95</span></span><br><span class="line">Name: total_bill, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>不同性别的<code>tip(小费金额)</code>的均值。</p>
+<p>In [149]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.groupby([<span class="string">'sex'</span>])[<span class="string">'total_bill'</span>].mean()</span><br></pre></td></tr></table></figure>
+
+<p>Out[149]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sex</span><br><span class="line">Male      <span class="number">20.744076</span></span><br><span class="line">Female    <span class="number">18.056897</span></span><br><span class="line">Name: total_bill, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>还可以按照两个变量进行分组，再求<code>tip(小费金额)</code>的总和。</p>
+<p>In [150]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.groupby([<span class="string">'sex'</span>,<span class="string">'day'</span>])[<span class="string">'tip'</span>].sum()</span><br></pre></td></tr></table></figure>
+
+<p>Out[150]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sex     day </span><br><span class="line">Male    Thur     <span class="number">89.41</span></span><br><span class="line">        Fri      <span class="number">26.93</span></span><br><span class="line">        Sat     <span class="number">181.95</span></span><br><span class="line">        Sun     <span class="number">186.78</span></span><br><span class="line">Female  Thur     <span class="number">82.42</span></span><br><span class="line">        Fri      <span class="number">25.03</span></span><br><span class="line">        Sat      <span class="number">78.45</span></span><br><span class="line">        Sun      <span class="number">60.61</span></span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>在上一步基础上，添加unstack()方法转换为DataFrame</p>
+<p>In [151]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.groupby([<span class="string">'sex'</span>,<span class="string">'day'</span>])[<span class="string">'total_bill'</span>].sum().unstack()</span><br></pre></td></tr></table></figure>
+
+<p>Out[151]:</p>
+<table>
+<thead>
+<tr>
+<th align="right">day</th>
+<th align="right">Thur</th>
+<th align="right">Fri</th>
+<th align="right">Sat</th>
+<th align="right">Sun</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">sex</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">Male</td>
+<td align="right">561.44</td>
+<td align="right">198.57</td>
+<td align="right">1227.35</td>
+<td align="right">1269.46</td>
+</tr>
+<tr>
+<td align="right">Female</td>
+<td align="right">534.89</td>
+<td align="right">127.31</td>
+<td align="right">551.05</td>
+<td align="right">357.70</td>
+</tr>
+</tbody></table>
+<h2 id="空值处理"><a href="#空值处理" class="headerlink" title="空值处理"></a>空值处理</h2><p>检测每一列均值使用<code>isnull().sum()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.isnull().sum()</span><br></pre></td></tr></table></figure>
+
+<p>Out[152]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total_bill    0</span><br><span class="line">tip           0</span><br><span class="line">sex           0</span><br><span class="line">smoker        0</span><br><span class="line">day           0</span><br><span class="line">time          0</span><br><span class="line">size          0</span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，每一列空值数量为0，说明没有空值</p>
+<p>如果数据中有空值可以采取如下方法：</p>
+<ul>
+<li>删除行：删除某一列，带有空值的行，如下：删除<code>size</code>这一列为空的行</li>
+</ul>
+<p>In [153]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.dropna(subset=[<span class="string">'size'</span>],inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除列：</li>
+</ul>
+<p>In [154]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.drop([<span class="string">'size'</span>],inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按列填充：例如将<code>size</code>这一列的空值填充为<code>未知</code></li>
+</ul>
+<p>In [155]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'size'</span>].fillna(<span class="string">'未知'</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>对于<code>size</code>这一列，用<code>50</code>替换<code>2</code>。</p>
+<p>In [156]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换前数据</span></span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+<p>Out[156]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">total_bill</th>
+<th align="right">tip</th>
+<th align="right">sex</th>
+<th align="right">smoker</th>
+<th align="right">day</th>
+<th align="right">time</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">16.99</td>
+<td align="right">1.01</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">10.34</td>
+<td align="right">1.66</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">21.01</td>
+<td align="right">3.50</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">23.68</td>
+<td align="right">3.31</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">24.59</td>
+<td align="right">3.61</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">4</td>
+</tr>
+</tbody></table>
+<p>In [157]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'size'</span>] = data[<span class="string">'size'</span>].replace(<span class="number">2</span>, <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+<p>In [158]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换后数据</span></span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+<p>Out[158]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">total_bill</th>
+<th align="right">tip</th>
+<th align="right">sex</th>
+<th align="right">smoker</th>
+<th align="right">day</th>
+<th align="right">time</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">16.99</td>
+<td align="right">1.01</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">50</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">10.34</td>
+<td align="right">1.66</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">21.01</td>
+<td align="right">3.50</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">23.68</td>
+<td align="right">3.31</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">50</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">24.59</td>
+<td align="right">3.61</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">4</td>
+</tr>
+</tbody></table>
+<h2 id="填充多列数据中的空值"><a href="#填充多列数据中的空值" class="headerlink" title="填充多列数据中的空值"></a>填充多列数据中的空值</h2><p>首先填充某一列数据的空值方法如下，例如将size这一列的空值填充为未知：</p>
+<p>data[‘size’].fillna(‘未知’,inplace=True)</p>
+<p>如果对很多列进行填充如何实现?</p>
+<p>在Python中简单的for循环如下：</p>
+<p>In [98]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list_a = [<span class="string">'total_bill'</span>,<span class="string">'tip'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list_a:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>对很多列进行填充，可借助for循环：</p>
+<p>In [99]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">columns = [<span class="string">'total_bill'</span>,<span class="string">'tip'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> columns:</span><br><span class="line">    data[i].fillna(<span class="string">'未知'</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="针对某一列操作"><a href="#针对某一列操作" class="headerlink" title="针对某一列操作"></a>针对某一列操作</h2><p>In [100]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选取tip这一列存入变量s中</span></span><br><span class="line">s = data[<span class="string">'tip'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>s 成为一个series对象，即一列数据</p>
+<p>In [101]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取s大于5的数据</span></span><br><span class="line">s[s&gt;<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[101]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">23      7.58</span><br><span class="line">59      6.73</span><br><span class="line">141     6.70</span><br><span class="line">170    10.00</span><br><span class="line">183     6.50</span><br><span class="line">212     9.00</span><br><span class="line">214     6.50</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>In [102]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在上一步基础上升序排列</span></span><br><span class="line">s[s&gt;<span class="number">6</span>].sort_values()</span><br></pre></td></tr></table></figure>
+
+<p>Out[102]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">183     6.50</span><br><span class="line">214     6.50</span><br><span class="line">141     6.70</span><br><span class="line">59      6.73</span><br><span class="line">23      7.58</span><br><span class="line">212     9.00</span><br><span class="line">170    10.00</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>In [103]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 降序排列</span></span><br><span class="line">s[s&gt;<span class="number">6</span>].sort_values(ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Out[103]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">170    10.00</span><br><span class="line">212     9.00</span><br><span class="line">23      7.58</span><br><span class="line">59      6.73</span><br><span class="line">141     6.70</span><br><span class="line">214     6.50</span><br><span class="line">183     6.50</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<h2 id="提取数据：loc方法"><a href="#提取数据：loc方法" class="headerlink" title="提取数据：loc方法"></a>提取数据：loc方法</h2><p>data.loc[行名,列名]</p>
+<p>In [104]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取某一个值</span></span><br><span class="line">data.loc[<span class="number">0</span>,<span class="string">'day'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[104]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;Sun&#39;</span><br></pre></td></tr></table></figure>
+
+<p>In [105]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取某一列</span></span><br><span class="line">data.loc[:,<span class="string">'tip'</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取某一行</span></span><br><span class="line">data.loc[<span class="number">0</span>,]</span><br></pre></td></tr></table></figure>
+
+<p>Out[106]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total_bill     16.99</span><br><span class="line">tip             1.01</span><br><span class="line">sex           Female</span><br><span class="line">smoker            No</span><br><span class="line">day              Sun</span><br><span class="line">time          Dinner</span><br><span class="line">size               2</span><br><span class="line">Name: 0, dtype: object</span><br></pre></td></tr></table></figure>
+
+<h2 id="按条件提取数据"><a href="#按条件提取数据" class="headerlink" title="按条件提取数据"></a>按条件提取数据</h2><p>比如：提取<code>size</code>这一列大于5的数据</p>
+<p>In [107]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.loc[data[<span class="string">'size'</span>]&gt;<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[107]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">total_bill</th>
+<th align="right">tip</th>
+<th align="right">sex</th>
+<th align="right">smoker</th>
+<th align="right">day</th>
+<th align="right">time</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">125</td>
+<td align="right">29.80</td>
+<td align="right">4.2</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">141</td>
+<td align="right">34.30</td>
+<td align="right">6.7</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">143</td>
+<td align="right">27.05</td>
+<td align="right">5.0</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">156</td>
+<td align="right">48.17</td>
+<td align="right">5.0</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">6</td>
+</tr>
+</tbody></table>
+<p>提取<code>size</code>这一列大于5，<code>tip</code>这一列</p>
+<p>In [108]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.loc[data[<span class="string">'size'</span>]&gt;<span class="number">5</span>,<span class="string">'tip'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[108]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">125    4.2</span><br><span class="line">141    6.7</span><br><span class="line">143    5.0</span><br><span class="line">156    5.0</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><p>修改数据的步骤是先提取出数据，然后重新赋值即可，如下：<code>size</code>等于6的数据中,tip这一列设置为0</p>
+<p>In [109]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改前</span></span><br><span class="line">data.loc[data[<span class="string">'size'</span>]==<span class="number">6</span>,<span class="string">'tip'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[109]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">125    4.2</span><br><span class="line">141    6.7</span><br><span class="line">143    5.0</span><br><span class="line">156    5.0</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>In [110]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改数据</span></span><br><span class="line">data.loc[data[<span class="string">'size'</span>]==<span class="number">6</span>,<span class="string">'tip'</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>In [111]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改后</span></span><br><span class="line">data.loc[data[<span class="string">'size'</span>]==<span class="number">6</span>,<span class="string">'tip'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[111]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">125    0.0</span><br><span class="line">141    0.0</span><br><span class="line">143    0.0</span><br><span class="line">156    0.0</span><br><span class="line">Name: tip, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<h2 id="提取数据：不使用loc方法"><a href="#提取数据：不使用loc方法" class="headerlink" title="提取数据：不使用loc方法"></a>提取数据：不使用loc方法</h2><p>In [112]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 提取tip、size两列</span><br><span class="line">data[[&#39;tip&#39;,&#39;size&#39;]].head()</span><br></pre></td></tr></table></figure>
+
+<p>Out[112]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">tip</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">1.01</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">1.66</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">3.50</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">3.31</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">3.61</td>
+<td align="right">4</td>
+</tr>
+</tbody></table>
+<p>提取<code>size</code>取值大于5的数据</p>
+<p>In [113]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'size'</span>] &gt; <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>In [114]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[data[<span class="string">'size'</span>] &gt; <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<p>Out[114]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">total_bill</th>
+<th align="right">tip</th>
+<th align="right">sex</th>
+<th align="right">smoker</th>
+<th align="right">day</th>
+<th align="right">time</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">125</td>
+<td align="right">29.80</td>
+<td align="right">0.0</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">141</td>
+<td align="right">34.30</td>
+<td align="right">0.0</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">143</td>
+<td align="right">27.05</td>
+<td align="right">0.0</td>
+<td align="right">Female</td>
+<td align="right">No</td>
+<td align="right">Thur</td>
+<td align="right">Lunch</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">156</td>
+<td align="right">48.17</td>
+<td align="right">0.0</td>
+<td align="right">Male</td>
+<td align="right">No</td>
+<td align="right">Sun</td>
+<td align="right">Dinner</td>
+<td align="right">6</td>
+</tr>
+</tbody></table>
+<p>In [115]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[data[<span class="string">'size'</span>] &gt; <span class="number">5</span>][[<span class="string">'tip'</span>,<span class="string">'total_bill'</span>,<span class="string">'size'</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>Out[115]:</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">tip</th>
+<th align="right">total_bill</th>
+<th align="right">size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">125</td>
+<td align="right">0.0</td>
+<td align="right">29.80</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">141</td>
+<td align="right">0.0</td>
+<td align="right">34.30</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">143</td>
+<td align="right">0.0</td>
+<td align="right">27.05</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="right">156</td>
+<td align="right">0.0</td>
+<td align="right">48.17</td>
+<td align="right">6</td>
+</tr>
+</tbody></table>
+<h2 id="计算某一列最大值、最小值、均值"><a href="#计算某一列最大值、最小值、均值" class="headerlink" title="计算某一列最大值、最小值、均值"></a>计算某一列最大值、最小值、均值</h2><p>In [116]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最大值</span></span><br><span class="line">data[<span class="string">'tip'</span>].max() <span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>Out[116]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10.0</span><br></pre></td></tr></table></figure>
+
+<p>In [117]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小值</span></span><br><span class="line">data[<span class="string">'tip'</span>].min()</span><br></pre></td></tr></table></figure>
+
+<p>Out[117]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.0</span><br></pre></td></tr></table></figure>
+
+<p>In [118]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 均值</span></span><br><span class="line">data[<span class="string">'tip'</span>].mean()</span><br></pre></td></tr></table></figure>
+
+<p>Out[118]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.912622950819673</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-格式化存储"><a href="#5-格式化存储" class="headerlink" title="5.格式化存储"></a>5.格式化存储</h1><h2 id="5-1zip-函数"><a href="#5-1zip-函数" class="headerlink" title="5.1zip()函数"></a>5.1zip()函数</h2><p>zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">zipped = zip(a,b)</span><br><span class="line">print(list(zipped))</span><br><span class="line"></span><br><span class="line">zipped = zip(a,b)</span><br><span class="line">print(list(zip(*zipped)))</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">[(<span class="number">1</span>, <span class="number">5</span>), (<span class="number">2</span>, <span class="number">6</span>), (<span class="number">3</span>, <span class="number">7</span>), (<span class="number">4</span>, <span class="number">8</span>)]</span><br><span class="line">[(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>), (<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>)]</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2代码"><a href="#4-2代码" class="headerlink" title="4.2代码"></a>4.2代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">格式化存储</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据结构转换为DataFrame格式</span></span><br><span class="line">data_name = pd.Series(movie_name)</span><br><span class="line">data_actor = pd.Series(movie_actor)</span><br><span class="line">data_time = pd.Series(movie_time)</span><br><span class="line"><span class="comment">#zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</span></span><br><span class="line">data_info = pd.DataFrame(list(zip(data_name,data_actor,data_time)),columns=[<span class="string">'电影名'</span>,<span class="string">'主演'</span>,<span class="string">'上映时间'</span>])</span><br><span class="line">data_content = pd.DataFrame(data = movie_comment,columns=[<span class="string">'热门评论'</span>+str(i+<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据合并</span></span><br><span class="line"><span class="comment"># axis：需要合并链接的轴，0是行，1是列。</span></span><br><span class="line">data = pd.concat([data_info,data_content],axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">data.to_excel(<span class="string">'猫眼电影top100热门影评.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- codeing = utf-8 -*-</span></span><br><span class="line"><span class="comment">#@CreateTime : 2020/11/3 14:45</span></span><br><span class="line"><span class="comment">#@Author : JY</span></span><br><span class="line"><span class="comment">#@File : demo.py</span></span><br><span class="line"><span class="comment">#@Software : PyCharm</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> lxml</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">爬取Top100内容</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#需要爬取的网页</span></span><br><span class="line">url_movie = [<span class="string">'https://maoyan.com/board/4?offset='</span>+str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100</span>,<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment">#模拟浏览器</span></span><br><span class="line">headers_movie = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Edg/86.0.622.58'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取网页</span></span><br><span class="line">resp_movie = [requests.get(url, headers = headers_movie) <span class="keyword">for</span> url <span class="keyword">in</span> url_movie]</span><br><span class="line"></span><br><span class="line"><span class="comment">#我们可以使用.apparent_encoding属性提取网页的编码方式，并使用.text提取网页内容</span></span><br><span class="line"><span class="comment">#提取网页编码方式</span></span><br><span class="line"><span class="keyword">for</span> resp <span class="keyword">in</span> resp_movie:</span><br><span class="line">    resp.encoding =resp.apparent_encoding</span><br><span class="line"><span class="comment">#提取网页内容</span></span><br><span class="line">html_movie = [resp.text <span class="keyword">for</span> resp <span class="keyword">in</span> resp_movie]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析网页</span></span><br><span class="line">soup_movie = [BeautifulSoup(html,<span class="string">'lxml'</span>) <span class="keyword">for</span> html <span class="keyword">in</span> html_movie]</span><br><span class="line"><span class="comment"># print(soup_movie[0])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取热评URL</span></span><br><span class="line"><span class="comment"># for soup in soup_movie:</span></span><br><span class="line"><span class="comment">#     for i in soup.find_all('p',class_='name'):</span></span><br><span class="line"><span class="comment">#         print(i)</span></span><br><span class="line"><span class="comment">#         print(i.select('a'))</span></span><br><span class="line"><span class="comment">#         print(i.select('a')[0]['href'])</span></span><br><span class="line">url_comment = [<span class="string">'https://maoyan.com'</span>+(i.select(<span class="string">'a'</span>)[<span class="number">0</span>][<span class="string">'href'</span>])</span><br><span class="line">               <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'name'</span>)]</span><br><span class="line"><span class="comment"># print(url_comment)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取电影名</span></span><br><span class="line">movie_name = [soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'name'</span>)[i].text <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_name)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取主演</span></span><br><span class="line">movie_actor = [soup.find_all(<span class="string">'p'</span>,class_=<span class="string">'star'</span>)[i].text.strip() <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_actor)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取上映时间</span></span><br><span class="line">movie_time = [soup.find_all(<span class="string">'p'</span>, class_=<span class="string">'releasetime'</span>)[i].text <span class="keyword">for</span> soup <span class="keyword">in</span> soup_movie <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># print(movie_time)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">爬取电影详情热评</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 模拟浏览器</span></span><br><span class="line">headers_comment = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取网页</span></span><br><span class="line">resp_comment = [requests.get(url,headers=headers_comment) <span class="keyword">for</span> url <span class="keyword">in</span> url_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取网页的编码方式</span></span><br><span class="line"><span class="keyword">for</span> resp <span class="keyword">in</span> resp_comment:</span><br><span class="line">    resp.encoding = resp.apparent_encoding</span><br><span class="line"></span><br><span class="line"><span class="comment">#提取网页内容</span></span><br><span class="line">html_comment = [resp.text <span class="keyword">for</span> resp <span class="keyword">in</span> resp_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment">#解析网页</span></span><br><span class="line">soup_comment = [BeautifulSoup(html,<span class="string">"lxml"</span>) <span class="keyword">for</span> html <span class="keyword">in</span> html_comment]</span><br><span class="line"></span><br><span class="line"><span class="comment">#提取热评</span></span><br><span class="line">movie_comment = [[soup.find_all(<span class="string">'div'</span>,class_=<span class="string">"comment-content"</span>)[i].text <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)] <span class="keyword">for</span> soup <span class="keyword">in</span> soup_comment]</span><br><span class="line"><span class="comment"># print(movie_comment[0])</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">--------------------------</span></span><br><span class="line"><span class="string">格式化存储</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据结构转换为DataFrame格式</span></span><br><span class="line">data_name = pd.Series(movie_name)</span><br><span class="line">data_actor = pd.Series(movie_actor)</span><br><span class="line">data_time = pd.Series(movie_time)</span><br><span class="line"><span class="comment">#zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</span></span><br><span class="line">data_info = pd.DataFrame(list(zip(data_name,data_actor,data_time)),columns=[<span class="string">'电影名'</span>,<span class="string">'主演'</span>,<span class="string">'上映时间'</span>])</span><br><span class="line">data_content = pd.DataFrame(data = movie_comment,columns=[<span class="string">'热门评论'</span>+str(i+<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据合并</span></span><br><span class="line"><span class="comment"># axis：需要合并链接的轴，0是行，1是列。</span></span><br><span class="line">data = pd.concat([data_info,data_content],axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">data.to_excel(<span class="string">'猫眼电影top100热门影评.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>不知从什么时候起，马老师变得越来越捞了，他也渐渐的从一个技术主播变成了一个娱乐主播，有时也会忘记自己的黑切丢在哪里，曾经的大象也丢了。<br>师母带他去检查，发现因为长期的头铁和直播导致的缓慢性失忆。师母便不让马老师直播，每天同学们都会来到老马的直播间，却找不到那只呆头鹅。<br>渐渐地，马老师的记性越来越差，医生建议玩一些益智游戏，但老师病情并没有缓解，玩植物大战僵尸也经常忘了带莲叶，他也忘记了当年国服皇子叱咤风云的人是谁。<br>一天，曾经的学生石乐志来到马老师家请他吃饭，马老师好不容易才想起他。刚到饭店，马老师看了看表便要回家，石乐志问:“老师，您有什么急事吗？”马老师指了指表，说:“三点了，该上课了。”</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=25706285&auto=0&height=66"></iframe>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/05/solr%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2020-06-05T14:07:41.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/05/solr%E9%9B%86%E7%BE%A4/">solr集群的搭建和使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/03/%E4%BD%BF%E7%94%A8Python%E7%88%AC%E5%8F%96%E7%94%B5%E5%BD%B1%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/nginx/" class="archive-article-date">
-  	<time datetime="2020-06-03T07:58:56.021Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/30/Python%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python爬虫入门</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/nginx/">nginx史上最强入门教学</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-爬取猫眼TOP100榜电影"><span class="toc-number">2.</span> <span class="toc-text">1.爬取猫眼TOP100榜电影</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-提取相关信息"><span class="toc-number">3.</span> <span class="toc-text">2.提取相关信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-爬取电影详情热评"><span class="toc-number">4.</span> <span class="toc-text">3.爬取电影详情热评</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-pandas库"><span class="toc-number">5.</span> <span class="toc-text">4.pandas库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据"><span class="toc-number">5.1.</span> <span class="toc-text">创建数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例数据"><span class="toc-number">5.2.</span> <span class="toc-text">示例数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看前5行"><span class="toc-number">5.3.</span> <span class="toc-text">查看前5行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#value-counts"><span class="toc-number">5.4.</span> <span class="toc-text">value_counts()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#groupby"><span class="toc-number">5.5.</span> <span class="toc-text">groupby</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空值处理"><span class="toc-number">5.6.</span> <span class="toc-text">空值处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换"><span class="toc-number">5.7.</span> <span class="toc-text">替换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#填充多列数据中的空值"><span class="toc-number">5.8.</span> <span class="toc-text">填充多列数据中的空值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#针对某一列操作"><span class="toc-number">5.9.</span> <span class="toc-text">针对某一列操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提取数据：loc方法"><span class="toc-number">5.10.</span> <span class="toc-text">提取数据：loc方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按条件提取数据"><span class="toc-number">5.11.</span> <span class="toc-text">按条件提取数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改数据"><span class="toc-number">5.12.</span> <span class="toc-text">修改数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提取数据：不使用loc方法"><span class="toc-number">5.13.</span> <span class="toc-text">提取数据：不使用loc方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算某一列最大值、最小值、均值"><span class="toc-number">5.14.</span> <span class="toc-text">计算某一列最大值、最小值、均值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-格式化存储"><span class="toc-number">6.</span> <span class="toc-text">5.格式化存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1zip-函数"><span class="toc-number">6.1.</span> <span class="toc-text">5.1zip()函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2代码"><span class="toc-number">6.2.</span> <span class="toc-text">4.2代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目源码"><span class="toc-number">7.</span> <span class="toc-text">项目源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">8.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E8%B4%AD%E7%89%A9%E8%BD%A6+%E8%AE%A2%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2020-06-02T11:32:36.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E8%B4%AD%E7%89%A9%E8%BD%A6+%E8%AE%A2%E5%8D%95/">电商项目购物车及订单系统实现</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E7%99%BB%E9%99%86%E6%B3%A8%E5%86%8C/" class="archive-article-date">
-  	<time datetime="2020-06-02T06:07:38.330Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E7%99%BB%E9%99%86%E6%B3%A8%E5%86%8C/">企业WEB项目登陆注册功能的实现</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/" class="archive-article-date">
-  	<time datetime="2020-06-01T14:50:58.098Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E7%B3%BB%E7%BB%9FSSO/">企业WEB项目单点登陆系统实现</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/31/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/" class="archive-article-date">
-  	<time datetime="2020-05-31T10:57:43.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/31/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85/">企业WEB项目实现商品详情页面展示功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2020-05-30T04:52:52.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">企业WEB项目通过solr实现商品搜索功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/vim%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:16:28.996Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/vim%E5%9D%91/">vim编辑文件出错：Another program may be editing the same file.An edit session for this file crashed.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/solr%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T12:31:38.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/solr%E5%AE%89%E8%A3%85/">Linux下Solr的安装及配置(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:32:37.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">Linux安装tomcat并配置开机自启动(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/7/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -646,8 +1079,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
