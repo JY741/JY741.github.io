@@ -6,15 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | J Sir</title>
+  <title>Python数据可视化入门 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/archives/page/7/index.html">
+  <meta name="description" content="EverydayOneCat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据可视化入门">
+<meta property="og:url" content="http://yoursite.com/2020/11/03/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d.gif">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104155806109.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104160116840.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104160128953.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161158398.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161722841.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161841502.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104200038116.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201750887.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201807310.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201821267.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201843212.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201858532.png">
+<meta property="article:published_time" content="2020-11-03T15:01:22.655Z">
+<meta property="article:modified_time" content="2020-11-04T12:24:36.286Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d.gif">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,456 +182,284 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-Python数据可视化入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python数据可视化入门
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+        
+        <a href="/2020/11/03/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2020-11-03T15:01:22.655Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d.gif" alt="0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d" style="zoom:80%;" />
+
+<a id="more"></a>
+
+<h1 id="1-Flask入门"><a href="#1-Flask入门" class="headerlink" title="1. Flask入门"></a>1. Flask入门</h1><h2 id="1-1-关于Flask"><a href="#1-1-关于Flask" class="headerlink" title="1.1  关于Flask"></a>1.1  关于Flask</h2><p>Flask诞生于2010年，是Armin ronacher（人名）用Python语言基于Werkzeug工具箱编写的轻量级Web开发框架。它主要面向需求简单的小应用。</p>
+<p>Flask本身相当于一个内核，其他几乎所有的功能都要用到扩展（邮件扩展Flask-Mail，用户认证Flask- Login），都需要用第三方的扩展来实现。比如可以用Flask-extension加入ORM、窗体验证工具，文件  上传、身份验证等。Flask没有默认使用的数据库，你可以选择MySQL，也可以用NoSQL。其 WSGI 工具箱采用 Werkzeug（路由模块） ，模板引擎则使用 Jinja2 。</p>
+<p>可以说Flask框架的核心就是Werkzeug和Jinja2。</p>
+<p>Python最出名的框架要数Django，此外还有Flask、Tornado等框架。虽然Flask不是最出名的框架，但是Flask应该算是最灵活的框架之一，这也是Flask受到广大开发者喜爱的原因。</p>
+<h2 id="1-2入门Demo"><a href="#1-2入门Demo" class="headerlink" title="1.2入门Demo"></a>1.2入门Demo</h2><p>新建Flask项目，直接在Pycharm选中对应即可</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104155806109.png" alt="image-20201104155806109"></p>
+<p>创建完了即可直接运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<p>接着我们进入<a href="http://127.0.0.1:5000/即可发现Hello" target="_blank" rel="noopener">http://127.0.0.1:5000/即可发现Hello</a> World</p>
+<p>我们可以启动Flask的Debug模式，该模式类似于热部署，这样每次改动不就用每次都重启项目。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104160116840.png" alt="image-20201104160116840"></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104160128953.png" alt="image-20201104160128953"></p>
+<p>有时我们需要将同一类URL映射到同一个视图函数处理，比如：使用同一个视图函数 来显示不同用户的个人信息。</p>
+<p>通过向规则参数添加变量部分，可以动态构建URL。此变量部分标记为。它作为关键字参数传递给与规则相关联的函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/user/&lt;name&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">welcome</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"你好 %s"</span>%name</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/user/&lt;int:id&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">welcome2</span><span class="params">(id)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"欢迎 %d 号会员"</span>%id</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3模板"><a href="#1-3模板" class="headerlink" title="1.3模板"></a>1.3模板</h2><p>Flask使用Jinja2这   个模板引擎来渲染模板。Jinja2能识别所有类型的变量，包括{}。 Jinja2模板引擎，Flask提供的render_template函数封装了该模板引擎，render_template函数的第一个参数是模板的文件名，后面  的参数都是键值对，表示模板中变量对应的真实值。</p>
+<p>在templates文件夹中创建index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">现在时间:&#123;&#123; time &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">今天值班的有:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    &#123;% for data in name %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; data &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">任务:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">        &#123;% for key,value in task.items() %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123; key &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123; value &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        &#123;% endfor %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>app.py添加函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#模板</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    time =datetime.date.today()</span><br><span class="line">    name = [<span class="string">"张三"</span>,<span class="string">"王五"</span>,<span class="string">"李四"</span>]</span><br><span class="line">    task = &#123;<span class="string">"任务"</span>:<span class="string">"打扫房间"</span>,<span class="string">"时间"</span>:<span class="string">"3h"</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"index.html"</span>,time=time,name=name,task=task)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4表单提交"><a href="#1-4表单提交" class="headerlink" title="1.4表单提交"></a>1.4表单提交</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#表单提交</span></span><br><span class="line"><span class="meta">@app.route('/register')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"register.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#需要指定接受Post请求，否则默认为Get</span></span><br><span class="line"><span class="meta">@app.route('/result',methods=['POST','GET'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">result</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        result = request.form</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">"result.html"</span>,result = result)</span><br></pre></td></tr></table></figure>
+
+<p>result.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span> = <span class="string">1</span>&gt;</span></span><br><span class="line">&#123;% for key, value in result.items() %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span> &#123;&#123; key &#125;&#125; <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span> &#123;&#123; value &#125;&#125; <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-5豆瓣数据可视化Flask应用"><a href="#1-5豆瓣数据可视化Flask应用" class="headerlink" title="1.5豆瓣数据可视化Flask应用"></a>1.5豆瓣数据可视化Flask应用</h2><p>这里的movie.db用的是上篇博文中的结果，<a href="https://jy741.cn/2020/11/01/523.html" target="_blank" rel="noopener">详情参见</a></p>
+<p>这里Flask应用主要是接受页面的请求用来跳转页面，并把需要的数据传进去</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,render_template</span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"index.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/index')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"index.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/judge')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"judge.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/movie')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie</span><span class="params">()</span>:</span></span><br><span class="line">    dataList = []</span><br><span class="line">    conn = sqlite3.connect(<span class="string">'movie.db'</span>)</span><br><span class="line">    cur = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select * from movie250"</span></span><br><span class="line">    data = cur.execute(sql)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> data:</span><br><span class="line">        dataList.append(item)</span><br><span class="line">    cur.close()</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"movie.html"</span>,movies = dataList)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/team')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">team</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"team.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/word')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">word</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"word.html"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<p>模板的应用——movie.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-striped"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>排名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>中文名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>外国名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>评分<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>评价人数<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>概述<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>其他信息<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    &#123;% for movie in movies %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[0]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; movie[1] &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></span><br><span class="line">                &#123;&#123;movie[3]&#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[4]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[5]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[6]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[7]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;movie[8]&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161158398.png" alt="image-20201104161158398"></p>
+<h1 id="2-Echarts应用"><a href="#2-Echarts应用" class="headerlink" title="2.Echarts应用"></a>2.Echarts应用</h1><p>官方中文网址：<a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener">https://echarts.apache.org/zh/index.html</a></p>
+<h2 id="2-1官方入门案例"><a href="#2-1官方入门案例" class="headerlink" title="2.1官方入门案例"></a>2.1官方入门案例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 echarts.js --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 600px;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 基于准备好的dom，初始化echarts实例</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 指定图表的配置项和数据</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> option = &#123;</span></span><br><span class="line">            title: &#123;</span><br><span class="line"><span class="actionscript">                text: <span class="string">'ECharts 入门示例'</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            tooltip: &#123;&#125;,</span><br><span class="line">            legend: &#123;</span><br><span class="line"><span class="actionscript">                data:[<span class="string">'销量'</span>]</span></span><br><span class="line">            &#125;,</span><br><span class="line">            xAxis: &#123;</span><br><span class="line"><span class="actionscript">                data: [<span class="string">"衬衫"</span>,<span class="string">"羊毛衫"</span>,<span class="string">"雪纺衫"</span>,<span class="string">"裤子"</span>,<span class="string">"高跟鞋"</span>,<span class="string">"袜子"</span>]</span></span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis: &#123;&#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'销量'</span>,</span></span><br><span class="line"><span class="actionscript">                type: <span class="string">'bar'</span>,</span></span><br><span class="line">                data: [5, 20, 36, 10, 10, 20]</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 使用刚指定的配置项和数据显示图表。</span></span></span><br><span class="line">        myChart.setOption(option);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2豆瓣数据可视化Echarts应用"><a href="#2-2豆瓣数据可视化Echarts应用" class="headerlink" title="2.2豆瓣数据可视化Echarts应用"></a>2.2豆瓣数据可视化Echarts应用</h2><p>这里我们主要将Echarts应用于评分的可视化</p>
+<p>修改app.py的judge函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/judge')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge</span><span class="params">()</span>:</span></span><br><span class="line">    score = []</span><br><span class="line">    num = []</span><br><span class="line">    conn = sqlite3.connect(<span class="string">'movie.db'</span>)</span><br><span class="line">    cur = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select score,count(score) from movie250 group by score"</span></span><br><span class="line">    data = cur.execute(sql)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> data:</span><br><span class="line">        score.append(item[<span class="number">0</span>])</span><br><span class="line">        num.append(item[<span class="number">1</span>])</span><br><span class="line">    cur.close()</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"judge.html"</span>,score=score,num=num)</span><br></pre></td></tr></table></figure>
+
+<p>我们根据官方给的实例进行自定义修改</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161722841.png" alt="image-20201104161722841"></p>
+<p>放入html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ======= Our Team Section ======= --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"team"</span> <span class="attr">class</span>=<span class="string">"team"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section-title"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>豆瓣电影Top250评分分布图<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 100%;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span><span class="comment">&lt;!-- End Our Team Section --&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 基于准备好的dom，初始化echarts实例</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 指定图表的配置项和数据</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="actionscript">           color:[<span class="string">'#3398DB'</span>],</span></span><br><span class="line">            xAxis: &#123;</span><br><span class="line"><span class="actionscript">                type: <span class="string">'category'</span>,</span></span><br><span class="line"><span class="handlebars"><span class="xml">                data: </span><span class="template-variable">&#123;&#123; score|tojson &#125;&#125;</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis: &#123;</span><br><span class="line"><span class="actionscript">                type: <span class="string">'value'</span></span></span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">             grid: &#123;</span><br><span class="line"><span class="actionscript">                left: <span class="string">'3%'</span>,</span></span><br><span class="line"><span class="actionscript">                right:<span class="string">'4%'</span>,</span></span><br><span class="line"><span class="actionscript">                bottom:<span class="string">'6%'</span>,</span></span><br><span class="line"><span class="actionscript">                containLabel:<span class="literal">true</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="handlebars"><span class="xml">                data: </span><span class="template-variable">&#123;&#123; num &#125;&#125;</span><span class="xml">,</span></span></span><br><span class="line"><span class="actionscript">                barWidth:<span class="string">'50%'</span>,</span></span><br><span class="line"><span class="actionscript">                type: <span class="string">'bar'</span>,</span></span><br><span class="line"><span class="actionscript">                showBackground: <span class="literal">true</span>,</span></span><br><span class="line">                backgroundStyle: &#123;</span><br><span class="line"><span class="actionscript">                    color: <span class="string">'rgba(220, 220, 220, 0.8)'</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 使用刚指定的配置项和数据显示图表。</span></span></span><br><span class="line">        myChart.setOption(option);</span><br><span class="line"> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104161841502.png" alt="image-20201104161841502"></p>
+<h1 id="3-WordCloud应用"><a href="#3-WordCloud应用" class="headerlink" title="3.WordCloud应用"></a>3.WordCloud应用</h1><h2 id="3-1导包"><a href="#3-1导包" class="headerlink" title="3.1导包"></a>3.1导包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt    <span class="comment">#绘图，数据可视化</span></span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud     <span class="comment">#词云</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image       <span class="comment">#图片处理</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np      <span class="comment">#矩阵运算</span></span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2读取数据库"><a href="#3-2读取数据库" class="headerlink" title="3.2读取数据库"></a>3.2读取数据库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(<span class="string">'../movie.db'</span>)</span><br><span class="line">cur = conn.cursor()</span><br><span class="line">sql = <span class="string">"select introduction from movie250"</span></span><br><span class="line">data = cur.execute(sql)</span><br><span class="line">text = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> data:</span><br><span class="line">    text += item[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># print(text)</span></span><br><span class="line"></span><br><span class="line">cur.close()</span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3分词"><a href="#3-3分词" class="headerlink" title="3.3分词"></a>3.3分词</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#分词</span></span><br><span class="line">cut = jieba.cut(text)</span><br><span class="line">string = <span class="string">' '</span>.join(cut)  <span class="comment">#切好的词</span></span><br><span class="line">print(len(string))</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4词云"><a href="#3-4词云" class="headerlink" title="3.4词云"></a>3.4词云</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#词云</span></span><br><span class="line">img = Image.open(<span class="string">'tree.jpg'</span>)    <span class="comment">#打开遮罩图片</span></span><br><span class="line"><span class="comment"># print(img)</span></span><br><span class="line">img_array = np.array(img)   <span class="comment">#将图片转为自组，方便后面词云的创建</span></span><br><span class="line">wc = WordCloud(</span><br><span class="line">    background_color=<span class="string">'white'</span>,</span><br><span class="line">    mask=img_array,</span><br><span class="line">    font_path=<span class="string">"msyh.ttc"</span>    <span class="comment">#字体所在位置C:\Windows\Fonts，这个是微软雅黑</span></span><br><span class="line">)</span><br><span class="line">wc.generate_from_text(string) <span class="comment">#放入切好的词</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5绘图"><a href="#3-5绘图" class="headerlink" title="3.5绘图"></a>3.5绘图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#绘制图片</span></span><br><span class="line">fig = plt.figure(<span class="number">1</span>)</span><br><span class="line">plt.imshow(wc)</span><br><span class="line">plt.axis(<span class="string">'off'</span>)     <span class="comment">#是否显示坐标轴</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.show()  #显示生成词云图片</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出词云图片到文件</span></span><br><span class="line">plt.savefig(<span class="string">'word.jpg'</span>,dpi=<span class="number">450</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104200038116.png" alt="image-20201104200038116"></p>
+<h2 id="3-6WordCloud配置"><a href="#3-6WordCloud配置" class="headerlink" title="3.6WordCloud配置"></a>3.6WordCloud配置</h2><p>WordCloud个参数的含义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">font_path : string <span class="comment">#字体路径，需要展现什么字体就把该字体路径+后缀名写上，如：font_path= '黑体.ttf'</span></span><br><span class="line"></span><br><span class="line">width : int (default=<span class="number">400</span>) <span class="comment">#输出的画布宽度，默认为400像素height : int (default=200) #输出的画布高度，默认为200像素</span></span><br><span class="line"></span><br><span class="line">prefer_horizontal : ﬂoat (default=<span class="number">0.90</span>) <span class="comment">#词语水平方向排版出现的频率，默认 0.9 （所以词语垂直方向排版出现频率为 0.1 ）</span></span><br><span class="line"></span><br><span class="line">mask : nd-array <span class="keyword">or</span> <span class="literal">None</span> (default=<span class="literal">None</span>) <span class="comment">#如果参数为空，则使用二维遮罩绘制词云。如果mask 非空，设置的宽高值将被忽略，遮罩形状被 mask 取代。除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。如：bg_pic = imread('读取一张图片.png')，背景图片的画布一定要设置为白色（#FFFFFF），然后显示的形状为不是白色的其他颜色。可以用ps工具将自己要显示的形状复制到一个纯白色的画布上再保存，就ok了。</span></span><br><span class="line"></span><br><span class="line">scale : ﬂoat (default=<span class="number">1</span>) <span class="comment">#按照比例进行放大画布，如设置为1.5，则长和宽都是原来画布的1.5倍min_font_size : int (default=4) #显示的最小的字体大小</span></span><br><span class="line"></span><br><span class="line">font_step : int (default=<span class="number">1</span>) <span class="comment">#字体步长，如果步长大于1，会加快运算但是可能导致结果出现较大的误差</span></span><br><span class="line"></span><br><span class="line">max_words : number (default=<span class="number">200</span>) <span class="comment">#要显示的词的最大个数</span></span><br><span class="line"></span><br><span class="line">stopwords : set of strings <span class="keyword">or</span> <span class="literal">None</span> <span class="comment">#设置需要屏蔽的词，如果为空，则使用内置的STOPWORDS</span></span><br><span class="line"></span><br><span class="line">background_color : color value (default=”black”) <span class="comment">#背景颜色，如background_color='white',背景颜色为白色</span></span><br><span class="line"></span><br><span class="line">max_font_size : int <span class="keyword">or</span> <span class="literal">None</span> (default=<span class="literal">None</span>) <span class="comment">#显示的最大的字体大小</span></span><br><span class="line"></span><br><span class="line">mode : string (default=”RGB”) <span class="comment">#当参数为“RGBA”并且background_color不为空时，背景为透明relative_scaling : ﬂoat (default=.5) #词频和字体大小的关联性</span></span><br><span class="line"></span><br><span class="line">color_func : callable, default=<span class="literal">None</span> <span class="comment">#生成新颜色的函数，如果为空，则使用 self.color_func regexp : string or None (optional) #使用正则表达式分隔输入的文本</span></span><br><span class="line"></span><br><span class="line">collocations : bool, default=<span class="literal">True</span> <span class="comment">#是否包括两个词的搭配</span></span><br><span class="line"></span><br><span class="line">colormap : string <span class="keyword">or</span> matplotlib colormap, default=”viridis” <span class="comment">#给每个单词随机分配颜色，若指定color_func，则忽略该方法</span></span><br><span class="line"></span><br><span class="line">random_state : int <span class="keyword">or</span> <span class="literal">None</span> <span class="comment">#为每个单词返回一个PIL颜色</span></span><br><span class="line"></span><br><span class="line">ﬁt_words(frequencies) <span class="comment">#根据词频生成词云generate(text) #根据文本生成词云</span></span><br><span class="line"></span><br><span class="line">generate_from_frequencies(frequencies[, ...]) <span class="comment">#根据词频生成词云generate_from_text(text) #根据文本生成词云</span></span><br><span class="line"></span><br><span class="line">process_text(text)  <span class="comment">#将长文本分词并去除屏蔽词（此处指英语，中文分词还是需要自己用别的库先行实现，使用上面的 ﬁt_words(frequencies) ）</span></span><br><span class="line"></span><br><span class="line">recolor([random_state, color_func, colormap]) <span class="comment">#对现有输出重新着色。重新上色会比重新生成整个词云快很多</span></span><br><span class="line"></span><br><span class="line">to_array() <span class="comment">#转化为 numpy array to_ﬁle(ﬁlename) #输出到文件</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-成果"><a href="#4-成果" class="headerlink" title="4.成果"></a>4.成果</h1><p>首页：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201750887.png" alt="image-20201104201750887"></p>
+<p>电影：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201807310.png" alt="image-20201104201807310"></p>
+<p>评分：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201821267.png" alt="image-20201104201821267"></p>
+<p>词云：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201843212.png" alt="image-20201104201843212"></p>
+<p>团队：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201104201858532.png" alt="image-20201104201858532"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>努力真的有结果吗</p>
+<p>还是，我努力了</p>
+<p>但却太菜</p>
+<p>毫无开花的果😌</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1449782341&auto=0&height=66"></iframe>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:32:37.165Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/tomcat%E5%AE%89%E8%A3%85/">Linux安装tomcat并配置开机自启动(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/03/Python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-28T09:12:59.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/03/%E4%BD%BF%E7%94%A8Python%E7%88%AC%E5%8F%96%E7%94%B5%E5%BD%B1%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Python爬取电影评论数据与处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/jdk%E5%AE%89%E8%A3%85/">Linux安装jdk(CentOS为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Flask入门"><span class="toc-number">2.</span> <span class="toc-text">1. Flask入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-关于Flask"><span class="toc-number">2.1.</span> <span class="toc-text">1.1  关于Flask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2入门Demo"><span class="toc-number">2.2.</span> <span class="toc-text">1.2入门Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3模板"><span class="toc-number">2.3.</span> <span class="toc-text">1.3模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4表单提交"><span class="toc-number">2.4.</span> <span class="toc-text">1.4表单提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5豆瓣数据可视化Flask应用"><span class="toc-number">2.5.</span> <span class="toc-text">1.5豆瓣数据可视化Flask应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Echarts应用"><span class="toc-number">3.</span> <span class="toc-text">2.Echarts应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1官方入门案例"><span class="toc-number">3.1.</span> <span class="toc-text">2.1官方入门案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2豆瓣数据可视化Echarts应用"><span class="toc-number">3.2.</span> <span class="toc-text">2.2豆瓣数据可视化Echarts应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-WordCloud应用"><span class="toc-number">4.</span> <span class="toc-text">3.WordCloud应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1导包"><span class="toc-number">4.1.</span> <span class="toc-text">3.1导包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2读取数据库"><span class="toc-number">4.2.</span> <span class="toc-text">3.2读取数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3分词"><span class="toc-number">4.3.</span> <span class="toc-text">3.3分词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4词云"><span class="toc-number">4.4.</span> <span class="toc-text">3.4词云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5绘图"><span class="toc-number">4.5.</span> <span class="toc-text">3.5绘图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6WordCloud配置"><span class="toc-number">4.6.</span> <span class="toc-text">3.6WordCloud配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-成果"><span class="toc-number">5.</span> <span class="toc-text">4.成果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-05-26T11:36:39.762Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/Redis%E7%BC%93%E5%AD%98/">WEB项目系统添加redis缓存逻辑和功能</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-25T06:20:31.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">Redis在Linux上的安装和集群搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-24T08:44:59.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/CMS%E7%B3%BB%E7%BB%9F/">企业WEB项目CMS内容管理系统搭建和广告位展示功能的实现</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-05-22T14:01:00.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%89%8D%E5%8F%B0%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">企业WEB开发前台工程搭建,ajax跨域的解决</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/" class="archive-article-date">
-  	<time datetime="2020-05-22T01:58:26.295Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%95%86%E5%93%81%E8%A7%84%E6%A0%BC/">企业WEB项目中商品规格的实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  	<time datetime="2020-05-20T01:49:38.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/%E6%B7%98%E6%B7%98%E5%95%86%E5%9F%8E-%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/">企业WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-19T04:30:23.311Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/vsftpd%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85/">Linux安装ftp组件(CentOS6.5为例)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-19T03:12:43.812Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/nginx%E5%AE%89%E8%A3%85/">nginx安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/8/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -650,8 +497,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
