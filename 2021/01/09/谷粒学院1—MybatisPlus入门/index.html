@@ -16,8 +16,15 @@
 <meta property="og:description" content="EverydayOneCat新年新气象ヽ(✿ﾟ▽ﾟ)ノ！！！">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/91fdf5e134e73bb546033dfcb60237f6d9ec9912.jpg@518w.jpg">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6%20%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8%20mp%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/9%20%E4%B9%90%E8%A7%82%E9%94%81.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/10%20%E4%B9%90%E8%A7%82%E9%94%81.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/11%20mp%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/12%20mp%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/13%20mp%E5%AE%9E%E7%8E%B0%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2.png">
 <meta property="article:published_time" content="2021-01-09T14:22:25.759Z">
-<meta property="article:modified_time" content="2021-01-09T15:23:03.639Z">
+<meta property="article:modified_time" content="2021-01-10T03:52:23.632Z">
 <meta property="article:author" content="J Sir">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="主流框架">
@@ -303,7 +310,7 @@
 
 <p>我们发现插入操作不需要我们指定主键，因为MybatisPlus默认会帮我们自动生成。</p>
 <p>下面介绍几个常用的主键策略：</p>
-<p>![6 主键生成策略](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6</a> 主键生成策略.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6%20%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5.png" alt="6 主键生成策略"></p>
 <p>在MybatisPlus中，要想主键自增需要配置如下主键策略</p>
 <ul>
 <li>需要在创建数据表的时候设置主键自增</li>
@@ -329,7 +336,7 @@
 
 <p>注意：不要忘记添加 @Component 注解</p>
 <p>更新总结：</p>
-<p>![8 mp实现自动填充](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8</a> mp实现自动填充.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8%20mp%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85.png" alt="8 mp实现自动填充"></p>
 <h2 id="3-乐观锁"><a href="#3-乐观锁" class="headerlink" title="3.乐观锁"></a>3.乐观锁</h2><p>Mysql中处理事务有两种锁法：悲观锁和乐观锁。</p>
 <p>所谓悲观锁，就是当一个人执行这个事务时不允许其他人进行操作，类似于串行；而乐观锁相反，相当于并行，大大提高了效率。</p>
 <p><strong>主要适用场景：</strong>当要更新一条记录的时候，希望这条记录没有被别人更新，也就是说实现线程安全的数据更新</p>
@@ -340,7 +347,7 @@
 <li>执行更新时， set version = newVersion where version = oldVersion</li>
 <li>如果version不对，就更新失败</li>
 </ul>
-<p>![9 乐观锁](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/9" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/9</a> 乐观锁.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/9%20%E4%B9%90%E8%A7%82%E9%94%81.png" alt="9 乐观锁"></p>
 <p><strong>（1）数据库中添加version字段（初始值为1）</strong></p>
 <p><strong>（2）实体类添加version字段并添加 @Version 注解</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Version</span></span><br><span class="line"><span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
@@ -352,7 +359,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试 乐观锁插件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOptimisticLocker</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">//修改数据</span></span><br><span class="line">    user.setName(<span class="string">"Helen Yao"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"helen@qq.com"</span>);</span><br><span class="line">    <span class="comment">//执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试 乐观锁插件失败</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOptimisticLockerFail</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">//修改数据</span></span><br><span class="line">    user.setName(<span class="string">"Helen Yao1"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"helen@qq.com1"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//模拟取出数据后，数据库中version实际数据比取出的值大，即已被其它线程修改并更新了version</span></span><br><span class="line">    user.setVersion(user.getVersion()-<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>实现方式总结：</p>
-<p>![10 乐观锁](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/10" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/10</a> 乐观锁.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/10%20%E4%B9%90%E8%A7%82%E9%94%81.png" alt="10 乐观锁"></p>
 <h2 id="4-查询-分页"><a href="#4-查询-分页" class="headerlink" title="4.查询(分页)"></a>4.查询(分页)</h2><p>根据id查询不过多介绍，这里还需要清楚还可以通过多个id批量查询：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBatchIds</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -365,7 +372,7 @@
 
 <p>测试过程中可以看到控制台sql语句打印：SELECT id,name,age,email,create_time,update_time FROM user LIMIT 0,5 </p>
 <p>查询总结：</p>
-<p>![11 mp实现简单查询和分页查询](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/11" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/11</a> mp实现简单查询和分页查询.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/11%20mp%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2.png" alt="11 mp实现简单查询和分页查询"></p>
 <h2 id="5-删除-逻辑删除"><a href="#5-删除-逻辑删除" class="headerlink" title="5.删除(逻辑删除)"></a>5.删除(逻辑删除)</h2><p>有批量查询自然也有批量删除：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteBatchIds</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.deleteBatchIds(Arrays.asList(<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>));</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -398,7 +405,7 @@
 <p>MyBatis Plus中查询操作也会自动添加逻辑删除字段的判断</p>
 <p>测试后分析打印的sql语句，包含 WHERE deleted=0 </p>
 <p>删除总结：</p>
-<p>![12 mp实现逻辑删除功能](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/12" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/12</a> mp实现逻辑删除功能.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/12%20mp%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD.png" alt="12 mp实现逻辑删除功能"></p>
 <h2 id="6-性能分析"><a href="#6-性能分析" class="headerlink" title="6.性能分析"></a>6.性能分析</h2><p>性能分析拦截器，用于输出每条 SQL 语句及其执行时间</p>
 <p>SQL 性能执行分析,开发环境使用，超过指定时间，停止运行。有助于发现问题</p>
 <p><strong>配置插件：</strong></p>
@@ -414,7 +421,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试 条件查询</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line">        QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//ge gt le lt</span></span><br><span class="line"><span class="comment">//        queryWrapper.ge("age",25);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//eq ne</span></span><br><span class="line"><span class="comment">//        queryWrapper.eq("name","JY");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//between</span></span><br><span class="line"><span class="comment">//        queryWrapper.between("age",15,25);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//like</span></span><br><span class="line"><span class="comment">//        queryWrapper.like("name","WY");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//last  拼接到sql语句最后</span></span><br><span class="line"><span class="comment">//        queryWrapper.last("limit 1");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//指定要查询的列</span></span><br><span class="line">        queryWrapper.select(<span class="string">"name"</span>,<span class="string">"age"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        List&lt;User&gt; users = userMapper.selectList(queryWrapper);</span><br><span class="line">        users.forEach(System.out::println);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>条件查询小总结：</p>
-<p>![13 mp实现复杂查询](<a href="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/13" target="_blank" rel="noopener">https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/13</a> mp实现复杂查询.png)</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/13%20mp%E5%AE%9E%E7%8E%B0%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2.png" alt="13 mp实现复杂查询"></p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>新年第一篇博客是在冰天雪地里写的😭</p>
 <p>WDNMD没有暖气的冬天￣へ￣</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=157092&auto=0&height=66"></iframe>
@@ -534,6 +541,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          谷粒学院2—讲师管理接口开发
+        
+      </div>
+    </a>
   
   
     <a href="/2020/12/11/%E5%BE%AE%E6%9C%8D%E5%8A%A1SpringCloud/" id="article-nav-older" class="article-nav-link-wrap">
@@ -798,6 +814,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">主流框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">谷粒学院</a>
               </li>
             
             <div class="clearfix"></div>
