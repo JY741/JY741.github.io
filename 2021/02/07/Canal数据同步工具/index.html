@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>Canal数据同步工具 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="应用场景在谷粒学院的统计分析功能中，我们采取了服务调用获取统计数据，这样耦合度高，效率相对较低，目前我采取另一种实现方式，通过实时同步数据库表的方式实现，例如我们要统计每天注册与登录人数，我们只需把会员表同步到统计库中，实现本地统计就可以了，这样效率更高，耦合度更低，Canal就是一个很好的数据库同步工具。canal是阿里巴巴旗下的一款开源项目，纯Java开发。基于数据库增量日志解析，提供增量数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canal数据同步工具">
+<meta property="og:url" content="http://yoursite.com/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="应用场景在谷粒学院的统计分析功能中，我们采取了服务调用获取统计数据，这样耦合度高，效率相对较低，目前我采取另一种实现方式，通过实时同步数据库表的方式实现，例如我们要统计每天注册与登录人数，我们只需把会员表同步到统计库中，实现本地统计就可以了，这样效率更高，耦合度更低，Canal就是一个很好的数据库同步工具。canal是阿里巴巴旗下的一款开源项目，纯Java开发。基于数据库增量日志解析，提供增量数据">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/02-canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/03-canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85.png">
+<meta property="article:published_time" content="2021-02-07T14:57:30.327Z">
+<meta property="article:modified_time" content="2021-02-07T15:10:17.265Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/02-canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,103 +172,27 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-谷粒学院10—权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Canal数据同步工具" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A210%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">谷粒学院10—权限管理</a>
+    <h1 class="article-title" itemprop="name">
+      Canal数据同步工具
     </h1>
   
 
 		<!--显示阅读次数-->
 		
-        
-        <a href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A210%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-02-09T03:41:42.490Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>新年🧧!</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/a5b7b4db652ebcbe8b6376d21a8ed4f41f9f8b2e.png@518w.png" alt="a5b7b4db652ebcbe8b6376d21a8ed4f41f9f8b2e.png@518w"></p>
-        
-          <a class="article-more-a" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A210%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A210%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Canal数据同步工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">Canal数据同步工具</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
         <a href="/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/" class="archive-article-date">
   	<time datetime="2021-02-07T14:57:30.327Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-07</time>
@@ -271,11 +204,89 @@
       
         <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p>在谷粒学院的统计分析功能中，我们采取了服务调用获取统计数据，这样耦合度高，效率相对较低，目前我采取另一种实现方式，通过实时同步数据库表的方式实现，例如我们要统计每天注册与登录人数，我们只需把会员表同步到统计库中，实现本地统计就可以了，这样效率更高，耦合度更低，Canal就是一个很好的数据库同步工具。canal是阿里巴巴旗下的一款开源项目，纯Java开发。基于数据库增量日志解析，提供增量数据订阅&amp;消费，目前主要支持了MySQL。</p>
 <p>长话短说，Canal就是一个将本地数据库得以和远程数据库同步的工具。</p>
-        
-          <a class="article-more-a" href="/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/#more">more >></a>
-        
+<a id="more"></a>
+
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/02-canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png" alt="02-canal数据同步应用场景"></p>
+<h1 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p><strong>canal的原理是基于mysql binlog技术，所以这里一定需要开启mysql的binlog写入功能</strong></p>
+<p>（1）开启mysql服务：  service mysql start</p>
+<p>（2）检查binlog功能是否有开启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show variables like <span class="string">'log_bin'</span>;</span></span><br><span class="line">+---------------+-------+</span><br><span class="line">| Variable_name | Value |</span><br><span class="line">+---------------+-------+</span><br><span class="line">| log_bin       | OFF    |</span><br><span class="line">+---------------+-------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>（3）如果显示状态为OFF表示该功能未开启，开启binlog功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1，修改 mysql 的配置文件 my.cnf</span><br><span class="line">vi &#x2F;etc&#x2F;my.cnf </span><br><span class="line">追加内容：</span><br><span class="line">log-bin&#x3D;mysql-bin     #binlog文件名</span><br><span class="line">binlog_format&#x3D;ROW     #选择row模式</span><br><span class="line">server_id&#x3D;1           #mysql实例id,不能和canal的slaveId重复</span><br><span class="line"></span><br><span class="line">2，重启 mysql：</span><br><span class="line">service mysql restart	</span><br><span class="line"></span><br><span class="line">3，登录 mysql 客户端，查看 log_bin 变量</span><br><span class="line">mysql&gt; show variables like &#39;log_bin&#39;;</span><br><span class="line">+---------------+-------+</span><br><span class="line">| Variable_name | Value |</span><br><span class="line">+---------------+-------+</span><br><span class="line">| log_bin       | ON|</span><br><span class="line">+---------------+-------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line">————————————————</span><br><span class="line">如果显示状态为ON表示该功能已开启</span><br></pre></td></tr></table></figure>
+
+<p>（4）由于一般mysql默认不可远程访问，我们需要在mysql里面添加以下的相关用户和权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'canal'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'canal'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SHOW</span> <span class="keyword">VIEW</span>, <span class="keyword">SELECT</span>, <span class="keyword">REPLICATION</span> <span class="keyword">SLAVE</span>, <span class="keyword">REPLICATION</span> <span class="keyword">CLIENT</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'canal'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-正式安装"><a href="#2-正式安装" class="headerlink" title="2.正式安装"></a>2.正式安装</h2><p>下载地址：</p>
+<p><a href="https://github.com/alibaba/canal/releases" target="_blank" rel="noopener">https://github.com/alibaba/canal/releases</a></p>
+<p>（1）下载之后，放到目录中，解压文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;canal</span><br><span class="line"></span><br><span class="line">canal.deployer-1.1.4.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf canal.deployer-1.1.4.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>（2）修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi conf&#x2F;example&#x2F;instance.properties</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要改成自己的数据库信息</span></span><br><span class="line"><span class="meta">canal.instance.master.address</span>=<span class="string">192.168.44.132:3306</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#需要改成自己的数据库用户名与密码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">canal.instance.dbUsername</span>=<span class="string">canal</span></span><br><span class="line"><span class="meta">canal.instance.dbPassword</span>=<span class="string">canal</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#需要改成同步的数据库表规则，例如只是同步一下表</span></span><br><span class="line"><span class="comment">#canal.instance.filter.regex=.*\\..*</span></span><br><span class="line"><span class="meta">canal.instance.filter.regex</span>=<span class="string">guli_ucenter.ucenter_member</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：<br>mysql 数据解析关注的表，Perl正则表达式.<br>多个正则之间以逗号(,)分隔，转义符需要双斜杠(\)<br>常见例子：</p>
+<ol>
+<li>所有表：.*   or  .<em>\..</em></li>
+<li>canal schema下所有表： canal\..*</li>
+<li>canal下的以canal打头的表：canal\.canal.*</li>
+<li>canal schema下的一张表：canal.test1</li>
+<li>多个规则组合使用：canal\..*,mysql.test1,mysql.test2 (逗号分隔)<br>注意：此过滤条件只针对row模式的数据有效(ps. mixed/statement因为不解析sql，所以无法准确提取tableName进行过滤)</li>
+</ol>
+</blockquote>
+<p>（3）进入bin目录下启动：sh bin/startup.sh</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/03-canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85.png" alt="03-canal数据同步工具安装"></p>
+<h1 id="本地实现数据库同步"><a href="#本地实现数据库同步" class="headerlink" title="本地实现数据库同步"></a>本地实现数据库同步</h1><p>（1）创建canal_client模块，引入相关依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--mysql--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.otter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>canal.client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）创建application.properties配置文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务端口</span></span><br><span class="line"><span class="meta">server.port</span>=<span class="string">10000</span></span><br><span class="line"><span class="comment"># 服务名</span></span><br><span class="line"><span class="meta">spring.application.name</span>=<span class="string">canal-client</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 环境设置：dev、test、prod</span></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql数据库连接</span></span><br><span class="line"><span class="meta">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）编写canal客户端类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.otter.canal.client.CanalConnector;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.otter.canal.client.CanalConnectors;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.otter.canal.protocol.CanalEntry.*;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.otter.canal.protocol.Message;</span><br><span class="line"><span class="keyword">import</span> com.google.protobuf.InvalidProtocolBufferException;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.DbUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.QueryRunner;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ConcurrentLinkedQueue;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CanalClient</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//sql队列</span></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;String&gt; SQL_QUEUE = <span class="keyword">new</span> ConcurrentLinkedQueue&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> DataSource dataSource;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * canal入库方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        CanalConnector connector = CanalConnectors.newSingleConnector(<span class="keyword">new</span> InetSocketAddress(<span class="string">"192.168.44.132"</span>,</span><br><span class="line">                <span class="number">11111</span>), <span class="string">"example"</span>, <span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">int</span> batchSize = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            connector.connect();</span><br><span class="line">            connector.subscribe(<span class="string">".*\\..*"</span>);</span><br><span class="line">            connector.rollback();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                    <span class="comment">//尝试从master那边拉去数据batchSize条记录，有多少取多少</span></span><br><span class="line">                    Message message = connector.getWithoutAck(batchSize);</span><br><span class="line">                    <span class="keyword">long</span> batchId = message.getId();</span><br><span class="line">                    <span class="keyword">int</span> size = message.getEntries().size();</span><br><span class="line">                    <span class="keyword">if</span> (batchId == -<span class="number">1</span> || size == <span class="number">0</span>) &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        dataHandle(message.getEntries());</span><br><span class="line">                    &#125;</span><br><span class="line">                    connector.ack(batchId);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//当队列里面堆积的sql大于一定数值的时候就模拟执行</span></span><br><span class="line">                    <span class="keyword">if</span> (SQL_QUEUE.size() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">                        executeQueueSql();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InvalidProtocolBufferException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            connector.disconnect();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 模拟执行队列里面的sql语句</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">executeQueueSql</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = SQL_QUEUE.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            String sql = SQL_QUEUE.poll();</span><br><span class="line">            System.out.println(<span class="string">"[sql]----&gt; "</span> + sql);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">this</span>.execute(sql.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据处理</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> entrys</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dataHandle</span><span class="params">(List&lt;Entry&gt; entrys)</span> <span class="keyword">throws</span> InvalidProtocolBufferException </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Entry entry : entrys) &#123;</span><br><span class="line">            <span class="keyword">if</span> (EntryType.ROWDATA == entry.getEntryType()) &#123;</span><br><span class="line">                RowChange rowChange = RowChange.parseFrom(entry.getStoreValue());</span><br><span class="line">                EventType eventType = rowChange.getEventType();</span><br><span class="line">                <span class="keyword">if</span> (eventType == EventType.DELETE) &#123;</span><br><span class="line">                    saveDeleteSql(entry);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (eventType == EventType.UPDATE) &#123;</span><br><span class="line">                    saveUpdateSql(entry);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (eventType == EventType.INSERT) &#123;</span><br><span class="line">                    saveInsertSql(entry);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存更新语句</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> entry</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveUpdateSql</span><span class="params">(Entry entry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            RowChange rowChange = RowChange.parseFrom(entry.getStoreValue());</span><br><span class="line">            List&lt;RowData&gt; rowDatasList = rowChange.getRowDatasList();</span><br><span class="line">            <span class="keyword">for</span> (RowData rowData : rowDatasList) &#123;</span><br><span class="line">                List&lt;Column&gt; newColumnList = rowData.getAfterColumnsList();</span><br><span class="line">                StringBuffer sql = <span class="keyword">new</span> StringBuffer(<span class="string">"update "</span> + entry.getHeader().getTableName() + <span class="string">" set "</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; newColumnList.size(); i++) &#123;</span><br><span class="line">                    sql.append(<span class="string">" "</span> + newColumnList.get(i).getName()</span><br><span class="line">                            + <span class="string">" = '"</span> + newColumnList.get(i).getValue() + <span class="string">"'"</span>);</span><br><span class="line">                    <span class="keyword">if</span> (i != newColumnList.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                        sql.append(<span class="string">","</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                sql.append(<span class="string">" where "</span>);</span><br><span class="line">                List&lt;Column&gt; oldColumnList = rowData.getBeforeColumnsList();</span><br><span class="line">                <span class="keyword">for</span> (Column column : oldColumnList) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (column.getIsKey()) &#123;</span><br><span class="line">                        <span class="comment">//暂时只支持单一主键</span></span><br><span class="line">                        sql.append(column.getName() + <span class="string">"="</span> + column.getValue());</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                SQL_QUEUE.add(sql.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidProtocolBufferException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存删除语句</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> entry</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveDeleteSql</span><span class="params">(Entry entry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            RowChange rowChange = RowChange.parseFrom(entry.getStoreValue());</span><br><span class="line">            List&lt;RowData&gt; rowDatasList = rowChange.getRowDatasList();</span><br><span class="line">            <span class="keyword">for</span> (RowData rowData : rowDatasList) &#123;</span><br><span class="line">                List&lt;Column&gt; columnList = rowData.getBeforeColumnsList();</span><br><span class="line">                StringBuffer sql = <span class="keyword">new</span> StringBuffer(<span class="string">"delete from "</span> + entry.getHeader().getTableName() + <span class="string">" where "</span>);</span><br><span class="line">                <span class="keyword">for</span> (Column column : columnList) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (column.getIsKey()) &#123;</span><br><span class="line">                        <span class="comment">//暂时只支持单一主键</span></span><br><span class="line">                        sql.append(column.getName() + <span class="string">"="</span> + column.getValue());</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                SQL_QUEUE.add(sql.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidProtocolBufferException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存插入语句</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> entry</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveInsertSql</span><span class="params">(Entry entry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            RowChange rowChange = RowChange.parseFrom(entry.getStoreValue());</span><br><span class="line">            List&lt;RowData&gt; rowDatasList = rowChange.getRowDatasList();</span><br><span class="line">            <span class="keyword">for</span> (RowData rowData : rowDatasList) &#123;</span><br><span class="line">                List&lt;Column&gt; columnList = rowData.getAfterColumnsList();</span><br><span class="line">                StringBuffer sql = <span class="keyword">new</span> StringBuffer(<span class="string">"insert into "</span> + entry.getHeader().getTableName() + <span class="string">" ("</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; columnList.size(); i++) &#123;</span><br><span class="line">                    sql.append(columnList.get(i).getName());</span><br><span class="line">                    <span class="keyword">if</span> (i != columnList.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                        sql.append(<span class="string">","</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                sql.append(<span class="string">") VALUES ("</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; columnList.size(); i++) &#123;</span><br><span class="line">                    sql.append(<span class="string">"'"</span> + columnList.get(i).getValue() + <span class="string">"'"</span>);</span><br><span class="line">                    <span class="keyword">if</span> (i != columnList.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                        sql.append(<span class="string">","</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                sql.append(<span class="string">")"</span>);</span><br><span class="line">                SQL_QUEUE.add(sql.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidProtocolBufferException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 入库</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sql</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(String sql)</span> </span>&#123;</span><br><span class="line">        Connection con = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> == sql) <span class="keyword">return</span>;</span><br><span class="line">            con = dataSource.getConnection();</span><br><span class="line">            QueryRunner qr = <span class="keyword">new</span> QueryRunner();</span><br><span class="line">            <span class="keyword">int</span> row = qr.execute(con, sql);</span><br><span class="line">            System.out.println(<span class="string">"update: "</span>+ row);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            DbUtils.closeQuietly(con);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）创建启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CanalApplication</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> CanalClient canalClient;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(CanalApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... strings)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//项目启动，执行canal客户端监听</span></span><br><span class="line">        canalClient.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（5）接着我们在linux下测试修改数据库，发现本地服务会监听其的动作并在本地数据库做出同样动作。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -299,16 +310,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/02/07/Canal%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A210%E2%80%94%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          谷粒学院10—权限管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/02/04/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A29%E2%80%94%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%92%8C%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">谷粒学院9—微信支付和统计分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -323,681 +402,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院9—微信支付和统计分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/04/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A29%E2%80%94%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%92%8C%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/">谷粒学院9—微信支付和统计分析</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/02/04/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A29%E2%80%94%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%92%8C%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2021-02-04T12:25:45.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在品优购中介绍过微信支付，在传智健康中也使用了Echarts实现数据统计。这里纯当作复习，或者另一种层面来说，本篇介绍微服务架构下的微信支付和统计分析。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2021/02/04/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A29%E2%80%94%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%92%8C%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/04/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A29%E2%80%94%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%92%8C%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#应用场景"><span class="toc-number">1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux下的安装"><span class="toc-number">2.</span> <span class="toc-text">Linux下的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备工作"><span class="toc-number">2.1.</span> <span class="toc-text">1.准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-正式安装"><span class="toc-number">2.2.</span> <span class="toc-text">2.正式安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本地实现数据库同步"><span class="toc-number">3.</span> <span class="toc-text">本地实现数据库同步</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-谷粒学院8—登录注册微信扫描登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/31/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A28%E2%80%94%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E6%89%AB%E6%8F%8F%E7%99%BB%E9%99%86/">谷粒学院8—登录注册和微信扫描登陆</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/31/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A28%E2%80%94%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E6%89%AB%E6%8F%8F%E7%99%BB%E9%99%86/" class="archive-article-date">
-  	<time datetime="2021-01-31T04:12:27.525Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>series No.2(p2) of 🎄</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/88c005161bb8779ed24725327c98513a4d7e8e5d.gif" alt="88c005161bb8779ed24725327c98513a4d7e8e5d"></p>
-        
-          <a class="article-more-a" href="/2021/01/31/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A28%E2%80%94%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E6%89%AB%E6%8F%8F%E7%99%BB%E9%99%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/31/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A28%E2%80%94%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E6%89%AB%E6%8F%8F%E7%99%BB%E9%99%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院7—前台环境NUXT框架和Springboot缓存的添加" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/28/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A27%E2%80%94%E5%89%8D%E5%8F%B0%E7%8E%AF%E5%A2%83NUXT%E6%A1%86%E6%9E%B6%E5%92%8CSpringboot%E7%BC%93%E5%AD%98%E7%9A%84%E6%B7%BB%E5%8A%A0/">谷粒学院7—前台环境NUXT框架和Springboot中缓存的添加</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/28/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A27%E2%80%94%E5%89%8D%E5%8F%B0%E7%8E%AF%E5%A2%83NUXT%E6%A1%86%E6%9E%B6%E5%92%8CSpringboot%E7%BC%93%E5%AD%98%E7%9A%84%E6%B7%BB%E5%8A%A0/" class="archive-article-date">
-  	<time datetime="2021-01-28T05:11:39.426Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="服务端渲染技术NUXT"><a href="#服务端渲染技术NUXT" class="headerlink" title="服务端渲染技术NUXT"></a>服务端渲染技术NUXT</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>服务端渲染又称SSR (Server Side Render)是在服务端完成页面的内容，而不是在客户端通过AJAX获取数据。</p>
-<p>服务器端渲染(SSR)的优势主要在于：<strong>更好的 SEO</strong>，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。</p>
-        
-          <a class="article-more-a" href="/2021/01/28/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A27%E2%80%94%E5%89%8D%E5%8F%B0%E7%8E%AF%E5%A2%83NUXT%E6%A1%86%E6%9E%B6%E5%92%8CSpringboot%E7%BC%93%E5%AD%98%E7%9A%84%E6%B7%BB%E5%8A%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/28/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A27%E2%80%94%E5%89%8D%E5%8F%B0%E7%8E%AF%E5%A2%83NUXT%E6%A1%86%E6%9E%B6%E5%92%8CSpringboot%E7%BC%93%E5%AD%98%E7%9A%84%E6%B7%BB%E5%8A%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院6—整合阿里云视频点播和微服务调用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/23/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A26%E2%80%94%E6%95%B4%E5%90%88%E9%98%BF%E9%87%8C%E4%BA%91%E8%A7%86%E9%A2%91%E7%82%B9%E6%92%AD%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/">谷粒学院6—整合阿里云视频点播和微服务调用</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/23/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A26%E2%80%94%E6%95%B4%E5%90%88%E9%98%BF%E9%87%8C%E4%BA%91%E8%A7%86%E9%A2%91%E7%82%B9%E6%92%AD%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-01-23T04:14:59.893Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>ps！</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/9bf5c45a5cd489e5e5e7a4d6c8d9b0f0a1061d1a.jpg@518w.jpg" alt="9bf5c45a5cd489e5e5e7a4d6c8d9b0f0a1061d1a.jpg@518w"></p>
-        
-          <a class="article-more-a" href="/2021/01/23/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A26%E2%80%94%E6%95%B4%E5%90%88%E9%98%BF%E9%87%8C%E4%BA%91%E8%A7%86%E9%A2%91%E7%82%B9%E6%92%AD%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主流框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/23/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A26%E2%80%94%E6%95%B4%E5%90%88%E9%98%BF%E9%87%8C%E4%BA%91%E8%A7%86%E9%A2%91%E7%82%B9%E6%92%AD%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院5—阿里云OSS云存储及课程分类管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/">谷粒学院5—阿里云OSS云存储及课程分类管理</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-01-19T02:48:04.916Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>「🐈💤🎄🎁🤫!」<br>too late❌ 𝙏𝙞𝙥𝙨: 𝘾𝙖𝙩𝙬𝙤𝙧𝙡𝙙 𝙞𝙨 𝙖𝙡𝙬𝙖𝙮𝙨 𝙝𝙖𝙥𝙥𝙮 𝙝𝙤𝙡𝙞𝙙𝙖𝙮𝙨✅</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/e8abd9ade9e2029d1ea6e07ac2428dc32870ef18.gif" alt="e8abd9ade9e2029d1ea6e07ac2428dc32870ef18" style="zoom:80%;" />
-        
-          <a class="article-more-a" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院4—讲师管理前端开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">谷粒学院4—讲师管理前端开发</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2021-01-17T03:02:32.710Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-admin-template"><a href="#vue-admin-template" class="headerlink" title="vue-admin-template"></a>vue-admin-template</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>我们开发讲师管理界面可以通过集成好的前端框架vue-element-admin基础上进行开发。</p>
-        
-          <a class="article-more-a" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院3—ES6和nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/">谷粒学院3—前端入门之ES6和nodejs</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/" class="archive-article-date">
-  	<time datetime="2021-01-14T15:11:19.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>在Catworld里並没有什麼关于时间的概念。即便如此，猫们还是会选择用自己的方式，在當下的某一刻，体验时间的流逝。</p>
-<p>Have a good new year</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6b1790b161aeec44249833a4a4a8c017d60d247f.jpg@518w.jpg" alt="6b1790b161aeec44249833a4a4a8c017d60d247f.jpg@518w"></p>
-        
-          <a class="article-more-a" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院2—讲师管理接口开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">谷粒学院2—讲师管理接口开发</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2021-01-12T08:00:18.823Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="1-项目工程搭建"><a href="#1-项目工程搭建" class="headerlink" title="1.项目工程搭建"></a>1.项目工程搭建</h2><p>和以往项目一样，首先我们需要搭一个父工程guli_parent，我们在其pom.xml文件中声明这是一个pom文件，并配置 <dependencyManagement> 锁定依赖的版本</p>
-        
-          <a class="article-more-a" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1034,8 +464,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
