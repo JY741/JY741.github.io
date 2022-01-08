@@ -164,6 +164,419 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Dockerfile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/04/Dockerfile/">Dockerfile入门</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2022/01/04/Dockerfile/" class="archive-article-date">
+  	<time datetime="2022-01-03T19:22:38.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>”cats are super 3D!!!!!!!!!!!”爷回来啦！！！！</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/b90ea44b77198601d89ae141c5cb88ae57c9fbeb.gif" alt="b90ea44b77198601d89ae141c5cb88ae57c9fbeb"></p>
+<h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><p>在很久很久很久很久(😁)之前的博客中我们曾经介绍了docker的一部分，最近看到一个项目使用云托管业务是基于Dockerfile来在云端部署的，发现完全看不懂里面的内容，所以研究了一下，写一个Dokcerfile的小入门。</p>
+<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><h3 id="1-1是什么"><a href="#1-1是什么" class="headerlink" title="1.1是什么"></a>1.1是什么</h3><p>Dockerfile是用来构建Docker镜像的构建文件，是由一系列命令和参数构成的脚本。</p>
+<p>构建三步骤：</p>
+<ol>
+<li>编写Dockerfile文件</li>
+<li>docker build</li>
+<li>docker run</li>
+</ol>
+<p>内容基础知识：</p>
+<ul>
+<li>每条保留字指令都必须为大写字母且后面要跟随至少一个参数</li>
+<li>指令按照从上到下，顺序执行</li>
+<li>#表示注释</li>
+<li>每条指令都会创建一个新的镜像层，并对镜像进行提交</li>
+</ul>
+<h3 id="1-2构建过程解析"><a href="#1-2构建过程解析" class="headerlink" title="1.2构建过程解析"></a>1.2构建过程解析</h3><ol>
+<li>docker从基础镜像运行一个容器</li>
+<li>执行一条指令并对容器作出修改</li>
+<li>执行类似docker commit的操作提交一个新的镜像层</li>
+<li>docker再基于刚提交的镜像运行一个新容器</li>
+<li>执行dockerfile中的下一条指令直到所有指令都执行完成</li>
+</ol>
+<h3 id="1-3总结"><a href="#1-3总结" class="headerlink" title="1.3总结"></a>1.3总结</h3><p>从应用软件的角度来看，Dockerfile、Docker镜像与Docker容器分别代表软件的三个不同阶段，</p>
+<p>*  Dockerfile是软件的原材料</p>
+<p>*  Docker镜像是软件的交付品</p>
+<p>*  Docker容器则可以认为是软件的运行态。</p>
+<p>Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。</p>
+<h2 id="2-保留字指令"><a href="#2-保留字指令" class="headerlink" title="2.保留字指令"></a>2.保留字指令</h2><ol>
+<li><p>FROM——基础镜像，指出当前的新镜像是基于哪个镜像的</p>
+</li>
+<li><p>MAINTAINER——表明作者信息</p>
+</li>
+<li><p>RUN——容器构建时需要运行的命令</p>
+</li>
+<li><p>EXPOSE——当前容器需要向外暴露出的端口</p>
+</li>
+<li><p>WORKDIR——容器创建后默认的工作目录，默认为“/”</p>
+</li>
+<li><p>ENV——设置环境变量；格式：ENV KEY value</p>
+</li>
+<li><p>COPY——拷贝文件和目录到镜像中，将从构建上下文目录中 &lt;源路径&gt; 的文件/目录复制到新的一层的镜像内的 &lt;目标路径&gt; 位置</p>
+</li>
+<li><p>ADD——和COPY作用一样，多一个解压缩功能，通常用于压缩文件的复制</p>
+</li>
+<li><p>VOLUME——容器数据卷，用于数据保存和持久化工作</p>
+</li>
+<li><p>CMD——指定一个容器启动时要运行的命令</p>
+<blockquote>
+<p>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</p>
+</blockquote>
+</li>
+<li><p>ENTRYPOINT ——指定一个容器启动时要运行的命令 ，和CMD一样，但是多个时所有的都会生效</p>
+</li>
+<li><p>ONBUILD——当构建一个被继承的Dockerfile时运行命令，父镜像在被子继承后父镜像的onbuild被触发</p>
+</li>
+</ol>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20220108111904350.png" alt="image-20220108111904350"></p>
+<h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><p>Base镜像(scratch)：Docker Hub 中 99% 的镜像都是通过在 base 镜像中安装和配置需要的软件构建出来的，类似于Java中的Object类</p>
+<h3 id="3-1自定义centos"><a href="#3-1自定义centos" class="headerlink" title="3.1自定义centos"></a>3.1自定义centos</h3><p>默认CentOS镜像不足</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20220108112202571.png" alt="image-20220108112202571"></p>
+<p>自定义mycentos目的使我们自己的镜像具备如下：</p>
+<p>​     登陆后的默认路径</p>
+<p>​     vim编辑器</p>
+<p>​     查看网络配置ifconfig支持</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos</span><br><span class="line"><span class="keyword">MAINTAINER</span> zzyy</span><br><span class="line"><span class="keyword">ENV</span> MYPATH /usr/local</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> <span class="variable">$MYPATH</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum -y install vim</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum -y install net-tools</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$MYPATH</span></span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"success--------------ok"</span></span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>构建：docker build -t 新镜像名字:TAG .</p>
+<blockquote>
+<p>这里有个 . 必不可少，表示当前目录</p>
+</blockquote>
+<p>运行：docker run -it 新镜像名字:TAG </p>
+<h3 id="3-2自定义镜像Tomcat9"><a href="#3-2自定义镜像Tomcat9" class="headerlink" title="3.2自定义镜像Tomcat9"></a>3.2自定义镜像Tomcat9</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span>         centos</span><br><span class="line"><span class="keyword">MAINTAINER</span>    zzyy</span><br><span class="line"><span class="comment">#把宿主机当前上下文的c.txt拷贝到容器/usr/local/路径下</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> c.txt /usr/<span class="built_in">local</span>/cincontainer.txt</span></span><br><span class="line"><span class="comment">#把java与tomcat添加到容器中并解压</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> jdk-8u171-linux-x64.tar.gz /usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> apache-tomcat-9.0.8.tar.gz /usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="comment">#安装vim编辑器</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum -y install vim</span></span><br><span class="line"><span class="comment">#设置工作访问时候的WORKDIR路径，登录落脚点</span></span><br><span class="line"><span class="keyword">ENV</span> MYPATH /usr/local</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> <span class="variable">$MYPATH</span></span></span><br><span class="line"><span class="comment">#配置java与tomcat环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/local/jdk1.<span class="number">8.0</span>_171</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">ENV</span> CATALINA_HOME /usr/local/apache-tomcat-<span class="number">9.0</span>.<span class="number">8</span></span><br><span class="line"><span class="keyword">ENV</span> CATALINA_BASE /usr/local/apache-tomcat-<span class="number">9.0</span>.<span class="number">8</span></span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/lib:$CATALINA_HOME/bin</span><br><span class="line"><span class="comment">#容器运行时监听的端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span>  <span class="number">8080</span></span><br><span class="line"><span class="comment">#启动时运行tomcat</span></span><br><span class="line"><span class="comment"># ENTRYPOINT ["/usr/local/apache-tomcat-9.0.8/bin/startup.sh" ]</span></span><br><span class="line"><span class="comment"># CMD ["/usr/local/apache-tomcat-9.0.8/bin/catalina.sh","run"]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> /usr/<span class="built_in">local</span>/apache-tomcat-9.0.8/bin/startup.sh &amp;&amp; tail -F /usr/<span class="built_in">local</span>/apache-tomcat-9.0.8/bin/logs/catalina.out</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3微信云托管Dockerfile"><a href="#3-3微信云托管Dockerfile" class="headerlink" title="3.3微信云托管Dockerfile"></a>3.3微信云托管Dockerfile</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择构建用基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> maven:<span class="number">3.6</span>.<span class="number">0</span>-jdk-<span class="number">8</span>-slim as build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定构建过程中的工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将src目录下所有文件，拷贝到工作目录中src目录下</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> src /app/src</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将pom.xml文件，拷贝到工作目录下</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> pom.xml /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行代码编译命令</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mvn -f /app/pom.xml clean package -Dspring.profiles.active=<span class="built_in">test</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择运行时基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> alpine:<span class="number">3.13</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> MYSQL_HOST <span class="number">10.0</span>.<span class="number">224.9</span></span><br><span class="line"><span class="keyword">ENV</span> MYSQL_USER_NAME root</span><br><span class="line"><span class="keyword">ENV</span> MYSQL_PASSWORD xxxxx</span><br><span class="line"><span class="keyword">ENV</span> DATABASE_NAME yili-music</span><br><span class="line"><span class="keyword">ENV</span> APPLICATION_PORT <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖包，如需其他依赖包，请到alpine依赖包管理(https://pkgs.alpinelinux.org/packages?name=php8*imagick*&amp;branch=v3.13)查找。</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add --update --no-cache openjdk8-jre-base \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -f /var/cache/apk/*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定运行时的工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将构建产物jar包拷贝到运行时目录中</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=build /app/target/yili-music-0.0.1.jar .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暴露端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行启动命令</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"java"</span>, <span class="string">"-jar"</span>, <span class="string">"/app/yili-music-0.0.1.jar"</span>, <span class="string">"--spring.profiles.active=test"</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>越来越念旧了，可能还是喜欢曾经的那个自己🙃</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1830196349&auto=1&height=66"></iframe>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/04/Dockerfile/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yum配置国内镜像源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/10/yum%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/">yum配置国内镜像源</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/02/10/yum%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/" class="archive-article-date">
+  	<time datetime="2021-02-10T15:42:24.639Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>整理来源：<a href="https://blog.csdn.net/xiaojin21cen/article/details/84726193" target="_blank" rel="noopener">https://blog.csdn.net/xiaojin21cen/article/details/84726193</a></p>
+<p>yum仓库就是使用yum命令下载软件的镜像地址。</p>
+<p>我们通常使用 <code>yum install</code> 命令来在线安装 <strong>linux系统的软件</strong>， 这种方式可以自动处理依赖性关系，并且一次安装所有依赖的软件包。众所周知，从国外下载软件速度非常慢，很多情况下都无法下载。国内一些大公司做镜像同步国外的软件， 那么我们可能使用国内的下载地址，就能下载我们需要的软件。</p>
+<blockquote>
+<p>这里推荐配置清华大学镜像仓库</p>
+</blockquote>
+<p>地址： <a href="https://mirrors.cnnic.cn/" target="_blank" rel="noopener">https://mirrors.cnnic.cn/</a></p>
+<p>（1）首先备份 CentOS-Base.repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
+
+<p>（2）之后启用 TUNA 软件仓库， 将清华大学镜像仓库信息写入 /etc/yum.repos.d/CentOS-Base.repo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+
+<p>将 CentOS-Base.repo 中的内容更新为下面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist&#x3D; does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl&#x3D; line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">[base]</span><br><span class="line">name&#x3D;CentOS-$releasever - Base</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;centos&#x2F;$releasever&#x2F;os&#x2F;$basearch&#x2F;</span><br><span class="line">#mirrorlist&#x3D;http:&#x2F;&#x2F;mirrorlist.centos.org&#x2F;?release&#x3D;$releasever&amp;arch&#x3D;$basearch&amp;repo&#x3D;os</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name&#x3D;CentOS-$releasever - Updates</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;centos&#x2F;$releasever&#x2F;updates&#x2F;$basearch&#x2F;</span><br><span class="line">#mirrorlist&#x3D;http:&#x2F;&#x2F;mirrorlist.centos.org&#x2F;?release&#x3D;$releasever&amp;arch&#x3D;$basearch&amp;repo&#x3D;updates</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name&#x3D;CentOS-$releasever - Extras</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;centos&#x2F;$releasever&#x2F;extras&#x2F;$basearch&#x2F;</span><br><span class="line">#mirrorlist&#x3D;http:&#x2F;&#x2F;mirrorlist.centos.org&#x2F;?release&#x3D;$releasever&amp;arch&#x3D;$basearch&amp;repo&#x3D;extras</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name&#x3D;CentOS-$releasever - Plus</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;centos&#x2F;$releasever&#x2F;centosplus&#x2F;$basearch&#x2F;</span><br><span class="line">#mirrorlist&#x3D;http:&#x2F;&#x2F;mirrorlist.centos.org&#x2F;?release&#x3D;$releasever&amp;arch&#x3D;$basearch&amp;repo&#x3D;centosplus</span><br><span class="line">gpgcheck&#x3D;1</span><br><span class="line">enabled&#x3D;0</span><br><span class="line">gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;pki&#x2F;rpm-gpg&#x2F;RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/10/yum%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CentOS7查看ip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/10/CentOS7%E6%9F%A5%E7%9C%8Bip/">CentOS7查看ip地址</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/02/10/CentOS7%E6%9F%A5%E7%9C%8Bip/" class="archive-article-date">
+  	<time datetime="2021-02-10T11:58:32.219Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果我们安装的是官网纯净版的Centos7镜像，当我们安装完毕想要查看ip以便于ssh客户端连接时，我们该如何查看呢？</p>
+<p>首先我们回顾一下CentOS6的查看IP命令:ifconfig，但是由于内核不同了，Centos7并不适用</p>
+<p>CenOS7查看ip的命令为：ip addr</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20210210200359821.png" alt="image-20210210200359821"></p>
+<p>centos的ip地址是ens33条目中的inet值。</p>
+<p>但我们发现ens33中并无inet，这是由于我们并没有启动网卡。</p>
+<p>接着来查看ens33网卡的配置： vi /etc/sysconfig/network-scripts/ifcfg-ens33  注意vi后面加空格</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20210210200520681.png" alt="image-20210210200520681"></p>
+<p>我们需要将ONBOOT的值改为yes启动网卡，接着再次运行查看ip命令==ip addr==</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20210210200746129.png" alt="image-20210210200746129"></p>
+<p>标注区域的就是我们的ip</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/10/CentOS7%E6%9F%A5%E7%9C%8Bip/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-谷粒学院11—项目部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A211%E2%80%94%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">谷粒学院11—项目部署</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A211%E2%80%94%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+  	<time datetime="2021-02-09T15:17:14.480Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>请收来自Cat的红包🧧!</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/7f9ec454366af6a9d308b653ecb9c689eead6238.gif" alt="7f9ec454366af6a9d308b653ecb9c689eead6238"></p>
+        
+          <a class="article-more-a" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A211%E2%80%94%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/09/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A211%E2%80%94%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-谷粒学院10—权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -286,11 +699,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -667,336 +1080,9 @@
 
 
   
-    <article id="post-谷粒学院5—阿里云OSS云存储及课程分类管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/">谷粒学院5—阿里云OSS云存储及课程分类管理</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-01-19T02:48:04.916Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>「🐈💤🎄🎁🤫!」<br>too late❌ 𝙏𝙞𝙥𝙨: 𝘾𝙖𝙩𝙬𝙤𝙧𝙡𝙙 𝙞𝙨 𝙖𝙡𝙬𝙖𝙮𝙨 𝙝𝙖𝙥𝙥𝙮 𝙝𝙤𝙡𝙞𝙙𝙖𝙮𝙨✅</p>
-<img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/e8abd9ade9e2029d1ea6e07ac2428dc32870ef18.gif" alt="e8abd9ade9e2029d1ea6e07ac2428dc32870ef18" style="zoom:80%;" />
-        
-          <a class="article-more-a" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/19/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A25%E2%80%94%E9%98%BF%E9%87%8C%E4%BA%91OSS%E4%BA%91%E5%AD%98%E5%82%A8%E5%8F%8A%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院4—讲师管理前端开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">谷粒学院4—讲师管理前端开发</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2021-01-17T03:02:32.710Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-admin-template"><a href="#vue-admin-template" class="headerlink" title="vue-admin-template"></a>vue-admin-template</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>我们开发讲师管理界面可以通过集成好的前端框架vue-element-admin基础上进行开发。</p>
-        
-          <a class="article-more-a" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/17/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A24%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院3—ES6和nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/">谷粒学院3—前端入门之ES6和nodejs</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/" class="archive-article-date">
-  	<time datetime="2021-01-14T15:11:19.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>在Catworld里並没有什麼关于时间的概念。即便如此，猫们还是会选择用自己的方式，在當下的某一刻，体验时间的流逝。</p>
-<p>Have a good new year</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/6b1790b161aeec44249833a4a4a8c017d60d247f.jpg@518w.jpg" alt="6b1790b161aeec44249833a4a4a8c017d60d247f.jpg@518w"></p>
-        
-          <a class="article-more-a" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/14/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A23%E2%80%94ES6%E5%92%8Cnodejs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-谷粒学院2—讲师管理接口开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">谷粒学院2—讲师管理接口开发</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2021-01-12T08:00:18.823Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="1-项目工程搭建"><a href="#1-项目工程搭建" class="headerlink" title="1.项目工程搭建"></a>1.项目工程搭建</h2><p>和以往项目一样，首先我们需要搭一个父工程guli_parent，我们在其pom.xml文件中声明这是一个pom文件，并配置 <dependencyManagement> 锁定依赖的版本</p>
-        
-          <a class="article-more-a" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">谷粒学院</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/12/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A22%E2%80%94%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1008,7 +1094,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 J Sir
+    		&copy; 2022 J Sir
     	</div>
 		
 		
@@ -1112,6 +1198,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1120,15 +1210,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">淘淘商城</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color5">传智健康</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,19 +1242,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">建站</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,15 +1258,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">品优购</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建站</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1188,27 +1286,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">食神</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">虚幻</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">传智健康</a>
+                <a href="javascript:void(0)" class="js-tag color5">谷粒学院</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1216,7 +1298,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">谷粒学院</a>
+                <a href="javascript:void(0)" class="js-tag color3">食神</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
             
             <div class="clearfix"></div>
