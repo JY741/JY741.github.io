@@ -6,15 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>深度学习——Backpropagation | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/page/11/index.html">
+  <meta name="description" content="本文基于Sakura-gh大佬的机器学习笔记修改，仅作为学习资料备用，如有侵权，联系作者。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习——Backpropagation">
+<meta property="og:url" content="http://yoursite.com/2022/10/11/shen-du-xue-xi-backpropagation/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="本文基于Sakura-gh大佬的机器学习笔记修改，仅作为学习资料备用，如有侵权，联系作者。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-loss.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-forward-backward.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/forward-pass.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/backward-pass.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/backward-neuron.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-output-layer.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/not-output-layer.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-not-output-layer.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/input-z.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-op-amp.png">
+<meta property="og:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-summary.png">
+<meta property="article:published_time" content="2022-10-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-21T15:46:17.122Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-loss.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,35 +180,197 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-淘淘商城-前台工程搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-深度学习——Backpropagation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/tao-tao-shang-cheng-qian-tai-gong-cheng-da-jian/">企业WEB开发前台工程搭建,ajax跨域的解决</a>
+    <h1 class="article-title" itemprop="name">
+      深度学习——Backpropagation
     </h1>
   
 
 		<!--显示阅读次数-->
 		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
-        <a href="/2020/05/22/tao-tao-shang-cheng-qian-tai-gong-cheng-da-jian/" class="archive-article-date">
-  	<time datetime="2020-05-22T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+        <a href="/2022/10/11/shen-du-xue-xi-backpropagation/" class="archive-article-date">
+  	<time datetime="2022-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文将介绍分布式环境下前台系统架构和一步一步搭建的过程，接着通过首页商品类目展示来详解ajax跨域的解决。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/tao-tao-shang-cheng-qian-tai-gong-cheng-da-jian/#more">more >></a>
-        
+        <p>本文基于<a target="_blank" rel="noopener" href="https://github.com/Sakura-gh">Sakura-gh</a>大佬的机器学习笔记修改，仅作为学习资料备用，如有侵权，联系作者。</p>
+<span id="more"></span>
+<h1 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h1><blockquote>
+<p>Backpropagation(反向传播)，就是告诉我们用gradient descent来train一个neural network的时候该怎么做，它只是求微分的一种方法，而不是一种新的算法</p>
+</blockquote>
+<h4 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>gradient descent的使用方法，跟前面讲到的linear Regression或者是Logistic Regression是一模一样的，唯一的区别就在于当它用在neural network的时候，network parameters $\theta=w_1,w_2,…,b_1,b_2,…$里面可能会有将近million个参数</p>
+<p>所以现在最大的困难是，如何有效地把这个近百万维的vector给计算出来，这就是Backpropagation要做的事情，所以<strong>Backpropagation并不是一个和gradient descent不同的training的方法，它就是gradient descent，它只是一个比较有效率的算法</strong>，让你在计算这个gradient的vector的时候更有效率</p>
+<h4 id="Chain-Rule"><a href="#Chain-Rule" class="headerlink" title="Chain Rule"></a>Chain Rule</h4><p>Backpropagation里面并没有什么高深的数学，你唯一需要记得的就只有Chain Rule(链式法则)</p>
+<p>对整个neural network，我们定义了一个loss function：$L(\theta)=\sum\limits_{n=1}^N l^n(\theta)$，它等于所有training data的loss之和</p>
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-loss.png" width="50%;" /></center>
+我们把training data里任意一个样本点$x^n$代到neural network里面，它会output一个$y^n$，我们把这个output跟样本点本身的label标注的target $\hat{y}^n$作cross entropy，这个**交叉熵定义了output $y^n$和target $\hat{y}^n$之间的距离$l^n(\theta)$**，如果cross entropy比较大的话，说明output和target之间距离很远，这个network的parameter的loss是比较大的，反之则说明这组parameter是比较好的
+
+然后summation over所有training data的cross entropy $l^n(\theta)$，得到total loss $L(\theta)$，这就是我们的loss function，用这个$L(\theta)$对某一个参数w做偏微分，表达式如下：
+$$
+\frac{\partial L(\theta)}{\partial w}=\sum\limits_{n=1}^N\frac{\partial l^n(\theta)}{\partial w}
+$$
+这个表达式告诉我们，只需要考虑如何计算对某一笔data的$\frac{\partial l^n(\theta)}{\partial w}$，再将所有training data的cross entropy对参数w的偏微分累计求和，就可以把total loss对某一个参数w的偏微分给计算出来
+
+我们先考虑某一个neuron，先拿出上图中被红色三角形圈住的neuron，假设只有两个input $x_1,x_2$，通过这个neuron，我们先得到$z=b+w_1 x_1+w_2 x_2$，然后经过activation function从这个neuron中output出来，作为后续neuron的input，再经过了非常非常多的事情以后，会得到最终的output $y_1,y_2$
+
+现在的问题是这样：$\frac{\partial l}{\partial w}$该怎么算？按照chain rule，可以把它拆分成两项，$\frac{\partial l}{\partial w}=\frac{\partial z}{\partial w} \frac{\partial l}{\partial z}$，这两项分别去把它计算出来。前面这一项是比较简单的，后面这一项是比较复杂的
+
+计算前面这一项$\frac{\partial z}{\partial w}$的这个process，我们称之为Forward pass；而计算后面这项$\frac{\partial l}{\partial z}$的process，我们称之为Backward pass
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-forward-backward.png" width="50%;" /></center>
+#### Forward pass
+
+先考虑$\frac{\partial z}{\partial w}$这一项，完全可以秒算出来，$\frac{\partial z}{\partial w_1}=x_1 ,\ \frac{\partial z}{\partial w_2}=x_2$
+
+它的规律是这样的：==**求$\frac{\partial z}{\partial w}$，就是看w前面连接的input是什么，那微分后的$\frac{\partial z}{\partial w}$值就是什么**==，因此只要计算出neural network里面每一个neuron的output就可以知道任意的z对w的偏微分
+
+- 比如input layer作为neuron的输入时，$w_1$前面连接的是$x_1$，所以微分值就是$x_1$；$w_2$前面连接的是$x_2$，所以微分值就是$x_2$
+- 比如hidden layer作为neuron的输入时，那该neuron的input就是前一层neuron的output，于是$\frac{\partial z}{\partial w}$的值就是前一层的z经过activation function之后输出的值(下图中的数据是假定activation function为sigmoid function得到的)
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/forward-pass.png" width="50%;" /></center>
+#### Backward pass
+
+再考虑$\frac{\partial l}{\partial z}$这一项，它是比较复杂的，这里我们依旧假设activation function是sigmoid function
+
+##### 公式推导
+
+我们的z通过activation function得到a，这个neuron的output是$a=\sigma(z)$，接下来这个a会乘上某一个weight $w_3$，再加上其它一大堆的value得到$z'$，它是下一个neuron activation function的input，然后a又会乘上另一个weight $w_4$，再加上其它一堆value得到$z''$，后面还会发生很多很多其他事情，不过这里我们就只先考虑下一步会发生什么事情：
+$$
+\frac{\partial l}{\partial z}=\frac{\partial a}{\partial z} \frac{\partial l}{\partial a}
+$$
+这里的$\frac{\partial a}{\partial z}$实际上就是activation function的微分(在这里就是sigmoid function的微分)，接下来的问题是$\frac{\partial l}{\partial a}$应该长什么样子呢？a会影响$z'$和$z''$，而$z'$和$z''$会影响$l$，所以通过chain rule可以得到
+$$
+\frac{\partial l}{\partial a}=\frac{\partial z'}{\partial a} \frac{\partial l}{\partial z'}+\frac{\partial z''}{\partial a} \frac{\partial l}{\partial z''}
+$$
+这里的$\frac{\partial z'}{\partial a}=w_3$，$\frac{\partial z''}{\partial a}=w_4$，那$\frac{\partial l}{\partial z'}$和$\frac{\partial l}{\partial z''}$又该怎么算呢？这里先假设我们已经通过某种方法把$\frac{\partial l}{\partial z'}$和$\frac{\partial l}{\partial z''}$这两项给算出来了，然后回过头去就可以把$\frac{\partial l}{\partial z}$给轻易地算出来
+$$
+\frac{\partial l}{\partial z}=\frac{\partial a}{\partial z} \frac{\partial l}{\partial a}=\sigma'(z)[w_3 \frac{\partial l}{\partial z'}+w_4 \frac{\partial l}{\partial z''}]
+$$
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/backward-pass.png" width="50%;" /></center>
+##### 另一个观点
+
+这个式子还是蛮简单的，然后，我们可以从另外一个观点来看待这个式子
+
+你可以想象说，现在有另外一个neuron，它不在我们原来的network里面，在下图中它被画成三角形，这个neuron的input就是$\frac{\partial l}{\partial z'}$和$\frac{\partial l}{\partial z''}$，那input $\frac{\partial l}{\partial z'}$就乘上$w_3$，input $\frac{\partial l}{\partial z''}$就乘上$w_4$，它们两个相加再乘上activation function的微分 $\sigma'(z)$，就可以得到output $\frac{\partial l}{\partial z}$
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/backward-neuron.png" width="50%;" /></center>
+这张图描述了一个新的“neuron”，它的含义跟图下方的表达式是一模一样的，作这张图的目的是为了方便理解
+
+值得注意的是，这里的$\sigma'(z)$是一个constant常数，它并不是一个function，因为z其实在计算forward pass的时候就已经被决定好了，z是一个固定的值
+
+所以这个neuron其实跟我们之前看到的sigmoid function是不一样的，它并不是把input通过一个non-linear进行转换，而是直接把input乘上一个constant $\sigma'(z)$，就得到了output，因此这个neuron被画成三角形，代表它跟我们之前看到的圆形的neuron的运作方式是不一样的，它是直接乘上一个constant(这里的三角形有点像电路里的运算放大器op-amp，它也是乘上一个constant)
+
+##### 两种情况
+
+ok，现在我们最后需要解决的问题是，怎么计算$\frac{\partial l}{\partial z'}$和$\frac{\partial l}{\partial z''}$这两项，假设有两个不同的case：
+
+###### case 1：Output Layer
+
+假设蓝色的这个neuron已经是hidden layer的最后一层了，也就是说连接在$z'$和$z''$后的这两个红色的neuron已经是output layer，它的output就已经是整个network的output了，这个时候计算就比较简单
+$$
+\frac{\partial l}{\partial z'}=\frac{\partial y_1}{\partial z'} \frac{\partial l}{\partial y_1}
+$$
+其中$\frac{\partial y_1}{\partial z'}$就是output layer的activation function (softmax) 对$z'$的偏微分
+
+而$\frac{\partial l}{\partial y_1}$就是loss对$y_1$的偏微分，它取决于你的loss function是怎么定义的，也就是你的output和target之间是怎么evaluate的，你可以用cross entropy，也可以用mean square error，用不同的定义，$\frac{\partial l}{\partial y_1}$的值就不一样
+
+这个时候，你就已经可以把$l$对$w_1$和$w_2$的偏微分$\frac{\partial l}{\partial w_1}$、$\frac{\partial l}{\partial w_2}$算出来了
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-output-layer.png" width="50%;" /></center>
+###### Case 2：Not Output Layer
+
+假设现在红色的neuron并不是整个network的output，那$z'$经过红色neuron的activation function得到$a'$，然后output $a'$和$w_5$、$w_6$相乘并加上一堆其他东西分别得到$z_a$和$z_b$，如下图所示
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/not-output-layer.png" width="50%;" /></center>
+根据之前的推导证明类比，如果知道$\frac{\partial l}{\partial z_a}$和$\frac{\partial l}{\partial z_b}$，我们就可以计算$\frac{\partial l}{\partial z'}$，如下图所示，借助运算放大器的辅助理解，将$\frac{\partial l}{\partial z_a}$乘上$w_5$和$\frac{\partial l}{\partial z_b}$乘上$w_6$的值加起来再通过op-amp，乘上放大系数$\sigma'(z')$，就可以得到output $\frac{\partial l}{\partial z'}$
+$$
+\frac{\partial l}{\partial z'}=\sigma'(z')[w_5 \frac{\partial l}{\partial z_a} + w_6 \frac{\partial l}{\partial z_b}]
+$$
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-not-output-layer.png" width="50%;" /></center>
+知道$z'$和$z''$就可以知道$z$，知道$z_a$和$z_b$就可以知道$z'$，...... ，现在这个过程就可以反复进行下去，直到找到output layer，我们可以算出确切的值，然后再一层一层反推回去
+
+你可能会想说，这个方法听起来挺让人崩溃的，每次要算一个微分的值，都要一路往后走，一直走到network的output，如果写成表达式的话，一层一层往后展开，感觉会是一个很可怕的式子，但是！实际上并不是这个样子做的
+
+你只要换一个方向，从output layer的$\frac{\partial l}{\partial z}$开始算，你就会发现它的运算量跟原来的network的Feedforward path其实是一样的
+
+假设现在有6个neuron，每一个neuron的activation function的input分别是$z_1$、$z_2$、$z_3$、$z_4$、$z_5$、$z_6$，我们要计算$l$对这些$z$的偏微分，按照原来的思路，我们想要知道$z_1$的偏微分，就要去算$z_3$和$z_4$的偏微分，想要知道$z_3$和$z_4$的偏微分，就又要去计算两遍$z_5$和$z_6$的偏微分，因此如果我们是从$z_1$、$z_2$的偏微分开始算，那就没有效率
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/input-z.png" width="50%;" /></center>
+但是，如果你反过来先去计算$z_5$和$z_6$的偏微分的话，这个process，就突然之间变得有效率起来了，我们先去计算$\frac{\partial l}{\partial z_5}$和$\frac{\partial l}{\partial z_6}$，然后就可以算出$\frac{\partial l}{\partial z_3}$和$\frac{\partial l}{\partial z_4}$，最后就可以算出$\frac{\partial l}{\partial z_1}$和$\frac{\partial l}{\partial z_2}$，而这一整个过程，就可以转化为op-amp运算放大器的那张图
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-op-amp.png" width="50%;" /></center>
+这里每一个op-amp的放大系数就是$\sigma'(z_1)$、$\sigma'(z_2)$、$\sigma'(z_3)$、$\sigma'(z_4)$，所以整一个流程就是，先快速地计算出$\frac{\partial l}{\partial z_5}$和$\frac{\partial l}{\partial z_6}$，然后再把这两个偏微分的值乘上路径上的weight汇集到neuron上面，再通过op-amp的放大，就可以得到$\frac{\partial l}{\partial z_3}$和$\frac{\partial l}{\partial z_4}$这两个偏微分的值，再让它们乘上一些weight，并且通过一个op-amp，就得到$\frac{\partial l}{\partial z_1}$和$\frac{\partial l}{\partial z_2}$这两个偏微分的值，这样就计算完了，这个步骤，就叫做Backward pass
+
+在做Backward pass的时候，实际上的做法就是建另外一个neural network，本来正向neural network里面的activation function都是sigmoid function，而现在计算Backward pass的时候，就是建一个反向的neural network，它的activation function就是一个运算放大器op-amp，每一个反向neuron的input是loss $l$对后面一层layer的$z$的偏微分$\frac{\partial l}{\partial z}$，output则是loss $l$对这个neuron的$z$的偏微分$\frac{\partial l}{\partial z}$，做Backward pass就是通过这样一个反向neural network的运算，把loss $l$对每一个neuron的$z$的偏微分$\frac{\partial l}{\partial z}$都给算出来
+
+注：如果是正向做Backward pass的话，实际上每次计算一个$\frac{\partial l}{\partial z}$，就需要把该neuron后面所有的$\frac{\partial l}{\partial z}$都给计算一遍，会造成很多不必要的重复运算，如果写成code的形式，就相当于调用了很多次重复的函数；而如果是反向做Backward pass，实际上就是把这些调用函数的过程都变成调用“值”的过程，因此可以直接计算出结果，而不需要占用过多的堆栈空间
+
+#### Summary
+
+最后，我们来总结一下Backpropagation是怎么做的
+
+**Forward pass**，每个neuron的activation function的output，就是它所连接的weight的$\frac{\partial z}{\partial w}$
+
+**Backward pass**，建一个与原来方向相反的neural network，它的三角形neuron的output就是$\frac{\partial l}{\partial z}$
+
+把通过forward pass得到的$\frac{\partial z}{\partial w}$和通过backward pass得到的$\frac{\partial l}{\partial z}$乘起来就可以得到$l$对$w$的偏微分$\frac{\partial l}{\partial w}$
+$$
+\frac{\partial l}{\partial w} = \frac{\partial z}{\partial w}|_{forward\ pass} \cdot \frac{\partial l}{\partial z}|_{backward \ pass}
+$$
+
+<center><img src="https://gitee.com/Sakura-gh/ML-notes/raw/master/img/bp-summary.png" width="50%;" /></center>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -202,11 +381,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -215,16 +390,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/tao-tao-shang-cheng-qian-tai-gong-cheng-da-jian/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/10/11/shen-du-xue-xi-backpropagation/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/10/16/pytorch-ru-men/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Pytorch入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/05/shen-du-xue-xi-deep-learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深度学习——Deep Learning</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -239,761 +482,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-淘淘商城-商品规格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/tao-tao-shang-cheng-shang-pin-gui-ge/">企业WEB项目中商品规格的实现</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/22/tao-tao-shang-cheng-shang-pin-gui-ge/" class="archive-article-date">
-  	<time datetime="2020-05-22T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发WEB项目时商品规格的实现是一个比较复杂实现的点，因为商品规格和商品以及商品类目三者互相都有大量的关联。本文将一步步带你了解实现每个商品展示自己独有的商品规格需要哪些步骤和分析。</p>
-        
-          <a class="article-more-a" href="/2020/05/22/tao-tao-shang-cheng-shang-pin-gui-ge/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/tao-tao-shang-cheng-shang-pin-gui-ge/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Backpropagation"><span class="toc-number">1.</span> <span class="toc-text">Backpropagation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-Descent"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Gradient Descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Chain-Rule"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">Chain Rule</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-淘淘商城-图片上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/tao-tao-shang-cheng-tu-pian-shang-chuan/">企业WEB项目中商品添加的开发(商品类目，图片上传，富文本编辑器)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/20/tao-tao-shang-cheng-tu-pian-shang-chuan/" class="archive-article-date">
-  	<time datetime="2020-05-20T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>开发web项目时，总会遇到实现添加某个物品，本文将带你探知具有复杂属性的物品添加，从三方面介绍：</p>
-<p>商品类目，图片上传，富文本编辑器</p>
-        
-          <a class="article-more-a" href="/2020/05/20/tao-tao-shang-cheng-tu-pian-shang-chuan/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/tao-tao-shang-cheng-tu-pian-shang-chuan/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><p>nginx是C语言开发，建议在linux上运行，本教程使用Centos6.5作为安装环境。</p>
-        
-          <a class="article-more-a" href="/2020/05/19/nginx-an-zhuang/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/nginx-an-zhuang/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vsftpd组件安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/vsftpd-zu-jian-an-zhuang/">Linux安装ftp组件(CentOS6.5为例)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/19/vsftpd-zu-jian-an-zhuang/" class="archive-article-date">
-  	<time datetime="2020-05-19T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux恶心的安装又来了</p>
-        
-          <a class="article-more-a" href="/2020/05/19/vsftpd-zu-jian-an-zhuang/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/vsftpd-zu-jian-an-zhuang/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-火腿蛋炒饭" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/18/huo-tui-dan-chao-fan/">史上最强火腿蛋炒饭</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/18/huo-tui-dan-chao-fan/" class="archive-article-date">
-  	<time datetime="2020-05-18T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>爸妈不在家，不想做太过麻烦的饭菜，又不想吃面包等速食，不如试试火腿蛋炒饭吧👨‍🍳</p>
-        
-          <a class="article-more-a" href="/2020/05/18/huo-tui-dan-chao-fan/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">食神</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/18/huo-tui-dan-chao-fan/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-淘淘商城-SSM框架整合思路+PageHelper使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/tao-tao-shang-cheng-ssm-kuang-jia-zheng-he-si-lu-pagehelper-shi-yong/">SSM框架整合思路+PageHelper使用</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/17/tao-tao-shang-cheng-ssm-kuang-jia-zheng-he-si-lu-pagehelper-shi-yong/" class="archive-article-date">
-  	<time datetime="2020-05-17T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>是时候系统的整理整理零碎了。。。</p>
-        
-          <a class="article-more-a" href="/2020/05/17/tao-tao-shang-cheng-ssm-kuang-jia-zheng-he-si-lu-pagehelper-shi-yong/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/17/tao-tao-shang-cheng-ssm-kuang-jia-zheng-he-si-lu-pagehelper-shi-yong/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Maven实际使用的一个坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/maven-shi-ji-shi-yong-de-yi-ge-keng/">Maven install安装不到想要的仓库内(解决方案)</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/16/maven-shi-ji-shi-yong-de-yi-ge-keng/" class="archive-article-date">
-  	<time datetime="2020-05-16T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h1><p>笔者之前学习maven的时候修改了eclipse读取maven仓库的路径，此次有新项目又改了仓库路径，然后需要把父项目安装到本地仓库时出现了Maven install安装不到想要的仓库内的问题。</p>
-        
-          <a class="article-more-a" href="/2020/05/16/maven-shi-ji-shi-yong-de-yi-ge-keng/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/16/maven-shi-ji-shi-yong-de-yi-ge-keng/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SVN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/svn/">eclipse中SVN的使用</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/16/svn/" class="archive-article-date">
-  	<time datetime="2020-05-16T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>之前学svn的时候一直停留在svn客户端的使用，有一说一，基本没用。</p>
-<p>今天正好学了点，来总结一下在eclipse中svn基础的操作。</p>
-        
-          <a class="article-more-a" href="/2020/05/16/svn/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘淘商城</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/16/svn/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-腾讯云图床" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/14/teng-xun-yun-tu-chuang/">Typora+腾讯云图床+Picgo实现真正的博客图片一键上传</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/05/14/teng-xun-yun-tu-chuang/" class="archive-article-date">
-  	<time datetime="2020-05-14T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近发现七牛云域名只有一个月使用时间，不是人啊，太坑了，果断寻找其他出路。没想到这一找简化了不少搞博客图片遇到的问题。</p>
-<p>之前每次上传图片，我还要一张一张上传再粘贴markdown文本，及其麻烦，这次直接可以无论是截图还是复制的图片只要在Typora里编辑了直接一键上传</p>
-        
-          <a class="article-more-a" href="/2020/05/14/teng-xun-yun-tu-chuang/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/14/teng-xun-yun-tu-chuang/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/12/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1030,8 +544,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
