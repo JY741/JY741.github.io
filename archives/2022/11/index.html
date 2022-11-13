@@ -6,31 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Pytorch入门 | J Sir</title>
+  <title>Archives: 2022/11 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文基于B站up我是土堆所做的视频教程为基础创作的学习笔记，如有侵权请联系作者。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch入门">
-<meta property="og:url" content="http://yoursite.com/2022/10/16/pytorch-ru-men/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="J Sir">
+<meta property="og:url" content="http://yoursite.com/archives/2022/11/index.html">
 <meta property="og:site_name" content="J Sir">
-<meta property="og:description" content="本文基于B站up我是土堆所做的视频教程为基础创作的学习笔记，如有侵权请联系作者。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015165634684.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015165655253.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015170530806.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015174937563.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jy741/media@main/img/image-20221015174948827.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015175514221.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015175741732.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015180345237.png">
-<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015201850741.png">
-<meta property="article:published_time" content="2022-10-16T04:41:48.626Z">
-<meta property="article:modified_time" content="2022-10-20T03:32:58.310Z">
 <meta property="article:author" content="J Sir">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015165634684.png">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -179,173 +163,39 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Pytorch入门" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      Pytorch入门
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/11/02/quan-zi-zhu-yi-li-wang-luo-transformer/" class="archive-article-date">
+  	<time datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/11/02/quan-zi-zhu-yi-li-wang-luo-transformer/">全自注意力网络Transformer详解</a>
     </h1>
   
 
-		<!--显示阅读次数-->
-		
-		  <br/>
-		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-		  <span class="icon-sort"></span>
-		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-		  </span>
-		  </a>
-		  
-        
-        <a href="/2022/10/16/pytorch-ru-men/" class="archive-article-date">
-  	<time datetime="2022-10-16T04:41:48.626Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文基于B站up<a target="_blank" rel="noopener" href="https://space.bilibili.com/203989554">我是土堆</a>所做的视频教程为基础创作的学习笔记，如有侵权请联系作者。</p>
-<span id="more"></span>
-<h1 id="Pytorch入门实战"><a href="#Pytorch入门实战" class="headerlink" title="Pytorch入门实战"></a>Pytorch入门实战</h1><p>Pytorch官网：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a>    </p>
-<p>以下介绍的实际应用在官网的Docs下都有明确的教程文档</p>
-<h2 id="DataSet"><a href="#DataSet" class="headerlink" title="DataSet"></a>DataSet</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br></pre></td></tr></table></figure>
-<p>Dataset顾名思义是用来自定义数据集的，我们可以理解为Java中的抽象类，需要你自定义一个数据集class来继承他，需要实现他的init()、getitem()、len()三种方法，具体实例如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyData</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,root_path,label_path</span>):</span><br><span class="line">        self.root_path = root_path</span><br><span class="line">        self.label_path = label_path</span><br><span class="line">        self.path = os.path.join(self.root_path,self.label_path)</span><br><span class="line">        self.img_list = os.listdir(self.path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        img_path = os.path.join(self.root_path,self.label_path,self.img_list[idx])</span><br><span class="line">        image = Image.<span class="built_in">open</span>(img_path)</span><br><span class="line">        label = self.label_path</span><br><span class="line">        <span class="keyword">return</span> image,label</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.img_list)</span><br></pre></td></tr></table></figure>
-<p>接下来我们只需要将我们的数据集复制到对应目录就可以使用了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root_path = <span class="string">&quot;data/hymenoptera_data/train&quot;</span></span><br><span class="line">ants_dataset = MyData(root_path,<span class="string">&quot;ants&quot;</span>)</span><br><span class="line">image,label = ants_dataset[<span class="number">0</span>]</span><br><span class="line">image.show()</span><br><span class="line"><span class="built_in">print</span>(label)</span><br></pre></td></tr></table></figure>
-<h2 id="Tensorboard"><a href="#Tensorboard" class="headerlink" title="Tensorboard"></a>Tensorboard</h2><p>Tensorboard可以对Pytorch训练过程进行可视化展示、主要用到SummaryWriter类</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">writter = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"></span><br><span class="line">image_path = <span class="string">&quot;data/hymenoptera_data/train/ants/5650366_e22b7e1065.jpg&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#add_scalar:参数1：name	参数2：y轴	参数3：x轴</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    writter.add_scalar(<span class="string">&quot;y=2x&quot;</span>,<span class="number">2</span>*i,i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">image_PIL = Image.<span class="built_in">open</span>(image_path)</span><br><span class="line">image_array = np.array(image_PIL)</span><br><span class="line"></span><br><span class="line"><span class="comment">#参数1：name	参数2：image(需要numpy类型或者tensor类型)	参数3：step</span></span><br><span class="line">writter.add_image(<span class="string">&quot;test&quot;</span>,image_array,<span class="number">1</span>,dataformats=<span class="string">&#x27;HWC&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">writter.close()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>运行完代码后，在控制台输入tensorboard —logdir=logs    启动可视化服务器（默认6006端口）</p>
-</blockquote>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015165634684.png" alt="image-20221015165634684"></p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015165655253.png" alt="image-20221015165655253"></p>
-<p>SummaryWriter除了能可视化线型图和图片外，还能将模型结构通过图化展示</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.model = Sequential(</span><br><span class="line">            Conv2d(<span class="number">3</span>, <span class="number">32</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(<span class="number">32</span>, <span class="number">32</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Flatten(),</span><br><span class="line">            Linear(<span class="number">1024</span>, <span class="number">64</span>),</span><br><span class="line">            Linear(<span class="number">64</span>, <span class="number">10</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        x = self.model(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">tudui = Tudui()</span><br><span class="line"><span class="built_in">input</span> = torch.ones(<span class="number">64</span>,<span class="number">3</span>,<span class="number">32</span>,<span class="number">32</span>)</span><br><span class="line">output = tudui(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(output.shape)</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line">writer.add_graph(tudui,<span class="built_in">input</span>)</span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015170530806.png" alt="image-20221015170530806"></p>
-<h2 id="Transforms"><a href="#Transforms" class="headerlink" title="Transforms"></a>Transforms</h2><p>Transforms是Pytorch常用的图像预处理方法，一般用于转化图片类型、大小、正则化、裁剪图像等等，具体应用如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">img_path = <span class="string">&quot;images/001.png&quot;</span></span><br><span class="line"></span><br><span class="line">image = Image.<span class="built_in">open</span>(img_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ToTensor</span></span><br><span class="line">tensor_totensor = transforms.ToTensor()</span><br><span class="line">img_tensor = tensor_totensor(image)</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line">writer.add_image(<span class="string">&quot;tf_test&quot;</span>,img_tensor,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Normalize——归一化</span></span><br><span class="line">tensor_norm = transforms.Normalize([<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>],[<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">img_norm = tensor_norm(img_tensor)</span><br><span class="line">writer.add_image(<span class="string">&quot;tf_test&quot;</span>,img_norm,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Resize</span></span><br><span class="line">tensor_resize = transforms.Resize(<span class="number">512</span>)</span><br><span class="line">img_resize = tensor_resize(image)    <span class="comment">#默认参数PIL图片格式，输出也是PIL格式</span></span><br><span class="line"><span class="comment"># print(type(img_resize))</span></span><br><span class="line">img_resize = tensor_totensor(img_resize)</span><br><span class="line">writer.add_image(<span class="string">&quot;Resize&quot;</span>,img_resize,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compose——将多个处理方法连结在一起</span></span><br><span class="line">tensor_compose = transforms.Compose([tensor_resize,tensor_totensor])</span><br><span class="line">img_resize2 = tensor_compose(image)</span><br><span class="line">writer.add_image(<span class="string">&quot;Resize&quot;</span>,img_resize,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RandomCrop——随机裁剪</span></span><br><span class="line">tensor_random = transforms.RandomCrop(<span class="number">500</span>)</span><br><span class="line">tensor_compose2 = transforms.Compose([tensor_random,tensor_totensor])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    img_random = tensor_compose2(image)</span><br><span class="line">    writer.add_image(<span class="string">&quot;Random&quot;</span>,img_random,i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<p>我们一般用Transforms来实现图像由PIL类型转化为Tensor数据类型，因为在Pytorch中Tensor往往是后续很多方法参数所需要的类型</p>
-<h2 id="DataLoader"><a href="#DataLoader" class="headerlink" title="DataLoader"></a>DataLoader</h2><p>介绍DataLoader之前我们简单介绍一下如何使用官方给的数据集（torchvision.datasets)</p>
-<p>Torchvision 在模块中提供了许多内置数据集<code>torchvision.datasets</code> ，以及用于构建您自己的数据集的实用程序类。</p>
-<p>这些内置数据集都继承了上述的Dataset类，不需要我们手动去为它们实现方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dataset_transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor()])</span><br><span class="line"></span><br><span class="line">train_set = torchvision.datasets.CIFAR10(root=<span class="string">&quot;./data&quot;</span>,train=<span class="literal">True</span>,transform=dataset_transform,download=<span class="literal">True</span>)</span><br><span class="line">test_set = torchvision.datasets.CIFAR10(root=<span class="string">&quot;./data&quot;</span>,train=<span class="literal">False</span>,transform=dataset_transform,download=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(train_set.classes)</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    image,target = train_set[i]</span><br><span class="line">    writer.add_image(<span class="string">&quot;dataset&quot;</span>,image,i)</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<p>而DataLoader其实就是一个迭代器，方便我们从数据集从一次读取多个数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">test_dataset = torchvision.datasets.CIFAR10(root=<span class="string">&quot;./data&quot;</span>,train=<span class="literal">False</span>,transform=torchvision.transforms.ToTensor())</span><br><span class="line"></span><br><span class="line"><span class="comment">#参数解读：batch_size——一次加载多少个数据	shuffle——下次迭代是否打乱顺序	drop_last——表示是否删除非完整页的结尾数据</span></span><br><span class="line">test_loader = DataLoader(dataset=test_dataset,batch_size=<span class="number">64</span>,shuffle=<span class="literal">True</span>,drop_last=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> each <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    step = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> test_loader:</span><br><span class="line">        imgs,targets = data</span><br><span class="line">        writer.add_images(<span class="string">&quot;dataloader_&#123;&#125;&quot;</span>.<span class="built_in">format</span>(each),imgs,step)</span><br><span class="line">        step+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<h2 id="nn-Module"><a href="#nn-Module" class="headerlink" title="nn.Module"></a>nn.Module</h2><p>nn.Module是Pytorch中神经网络的基本骨架，如果我们想自定义一个神经网路模型类，我们必须要继承nn.Module这个类，并在这个类的init方法引用父类的init方法，重写forward()方法（就是input进去经过怎样的转换输出成output），其形参就是模型（块）的输入。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,<span class="built_in">input</span></span>):</span><br><span class="line">        output = <span class="built_in">input</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">demo = Demo()</span><br><span class="line">x = torch.tensor(<span class="number">1</span>)</span><br><span class="line">y = demo(x)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
-<h2 id="function的卷积操作"><a href="#function的卷积操作" class="headerlink" title="function的卷积操作"></a>function的卷积操作</h2><p>卷积操作主要就是用卷积核(kernel)对原始数据进行矩阵计算，得到一个新的输出，具体过程可以参照我《机器学习——Convolution》这篇博客</p>
-<p>参数解读：input是输入的数据，kernel表示卷积核，stride表示步长，padding表示周围填充几层</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">input</span> = torch.tensor([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>],</span><br><span class="line">                      [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                      [<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">kernel = torch.tensor([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],</span><br><span class="line">                       [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                       [<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#F要求input的shape：batch_size,channel,H,W</span></span><br><span class="line"><span class="built_in">input</span> = torch.reshape(<span class="built_in">input</span>,(<span class="number">1</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">5</span>))</span><br><span class="line">kernel = torch.reshape(kernel,(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">output1 = F.conv2d(<span class="built_in">input</span>,kernel,stride=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(output1)</span><br><span class="line"></span><br><span class="line">output2 = F.conv2d(<span class="built_in">input</span>,kernel,stride=<span class="number">1</span>,padding=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(output2)</span><br></pre></td></tr></table></figure>
-<h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>其实就是对nn.function的进一步封装，如nn.Conv2(),最常用的是这五个参数：in_channels、 out_channels、kernel_size、stride、 padding</p>
-<p>以下示例就是把CIFAR10数据集中的图片经过一层卷积后的结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">dataset = torchvision.datasets.CIFAR10(<span class="string">&quot;./data&quot;</span>,train=<span class="literal">True</span>,transform=torchvision.transforms.ToTensor(),download=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">dataloader = DataLoader(dataset,<span class="number">64</span>,drop_last=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(torch.nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.conv1 = Conv2d(in_channels=<span class="number">3</span>,out_channels=<span class="number">6</span>,kernel_size=<span class="number">3</span>,stride=<span class="number">1</span>,padding=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">step = <span class="number">0</span></span><br><span class="line">tudui = Tudui()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">    imgs,labels = data</span><br><span class="line">    writer.add_images(<span class="string">&quot;input&quot;</span>,imgs,step)</span><br><span class="line">    output = tudui(imgs)</span><br><span class="line">    output = torch.reshape(output,(-<span class="number">1</span>,<span class="number">3</span>,<span class="number">30</span>,<span class="number">30</span>))</span><br><span class="line">    writer.add_images(<span class="string">&quot;output&quot;</span>,output,step)</span><br><span class="line">    step+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015174937563.png" alt="image-20221015174937563"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jy741/media@main/img/image-20221015174948827.png" alt="image-20221015174948827"></p>
-<h2 id="最大池化"><a href="#最大池化" class="headerlink" title="最大池化"></a>最大池化</h2><p>Maxpooling作用（maxpool2d举例）：</p>
-<ul>
-<li>一是对卷积层所提取的信息做更一步降维，减少计算量</li>
-<li>二是加强图像特征的不变性，使之增加图像的偏移、旋转等方面的鲁棒性</li>
-<li>类似于观看视频时不同的清晰度，实际效果就像给图片打马赛克</li>
-</ul>
-<p>示例：和上面代码差距不大，只是在模型中修改一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Jy(nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(Jy, self).__init__()</span><br><span class="line">        self.maxpool = MaxPool2d(kernel_size=3,ceil_mode=False)</span><br><span class="line"></span><br><span class="line">    def forward(self,x):</span><br><span class="line">        x = self.maxpool(x)</span><br><span class="line">        return x</span><br></pre></td></tr></table></figure>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015175514221.png" alt="image-20221015175514221"></p>
-<h2 id="非线性激活"><a href="#非线性激活" class="headerlink" title="非线性激活"></a>非线性激活</h2><p>非线性变换的主要目的就是给网中加入一些非线性特征，非线性越多才能训练出符合各种特征的模型。常见的非线性激活：Sigmod、ReLu</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.activation = Sigmoid()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,<span class="built_in">input</span></span>):</span><br><span class="line">        output = self.activation(<span class="built_in">input</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015175741732.png" alt="image-20221015175741732"></p>
-<h2 id="线性层"><a href="#线性层" class="headerlink" title="线性层"></a>线性层</h2><p>线性层其实就是全连接层，也就是CNN过程中的最后一步</p>
-<p>线性函数为：torch.nn.Linear(in_features, out_features, bias=True, device=None, dtype=None)，其中重要的3个参数in_features、out_features、bias说明如下：</p>
-<ul>
-<li>in_features：每个输入（x）样本的特征的大小</li>
-<li>out_features：每个输出（y）样本的特征的大小</li>
-<li>bias：如果设置为False，则图层不会学习附加偏差。默认值是True，表示增加学习偏置。</li>
-</ul>
-<blockquote>
-<p>进线性层之前我们需要把数据Flatten铺平，变成一维数据，而Linear作用就是缩小一维的数据长度</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dataset = torchvision.datasets.CIFAR10(&quot;./data&quot;,False,transform=torchvision.transforms.ToTensor())</span><br><span class="line"></span><br><span class="line">dataloader = DataLoader(dataset,64)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Tudui(nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(Tudui, self).__init__()</span><br><span class="line">        self.liner = Linear(196608,10)</span><br><span class="line"></span><br><span class="line">    def forward(self,input):</span><br><span class="line">        output = self.liner(input)</span><br><span class="line">        return output</span><br><span class="line"></span><br><span class="line">tudui = Tudui()</span><br><span class="line"></span><br><span class="line">for data in dataloader:</span><br><span class="line">    imgs,targets = data</span><br><span class="line">    print(imgs.shape)</span><br><span class="line">    output = torch.flatten(imgs)</span><br><span class="line">    print(output.shape)</span><br><span class="line">    output = tudui(output)</span><br><span class="line">    print(output.shape)</span><br></pre></td></tr></table></figure>
-<h2 id="Sequential的使用"><a href="#Sequential的使用" class="headerlink" title="Sequential的使用"></a>Sequential的使用</h2><p>在我们定义模型时，往往需要经过一个复杂的神经网络结构才能得到最终的输出，在引入Sequential之前，我们来看看CIFAR10模型应该如何定义</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015180345237.png" alt="image-20221015180345237"></p>
-<p>这里我们需要自己计算一下padding值是多少，我们根据官方文档给出的公式进行计算得到padding = 2</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221015201850741.png" alt="image-20221015201850741"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.conv1 = Conv2d(<span class="number">3</span>,<span class="number">32</span>,<span class="number">5</span>,padding=<span class="number">2</span>)</span><br><span class="line">        self.maxpool1 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.conv2 = Conv2d(<span class="number">32</span>,<span class="number">32</span>,<span class="number">5</span>,padding=<span class="number">2</span>)</span><br><span class="line">        self.maxpool2 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.conv3 = Conv2d(<span class="number">32</span>,<span class="number">64</span>,<span class="number">5</span>,padding=<span class="number">2</span>)</span><br><span class="line">        self.maxpool3 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.flatten = Flatten()</span><br><span class="line">        self.linear1 = Linear(<span class="number">1024</span>,<span class="number">64</span>)</span><br><span class="line">        self.linear2 = Linear(<span class="number">64</span>,<span class="number">10</span>)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.maxpool1(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = self.maxpool2(x)</span><br><span class="line">        x = self.conv3(x)</span><br><span class="line">        x = self.maxpool3(x)</span><br><span class="line">        x = self.flatten(x)</span><br><span class="line">        x = self.linear1(x)</span><br><span class="line">        x = self.linear2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-<p>而引入Sequential后我们可以大大简化代码的书写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.model = Sequential(</span><br><span class="line">            Conv2d(<span class="number">3</span>, <span class="number">32</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(<span class="number">32</span>, <span class="number">32</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Flatten(),</span><br><span class="line">            Linear(<span class="number">1024</span>, <span class="number">64</span>),</span><br><span class="line">            Linear(<span class="number">64</span>, <span class="number">10</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        x = self.model(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-<h2 id="损失函数与优化器"><a href="#损失函数与优化器" class="headerlink" title="损失函数与优化器"></a>损失函数与优化器</h2><p>损失函数（Loss）：有多种计算方式</p>
-<ul>
-<li><p>计算实际输出和目标之间的差距</p>
-</li>
-<li><p>为我们更新输出 提供一定的依据</p>
-<p>更新输出：</p>
-<ul>
-<li>反向传播（backward）–&gt;</li>
-<li>计算出梯度（grade）–&gt;</li>
-<li>根据梯度和学习率来更新参数–&gt;</li>
-<li>减小loss</li>
-</ul>
-</li>
-</ul>
-<p>而更新参数需要我们的优化器来做，在优化器中我们需要定义一个学习率Learning_rate，以下为一个简单优化实例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tudui = Tudui()</span><br><span class="line"></span><br><span class="line">loss = nn.CrossEntropyLoss()</span><br><span class="line"></span><br><span class="line">optim = torch.optim.SGD(tudui.parameters(),lr=<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    sum_loss = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">        imgs,targets = data</span><br><span class="line">        output = tudui(imgs)</span><br><span class="line">        result_loss = loss(output,targets)</span><br><span class="line">        optim.zero_grad()	<span class="comment">#梯度置0</span></span><br><span class="line">        result_loss.backward()	<span class="comment">#计算梯度</span></span><br><span class="line">        optim.step()	<span class="comment">#根据梯度更新参数</span></span><br><span class="line">        sum_loss += result_loss</span><br><span class="line">    <span class="built_in">print</span>(sum_loss)</span><br></pre></td></tr></table></figure>
-<h2 id="现有的网络模型"><a href="#现有的网络模型" class="headerlink" title="现有的网络模型"></a>现有的网络模型</h2><p>我们可以直接加载torchvision给我们的模型，其中pretrained参数Flase表示使用默认神经网络参数，True表示使用ImageNet数据集更新好的参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line">vgg16_false = torchvision.models.vgg16(pretrained=<span class="literal">False</span>)</span><br><span class="line">vgg16_true = torchvision.models.vgg16(pretrained=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(vgg16_true)</span><br><span class="line"></span><br><span class="line"><span class="comment">#在原有的模型上新增一个线性层</span></span><br><span class="line">vgg16_true.classifier.add_module(<span class="string">&quot;add_linear&quot;</span>,nn.Linear(<span class="number">1000</span>,<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(vgg16_true)</span><br></pre></td></tr></table></figure>
-<h2 id="完整过程实例"><a href="#完整过程实例" class="headerlink" title="完整过程实例"></a>完整过程实例</h2><p>训练实例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> model <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义数据集</span></span><br><span class="line">train_dataset = torchvision.datasets.CIFAR10(<span class="string">&quot;../data&quot;</span>,train=<span class="literal">True</span>,transform=torchvision.transforms.ToTensor(),download=<span class="literal">True</span>)</span><br><span class="line">test_dataset = torchvision.datasets.CIFAR10(<span class="string">&quot;../data&quot;</span>,train=<span class="literal">False</span>,transform=torchvision.transforms.ToTensor(),download=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#数据集长度</span></span><br><span class="line">train_dataset_len = <span class="built_in">len</span>(train_dataset)</span><br><span class="line">test_dataset_len = <span class="built_in">len</span>(test_dataset)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集长度：&#123;&#125;&quot;</span>.<span class="built_in">format</span>(train_dataset_len))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;训练集长度：&#123;&#125;&quot;</span>.<span class="built_in">format</span>(test_dataset_len))</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义dataloader</span></span><br><span class="line">train_dataloader = DataLoader(train_dataset,<span class="number">64</span>)</span><br><span class="line">test_dataloader = DataLoader(test_dataset,<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#中间结果绘图</span></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;practice_log&quot;</span>)</span><br><span class="line"></span><br><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义神经网络</span></span><br><span class="line">tudui = Tudui()</span><br><span class="line">tudui = tudui.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义训练/测试步数</span></span><br><span class="line">train_step = <span class="number">0</span></span><br><span class="line">test_step = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义loss function</span></span><br><span class="line">loss_fn = nn.CrossEntropyLoss()</span><br><span class="line">loss_fn = loss_fn.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义优化器</span></span><br><span class="line">learning_rate = <span class="number">1e-2</span></span><br><span class="line">optimizer = torch.optim.SGD(tudui.parameters(),lr=learning_rate)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义训练次数</span></span><br><span class="line">train_number = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(train_number):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;第&#123;&#125;轮训练开始&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#训练步骤</span></span><br><span class="line">    tudui.train() <span class="comment">#模型进入训练模式</span></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> train_dataloader:</span><br><span class="line">        imgs,targets = data</span><br><span class="line">        imgs = imgs.to(device)</span><br><span class="line">        targets = targets.to(device)</span><br><span class="line">        outputs = tudui(imgs)</span><br><span class="line">        train_loss = loss_fn(outputs,targets)</span><br><span class="line">        <span class="comment">#优化模型</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        train_loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">        train_step += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span>(train_step % <span class="number">100</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;训练次数:&#123;&#125;  Loss:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(train_step,train_loss))</span><br><span class="line">            writer.add_scalar(<span class="string">&quot;train_loss&quot;</span>,train_loss.item(),train_step)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#测试步骤</span></span><br><span class="line">    tudui.<span class="built_in">eval</span>()    <span class="comment">#模型进入验证模式</span></span><br><span class="line">    test_sum_loss = <span class="number">0</span></span><br><span class="line">    test_accuray = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> test_dataloader:</span><br><span class="line">            imgs,targets = data</span><br><span class="line">            imgs = imgs.to(device)</span><br><span class="line">            targets = targets.to(device)</span><br><span class="line">            outputs = tudui(imgs)</span><br><span class="line">            test_loss = loss_fn(outputs,targets)</span><br><span class="line">            test_sum_loss += test_loss</span><br><span class="line">            <span class="comment">#argmax()函数：标记出行或者列上最大的值    参数：1——行 0——列</span></span><br><span class="line">            accuray = (outputs.argmax(<span class="number">1</span>) == targets).<span class="built_in">sum</span>()</span><br><span class="line">            test_accuray += accuray</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;整体测试机上的Loss:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(test_sum_loss))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;整体测试机上的正确率:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(test_accuray/test_dataset_len))</span><br><span class="line">        writer.add_scalar(<span class="string">&quot;test_loss&quot;</span>,test_sum_loss,test_step)</span><br><span class="line">        writer.add_scalar(<span class="string">&quot;test_accuray&quot;</span>,test_accuray/test_dataset_len,test_step)</span><br><span class="line"></span><br><span class="line">        test_step+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    torch.save(tudui,<span class="string">&quot;tudui_&#123;&#125;.pth&quot;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型已保存&quot;</span>)</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-<p>验证实例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line">img_path = <span class="string">&quot;./frog_1.png&quot;</span></span><br><span class="line">image = Image.<span class="built_in">open</span>(img_path)</span><br><span class="line"></span><br><span class="line">transform = torchvision.transforms.Compose([torchvision.transforms.Resize((<span class="number">32</span>,<span class="number">32</span>)),</span><br><span class="line">                                            torchvision.transforms.ToTensor()])</span><br><span class="line"></span><br><span class="line">image = transform(image)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tudui</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Tudui, self).__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>,<span class="number">32</span>,<span class="number">5</span>,padding=<span class="number">2</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            nn.Conv2d(<span class="number">32</span>,<span class="number">32</span>,<span class="number">5</span>,padding=<span class="number">2</span>),</span><br><span class="line">            nn.MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            nn.Conv2d(<span class="number">32</span>,<span class="number">64</span>,<span class="number">5</span>,padding=<span class="number">2</span>),</span><br><span class="line">            nn.MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            nn.Flatten(),</span><br><span class="line">            nn.Linear(<span class="number">64</span>*<span class="number">4</span>*<span class="number">4</span>,<span class="number">64</span>),</span><br><span class="line">            nn.Linear(<span class="number">64</span>,<span class="number">10</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">        x = self.model(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model = torch.load(<span class="string">&quot;tudui_29.pth&quot;</span>,map_location=torch.device(<span class="string">&#x27;cpu&#x27;</span>))</span><br><span class="line"></span><br><span class="line">image = torch.reshape(image,(<span class="number">1</span>,<span class="number">3</span>,<span class="number">32</span>,<span class="number">32</span>))</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    output = model(image)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(output.argmax(<span class="number">1</span>).item())</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
@@ -353,128 +203,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/10/16/pytorch-ru-men/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/10/19/shen-du-xue-xi-tu-xiang-fen-lei-ru-men-parti/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          深度学习——图像分类入门PartⅠ
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/10/11/shen-du-xue-xi-backpropagation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">深度学习——Backpropagation</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pytorch%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98"><span class="toc-number">1.</span> <span class="toc-text">Pytorch入门实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DataSet"><span class="toc-number">1.1.</span> <span class="toc-text">DataSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tensorboard"><span class="toc-number">1.2.</span> <span class="toc-text">Tensorboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transforms"><span class="toc-number">1.3.</span> <span class="toc-text">Transforms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataLoader"><span class="toc-number">1.4.</span> <span class="toc-text">DataLoader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nn-Module"><span class="toc-number">1.5.</span> <span class="toc-text">nn.Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#function%E7%9A%84%E5%8D%B7%E7%A7%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">1.6.</span> <span class="toc-text">function的卷积操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-number">1.7.</span> <span class="toc-text">卷积层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E6%B1%A0%E5%8C%96"><span class="toc-number">1.8.</span> <span class="toc-text">最大池化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%BF%80%E6%B4%BB"><span class="toc-number">1.9.</span> <span class="toc-text">非线性激活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%B1%82"><span class="toc-number">1.10.</span> <span class="toc-text">线性层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sequential%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.11.</span> <span class="toc-text">Sequential的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96%E5%99%A8"><span class="toc-number">1.12.</span> <span class="toc-text">损失函数与优化器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.13.</span> <span class="toc-text">现有的网络模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.14.</span> <span class="toc-text">完整过程实例</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -511,8 +252,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

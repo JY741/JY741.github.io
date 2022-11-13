@@ -6,15 +6,46 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>J Sir</title>
+  <title>全自注意力网络Transformer详解 | J Sir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="J Sir">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+  <meta name="description" content="EverydayOneCat🐈👈🐱 🛏️➡️🛌  Transformer2017 年，Google 在论文 Attention is All you need 中提出了 Transformer 模型，其使用 Self-Attention 结构取代了在 NLP 任务中常用的 RNN 网络结构。相比 RNN 网络结构，其最大的优点是可以并行计算。 Sequence-to-sequence (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全自注意力网络Transformer详解">
+<meta property="og:url" content="http://yoursite.com/2022/11/02/quan-zi-zhu-yi-li-wang-luo-transformer/index.html">
 <meta property="og:site_name" content="J Sir">
+<meta property="og:description" content="EverydayOneCat🐈👈🐱 🛏️➡️🛌  Transformer2017 年，Google 在论文 Attention is All you need 中提出了 Transformer 模型，其使用 Self-Attention 结构取代了在 NLP 任务中常用的 RNN 网络结构。相比 RNN 网络结构，其最大的优点是可以并行计算。 Sequence-to-sequence (">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/573defbb1f3c6e17c38fa65ed459487fecbe3973.jpg@1036w.webp">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102212629827.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213507041.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213629899.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213940611.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220509393.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220614866.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220903993.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102221524755.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222003897.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222116233.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222331152.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222422811.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/v2-83d76002dee7a0aff310f24f488835f6_720w.webp">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/v2-b0af80dba449b2658e3d634783c30682_720w.webp">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102223001465.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102223040666.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103134520291.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103135300902.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103135423935.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103140508803.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103140653564.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141040085.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141308774.png">
+<meta property="og:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141337517.png">
+<meta property="article:published_time" content="2022-11-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-13T04:14:27.026Z">
 <meta property="article:author" content="J Sir">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/573defbb1f3c6e17c38fa65ed459487fecbe3973.jpg@1036w.webp">
   
     <link rel="alternative" href="/atom.xml" title="J Sir" type="application/atom+xml">
   
@@ -163,538 +194,176 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-WordPress网站搬家教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-全自注意力网络Transformer" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/25/wordpress-wang-zhan-ban-jia-jiao-cheng/">史上最简单WordPress网站搬家教程</a>
+    <h1 class="article-title" itemprop="name">
+      全自注意力网络Transformer详解
     </h1>
   
 
 		<!--显示阅读次数-->
 		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
         
-        <a href="/2020/11/25/wordpress-wang-zhan-ban-jia-jiao-cheng/" class="archive-article-date">
-  	<time datetime="2020-11-25T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-25</time>
+        <a href="/2022/11/02/quan-zi-zhu-yi-li-wang-luo-transformer/" class="archive-article-date">
+  	<time datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>去年买的服务器要到期了，恰逢双十一腾讯云有活动。研究了一番，准备入手最近刚推出的轻量应用服务器，主要是不贵😂，只要80多一年，带宽还是3M，比正常的标准型快3倍，系统盘也是40G的SSD固态，看介绍应该比50G的高性能云盘快一点。</p>
-<p>同时轻量应用服务器的控制台页面更加简洁，更适合我这种小白上手。</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20201125170937922.png" alt="image-20201125170937922"></p>
-<p>这时候就迎来了新的问题，如何把已经运营了这么久的WordPress博客搬迁至新的服务器上。</p>
-        
-          <a class="article-more-a" href="/2020/11/25/wordpress-wang-zhan-ban-jia-jiao-cheng/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/25/wordpress-wang-zhan-ban-jia-jiao-cheng/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-传智健康5—数据统计分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/25/chuan-zhi-jian-kang-5-shu-ju-tong-ji-fen-xi/">传智健康5—数据统计分析</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/25/chuan-zhi-jian-kang-5-shu-ju-tong-ji-fen-xi/" class="archive-article-date">
-  	<time datetime="2020-11-25T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>「Aerodynamic Baking Marshmallows」9:16</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/2c7b41c39488163a3b86d5dbf4b90df7fd41c480.jpg@518w.jpg" alt="2c7b41c39488163a3b86d5dbf4b90df7fd41c480.jpg@518w" style="zoom:80%;" /></p>
-        
-          <a class="article-more-a" href="/2020/11/25/chuan-zhi-jian-kang-5-shu-ju-tong-ji-fen-xi/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">传智健康</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/25/chuan-zhi-jian-kang-5-shu-ju-tong-ji-fen-xi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-传智健康4—Spring Security权限控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/chuan-zhi-jian-kang-4-spring-security-quan-xian-kong-zhi/">传智健康4—Spring Security权限控制</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/24/chuan-zhi-jian-kang-4-spring-security-quan-xian-kong-zhi/" class="archive-article-date">
-  	<time datetime="2020-11-24T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>睡到模糊.jpg</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/95c3962a41eb8925e7ff81b097780d717a4dc6bf.jpg" alt="95c3962a41eb8925e7ff81b097780d717a4dc6bf"></p>
-        
-          <a class="article-more-a" href="/2020/11/24/chuan-zhi-jian-kang-4-spring-security-quan-xian-kong-zhi/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">传智健康</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/24/chuan-zhi-jian-kang-4-spring-security-quan-xian-kong-zhi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-传智健康3—移动端开发体检预约" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/21/chuan-zhi-jian-kang-3-yi-dong-duan-kai-fa-ti-jian-yu-yue/">传智健康3—移动端开发体检预约</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/21/chuan-zhi-jian-kang-3-yi-dong-duan-kai-fa-ti-jian-yu-yue/" class="archive-article-date">
-  	<time datetime="2020-11-21T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我大意了啊，没有闪。我本来以为是真的移动端（Android）开发，结果害tm是网页！！！</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8B88984A8477E52EC3CB38C0B201A41D.gif" alt="img"><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/8A6A5F0F9E21D0FA98552D00753292FF.gif" alt="img"><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/2A04CC20011EA1C0A20A40C782E4A0BE.gif" alt="img"><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/D67351CCE5CF924CE4781B4BEF1B69B6.gif" alt="img"><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/BFDCD13A5DD7E7415F82F63C56F33D7D.gif" alt="img"></p>
-<p>我算是看出来了，除了ElementUI这个没有新知识点。。。算了当复习😥</p>
-        
-          <a class="article-more-a" href="/2020/11/21/chuan-zhi-jian-kang-3-yi-dong-duan-kai-fa-ti-jian-yu-yue/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">传智健康</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/21/chuan-zhi-jian-kang-3-yi-dong-duan-kai-fa-ti-jian-yu-yue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-传智健康2—图片云存储方案与预约设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/19/chuan-zhi-jian-kang-2-tu-pian-yun-cun-chu-fang-an-yu-yu-yue-she-zhi/">传智健康2—图片云存储方案与预约设置</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/19/chuan-zhi-jian-kang-2-tu-pian-yun-cun-chu-fang-an-yu-yu-yue-she-zhi/" class="archive-article-date">
-  	<time datetime="2020-11-19T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>☀️OverHeating🌙</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/0671e553b93f2bfb233429b94f9956ff75e04a96.jpg@518w_1e_1c.jpg" alt="0671e553b93f2bfb233429b94f9956ff75e04a96.jpg@518w_1e_1c"></p>
-        
-          <a class="article-more-a" href="/2020/11/19/chuan-zhi-jian-kang-2-tu-pian-yun-cun-chu-fang-an-yu-yu-yue-she-zhi/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">传智健康</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/19/chuan-zhi-jian-kang-2-tu-pian-yun-cun-chu-fang-an-yu-yu-yue-she-zhi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-传智健康1—ElementUi与检查管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/17/chuan-zhi-jian-kang-1-elementui-yu-jian-cha-guan-li/">传智健康第一章—ElementUi与检查管理</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/17/chuan-zhi-jian-kang-1-elementui-yu-jian-cha-guan-li/" class="archive-article-date">
-  	<time datetime="2020-11-17T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>↗️🛏️↘️<br>🛏️🐱🛏️<br>↖️🛏️↙️</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/5440ca0dc1fb6e1c3c8e6d298eaf75cc6ce356f9.jpg@518w_1e_1c.jpg" alt="5440ca0dc1fb6e1c3c8e6d298eaf75cc6ce356f9.jpg@518w_1e_1c"></p>
-        
-          <a class="article-more-a" href="/2020/11/17/chuan-zhi-jian-kang-1-elementui-yu-jian-cha-guan-li/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">传智健康</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/17/chuan-zhi-jian-kang-1-elementui-yu-jian-cha-guan-li/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/09/vue-ru-men/">Vue入门</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/09/vue-ru-men/" class="archive-article-date">
-  	<time datetime="2020-11-09T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本博文是黑马老师的课堂笔记，在此记录以便日后查找。如有侵权，联系作者。</p>
+        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>🐈👈🐱 🛏️➡️🛌</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/573defbb1f3c6e17c38fa65ed459487fecbe3973.jpg@1036w.webp" alt="img" style="zoom:50%;" /></p>
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>2017 年，Google 在论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention is All you need</a> 中提出了 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Transformer&amp;spm=1001.2101.3001.7020">Transformer</a> 模型，其使用 <strong>Self-Attention</strong> 结构取代了在 NLP 任务中常用的 RNN 网络结构。相比 RNN 网络结构，其最大的优点是可以并行计算。</p>
+<h2 id="Sequence-to-sequence-Seq2seq"><a href="#Sequence-to-sequence-Seq2seq" class="headerlink" title="Sequence-to-sequence (Seq2seq)"></a>Sequence-to-sequence (Seq2seq)</h2><p>Seq2Seq的含义就是input是一个向量序列，output也是一个向量序列，并且output的长度由机器自己决定。</p>
+<p>有很多场景都会用到Seq2Seq，如Text-to-Speech (TTS) Synthesis、Chatbot、Syntactic Parsing、Multi-label Classification等等</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102212629827.png" alt="image-20221102212629827" style="zoom:80%;" /></p>
+<p>Seq2Seq主要结构分为两部分：Encoder（编码器）和Decoder（解码器）</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213507041.png" alt="image-20221102213507041"></p>
+<p>而目前我们在Seq2Seq场景使用的最常用的模型就是<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Transformer</a>，整体结构如下图：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213629899.png" alt="image-20221102213629899" style="zoom:80%;" /></p>
+<h2 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h2><p>编码器Encoder的任务其实就是input一排向量集，output同等数量的向量集。这里就用到了我们上篇提到的self-attention，当然CNN和RNN也都能实现，但是效果不太好，主要原因可以看<a target="_blank" rel="noopener" href="https://jy741.gitee.io/2022/10/31/zi-zhu-yi-li-ji-zhi-self-attention/#toc-heading-11">《自注意力机制Self-Attention》</a></p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102213940611.png" alt="image-20221102213940611" style="zoom:80%;" /></p>
+<p>Transformer中的Encode具体结构如下：</p>
+<ol>
+<li>在inputs的地方加上了positional encoding，如果你只用self-attention,没有未知的资讯，所以需要加上positional的information。</li>
+<li>Multi-Head Attention：这里就是self-attention的block,然后专门强调说它是Multi-Head的self-attention。</li>
+<li>Add&amp;Norm：就是residual残差结构加上layer normalization</li>
+<li>Feed Forward: 是FC的feed forward network</li>
+<li>N×：Block会重复N次</li>
+</ol>
+<p>Encoder里面会分成很多的block，每个block都是输入一排向量输出一排向量。</p>
+<p>但是每个block并不是neural network的一层（layer），是因为一个block里面是好几个layer在做事情。</p>
+<p>Transformer里面的block结构：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220509393.png" alt="image-20221102220509393" style="zoom:80%;" /></p>
+<p>每个Block里的工作：输入一排向量—&gt;经过self-attention处理—&gt;输出一排向量—&gt;在将输出的每个向量丢到fully connected的feed forward network里面在outout另外一排vector。</p>
+<p>我们可以改进Block结构：加入残差residual结构，我们不只是输出一个vector，还要把输出的vector在加上它的input的到新的output。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220614866.png" alt="image-20221102220614866" style="zoom:80%;" /></p>
+<p>得到residual 的结果以后在经过norm，这里的norm不是batch normalization，用的是layer normalization。它做的事情比bacth normalization更简单一点，简而言之norm就是输入一个向量输出一个向量，不用考虑batch的资讯，过程就是对同一个feature同一个example里面不同的dimension去计算它的mean跟standard deviation，然后在经过标准化就是layer normalization的输出。这个输出后面是FC的输入，而FC里面也有residual的架构，我们会把FC network的input跟它的output加起来做一下residual得到新的输出，再把这个输出做一次layer normalization得到的才是真正的输出，这个输出才是transform encoder里面一个block的输出。</p>
+<blockquote>
+<p>目前也有更多的研究觉得初始Transformer结构存在可优化的地方：</p>
+<p>左边<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2002.04745">论文</a>将layer normalization的顺序调整会达到更优的效果</p>
+<p>右边<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.07845">论文</a>讲解为什么batch normalization不如layer normalization</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102220903993.png" alt="image-20221102220903993"></p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2020/11/09/vue-ru-men/#more">more >></a>
-        
+<h2 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h2><p>decoder其实有两种：Autoregressive (AT) 和Non-autoregressive(NAT)</p>
+<h3 id="Autoregressive-AT"><a href="#Autoregressive-AT" class="headerlink" title="Autoregressive (AT)"></a>Autoregressive (AT)</h3><p>我们举例语音辨识过程来了解它的运作过程。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102221524755.png" alt="image-20221102221524755" style="zoom:80%;" /></p>
+<p>首先，输入一个声音讯号，经过encoder输出一组vector, 然后将这个输出当作decoder的输入，最后产生语音辨识的结果。</p>
+<p>如果要处理NLP的问题，每一个token都可以把他用一个ONe-Hot的Vector（其中一维是1，其他都是0）来表示，所以begin也是用ONe-Hot Vector来表示。然后decoder吐出一个向量，这个vector的长度非常长，跟vocabulary的size是一样的。</p>
+<blockquote>
+<p>Vocabulary：首先知道decoder输出的单位是什么? 假设是中文的语音辨识，那这里vocabulary的size可能就是中文的方块字的数目。要是英文的话，用字母数量会很少，用单词数量又会太多，所以可以用Subword当作英文的单位，即单词的字首字根的组合，数量适中。</p>
+</blockquote>
+<p>然后输出的向量中的每一个中文的字通过softmax都会对应一个数值，数值最高的那一个中文字就是最终的输出。</p>
+<p>在上图的例子中，我们Begin的input会对应“机”的输出。然后把”机”当作是decoder新的input, 原来只有bengin一个输入，现在在加上“机”，“机”也可表示成一个ONe-Hot的Vector作为decoder的输入，所以现在有两个输入，然后就得到一个输出向量，在根据这个向量里面给出的每一个中文字的分数得到分值最高的输出，后面依次循环。Encoder的输出也会参与到这个过程中来。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222003897.png" alt="image-20221102222003897"></p>
+<blockquote>
+<p>这里就会有一个问题：当decoder在产生一个句子的时候，它其实有可能在中途产生错误的输出，因为它是将自己的输出作为产生下一个字符的输入，而那个输出有可能是错误的。让decoder看到自己产生出来的错误的输入，再被decoder自己吃进去会不会造成Error Propagation（一步错，步步错）的问题呢？</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222116233.png" alt="image-20221102222116233" style="zoom:80%;" /></p>
+</blockquote>
+<p>下图是Decoder的内部结构：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222331152.png" alt="image-20221102222331152" style="zoom:80%;" /></p>
+<p>我们发现如果decoder中间遮住一部分，就会发现和encoder两者基本相同，如下图：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102222422811.png" alt="image-20221102222422811" style="zoom:80%;" /></p>
+<p>不同点：</p>
+<p>（1）Decoder最后会做一个softmax，使得它的输出变成一个几率</p>
+<p>（2）加了一个Masked</p>
+<p>为什么需要加入Masked，具体原因如下：</p>
+<p>我们知道原本的self-attention，输入一排vector，输出一排vector，这个vector的每一个输出都要看过完整的input之后才做决定，其实输出b1的时候其实是根据a1到a4所有的资讯去输出b1。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/v2-83d76002dee7a0aff310f24f488835f6_720w.webp" alt="img"></p>
+<p>如上图，当self-attention转成Masked Attention的时候，他的不同点是，现在我们不能再看右边的部分，也就是我们产生b1的时候只能考虑a1的资讯，不能去看a2、a3、a4，产生b2的时候只能考虑a1、a2的资讯，不能考虑a3、a4的资讯，后面类似，最后产生b4时可以考虑所有的资讯。这就是Masked的self-attention。</p>
+<p>更具体点，当产生b2时，只拿第二个位置a2的Query去跟第一个位置的Key和第二个位置的Key去计算Attention，第三个位置和第四个位置不用去管它。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/v2-b0af80dba449b2658e3d634783c30682_720w.webp" alt="v2-b0af80dba449b2658e3d634783c30682_720w"></p>
+<blockquote>
+<p>Why masked？</p>
+<p>一开始decoder的运作方式它是一个一个输出的，是先有a1，再有a2，然后是a3、a4,所以当计算b2时是没有a3和a4的，所以没办法将后面的考虑进来。</p>
+<p>这跟原来的Self-Attention不一样，原来的Self-Attention中a1到a4是一次整个输入到Model里面的。</p>
+</blockquote>
+<p>关键问题：Decoder自己决定输出的长度，但是到底输出的sequence的长度应该是多少呢？也就是机器如何决定该何时停下来。这里没办法决定，输出多少输出多少是非常复杂的，我们其实是期望机器可以自己学到。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102223001465.png" alt="image-20221102223001465" style="zoom:80%;" /></p>
+<p>如上图，准备一个特别的符号“断”，用end来表示这个特别的符号，其实begin和end可以用同一个符号，因为begin只在开始时会出现一次。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221102223040666.png" alt="image-20221102223040666" style="zoom:80%;" /></p>
+<p>机器要自己知道在将自己的输出“习”再次当作输入时，要能够判断出现在应该输出end。</p>
+<h3 id="Non-autoregressive-NAT"><a href="#Non-autoregressive-NAT" class="headerlink" title="Non-autoregressive (NAT)"></a>Non-autoregressive (NAT)</h3><p>AT VS NAT：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103134520291.png" alt="image-20221103134520291"></p>
+<p>如图可见，AT是输入一个begin，输出一个字符，输入一个输出一个。而NAT是一次性输入全部的begin，然后输出全部的字符。</p>
+<p>这里会出现相同的问题：输出的长度怎么来确定呢？</p>
+<p>有两个办法：</p>
+<p>（1）另外取一个classfier，这个classifier输入encoder的input，输出一个数字，这个数字代表应该要输出的长度。</p>
+<p>（2）输入一堆begin的token，也就是大于输出上限值数量的输入，所以输出一堆的字符，忽略end后面的只取前面的字符。</p>
+<p>NAT的好处：</p>
+<p>（1）平行化：AT输出时是一个一个产生的，所以要输出100个字的句子，就要做一百次的decoder。但是NAT的decoder不管句子的长度如何，都是一个步骤就产生出完整的句子。速度上NAT的decoder会跑的比AT快。</p>
+<p>（2）可以控制输出的长度。例如语音合成时，如果想要系统讲话快一点，就可以把classfier的output除以二，讲话的速度就会变成二倍速。同理，放慢速度就将输出的长度乘以二。</p>
+<p>Nat通常比At的表现差。</p>
+<h2 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h2><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103135300902.png" alt="image-20221103135300902"></p>
+<p>圈起来的那部分叫做Cross attention，它是连接Encoder跟Decoder之间的桥梁，从图中可以看出，这个模块的输入部分，有两个箭头来自encoder，一个来自decoder。</p>
+<p>模块Cross attention实际运作过程：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103135423935.png" alt="image-20221103135423935"></p>
+<p>如上图，decoder就是产生一个q，去encoder那边抽取资讯出来当作接下来decoder里面的Fully-Connected 的Network的Input。具体来说就是，q和k1、k2、k3去计算分数，然后在和v1、v2、v3做Weighted Sum做加权，加起来得到v’,然后交给Fully-Connected处理。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103140508803.png" alt="image-20221103140508803"></p>
+<p>如上图，输入一段声音讯号，第一个而应该要输出的中文字是机，所以当我们把begin丢给decoder的时候，它的第一个输出要跟机越接近越好，即“机”这个字会被表示成一个One-Hot的Vector，在这个vector里面只有机对应的那个维度为1，而decoder的输出是一个Distribution是一个几率的分布，我们希望这个几率的分布跟One-Hot的Vector越接近越好。所以去计算Ground truth和distribution之间的Cross Entropy，希望这个Cross Entropy的值越小越好。</p>
+<p>总体来说这件事情跟分类很像，我们可以想象，每一次Decoder在产生一个中文字的时候，其实就是做了一次分类问题，中文字假设有四千个，那就是做有四千个类别的分类的问题。</p>
+<p>Teacher forcing：训练时给正确的答案作为Decoder的输入。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103140653564.png" alt="image-20221103140653564"></p>
+<p>首先，我们已经知道输出应该是机器学习这四个字，然后告诉decoder它的正确输出应该是机器学习这四个中文字的One-Hot Vector，我们希望输出跟这四个字的One-Hot Vector越接近越好，在训练的时候每一个输出都会有一个Cross Entropy，每一个输出跟One-Hot Vector 跟他对应的正确答案都有一个Cross Entropy，最后我们希望所有的Cross Entropy的总和最小。</p>
+<p>现在还有end的问题，机器要输出的不只是四个字，还有一个end，所以要让机器知道输出四个字以后，还要记着输出“断”。所以应该告诉decoder第五个位置的输出应该跟断的One-Hot Vector它的Cross Entropy越小越好。这个就是Decoder的训练。</p>
+<p>这个训练会产生一个问题：训练的时候decoder会得到正确的答案作为输入，但是testing时decoder得到的是自己上一个的输出，这中间显然会有一个Mismatch。</p>
+<h2 id="Tips-for-Seq2Seq"><a href="#Tips-for-Seq2Seq" class="headerlink" title="Tips for Seq2Seq"></a>Tips for Seq2Seq</h2><p>（1）Copy Mechanism:对一些任务而言，decoder没有必要产生输出，它要做的是从输入的东西中复制一些出来，像这种复制行为的例子有聊天机器人。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141040085.png" alt="image-20221103141040085"></p>
+<p>（2）Guided Attention：它要做的事情就是要求机器去领导这个Attention的过程，要求机器去做attention的时候是有固定的方式的。</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141308774.png" alt="image-20221103141308774"></p>
+<p>对于语音合成或者语音辨识来说，我们想象中的Attention应该是由左往右的，上图中红色曲线代表Attention的分数，若是语音合成的话，应该先看最左边输入的词去产生声音，再根据中间的词汇去产生声音，最后看右边的词汇产生声音。但是当你做语音合成时发现机器的读取顺序是颠三倒四的，显然是错的，无法合成出好的结果。而Guided Attention在这里要做的事情就是强迫Attention有一个固定的样貌，将这个必须从左到右的限制放到training里面，要求机器学到Attention就应该从左到右。</p>
+<p>（3）Beam Search</p>
+<p>举个例子来解释：</p>
+<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/image-20221103141337517.png" alt="image-20221103141337517"></p>
+<p>假设现在的decoder只能产生两个字，只能产生两个可能的输出一个是A，另一个为B。那对decoder而言，他做的事情就是在每一次第一个Time Step，在A、B里面决定一个，假如决定A以后将A当作输入在决定A、B要选哪一个，依次向后进行。在这个过程中，每一次Decoder都是选分数最高的那一个，但是有时候刚开始选分数高的，后面还是有可能差下来，还有时候一开始选择分数低点的，后面反而会更好。所以就可以通过Beam Search这个技术来找一个approximate不是完全精准的估测的solution。</p>
+<p>现在对于Beam Search的评价有好有坏，当然了，要看具体的任务需求，若一个任务它的答案非常明确，例如语音识别，有唯一明确的答案，通常Beam Search就会比较有帮助。如果需要机器发挥一点创造力的时候，Beam Search的帮助就会很小。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -705,7 +374,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -714,16 +383,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/09/vue-ru-men/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/11/02/quan-zi-zhu-yi-li-wang-luo-transformer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/10/28/shen-du-xue-xi-tu-xiang-fen-lei-ru-men-partii/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深度学习——图像分类入门PartⅡ</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -738,253 +466,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python数据可视化入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/04/python-shu-ju-ke-shi-hua-ru-men/">Python数据可视化入门</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/04/python-shu-ju-ke-shi-hua-ru-men/" class="archive-article-date">
-  	<time datetime="2020-11-04T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d.gif" alt="0f1d026a0e6a1785c7252b60dc2fcf3ef2665c2d" style="zoom:80%;" /></p>
-        
-          <a class="article-more-a" href="/2020/11/04/python-shu-ju-ke-shi-hua-ru-men/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/04/python-shu-ju-ke-shi-hua-ru-men/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EverydayOneCat"><span class="toc-number">1.</span> <span class="toc-text">EverydayOneCat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transformer"><span class="toc-number">2.</span> <span class="toc-text">Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sequence-to-sequence-Seq2seq"><span class="toc-number">2.1.</span> <span class="toc-text">Sequence-to-sequence (Seq2seq)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder"><span class="toc-number">2.2.</span> <span class="toc-text">Encoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decoder"><span class="toc-number">2.3.</span> <span class="toc-text">Decoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Autoregressive-AT"><span class="toc-number">2.3.1.</span> <span class="toc-text">Autoregressive (AT)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Non-autoregressive-NAT"><span class="toc-number">2.3.2.</span> <span class="toc-text">Non-autoregressive (NAT)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder-Decoder"><span class="toc-number">2.4.</span> <span class="toc-text">Encoder-Decoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips-for-Seq2Seq"><span class="toc-number">2.5.</span> <span class="toc-text">Tips for Seq2Seq</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-使用Python爬取电影评论数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/03/shi-yong-python-pa-qu-dian-ying-ping-lun-shu-ju/">使用Python爬取电影评论数据与处理</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/11/03/shi-yong-python-pa-qu-dian-ying-ping-lun-shu-ju/" class="archive-article-date">
-  	<time datetime="2020-11-03T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>🎃万圣节快乐👻</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c.png" alt="d99c02c92f074f3c397e31156e5647d9acb569d4.png@518w_1e_1c" style="zoom:80%;" /></p>
-        
-          <a class="article-more-a" href="/2020/11/03/shi-yong-python-pa-qu-dian-ying-ping-lun-shu-ju/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/shi-yong-python-pa-qu-dian-ying-ping-lun-shu-ju/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python爬虫入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/30/python-pa-chong-ru-men/">Python爬虫入门</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2020/10/30/python-pa-chong-ru-men/" class="archive-article-date">
-  	<time datetime="2020-10-30T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EverydayOneCat"><a href="#EverydayOneCat" class="headerlink" title="EverydayOneCat"></a>EverydayOneCat</h1><p>Cat要就此长长地睡上240小时</p>
-<p><img src="https://pluto-1300780100.cos.ap-nanjing.myqcloud.com/img/49009fdf3bc0f21face96a5b036d9397ef9d20d3.jpg@518w_1e_1c.jpg" alt="49009fdf3bc0f21face96a5b036d9397ef9d20d3.jpg@518w_1e_1c"></p>
-        
-          <a class="article-more-a" href="/2020/10/30/python-pa-chong-ru-men/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/30/python-pa-chong-ru-men/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1021,8 +528,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
